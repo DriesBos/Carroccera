@@ -2,16 +2,17 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
+    "proxy": "mkcert -install && mkcert localhost && local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@storyblok/nuxt": "^5.1.0",
     "nuxt": "^3.2.2",
     "sass": "^1.58.3",
-    "sass-loader": "^10.4.1",
-    "@storyblok/nuxt": "^5.1.0"
+    "sass-loader": "^10.4.1"
   },
   "dependencies": {
     "gsap": "^3.11.4"
