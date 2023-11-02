@@ -1,8 +1,8 @@
 <template>
   <main>
-    <TheHeader />
-    <div class="cursor" ref="cursor" />
-    Mouse position is at: {{ x }}, {{ y }}
+    <!-- <TheHeader /> -->
+    <!-- <div class="cursor" ref="cursor" />
+    Mouse position is at: {{ x }}, {{ y }} -->
     <slot />
   </main>
 </template>
