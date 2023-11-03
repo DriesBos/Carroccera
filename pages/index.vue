@@ -62,11 +62,11 @@
         height: auto
 
 .panel
-  margin-top: -10%
-  transition: margin-top 0.25s ease-in-out
+  transition: 0.25s ease-in-out
+  transform: translateY(0)
+  margin-top: -12%
   &:hover
-    margin-top: -20%
-    border: 1px solid red
+    transform: translateY(-20%)
 
 .modal
   position: fixed
