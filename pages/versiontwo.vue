@@ -4,6 +4,9 @@
       <li><img src="~assets/img/layer1.png" alt="" /></li>
       <li class="panel movingpanel">
         <img src="~assets/img/layer2.png" alt="" />
+        <div class="building" @click="openModal">
+          <img src="~assets/img/sketch2.png" alt="" />
+        </div>
       </li>
       <li class="panel"><img src="~assets/img/layer3.png" alt="" /></li>
       <li class="panel"><img src="~assets/img/layer4.png" alt="" /></li>
@@ -13,7 +16,6 @@
       <li class="panel"><img src="~assets/img/layer8.png" alt="" /></li>
     </ul>
   </div>
-  <div class="modalbutton button cursorInteract" @click="openModal">OPEN</div>
   <Transition>
     <div
       v-if="isModalVisible"
@@ -44,6 +46,14 @@
       width: 100%
       max-width: 100%
       height: auto
+    .building
+      position: absolute
+      top: 0
+      left: 10vw
+      cursor: pointer
+      img
+        width: 300px
+        height: auto
 
 .panel
   position: fixed
@@ -53,11 +63,11 @@
   pointer-events: none
 
 .movingpanel
-  bottom: 0
+  transform: translateY(-10%)
   pointer-events: all
-  transition: bottom 0.25s ease-in-out
+  transition: 0.25s ease-in-out
   &:hover
-    bottom: 17vh
+    transform: translateY(-80%)
     border: 1px solid red
 
 .modal
