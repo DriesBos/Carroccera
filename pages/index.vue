@@ -37,10 +37,10 @@
       max-width: 100%
       height: auto
   li:nth-child(n+2)
-    margin-top: -50vh
+    margin-top: -10%
     transition: margin-top 0.25s ease-in-out
     &:hover
-      margin-top: -55vh
+      margin-top: -20%
 
 .modal
   position: fixed
