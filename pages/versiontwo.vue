@@ -2,7 +2,9 @@
   <div>
     <ul class="landscape">
       <li><img src="~assets/img/layer1.png" alt="" /></li>
-      <li class="panel"><img src="~assets/img/layer2.png" alt="" /></li>
+      <li class="panel movingpanel">
+        <img src="~assets/img/layer2.png" alt="" />
+      </li>
       <li class="panel"><img src="~assets/img/layer3.png" alt="" /></li>
       <li class="panel"><img src="~assets/img/layer4.png" alt="" /></li>
       <li class="panel"><img src="~assets/img/layer5.png" alt="" /></li>
@@ -31,12 +33,12 @@
   top: 0
   z-index: 100
 .landscape
+  position: relative
   width:100vw
   display: flex
   flex-direction: column
   justify-content: flex-start
   li
-    position: relative
     width: 100vw
     img
       width: 100%
@@ -44,10 +46,18 @@
       height: auto
 
 .panel
-  margin-top: -10%
-  transition: margin-top 0.25s ease-in-out
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  pointer-events: none
+
+.movingpanel
+  bottom: 0
+  pointer-events: all
+  transition: bottom 0.25s ease-in-out
   &:hover
-    margin-top: -20%
+    bottom: 17vh
     border: 1px solid red
 
 .modal
