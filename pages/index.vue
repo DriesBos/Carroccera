@@ -2,16 +2,26 @@
   <div>
     <ul class="landscape">
       <li><img src="~assets/img/layer1.png" alt="" /></li>
-      <li class="panel"><img src="~assets/img/layer2.png" alt="" /></li>
+      <li class="panel">
+        <img src="~assets/img/layer2.png" alt="" />
+        <div class="building" @click="openModal">
+          <img src="~assets/img/sketch1.png" alt="" />
+        </div>
+      </li>
       <li class="panel"><img src="~assets/img/layer3.png" alt="" /></li>
       <li class="panel"><img src="~assets/img/layer4.png" alt="" /></li>
-      <li class="panel"><img src="~assets/img/layer5.png" alt="" /></li>
+      <li class="panel">
+        <img src="~assets/img/layer5.png" alt="" />
+        <div class="building" @click="openModal">
+          <img src="~assets/img/sketch2.png" alt="" />
+        </div>
+      </li>
       <li class="panel"><img src="~assets/img/layer6.png" alt="" /></li>
       <li class="panel"><img src="~assets/img/layer7.png" alt="" /></li>
       <li class="panel"><img src="~assets/img/layer8.png" alt="" /></li>
     </ul>
   </div>
-  <div class="modalbutton button cursorInteract" @click="openModal">OPEN</div>
+  <!-- <div class="modalbutton button cursorInteract" @click="openModal">OPEN</div> -->
   <Transition>
     <div
       v-if="isModalVisible"
@@ -42,6 +52,14 @@
       width: 100%
       max-width: 100%
       height: auto
+    .building
+      position: absolute
+      top: 0
+      left: 10vw
+      cursor: pointer
+      img
+        width: 300px
+        height: auto
 
 .panel
   margin-top: -10%
