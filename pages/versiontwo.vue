@@ -22,7 +22,9 @@
       class="modal"
       :class="{ active: isModalVisible }"
     >
-      <p class="button cursorInteract" @click="closeModal">CLOSE</p>
+      <div class="button cursorInteract" @click="closeModal">
+        <img src="~assets/icons/close.svg" alt="" />
+      </div>
     </div>
   </Transition>
 </template>
