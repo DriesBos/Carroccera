@@ -1,6 +1,5 @@
 <template>
   <div>
-    <p @click="openModal">OPEN</p>
     <ul class="landscape">
       <li><img src="~assets/img/layer1.png" alt="" /></li>
       <li><img src="~assets/img/layer2.png" alt="" /></li>
@@ -12,18 +11,25 @@
       <li><img src="~assets/img/layer8.png" alt="" /></li>
     </ul>
   </div>
+  <div class="modalbutton button cursorInteract" @click="openModal">OPEN</div>
   <Transition>
     <div
       v-if="isModalVisible"
       class="modal"
       :class="{ active: isModalVisible }"
     >
-      <p @click="closeModal">CLOSE</p>
+      <p class="button cursorInteract" @click="closeModal">CLOSE</p>
     </div>
   </Transition>
 </template>
 
 <style scoped lang="sass">
+.modalbutton
+  background: white
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 100
 .landscape
   width:100vw
   display: flex
