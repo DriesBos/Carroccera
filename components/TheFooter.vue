@@ -1,25 +1,16 @@
 <template>
-  <div class="footer">
-    <ul>
-      <li class="button cursorInteract">
-        <NuxtLink to="/">On Hover</NuxtLink>
-      </li>
-      <li class="button cursorInteract">
-        <NuxtLink to="/versiontwo">On Scroll</NuxtLink>
-      </li>
-    </ul>
-  </div>
+  <footer>
+    <div class="landingParallax_Stars stars panel box">
+      <img src="~assets/img/footer1.png" alt="" />
+    </div>
+  </footer>
 </template>
 
-<style lang="sass">
-.footer
-  position: fixed
-  left: 0
-  right: 0
-  bottom: 0
-  background: white
-  ul
-    display: flex
-    li
-      margin: 0 1rem
+<style scoped lang="sass">
+footer
+  width: 100vw
+  img
+    width: 100%
+    max-width: 100%
+    height: auto
 </style>

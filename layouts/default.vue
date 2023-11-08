@@ -4,7 +4,6 @@
     <!-- <div class="cursor" ref="cursor" />
     Mouse position is at: {{ x }}, {{ y }} -->
     <slot />
-    <TheFooter />
   </main>
 </template>
 

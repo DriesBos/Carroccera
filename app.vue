@@ -9,4 +9,5 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 <template>
   <NuxtPage />
   <TheFooter />
+  <TheFooterNav />
 </template>

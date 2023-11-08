@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Celestials />
     <ul class="landscape">
       <li><img src="~assets/img/layer1.png" alt="" /></li>
       <li class="panel">
