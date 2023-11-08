@@ -2,10 +2,10 @@
   <div class="footer">
     <ul>
       <li class="button cursorInteract">
-        <NuxtLink to="/">Version One</NuxtLink>
+        <NuxtLink to="/">On Hover</NuxtLink>
       </li>
       <li class="button cursorInteract">
-        <NuxtLink to="/versiontwo">Version Two</NuxtLink>
+        <NuxtLink to="/versiontwo">On Scroll</NuxtLink>
       </li>
     </ul>
   </div>
