@@ -90,6 +90,11 @@
 
 <script setup>
 import { ref } from 'vue';
+
+definePageMeta({
+  title: 'On Hover',
+});
+
 const isModalVisible = ref(false);
 
 function openModal() {
