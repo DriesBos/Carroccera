@@ -78,7 +78,7 @@
   transform: translateY(0)
   margin-top: -20%
   &:hover
-    transform: translateY(-5%)
+    transform: translateY(-2.5%)
 
 .modal
   position: fixed
