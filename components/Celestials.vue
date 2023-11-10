@@ -36,7 +36,7 @@ onMounted(() => {
       trigger: stars,
       scrub: true,
       start: 'top top',
-      end: 'bottom -25%',
+      end: 'bottom -10%',
       // markers: true,
     },
     ease: 'none',
