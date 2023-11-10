@@ -1,4 +1,5 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+import svgLoader from 'vite-svg-loader';
+
 export default defineNuxtConfig({
   nitro: {
     prerender: {
@@ -19,6 +20,7 @@ export default defineNuxtConfig({
   },
 
   vite: {
+    plugins: [svgLoader()],
     css: {
       preprocessorOptions: {
         sass: {

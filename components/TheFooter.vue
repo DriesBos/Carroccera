@@ -1,8 +1,6 @@
 <template>
   <footer>
-    <div class="landingParallax_Stars stars panel box">
-      <img src="~assets/img/footer1.png" alt="" />
-    </div>
+    <FooterImage />
   </footer>
 </template>
 
@@ -10,10 +8,13 @@
 footer
   width: 100vw
   transform: translateY(-90%)
-  // margin-top: -50vh
   z-index: +1
-  img
+  img, svg
     width: 100%
     max-width: 100%
     height: auto
 </style>
+
+<script setup>
+import FooterImage from '../assets/img/svgfooter.svg?component';
+</script>
