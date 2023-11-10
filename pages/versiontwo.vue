@@ -72,7 +72,7 @@ onUnmounted(() => {
   li
     width: 100vw
     &.landpanel
-      margin-top: -25%
+      margin-top: -40%
     img
       width: 100%
       max-width: 100%
