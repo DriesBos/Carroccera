@@ -9,6 +9,9 @@
 <style scoped lang="sass">
 footer
   width: 100vw
+  transform: translateY(-90%)
+  // margin-top: -50vh
+  z-index: +1
   img
     width: 100%
     max-width: 100%
