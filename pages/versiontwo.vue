@@ -50,7 +50,7 @@ onMounted(() => {
       scrollTrigger: {
         trigger: box,
         start: 'top 80%',
-        end: 'top 70%',
+        end: 'top 20%',
         scrub: true,
       },
     });
