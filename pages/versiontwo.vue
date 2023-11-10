@@ -46,11 +46,11 @@ onMounted(() => {
   console.log(boxes);
   boxes.forEach((box) => {
     gsap.to(box, {
-      y: -50,
+      y: '-5%',
       scrollTrigger: {
         trigger: box,
-        start: 'top 70%',
-        end: 'top 50%',
+        start: 'top 80%',
+        end: 'top 70%',
         scrub: true,
       },
     });

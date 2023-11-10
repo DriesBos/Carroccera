@@ -2,27 +2,36 @@
   <div>
     <Celestials />
     <ul class="landscape">
-      <li><img src="~assets/img/layer1.png" alt="" /></li>
-      <li class="panel">
+      <li class="panel"><img src="~assets/img/layer1.png" alt="" /></li>
+      <li class="panel landscapePanel">
         <img src="~assets/img/layer2.png" alt="" />
         <div class="building" @click="openModal">
           <img src="~assets/img/sketch1.png" alt="" />
         </div>
       </li>
-      <li class="panel"><img src="~assets/img/layer3.png" alt="" /></li>
-      <li class="panel"><img src="~assets/img/layer4.png" alt="" /></li>
-      <li class="panel">
+      <li class="panel landscapePanel">
+        <img src="~assets/img/layer3.png" alt="" />
+      </li>
+      <li class="panel landscapePanel">
+        <img src="~assets/img/layer4.png" alt="" />
+      </li>
+      <li class="panel landscapePanel">
         <img src="~assets/img/layer5.png" alt="" />
         <div class="building" @click="openModal">
           <img src="~assets/img/sketch2.png" alt="" />
         </div>
       </li>
-      <li class="panel"><img src="~assets/img/layer6.png" alt="" /></li>
-      <li class="panel"><img src="~assets/img/layer7.png" alt="" /></li>
-      <li class="panel"><img src="~assets/img/layer8.png" alt="" /></li>
+      <li class="panel landscapePanel">
+        <img src="~assets/img/layer6.png" alt="" />
+      </li>
+      <li class="panel landscapePanel">
+        <img src="~assets/img/layer7.png" alt="" />
+      </li>
+      <li class="panel landscapePanel">
+        <img src="~assets/img/layer8.png" alt="" />
+      </li>
     </ul>
   </div>
-  <!-- <div class="modalbutton button cursorInteract" @click="openModal">OPEN</div> -->
   <Transition>
     <div
       v-if="isModalVisible"
@@ -64,12 +73,12 @@
         width: 300px
         height: auto
 
-.panel
+.landscapePanel
   transition: 0.25s ease-in-out
   transform: translateY(0)
-  margin-top: -12%
+  margin-top: -20%
   &:hover
-    transform: translateY(-20%)
+    transform: translateY(-5%)
 
 .modal
   position: fixed
@@ -78,6 +87,7 @@
   width: 50vw
   height: 100vh
   background: white
+  z-index: +2
 
 .v-enter-active,
 .v-leave-active
