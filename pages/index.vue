@@ -5,7 +5,7 @@
       <li class="panel"><img src="~assets/img/layer1.png" alt="" /></li>
       <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer2.png" alt="" />
-        <div class="building" @click="openModal">
+        <div class="building" @click="openModalSide">
           <img src="~assets/img/sketch1.png" alt="" />
         </div>
       </li>
@@ -17,7 +17,7 @@
       </li>
       <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer5.png" alt="" />
-        <div class="building" @click="openModal">
+        <div class="building" @click="openModalCenter">
           <img src="~assets/img/sketch2.png" alt="" />
         </div>
       </li>
@@ -33,14 +33,41 @@
       <TheFooter class="landpanel" />
     </ul>
   </div>
-  <Transition>
+  <Transition name="slideFromRight">
     <div
-      v-if="isModalVisible"
-      class="modal"
-      :class="{ active: isModalVisible }"
+      v-if="isModalSideVisible"
+      class="modal modalSide"
+      :class="{ active: isModalSideVisible }"
     >
-      <div class="button cursorInteract icon" @click="closeModal">
+      <div class="modalClose cursorInteract icon" @click="closeModalSide">
         <img src="~assets/icons/close.png" alt="" />
+      </div>
+      <div class="modalContent">
+        <div class="blockImage">
+          <img src="~assets/img/content1.jpg" alt="" />
+        </div>
+        <div class="blockImage">
+          <img src="~assets/img/content2.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </Transition>
+  <Transition name="fade">
+    <div
+      v-if="isModalCenterVisible"
+      class="modal modalCenter"
+      :class="{ active: isModalCenterVisible }"
+    >
+      <div class="modalClose cursorInteract icon" @click="closeModalCenter">
+        <img src="~assets/icons/close.png" alt="" />
+      </div>
+      <div class="modalContent">
+        <div class="blockImage">
+          <img src="~assets/img/content1.jpg" alt="" />
+        </div>
+        <div class="blockImage">
+          <img src="~assets/img/content2.jpg" alt="" />
+        </div>
       </div>
     </div>
   </Transition>
@@ -85,22 +112,42 @@
       z-index: +1
 
 .modal
+  overflow: auto
+  padding: 5rem
   position: fixed
+  background: white
+  z-index: +2
+
+.modalClose
+  position: absolute
+  top: 1rem
+  left: 1rem
+
+.modalSide
   top: 0
   right: 0
   width: 50vw
   height: 100vh
-  background: white
-  z-index: +2
 
-.v-enter-active,
-.v-leave-active
-  transition: 0.25s ease-in-out
-  transform: translateX(0)
+.modalCenter
+  display: flex
+  flex-direction: column
+  align-items: center
+  top: 3rem
+  right: 3rem
+  bottom: 3rem
+  left: 3rem
 
-.v-enter-from,
-.v-leave-to
-  transform: translateX(100%)
+.modalContent
+  max-width: 50vw
+
+.blockImage
+  width: 100%
+  height: auto
+  margin-bottom: 3rem
+  img
+    width: 100%
+    height: auto
 </style>
 
 <script setup>
@@ -127,15 +174,27 @@ onMounted(() => {
   });
 });
 
-const isModalVisible = ref(false);
+const isModalCenterVisible = ref(false);
 
-function openModal() {
-  isModalVisible.value = true;
-  console.log(isModalVisible.value);
+function openModalCenter() {
+  isModalCenterVisible.value = true;
+  console.log(isModalCenterVisible.value);
 }
 
-function closeModal() {
-  isModalVisible.value = false;
-  console.log(isModalVisible.value);
+function closeModalCenter() {
+  isModalCenterVisible.value = false;
+  console.log(isModalCenterVisible.value);
+}
+
+const isModalSideVisible = ref(false);
+
+function openModalSide() {
+  isModalSideVisible.value = true;
+  console.log(isModalSideVisible.value);
+}
+
+function closeModalSide() {
+  isModalSideVisible.value = false;
+  console.log(isModalSideVisible.value);
 }
 </script>
