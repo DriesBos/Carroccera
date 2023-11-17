@@ -39,20 +39,14 @@
       class="modal"
       :class="{ active: isModalVisible }"
     >
-      <div class="button cursorInteract" @click="closeModal">
-        <img src="~assets/icons/close.svg" alt="" />
+      <div class="button cursorInteract icon" @click="closeModal">
+        <img src="~assets/icons/close.png" alt="" />
       </div>
     </div>
   </Transition>
 </template>
 
 <style scoped lang="sass">
-.modalbutton
-  background: white
-  position: fixed
-  left: 0
-  top: 0
-  z-index: 100
 .landscape
   width:100vw
   display: flex
@@ -87,14 +81,6 @@
       margin-top: -29%
     &:nth-child(8)
       margin-top: -30%
-
-
-// .landscapePanel
-//   transition: 0.25s ease-in-out
-//   transform: translateY(0)
-//   margin-top: -20%
-//   &:hover
-//     transform: translateY(-2.5%)
 
 .modal
   position: fixed
