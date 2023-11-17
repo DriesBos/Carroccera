@@ -1,6 +1,6 @@
 <template>
   <NuxtPage />
-  <TheFooterNav />
+  <!-- <TheFooterNav /> -->
 </template>
 
 <script setup>
