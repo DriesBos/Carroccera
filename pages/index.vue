@@ -3,33 +3,34 @@
     <Celestials />
     <ul class="landscape">
       <li class="panel"><img src="~assets/img/layer1.png" alt="" /></li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer2.png" alt="" />
         <div class="building" @click="openModal">
           <img src="~assets/img/sketch1.png" alt="" />
         </div>
       </li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer3.png" alt="" />
       </li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer4.png" alt="" />
       </li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer5.png" alt="" />
         <div class="building" @click="openModal">
           <img src="~assets/img/sketch2.png" alt="" />
         </div>
       </li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer6.png" alt="" />
       </li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer7.png" alt="" />
       </li>
-      <li class="panel landscapePanel">
+      <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer8.png" alt="" />
       </li>
+      <TheFooter />
     </ul>
   </div>
   <Transition>
@@ -72,13 +73,28 @@
       img
         width: 300px
         height: auto
+    &:nth-child(2)
+      margin-top: -10%
+    &:nth-child(3)
+      margin-top: -12%
+    &:nth-child(4)
+      margin-top: -15%
+    &:nth-child(5)
+      margin-top: -14%
+    &:nth-child(6)
+      margin-top: -16%
+    &:nth-child(7)
+      margin-top: -29%
+    &:nth-child(8)
+      margin-top: -30%
 
-.landscapePanel
-  transition: 0.25s ease-in-out
-  transform: translateY(0)
-  margin-top: -20%
-  &:hover
-    transform: translateY(-2.5%)
+
+// .landscapePanel
+//   transition: 0.25s ease-in-out
+//   transform: translateY(0)
+//   margin-top: -20%
+//   &:hover
+//     transform: translateY(-2.5%)
 
 .modal
   position: fixed
@@ -100,10 +116,34 @@
 </style>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
+import gsap from 'gsap';
 
 definePageMeta({
-  title: 'On Hover',
+  title: 'Carroccera',
+});
+
+const main = ref();
+let ctx;
+
+onMounted(() => {
+  const boxes = document.querySelectorAll('.landpanel');
+  console.log(boxes);
+  boxes.forEach((box) => {
+    gsap.to(box, {
+      y: '-6%',
+      scrollTrigger: {
+        trigger: box,
+        start: 'top 80%',
+        end: 'top 20%',
+        scrub: true,
+      },
+    });
+  });
+});
+
+onUnmounted(() => {
+  // ctx.revert(); // <- Easy Cleanup!
 });
 
 const isModalVisible = ref(false);

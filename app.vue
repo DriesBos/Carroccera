@@ -1,6 +1,5 @@
 <template>
   <NuxtPage />
-  <TheFooter />
   <TheFooterNav />
 </template>
 

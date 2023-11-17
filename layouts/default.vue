@@ -1,97 +1,117 @@
 <template>
   <main>
-    <!-- <TheHeader /> -->
-    <div class="cursor-outline"></div>
-    <div class="cursor-dot"></div>
+    <div class="cursor cursor-One">
+      <div class="cursor-Small" />
+    </div>
+    <div class="cursor cursor-Two">
+      <div class="cursor-Small" />
+    </div>
     <slot />
   </main>
 </template>
 
-<script setup>
-import { onMounted } from 'vue';
+<script>
 import gsap from 'gsap';
 
-gsap.set('.cursor-dot', { scale: 0.1 });
-gsap.set('.cursor-outline', { scale: 0.5 });
-
-let xCTo = gsap.quickTo('.cursor-outline', 'left', {
-  duration: 0.2,
-  ease: 'power3',
-});
-let yCTo = gsap.quickTo('.cursor-outline', 'top', {
-  duration: 0.2,
-  ease: 'power3',
-});
-
-let xDTo = gsap.quickTo('.cursor-dot', 'left', {
-  duration: 0.6,
-  ease: 'power3',
-});
-let yDTo = gsap.quickTo('.cursor-dot', 'top', {
-  duration: 0.6,
-  ease: 'power3',
-});
-
-let isVisible = false;
-
-function mouseMove(e) {
-  if (!isVisible) {
-    gsap.set('.cursor-outline, .cursor-dot', { opacity: 1 });
-    isVisible = true;
-  }
-
-  const cursorPosition = {
-    left: e.clientX,
-    top: e.clientY,
-  };
-
-  xCTo(cursorPosition.left);
-  yCTo(cursorPosition.top);
-  xDTo(cursorPosition.left);
-  yDTo(cursorPosition.top);
-}
-
-let scaleAnim = gsap.timeline({ paused: true });
-
-scaleAnim
-  .to('.cursor-outline', {
-    scale: 1,
-  })
-  .to(
-    '.cursor-dot',
-    {
-      scale: 1,
-      duration: 0.35,
+export default {
+  mounted() {
+    this.customCursor();
+    document
+      .querySelectorAll('.cursorInteract')
+      .forEach((item) => item.addEventListener('mouseover', this.changeCursor));
+    document
+      .querySelectorAll('.cursorInteract')
+      .forEach((item) =>
+        item.addEventListener('mouseleave', this.removeChangeCursor)
+      );
+  },
+  updated() {
+    this.removeChangeCursor();
+    document
+      .querySelectorAll('.cursorInteract')
+      .forEach((item) => item.addEventListener('mouseover', this.changeCursor));
+    document
+      .querySelectorAll('.cursorInteract')
+      .forEach((item) =>
+        item.addEventListener('mouseleave', this.removeChangeCursor)
+      );
+  },
+  destroyed() {
+    this.removeChangeCursor();
+    document
+      .querySelectorAll('.cursorInteract')
+      .forEach((item) =>
+        item.removeEventListener('mouseover', this.changeCursor)
+      );
+    document
+      .querySelectorAll('.cursorInteract')
+      .forEach((item) =>
+        item.removeEventListener('mouseleave', this.removeChangeCursor)
+      );
+  },
+  methods: {
+    customCursor() {
+      let cursorOne = document.querySelector('.cursor-One');
+      let cursorTwo = document.querySelector('.cursor-Two');
+      function moveCursorOne(e) {
+        gsap.to(cursorOne, 0.165, {
+          opacity: 1,
+          left: e.clientX,
+          top: e.clientY,
+          ease: 'ease',
+        });
+      }
+      function moveCursorTwo(e) {
+        gsap.to(cursorTwo, 0.165, {
+          opacity: 1,
+          left: e.clientX,
+          top: e.clientY,
+          ease: 'ease',
+          delay: 0.165,
+        });
+      }
+      document.addEventListener('mousemove', moveCursorOne);
+      document.addEventListener('mousemove', moveCursorTwo);
     },
-    0
-  );
-
-onMounted(() => {
-  document.addEventListener('mousemove', mouseMove);
-});
+    changeCursor() {
+      document.querySelector('.cursor').classList.add('active');
+    },
+    removeChangeCursor() {
+      document.querySelector('.cursor').classList.remove('active');
+    },
+  },
+};
 </script>
 
-<style scoped lang="sass">
-.cursor-outline, .cursor-dot
-  opacity: 0
-
-.cursor-outline
-  border-radius: 50px
-  position: absolute
-  width: 80px
-  height: 80px
-  border: solid 1px #fff
-  mix-blend-mode: difference
+<style lang="sass">
+.cursor
+  position: fixed
+  width: 3rem
+  height: 3rem
+  transform: translate(-50%, -50%)
+  border-radius: 50%
+  z-index: 999
   pointer-events: none
+  // opacity: 0
+  &-Small, &-Large
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    border-radius: 50%
+    transition: all .165s ease
+  &-Small
+    width: 1rem
+    height: 1rem
+    border: 2px solid var(--color)
+  &.active
+    .cursor-Small
+      width: 2rem
+      height: 2rem
+  @media ( hover: none )
+    opacity: 0 !important
+    display: none !important
 
-/* Visible when running fancy.js */
-.cursor-dot
-  mix-blend-mode: difference
-  border-radius: 50px
-  position: absolute
-    width: 80px
-  height: 80px
-  background-color: white
-  border: solid 1px #fff
-  pointer-events: none
+.cursorInteract
+  pointer-events: auto
 </style>

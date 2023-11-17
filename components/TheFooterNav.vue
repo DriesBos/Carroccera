@@ -18,6 +18,7 @@
   right: 0
   bottom: 0
   background: white
+  z-index: 999
   ul
     display: flex
     li
