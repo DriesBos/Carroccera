@@ -43,10 +43,45 @@
         <img src="~assets/icons/close.png" alt="" />
       </div>
       <div class="modalContent">
-        <div class="blockImage">
+        <div class="block_Image">
           <img src="~assets/img/content1.jpg" alt="" />
         </div>
-        <div class="blockImage">
+        <div class="block_Text">
+          <p>
+            Together with a team of ecologists the Collective is developing a
+            proposal for the Carroccera property and the Stanavasso valley at
+            large, in order to preserve and encourage the already present
+            rewilding processes.
+          </p>
+          <p>
+            The 5 hectares site is partially covered by 30 years old spontaneous
+            vegetation and partially by young grassland. Around the site it is
+            possible to spot the signs of a past wineyard and several wells used
+            for agriculture. This abandonment is not necessarily bad but it can
+            be beneficial if treated in a particular way. Additionally there is
+            potential to involve the neighbours and their fallow plots in the
+            scheme of regeneration, achieving a mosaic of natural and
+            agricultural land coexisting in symbiosis.
+          </p>
+          <p>
+            A few active and passive actions which focus on restoring and
+            reinstating a range of natural processes, habitats and missing
+            species, which would strengthen the ecosystem and bring several
+            benefits to the area.
+          </p>
+          <p>
+            The proposal involves site clearance from man made debris and
+            invasive species. Followed by the introduction of self-supporting
+            cattle as grazers to naturally diversify and strengthen the local
+            ecosystem, implemented through the installation of livestock water
+            facility, cattle grids and non-invasive fences. Data is collected,
+            analysed and publicly shared through a network of sensors
+            strategically positioned on the site with the aim of monitoring the
+            biodiversity and inspiring other parties to join us at this
+            endeavour.
+          </p>
+        </div>
+        <div class="block_Image">
           <img src="~assets/img/content2.jpg" alt="" />
         </div>
       </div>
@@ -62,10 +97,45 @@
         <img src="~assets/icons/close.png" alt="" />
       </div>
       <div class="modalContent">
-        <div class="blockImage">
+        <div class="block_Image">
           <img src="~assets/img/content1.jpg" alt="" />
         </div>
-        <div class="blockImage">
+        <div class="block_Text">
+          <p>
+            Together with a team of ecologists the Collective is developing a
+            proposal for the Carroccera property and the Stanavasso valley at
+            large, in order to preserve and encourage the already present
+            rewilding processes.
+          </p>
+          <p>
+            The 5 hectares site is partially covered by 30 years old spontaneous
+            vegetation and partially by young grassland. Around the site it is
+            possible to spot the signs of a past wineyard and several wells used
+            for agriculture. This abandonment is not necessarily bad but it can
+            be beneficial if treated in a particular way. Additionally there is
+            potential to involve the neighbours and their fallow plots in the
+            scheme of regeneration, achieving a mosaic of natural and
+            agricultural land coexisting in symbiosis.
+          </p>
+          <p>
+            A few active and passive actions which focus on restoring and
+            reinstating a range of natural processes, habitats and missing
+            species, which would strengthen the ecosystem and bring several
+            benefits to the area.
+          </p>
+          <p>
+            The proposal involves site clearance from man made debris and
+            invasive species. Followed by the introduction of self-supporting
+            cattle as grazers to naturally diversify and strengthen the local
+            ecosystem, implemented through the installation of livestock water
+            facility, cattle grids and non-invasive fences. Data is collected,
+            analysed and publicly shared through a network of sensors
+            strategically positioned on the site with the aim of monitoring the
+            biodiversity and inspiring other parties to join us at this
+            endeavour.
+          </p>
+        </div>
+        <div class="block_Image">
           <img src="~assets/img/content2.jpg" alt="" />
         </div>
       </div>
@@ -126,7 +196,7 @@
 .modalSide
   top: 0
   right: 0
-  width: 50vw
+  width: 66vw
   height: 100vh
 
 .modalCenter
@@ -141,13 +211,24 @@
 .modalContent
   max-width: 50vw
 
-.blockImage
+.block_Image
   width: 100%
   height: auto
   margin-bottom: 3rem
   img
     width: 100%
     height: auto
+
+.block_Text
+  width: 100%
+  height: auto
+  margin-bottom: 3rem
+  p
+    font-size: 1rem
+    margin-bottom: 1rem
+    color: black
+    &:last-child
+      margin-bottom: 0
 </style>
 
 <script setup>
