@@ -30,7 +30,7 @@
       <li class="panel landscapePanel landpanel">
         <img src="~assets/img/layer8.png" alt="" />
       </li>
-      <TheFooter />
+      <TheFooter class="landpanel" />
     </ul>
   </div>
   <Transition>
@@ -81,6 +81,8 @@
       margin-top: -29%
     &:nth-child(8)
       margin-top: -30%
+    &.landpanel
+      z-index: +1
 
 .modal
   position: fixed
@@ -109,9 +111,6 @@ definePageMeta({
   title: 'Carroccera',
 });
 
-const main = ref();
-let ctx;
-
 onMounted(() => {
   const boxes = document.querySelectorAll('.landpanel');
   console.log(boxes);
@@ -126,10 +125,6 @@ onMounted(() => {
       },
     });
   });
-});
-
-onUnmounted(() => {
-  // ctx.revert(); // <- Easy Cleanup!
 });
 
 const isModalVisible = ref(false);
