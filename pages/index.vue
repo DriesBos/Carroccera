@@ -7,7 +7,7 @@
         <li class="panel"><img src="~assets/img/layer1.png" alt="" /></li>
         <li class="panel landscapePanel landpanel">
           <img src="~assets/img/layer2.png" alt="" />
-          <div class="building building-One" @click="openModalSide">
+          <div class="building building-One" @click="openModal">
             <img class="mouseInteract" src="~assets/img/sketch1.png" alt="" />
           </div>
         </li>
@@ -16,13 +16,13 @@
         </li>
         <li class="panel landscapePanel landpanel">
           <img src="~assets/img/layer4.png" alt="" />
-          <div class="building building-Two" @click="openModalCenter">
+          <div class="building building-Two" @click="openModal">
             <img class="mouseInteract" src="~assets/img/sketch2.png" alt="" />
           </div>
         </li>
         <li class="panel landscapePanel landpanel">
           <img src="~assets/img/layer5.png" alt="" />
-          <div class="building building-Three" @click="openModalCenterTwo">
+          <div class="building building-Three" @click="openModal">
             <img class="mouseInteract" src="~assets/img/sketch4.png" alt="" />
           </div>
         </li>
@@ -39,126 +39,13 @@
       </ul>
     </div>
 
-    <Transition name="slideFromRight">
-      <div
-        v-if="isModalSideVisible"
-        class="modal modalSide"
-        :class="{ active: isModalSideVisible }"
-      >
-        <div class="modalClose cursorInteract icon" @click="closeModalSide">
-          <img src="~assets/icons/close.png" alt="" />
-        </div>
-        <div class="modalContent">
-          <div class="block_Image">
-            <img src="~assets/img/content1.jpg" alt="" />
-          </div>
-          <div class="block_Text">
-            <p>
-              Together with a team of ecologists the Collective is developing a
-              proposal for the Carroccera property and the Stanavasso valley at
-              large, in order to preserve and encourage the already present
-              rewilding processes.
-            </p>
-            <p>
-              The 5 hectares site is partially covered by 30 years old
-              spontaneous vegetation and partially by young grassland. Around
-              the site it is possible to spot the signs of a past wineyard and
-              several wells used for agriculture. This abandonment is not
-              necessarily bad but it can be beneficial if treated in a
-              particular way. Additionally there is potential to involve the
-              neighbours and their fallow plots in the scheme of regeneration,
-              achieving a mosaic of natural and agricultural land coexisting in
-              symbiosis.
-            </p>
-            <p>
-              A few active and passive actions which focus on restoring and
-              reinstating a range of natural processes, habitats and missing
-              species, which would strengthen the ecosystem and bring several
-              benefits to the area.
-            </p>
-            <p>
-              The proposal involves site clearance from man made debris and
-              invasive species. Followed by the introduction of self-supporting
-              cattle as grazers to naturally diversify and strengthen the local
-              ecosystem, implemented through the installation of livestock water
-              facility, cattle grids and non-invasive fences. Data is collected,
-              analysed and publicly shared through a network of sensors
-              strategically positioned on the site with the aim of monitoring
-              the biodiversity and inspiring other parties to join us at this
-              endeavour.
-            </p>
-          </div>
-          <div class="block_Image">
-            <img src="~assets/img/content2.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </Transition>
     <Transition name="fade">
       <div
-        v-if="isModalCenterVisible"
-        class="modal modalCenter"
-        :class="{ active: isModalCenterVisible }"
+        v-if="isModalVisible"
+        class="modal modalCenter mouseInvert"
+        :class="{ active: isModalVisible }"
       >
-        <div class="modalClose cursorInteract icon" @click="closeModalCenter">
-          <img src="~assets/icons/close.png" alt="" />
-        </div>
-        <div class="modalContent">
-          <div class="block_Image">
-            <img src="~assets/img/content1.jpg" alt="" />
-          </div>
-          <div class="block_Text">
-            <p>
-              Together with a team of ecologists the Collective is developing a
-              proposal for the Carroccera property and the Stanavasso valley at
-              large, in order to preserve and encourage the already present
-              rewilding processes.
-            </p>
-            <p>
-              The 5 hectares site is partially covered by 30 years old
-              spontaneous vegetation and partially by young grassland. Around
-              the site it is possible to spot the signs of a past wineyard and
-              several wells used for agriculture. This abandonment is not
-              necessarily bad but it can be beneficial if treated in a
-              particular way. Additionally there is potential to involve the
-              neighbours and their fallow plots in the scheme of regeneration,
-              achieving a mosaic of natural and agricultural land coexisting in
-              symbiosis.
-            </p>
-            <p>
-              A few active and passive actions which focus on restoring and
-              reinstating a range of natural processes, habitats and missing
-              species, which would strengthen the ecosystem and bring several
-              benefits to the area.
-            </p>
-            <p>
-              The proposal involves site clearance from man made debris and
-              invasive species. Followed by the introduction of self-supporting
-              cattle as grazers to naturally diversify and strengthen the local
-              ecosystem, implemented through the installation of livestock water
-              facility, cattle grids and non-invasive fences. Data is collected,
-              analysed and publicly shared through a network of sensors
-              strategically positioned on the site with the aim of monitoring
-              the biodiversity and inspiring other parties to join us at this
-              endeavour.
-            </p>
-          </div>
-          <div class="block_Image">
-            <img src="~assets/img/content2.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </Transition>
-    <Transition name="fade">
-      <div
-        v-if="isModalCenterTwoVisible"
-        class="modal modalCenter"
-        :class="{ active: isModalCenterTwoVisible }"
-      >
-        <div
-          class="modalClose cursorInteract icon"
-          @click="closeModalCenterTwo"
-        >
+        <div class="modalClose icon" @click="closeModal">
           <img src="~assets/icons/close.png" alt="" />
         </div>
         <div class="twoColumn">
@@ -227,10 +114,16 @@
   border-radius: 50%
   z-index: 999
   transform: translate(-50%, -50%)
-  // transition: width .2s ease, height .2s ease
+  pointer-events: none
   &.active
     width: 2rem
     height: 2rem
+  &.modalHover
+    background: black
+
+.mouseInteract
+  cursor: pointer
+  pointer-events: auto
 
 .landscape
   width:100vw
@@ -285,6 +178,7 @@
   position: absolute
   top: 1rem
   left: 1rem
+  z-index: 999
 
 .modalSide
   top: 0
@@ -356,6 +250,14 @@ onMounted(() => {
   document
     .querySelectorAll('.mouseInteract')
     .forEach((item) => item.addEventListener('mouseleave', removeChangeCursor));
+  document
+    .querySelectorAll('.mouseInvert')
+    .forEach((item) => item.addEventListener('mouseover', changeCursorModal));
+  document
+    .querySelectorAll('.mouseInvert')
+    .forEach((item) =>
+      item.addEventListener('mouseleave', removeChangeCursorModal)
+    );
   const boxes = document.querySelectorAll('.landpanel');
   boxes.forEach((box) => {
     gsap.to(box, {
@@ -389,33 +291,24 @@ function removeChangeCursor() {
   mouse.value.classList.remove('active');
 }
 
-const isModalCenterVisible = ref(false);
-
-function openModalCenter() {
-  isModalCenterVisible.value = true;
+function changeCursorModal() {
+  mouse.value.classList.remove('modalHover');
+  console.log('modalOn');
+}
+function removeChangeCursorModal() {
+  mouse.value.classList.remove('modalHover');
+  console.log('modalOff');
 }
 
-function closeModalCenter() {
-  isModalCenterVisible.value = false;
+const isModalVisible = ref(false);
+
+function openModal() {
+  isModalVisible.value = true;
+  console.log('open');
 }
 
-const isModalSideVisible = ref(false);
-
-function openModalSide() {
-  isModalSideVisible.value = true;
-}
-
-function closeModalSide() {
-  isModalSideVisible.value = false;
-}
-
-const isModalCenterTwoVisible = ref(false);
-
-function openModalCenterTwo() {
-  isModalCenterTwoVisible.value = true;
-}
-
-function closeModalCenterTwo() {
-  isModalCenterTwoVisible.value = false;
+function closeModal() {
+  isModalVisible.value = false;
+  console.log('close');
 }
 </script>
