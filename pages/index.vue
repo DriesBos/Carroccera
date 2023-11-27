@@ -230,7 +230,7 @@
       &-Three
         left: random(90) + vw
       img
-        width: 300px
+        width: 33vmin
         height: auto
     &:nth-child(2)
       margin-top: -10%
