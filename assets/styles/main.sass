@@ -1,6 +1,7 @@
 
 body
   background: lightgrey
+  cursor: none
 
 .icon
   img
@@ -21,22 +22,3 @@ body
     & > a
       margin-bottom: 1em
 
-// Cursor Composable
-.cursor
-  position: fixed
-  width: 3rem
-  height: 3rem
-  border-radius: 50%
-  z-index: 999
-  pointer-events: none
-  background: blue
-  transition: all .165s ease
-  &.active
-    background: green
-  @media ( hover: none )
-    opacity: 0 !important
-    display: none !important
-
-.cursorInteract
-  pointer-events: auto
-  cursor: pointer

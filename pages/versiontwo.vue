@@ -43,7 +43,6 @@ let ctx;
 
 onMounted(() => {
   const boxes = document.querySelectorAll('.landpanel');
-  console.log(boxes);
   boxes.forEach((box) => {
     gsap.to(box, {
       y: '-6%',
