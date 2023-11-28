@@ -3,8 +3,20 @@
     <div class="slider-Image">
       <img :src="images[currentImage].image" alt="" />
     </div>
-    <div class="slider-Nav slider-Nav_Next mouseInteract">next</div>
-    <div class="slider-Nav slider-Nav_Prev mouseInteract">prev</div>
+    <div
+      v-if="isNextVisible"
+      @click="nextImage"
+      class="slider-Nav slider-Nav_Next mouseInteract"
+    >
+      next
+    </div>
+    <div
+      v-if="isPrevVisible"
+      @click="prevImage"
+      class="slider-Nav slider-Nav_Prev mouseInteract"
+    >
+      prev
+    </div>
   </div>
 </template>
 
@@ -20,29 +32,44 @@ export default {
   data() {
     return {
       currentImage: 0,
+      isNextVisible: true,
+      isPrevVisible: true,
     };
   },
   mounted() {
-    document
-      .querySelector('.slider-Nav_Next')
-      .addEventListener('click', this.nextImage);
-    document
-      .querySelector('.slider-Nav_Prev')
-      .addEventListener('click', this.prevImage);
+    console.log('MOUNTED', this.images, this.images.length, this.currentImage);
+    this.navVisibility();
+    this.nextprevVisibility();
   },
   methods: {
+    navVisibility() {
+      if (this.images.length <= 1) {
+        this.isNextVisible = false;
+        this.isPrevVisible = false;
+      } else {
+        this.isNextVisible = true;
+        this.isPrevVisible = true;
+      }
+    },
+    nextprevVisibility() {
+      if (this.currentImage == this.images.length - 1) {
+        this.isNextVisible = false;
+      } else {
+        this.isNextVisible = true;
+      }
+      if (this.currentImage == 0) {
+        this.isPrevVisible = false;
+      } else {
+        this.isPrevVisible = true;
+      }
+    },
     nextImage() {
       this.currentImage++;
-      if (this.currentImage >= this.images.length) {
-        this.currentImage = 0;
-      }
-      console.log(this.currentImage);
+      this.nextprevVisibility();
     },
     prevImage() {
       this.currentImage--;
-      if (this.currentImage < 0) {
-        this.currentImage = this.images.length - 1;
-      }
+      this.nextprevVisibility();
     },
   },
 };
