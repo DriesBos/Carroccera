@@ -37,7 +37,6 @@ export default {
     };
   },
   mounted() {
-    console.log('MOUNTED', this.images, this.images.length, this.currentImage);
     this.navVisibility();
     this.nextprevVisibility();
   },
