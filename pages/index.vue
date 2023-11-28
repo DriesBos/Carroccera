@@ -88,13 +88,7 @@
             </div>
           </div>
           <div class="twoColumn_Right">
-            <div class="block_Image">
-              <img src="~assets/img/content1.jpg" alt="" />
-            </div>
-
-            <div class="block_Image">
-              <img src="~assets/img/content2.jpg" alt="" />
-            </div>
+            <ImageSlider :images="images" />
           </div>
         </div>
       </div>
@@ -289,6 +283,15 @@ onUpdated(() => {
 });
 
 let mouse = ref(null);
+
+const images = [
+  {
+    image: '/_nuxt/assets/img/content1.jpg',
+  },
+  {
+    image: '/_nuxt/assets/img/content2.jpg',
+  },
+];
 
 function customCursor(e) {
   gsap.to(mouse.value, 0, {
