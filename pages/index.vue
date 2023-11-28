@@ -45,7 +45,7 @@
         class="modal modalCenter mouseInvert"
         :class="{ active: isModalVisible }"
       >
-        <div class="modalClose icon" @click="closeModal">
+        <div class="modalClose icon mouseInteract" @click="closeModal">
           <img src="~assets/icons/close.png" alt="" />
         </div>
         <div class="twoColumn">
@@ -108,21 +108,21 @@
 .mouse
   position: fixed
   opacity: 0
-  width: 1rem
-  height: 1rem
-  background: white
+  width: 1.5rem
+  height: 1.5rem
+  background: lightgrey
   border-radius: 50%
   z-index: 999
   transform: translate(-50%, -50%)
   pointer-events: none
+  transition: width .2s ease, height .2s ease
   &.active
-    width: 2rem
-    height: 2rem
-  &.modalHover
+    width: 3rem
+    height: 3rem
+  &.invert
     background: black
 
 .mouseInteract
-  cursor: pointer
   pointer-events: auto
 
 .landscape
@@ -168,8 +168,7 @@
 
 .modal
   overflow: auto
-  padding: 5rem
-  padding-bottom: 0
+  padding: 3vmax 3vmin
   position: fixed
   background: white
   z-index: +2
@@ -190,10 +189,10 @@
   display: flex
   flex-direction: column
   align-items: center
-  top: 3rem
-  right: 3rem
-  bottom: 3rem
-  left: 3rem
+  top: 3vmax
+  right: 3vmin
+  bottom: 3vmax
+  left: 3vmin
   border-radius: .5rem
 
 .modalContent
@@ -235,7 +234,7 @@
 </style>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted, onUpdated, ref } from 'vue';
 import gsap from 'gsap';
 
 definePageMeta({
@@ -272,6 +271,23 @@ onMounted(() => {
   });
 });
 
+onUpdated(() => {
+  document
+    .querySelectorAll('.mouseInteract')
+    .forEach((item) => item.addEventListener('mouseover', changeCursor));
+  document
+    .querySelectorAll('.mouseInteract')
+    .forEach((item) => item.addEventListener('mouseleave', removeChangeCursor));
+  document
+    .querySelectorAll('.mouseInvert')
+    .forEach((item) => item.addEventListener('mouseover', changeCursorModal));
+  document
+    .querySelectorAll('.mouseInvert')
+    .forEach((item) =>
+      item.addEventListener('mouseleave', removeChangeCursorModal)
+    );
+});
+
 let mouse = ref(null);
 
 function customCursor(e) {
@@ -279,25 +295,25 @@ function customCursor(e) {
     opacity: 1,
     left: e.clientX,
     top: e.clientY,
-    ease: 'none',
-    delay: 0,
   });
 }
 
 function changeCursor() {
   mouse.value.classList.add('active');
+  console.log('active on');
 }
 function removeChangeCursor() {
   mouse.value.classList.remove('active');
+  console.log('active off');
 }
 
 function changeCursorModal() {
-  mouse.value.classList.remove('modalHover');
-  console.log('modalOn');
+  mouse.value.classList.remove('invert');
+  console.log('invert on');
 }
 function removeChangeCursorModal() {
-  mouse.value.classList.remove('modalHover');
-  console.log('modalOff');
+  mouse.value.classList.remove('invert');
+  console.log('invert off');
 }
 
 const isModalVisible = ref(false);
