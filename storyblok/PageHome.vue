@@ -55,6 +55,7 @@ onMounted(() => {
   z-index: 999
   border-radius: 50%
   transform: translate(-50%, -50%)
+  pointer-events: none
 
 .page-Home
   position: relative
