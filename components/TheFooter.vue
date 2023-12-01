@@ -6,10 +6,10 @@
 
 <style scoped lang="sass">
 footer
+  position: absolute
+  bottom: 0
   width: 100vw
-  // transform: translateY(-0%)
   z-index: +1
-  margin-top: -20%
   img, svg
     width: 100%
     max-width: 100%

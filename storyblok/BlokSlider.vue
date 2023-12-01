@@ -1,26 +1,26 @@
 <template>
-  <div class="slider">
-    <div class="slider-Image">
+  <div class="blok blokSlider">
+    <div class="blokSlider-Image">
       <Transition name="fade">
-        <img :key="currentImage" :src="images[currentImage].image" alt="" />
+        <img :key="currentImage" :src="images[currentImage].filename" alt="" />
       </Transition>
     </div>
     <Transition name="fade">
       <div
         v-if="isNextVisible"
         @click="nextImage"
-        class="slider-Nav slider-Nav_Next mouseInteract"
+        class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
       >
-        next
+        <span> next </span>
       </div>
     </Transition>
     <Transition name="fade">
       <div
         v-if="isPrevVisible"
         @click="prevImage"
-        class="slider-Nav slider-Nav_Prev mouseInteract"
+        class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
       >
-        prev
+        <span> prev </span>
       </div>
     </Transition>
   </div>
@@ -28,18 +28,15 @@
 
 <script>
 export default {
-  name: 'ImageSlider',
   props: {
-    images: {
-      type: Array,
-      required: true,
-    },
+    blok: Object,
   },
   data() {
     return {
       currentImage: 0,
       isNextVisible: true,
       isPrevVisible: true,
+      images: this.blok.images,
     };
   },
   mounted() {
@@ -81,7 +78,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.slider
+.blokSlider
   position: relative
   width: 100%
   height: 100%
@@ -95,9 +92,11 @@ export default {
     justify-content: center
     align-items: center
     cursor: pointer
-    &.slider-Nav_Next
+    span
+      background: white
+    &.blokSlider-Nav_Next
       right: 0
-    &.slider-Nav_Prev
+    &.blokSlider-Nav_Prev
       left: 0
   &-Image
     position: relative

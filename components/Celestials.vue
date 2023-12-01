@@ -3,8 +3,11 @@
     <div class="landingParallax_Stars stars panel box">
       <img src="~assets/img/stars.png" alt="" />
     </div>
-    <div class="landingParallax_Sunmoon sunmoon panel box">
-      <img src="~assets/img/sunmoon.png" alt="" />
+    <div class="landingParallax_Sun sun panel box">
+      <img src="~assets/img/sun.png" alt="" />
+    </div>
+    <div class="landingParallax_Moon moon panel box">
+      <img src="~assets/img/moon.png" alt="" />
     </div>
   </div>
 </template>
@@ -17,16 +20,26 @@ const main = ref();
 let ctx;
 
 onMounted(() => {
-  const sunmoon = document.querySelector('.sunmoon');
+  const sun = document.querySelector('.sun');
+  const moon = document.querySelector('.moon');
   const stars = document.querySelector('.stars');
-  gsap.to(sunmoon, {
+  gsap.to(sun, {
     y: '-100%',
     scrollTrigger: {
-      trigger: sunmoon,
+      trigger: sun,
       scrub: true,
       start: 'top top',
-      end: 'bottom -100%',
-      // markers: true,
+      end: 'bottom -400%',
+    },
+    ease: 'none',
+  });
+  gsap.to(moon, {
+    y: '-100%',
+    scrollTrigger: {
+      trigger: moon,
+      scrub: true,
+      start: 'top top',
+      end: 'bottom -600%',
     },
     ease: 'none',
   });
@@ -36,8 +49,7 @@ onMounted(() => {
       trigger: stars,
       scrub: true,
       start: 'top top',
-      end: 'bottom -10%',
-      // markers: true,
+      end: 'bottom -50%',
     },
     ease: 'none',
   });
@@ -66,4 +78,10 @@ onUnmounted(() => {
       width: 100%
       max-width: 100%
       height: auto
+  .sun
+    left: auto
+    width: 50vw
+  .moon
+    right: auto
+    width: 50vw
 </style>

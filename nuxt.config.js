@@ -42,10 +42,7 @@ export default defineNuxtConfig({
     [
       '@storyblok/nuxt',
       {
-        accessToken:
-          process.env.NODE_ENV == 'production'
-            ? process.env.PUBLICKEY
-            : process.env.PREVIEWKEY,
+        accessToken: process.env.PREVIEWKEY,
       },
     ],
   ],
