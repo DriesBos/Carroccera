@@ -45,6 +45,7 @@ export default defineNuxtConfig({
         accessToken: process.env.PREVIEWKEY,
       },
     ],
+    ['@vueuse/nuxt'],
   ],
 
   build: {
