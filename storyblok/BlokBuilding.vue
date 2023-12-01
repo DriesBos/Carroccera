@@ -1,9 +1,13 @@
 <template>
-  <div v-editable="blok" class="blokBuilding" :class="blok.position">
+  <div
+    v-editable="blok"
+    class="blokBuilding mouseInteract"
+    :class="blok.position"
+  >
     <img @click.native="openModal" :src="blok.image.filename" alt="" />
     <Teleport to="body">
       <Modal
-        v-if="isModalActive"
+        v-show="isModalActive"
         @close="closeModal"
         :class="{ active: isModalActive }"
         :blok="blok.body"

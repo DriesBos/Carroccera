@@ -1,6 +1,6 @@
 <template>
   <div v-editable="blok" class="page-Home">
-    <div class="cursor" :style="{ left: `${x}px`, top: `${y}px` }"></div>
+    <Mouse />
     <Celestials />
     <div class="sky">
       <img src="~/assets/img/layer1.png" alt="" />
@@ -18,14 +18,9 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useMouse } from '@vueuse/core';
 import gsap from 'gsap';
 
 defineProps({ blok: Object });
-
-const { x, y } = useMouse();
-
-console.log(x, y);
 
 onMounted(() => {
   // Move the layers onScroll
@@ -45,18 +40,6 @@ onMounted(() => {
 </script>
 
 <style lang="sass" scoped>
-.cursor
-  position: absolute
-  left: 0
-  right: 0
-  background: white
-  width: 2rem
-  height: 2rem
-  z-index: 999
-  border-radius: 50%
-  transform: translate(-50%, -50%)
-  pointer-events: none
-
 .page-Home
   position: relative
   padding-bottom: 52.5vw

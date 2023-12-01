@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <div @click.native="$emit('close')" class="modal-Close">
+    <div @click.native="$emit('close')" class="modal-Close mouseInteract">
       <h1>close</h1>
     </div>
     <div class="modal-Content">
