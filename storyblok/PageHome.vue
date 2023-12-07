@@ -13,6 +13,7 @@
       />
     </div>
     <ToTop />
+    <TheHeader />
     <TheFooter />
   </div>
 </template>

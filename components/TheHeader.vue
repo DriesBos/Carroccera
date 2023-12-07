@@ -1,50 +1,62 @@
 <template>
   <header class="header">
-    <div class="header-Logo">
-      <NuxtLink to="/">
-        <h1>Nuxt Storyblok Boilerplate</h1>
-      </NuxtLink>
+    <div @click="toggleActive" class="header-Logo mouseInteract">
+      Carroccera Collective
     </div>
-    <div class="header-Nav">
-      <nav v-if="headerMenu">
-        <ul>
-          <li
-            v-for="blok in headerMenu"
-            class="cursorInteract"
-            :key="blok._uid"
-          >
-            <NuxtLink :to="blok.link.cached_url"
-              >{{ blok.link.story.name }}
-            </NuxtLink>
-          </li>
-        </ul>
-      </nav>
+    <div v-show="isActive" class="header-Nav">
+      <ul>
+        <li class="mouseInteract">About</li>
+        <li class="mouseInteract">Rewild</li>
+        <li class="mouseInteract">Build</li>
+        <li class="mouseInteract">Inspire</li>
+      </ul>
     </div>
   </header>
 </template>
 
 <script setup>
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories/config', {
-  version: 'draft',
-  resolve_links: 'url',
-});
+import { ref } from 'vue';
 
-const headerMenu = ref(null);
-headerMenu.value = data.story.content.header_menu;
+let isActive = ref(false);
+
+function toggleActive() {
+  isActive.value = !isActive.value;
+}
 </script>
 
 <style lang="sass" scoped>
 .header
+  position: absolute
+  top: 10vh
+  left: 50%
+  transform: translateX(-50%)
   display: flex
+  flex-direction: column
   justify-content: space-between
+  color: white
+  font-size: 2rem
+  font-family: Georgia, 'Times New Roman', Times, serif
+  z-index: +1
   &-Logo
-    padding: 1em
+    padding: 0 1em
+    margin-bottom: 1rem
+    &::selection
+      background: transparent
+      color: white
   &-Nav
     ul
       display: flex
+      flex-direction: column
+      align-items: center
       li
-        padding: 1em
+        padding: 0 .5em
+        margin-bottom: .5em
+        color: white
+        font-size: 1.8rem
+        font-family: Georgia, 'Times New Roman', Times, serif
+        &::selection
+          background: transparent
+          color: white
   a
     text-decoration: none
     &:hover
