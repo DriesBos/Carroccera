@@ -21,7 +21,7 @@
   top: 0
   width: 100vw
   height: 100vh
-  background: hsla(0,0,0,.5 )
+  background: hsla(0,0%,0%,.5 )
   z-index: +2
 
   &-Container
