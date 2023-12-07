@@ -12,6 +12,7 @@
         :blok="blok"
       />
     </div>
+    <ToTop />
     <TheFooter />
   </div>
 </template>
@@ -40,6 +41,7 @@ onMounted(() => {
 </script>
 
 <style lang="sass" scoped>
+
 .page-Home
   position: relative
   padding-bottom: 52.5vw
