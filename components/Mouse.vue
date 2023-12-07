@@ -26,10 +26,17 @@ function init() {
     const interactList = document.getElementsByClassName('mouseInteract');
     document.getElementsByTagName('a');
     const array = Array.from(interactList);
-    console.log('INIT', array);
     array.forEach((element) => {
       element.addEventListener('mouseover', onMouseHover);
       element.addEventListener('mouseout', onMouseHoverOut);
+    });
+  }, 100);
+  setTimeout(() => {
+    const interactListModal = document.getElementsByClassName('mouseInvert');
+    const arrayModal = Array.from(interactListModal);
+    arrayModal.forEach((element) => {
+      element.addEventListener('mouseover', onMouseHoverModal);
+      element.addEventListener('mouseout', onMouseHoverModalOut);
     });
   }, 100);
 }
@@ -41,6 +48,12 @@ function destroy() {
     element.removeEventListener('mouseover', onMouseHover);
     element.removeEventListener('mouseout', onMouseHoverOut);
   });
+  const interactListModal = document.getElementsByClassName('mouseInvert');
+  const arrayModal = Array.from(interactListModal);
+  arrayModal.forEach((element) => {
+    element.removeEventListener('mouseover', onMouseHoverModal);
+    element.removeEventListener('mouseout', onMouseHoverModalOut);
+  });
 }
 
 function onMouseHover(e) {
@@ -50,6 +63,14 @@ function onMouseHover(e) {
 function onMouseHoverOut(e) {
   mouse.value.classList.remove('active');
 }
+
+function onMouseHoverModal(e) {
+  mouse.value.classList.add('invert');
+}
+
+function onMouseHoverModalOut(e) {
+  mouse.value.classList.remove('invert');
+}
 </script>
 
 <style lang="sass" scoped>
@@ -57,7 +78,7 @@ function onMouseHoverOut(e) {
   position: absolute
   left: 0
   right: 0
-  background: grey
+  background: white
   width: 1.5rem
   height: 1.5rem
   z-index: 999
@@ -68,4 +89,6 @@ function onMouseHoverOut(e) {
     width: 3rem
     height: 3rem
     transition: width .3s ease, height .3s ease
+  &.invert
+    background: black
 </style>
