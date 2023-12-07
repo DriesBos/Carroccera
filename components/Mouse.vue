@@ -19,6 +19,8 @@ onMounted(() => {
   init();
 });
 
+onUnmounted(() => destroy());
+
 function init() {
   setTimeout(() => {
     const interactList = document.getElementsByClassName('mouseInteract');
@@ -30,6 +32,15 @@ function init() {
       element.addEventListener('mouseout', onMouseHoverOut);
     });
   }, 100);
+}
+
+function destroy() {
+  const interactList = document.getElementsByClassName('mouseInteract');
+  const array = Array.from(interactList);
+  array.forEach((element) => {
+    element.removeEventListener('mouseover', onMouseHover);
+    element.removeEventListener('mouseout', onMouseHoverOut);
+  });
 }
 
 function onMouseHover(e) {

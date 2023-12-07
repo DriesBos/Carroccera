@@ -94,7 +94,6 @@ export default {
     display: flex
     justify-content: center
     align-items: center
-    cursor: pointer
     &.slider-Nav_Next
       right: 0
     &.slider-Nav_Prev

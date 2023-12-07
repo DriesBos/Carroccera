@@ -1,10 +1,12 @@
 <template>
   <div class="modal">
-    <div @click.native="$emit('close')" class="modal-Close mouseInteract">
-      <h1>close</h1>
-    </div>
-    <div class="modal-Content">
-      <slot></slot>
+    <div class="modal-Container">
+      <div @click.native="$emit('close')" class="modal-Close mouseInteract">
+        <h1>close x</h1>
+      </div>
+      <div class="modal-Content">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -12,20 +14,28 @@
 <style lang="sass" scoped>
 .modal
   position: fixed
-  left: 50%
-  top: 50%
-  translate: -50% -50%
-  width: 90vw
-  height: 94vh
-  background: white
+  display: flex
+  justify-content: center
+  align-items: center
+  left: 0
+  top: 0
+  width: 100vw
+  height: 100vh
+  background: hsla(0,0,0,.5 )
   z-index: +2
+
+  &-Container
+    position: relative
+    width: 90vw
+    height: 94vh
+    background: white
+    border-radius: .5rem
 
   &-Close
     position: absolute
     top: 1rem
-    left: 1rem
+    right: 2rem
     z-index: 999
-    cursor: pointer
 
   &-Content
     display: flex

@@ -61,6 +61,5 @@ function closeModal() {
     height: 100%
     object-fit: contain
     object-position: center center
-    cursor: pointer
 </style>
 ```
