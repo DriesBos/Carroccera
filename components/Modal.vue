@@ -68,6 +68,7 @@
       padding-top: 5rem
       display: flex
       flex-direction: column
+      align-items: center
       overflow-y: auto
       & > div
         max-width: 50rem
