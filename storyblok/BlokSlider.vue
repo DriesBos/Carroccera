@@ -7,7 +7,7 @@
     </div>
     <Transition name="fade">
       <div
-        v-if="isNextVisible"
+        v-show="isNextVisible"
         @click="nextImage"
         class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
       >
@@ -16,7 +16,7 @@
     </Transition>
     <Transition name="fade">
       <div
-        v-if="isPrevVisible"
+        v-show="isPrevVisible"
         @click="prevImage"
         class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
       >
