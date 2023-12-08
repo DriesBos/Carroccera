@@ -3,14 +3,16 @@
     <div @click="toggleActive" class="header-Logo mouseInteract">
       Carroccera Collective
     </div>
-    <div v-show="isActive" class="header-Nav">
-      <ul>
-        <li class="mouseInteract">About</li>
-        <li class="mouseInteract">Rewild</li>
-        <li class="mouseInteract">Build</li>
-        <li class="mouseInteract">Inspire</li>
-      </ul>
-    </div>
+    <Transition name="fade">
+      <div v-show="isActive" class="header-Nav">
+        <ul>
+          <li class="mouseInteract">About</li>
+          <li class="mouseInteract">Rewild</li>
+          <li class="mouseInteract">Build</li>
+          <li class="mouseInteract">Inspire</li>
+        </ul>
+      </div>
+    </Transition>
   </header>
 </template>
 

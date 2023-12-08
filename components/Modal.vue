@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <div class="modal-Background" @click="$emit('close')"></div>
+    <div class="modal-Background mouseInteract" @click="$emit('close')"></div>
     <div class="modal-Container mouseInvert">
       <div @click.native="$emit('close')" class="modal-Close mouseInteract">
         <h1>close x</h1>
@@ -12,7 +12,7 @@
   </div>
 </template>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .modal
   position: fixed
   display: flex
@@ -45,12 +45,33 @@
     z-index: 999
 
   &-Content
-    display: flex
-    flex-direction: column
-    padding: 3rem 2rem
-    padding-top: 5rem
-    overflow-y: auto
+    position: relative
+    width: 100%
     height: 100%
+    &_Horizontal
+      position: relative
+      width: 100%
+      height: 100%
+      padding: 3rem 2rem
+      padding-top: 5rem
+      display: flex
+      flex-direction: row
+      flex-wrap: nowrap
+      & > div
+        flex: 1
+        flex-shrink: 0
+    &_Vertical
+      position: relative
+      width: 100%
+      height: 100%
+      padding: 3rem 2rem
+      padding-top: 5rem
+      display: flex
+      flex-direction: column
+      overflow-y: auto
+      & > div
+        max-width: 50rem
+
 
 .modalSide
   top: 0

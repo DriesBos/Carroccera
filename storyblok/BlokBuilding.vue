@@ -12,23 +12,33 @@
         :class="{ active: isModalActive }"
         :blok="blok.body"
       >
-        {{ blok.position }}
-        <StoryblokComponent
-          v-for="blok in blok.body"
-          :key="blok._uid"
-          :blok="blok"
-        />
+        <div v-if="blok.alignment === 'ver'" class="modal-Content_Vertical">
+          <StoryblokComponent
+            v-for="blok in blok.body"
+            :key="blok._uid"
+            :blok="blok"
+          />
+        </div>
+        <div v-if="blok.alignment === 'hor'" class="modal-Content_Horizontal">
+          <StoryblokComponent
+            v-for="blok in blok.layouthor"
+            :key="blok._uid"
+            :blok="blok"
+          />
+        </div>
       </Modal>
     </Teleport>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 defineProps({ blok: Object });
 
 const isModalActive = ref(false);
+
+const ifHorizontal = false;
 
 function openModal() {
   isModalActive.value = true;
@@ -37,6 +47,13 @@ function openModal() {
 function closeModal() {
   isModalActive.value = false;
 }
+
+onMounted(() => {
+  // if (blok.value.layouthor) {
+  //   ifHorizontal.value = true;
+  // }
+  // console.log('ifHorizontal', ifHorizontal, blok.value);
+});
 </script>
 
 <style lang="sass" scoped>
