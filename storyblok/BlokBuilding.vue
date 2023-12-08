@@ -6,27 +6,29 @@
   >
     <img @click.native="openModal" :src="blok.image.filename" alt="" />
     <Teleport to="body">
-      <Modal
-        v-show="isModalActive"
-        @close="closeModal"
-        :class="{ active: isModalActive }"
-        :blok="blok.body"
-      >
-        <div v-if="blok.alignment === 'ver'" class="modal-Content_Vertical">
-          <StoryblokComponent
-            v-for="blok in blok.body"
-            :key="blok._uid"
-            :blok="blok"
-          />
-        </div>
-        <div v-if="blok.alignment === 'hor'" class="modal-Content_Horizontal">
-          <StoryblokComponent
-            v-for="blok in blok.layouthor"
-            :key="blok._uid"
-            :blok="blok"
-          />
-        </div>
-      </Modal>
+      <Transition name="fade">
+        <Modal
+          v-show="isModalActive"
+          @close="closeModal"
+          :class="{ active: isModalActive }"
+          :blok="blok.body"
+        >
+          <div v-if="blok.alignment === 'ver'" class="modal-Content_Vertical">
+            <StoryblokComponent
+              v-for="blok in blok.body"
+              :key="blok._uid"
+              :blok="blok"
+            />
+          </div>
+          <div v-if="blok.alignment === 'hor'" class="modal-Content_Horizontal">
+            <StoryblokComponent
+              v-for="blok in blok.layouthor"
+              :key="blok._uid"
+              :blok="blok"
+            />
+          </div>
+        </Modal>
+      </Transition>
     </Teleport>
   </div>
 </template>
