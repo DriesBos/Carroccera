@@ -2,7 +2,7 @@
   <div
     v-editable="blok"
     class="blokBuilding mouseInteract"
-    :class="blok.position"
+    :class="[blok.position, blok.positionvertical]"
   >
     <img @click.native="openModal" :src="blok.image.filename" alt="" />
     <Teleport to="body">
@@ -12,6 +12,7 @@
         :class="{ active: isModalActive }"
         :blok="blok.body"
       >
+        {{ blok.position }}
         <StoryblokComponent
           v-for="blok in blok.body"
           :key="blok._uid"
@@ -56,9 +57,17 @@ function closeModal() {
     left: random(14) + 57vw
   &.five
     left: random(14) + 71vw
+  &.top
+    top: 0
+  &.center
+    top: 25%
+    translform: translateY(-50%)
+  &.bottom
+    top: 50%
+    translform: translateY(-50%)
   img
     width: 30vw
-    height: 100%
+    height: auto
     object-fit: contain
     object-position: center center
 </style>
