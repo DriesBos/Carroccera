@@ -1,5 +1,6 @@
 <template>
   <div class="modal">
+    <div class="modal-Background" @click="$emit('close')"></div>
     <div class="modal-Container mouseInvert">
       <div @click.native="$emit('close')" class="modal-Close mouseInteract">
         <h1>close x</h1>
@@ -21,8 +22,14 @@
   top: 0
   width: 100vw
   height: 100vh
-  background: hsla(0,0%,0%,.5 )
   z-index: +2
+
+  &-Background
+    position: absolute
+    width: 100%
+    height: 100%
+    background: hsla(0,0%,0%,.5 )
+    z-index: -1
 
   &-Container
     position: relative
