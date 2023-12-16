@@ -1,6 +1,7 @@
 <template>
   <footer>
-    <FooterImage />
+    <!-- <FooterImage /> -->
+    <img src="~assets/img/footer.png" alt="" />
   </footer>
 </template>
 
@@ -16,6 +17,6 @@ footer
     height: auto
 </style>
 
-<script setup>
-import FooterImage from '../assets/img/svgfooter.svg?component';
-</script>
+<!-- <script setup>
+import FooterImage from '../assets/img/footer.png?component';
+</script> -->

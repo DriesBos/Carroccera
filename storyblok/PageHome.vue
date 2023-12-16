@@ -3,7 +3,7 @@
     <Mouse />
     <Celestials />
     <div class="sky">
-      <img src="~/assets/img/layer1.png" alt="" />
+      <img src="~/assets/img/sky.png" alt="" />
     </div>
     <div class="landscape">
       <StoryblokComponent

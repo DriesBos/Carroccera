@@ -3,12 +3,15 @@
     <div class="landingParallax_Stars stars panel box">
       <img src="~assets/img/stars.png" alt="" />
     </div>
-    <div class="landingParallax_Sun sun panel box">
+    <!-- <div class="landingParallax_Sun sun panel box">
       <img src="~assets/img/sun.png" alt="" />
-    </div>
-    <div class="landingParallax_Moon moon panel box">
+    </div> -->
+    <!-- <div class="landingParallax_Sun sun panel box">
+      <img src="~assets/img/logo.png" alt="" />
+    </div> -->
+    <!-- <div class="landingParallax_Moon moon panel box">
       <img src="~assets/img/moon.png" alt="" />
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -20,29 +23,29 @@ const main = ref();
 let ctx;
 
 onMounted(() => {
-  const sun = document.querySelector('.sun');
-  const moon = document.querySelector('.moon');
+  // const sun = document.querySelector('.sun');
+  // const moon = document.querySelector('.moon');
   const stars = document.querySelector('.stars');
-  gsap.to(sun, {
-    y: '-100%',
-    scrollTrigger: {
-      trigger: sun,
-      scrub: true,
-      start: 'top top',
-      end: 'bottom -400%',
-    },
-    ease: 'none',
-  });
-  gsap.to(moon, {
-    y: '-100%',
-    scrollTrigger: {
-      trigger: moon,
-      scrub: true,
-      start: 'top top',
-      end: 'bottom -600%',
-    },
-    ease: 'none',
-  });
+  // gsap.to(sun, {
+  //   y: '-100%',
+  //   scrollTrigger: {
+  //     trigger: sun,
+  //     scrub: true,
+  //     start: 'top top',
+  //     end: 'bottom -400%',
+  //   },
+  //   ease: 'none',
+  // });
+  // gsap.to(moon, {
+  //   y: '-100%',
+  //   scrollTrigger: {
+  //     trigger: moon,
+  //     scrub: true,
+  //     start: 'top top',
+  //     end: 'bottom -600%',
+  //   },
+  //   ease: 'none',
+  // });
   gsap.to(stars, {
     y: '-100%',
     scrollTrigger: {
