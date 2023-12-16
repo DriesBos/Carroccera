@@ -1,5 +1,11 @@
 <template>
   <div v-editable="blok" class="page-Home">
+    <Button class="button-Logo">Carrocerra Collective</Button>
+    <Button class="button-Menu">
+      <div class="icon">
+        <img src="~/assets/icons/menu.png" alt="" />
+      </div>
+    </Button>
     <Mouse />
     <Celestials />
     <div class="landscape">

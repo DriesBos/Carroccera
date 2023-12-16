@@ -1,7 +1,9 @@
 <template>
-  <div @click="scrollTop" class="scrollUp mouseInteract">
-    <img src="~/assets/icons/arrow-long.png" alt="" />
-  </div>
+  <Button @click="scrollTop" class="button-ScrollUp scrollUp">
+    <div class="icon icon-Vertical">
+      <img src="~/assets/icons/arrow-long.png" alt="" />
+    </div>
+  </Button>
 </template>
 
 <script setup>
@@ -17,6 +19,9 @@ const scrollTop = () => {
 
 onMounted(() => {
   const scrollUp = document.querySelector('.scrollUp');
+  gsap.set(scrollUp, {
+    opacity: 0,
+  });
   gsap.to(scrollUp, {
     opacity: 1,
     scrollTrigger: {
@@ -29,23 +34,3 @@ onMounted(() => {
   });
 });
 </script>
-
-<style lang="sass" scoped>
-.scrollUp
-  position: fixed
-  bottom: 0
-  right: 0
-  padding: 5rem
-  z-index: 100
-  cursor: pointer
-  transform: translateY(0)
-  transition: .33s ease-in-out
-  color: white
-  opacity: 0
-  img
-    width: 2.5rem
-    height: auto
-    object-fit: contain
-  &:hover
-    transform: translateY(-10px)
-</style>
