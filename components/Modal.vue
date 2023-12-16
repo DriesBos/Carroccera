@@ -33,10 +33,10 @@
 
   &-Container
     position: relative
-    width: 90vw
-    height: 94vh
+    width: 90vmin
+    height: 90vmin
     background: white
-    border-radius: .5rem
+    border-radius: 0
 
   &-Close
     position: absolute

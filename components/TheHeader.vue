@@ -29,14 +29,14 @@ function toggleActive() {
 <style lang="sass" scoped>
 .header
   position: absolute
-  top: 10vh
+  top: 50vh
   left: 50%
-  transform: translateX(-50%)
+  transform: translate(-50%, -50%)
   display: flex
   flex-direction: column
   justify-content: space-between
   color: white
-  font-size: 2rem
+  font-size: 2.5rem
   font-family: Georgia, 'Times New Roman', Times, serif
   z-index: +1
   &-Logo
