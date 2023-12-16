@@ -1,5 +1,8 @@
 <template>
   <div class="landingParallax">
+    <div class="sky">
+      <img src="~/assets/img/sky.png" alt="" />
+    </div>
     <div class="landingParallax_Stars stars panel box">
       <img src="~assets/img/stars.png" alt="" />
     </div>
@@ -65,15 +68,12 @@ onUnmounted(() => {
 
 <style scoped lang="sass">
 .landingParallax
-  position: fixed
-  top: 0
-  left: 0
-  right: 0
+  position: relative
+  width: 100vw
   height: 100vh
-  z-index: +1
   pointer-events: none
   .panel
-    position: absolute
+    position: fixed
     top: 0
     left: 0
     right: 0
@@ -81,10 +81,21 @@ onUnmounted(() => {
       width: 100%
       max-width: 100%
       height: auto
-  .sun
-    left: auto
-    width: 50vw
-  .moon
-    right: auto
-    width: 50vw
+  // .sun
+  //   left: auto
+  //   width: 50vw
+  // .moon
+  //   right: auto
+  //   width: 50vw
+  .sky
+    position: relative
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    img
+        width: 100%
+        max-width: 100%
+        height: 100%
+        object-fit: cover
 </style>

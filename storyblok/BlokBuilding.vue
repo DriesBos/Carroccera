@@ -4,6 +4,9 @@
     class="blokBuilding mouseInteract"
     :class="[blok.position, blok.positionvertical]"
   >
+    <div class="blokBuilding-Indicator">
+      hor:{{ blok.position }} ver:{{ blok.positionvertical }}
+    </div>
     <img @click.native="openModal" :src="blok.image.filename" alt="" />
     <Teleport to="body">
       <Transition name="fade">
@@ -65,29 +68,35 @@ onMounted(() => {
   position: absolute
   left: 0
   top: 0
-  bottom: 0
-  &.one
-    left: random(14) + vw
-  &.two
-    left: random(14) + 29vw
-  &.three
-    left: random(14) + 43vw
-  &.four
-    left: random(14) + 57vw
-  &.five
-    left: random(14) + 71vw
+  width: 33vw
+  height: 33vw
+  &-Indicator
+    position: absolute
+    top: 0
+    left: 0
+    font-size: .8rem
+    text-transform: uppercase
+    font-family: Arial, Helvetica, sans-serif
+  &.left
+    left: 0
+  &.middle
+    left: 33vw
+  &.right
+    left: 66vw
   &.top
     top: 0
   &.center
-    top: 25%
-    translform: translateY(-50%)
+    top: 42%
+    transform: translateY(-50%)
   &.bottom
-    top: 50%
-    translform: translateY(-50%)
+    top: auto
+    bottom: 16%
+    // transform: translateY(-50%)
   img
-    width: 30vw
-    height: auto
+    width: 100%
+    height: 100%
     object-fit: contain
     object-position: center center
+    border: 1px solid blue
 </style>
 ```

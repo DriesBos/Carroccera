@@ -1,13 +1,12 @@
 <template>
-  <footer>
-    <!-- <FooterImage /> -->
+  <footer class="footer">
     <img src="~assets/img/footer.png" alt="" />
   </footer>
 </template>
 
 <style scoped lang="sass">
 footer
-  position: absolute
+  position: relative
   bottom: 0
   width: 100vw
   z-index: +1
@@ -16,7 +15,3 @@ footer
     max-width: 100%
     height: auto
 </style>
-
-<!-- <script setup>
-import FooterImage from '../assets/img/footer.png?component';
-</script> -->

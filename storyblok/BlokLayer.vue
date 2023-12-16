@@ -17,7 +17,9 @@ defineProps({ blok: Object });
 .blokLayer
   position: relative
   width: 100vw
+  height: auto
   overflow-x: hidden
+  border: 1px solid green
   img
       width: 100%
       max-width: 100%
