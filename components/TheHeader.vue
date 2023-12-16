@@ -1,10 +1,12 @@
 <template>
   <header class="header">
-    <div @click="toggleActive" class="header-Logo mouseInteract">
-      Carroccera Collective
+    <div @click="toggleActive" class="header-Menu mouseInteract">
+      <div class="icon">
+        <img src="~/assets/icons/menu.png" alt="" />
+      </div>
     </div>
     <Transition name="fade">
-      <div v-show="isActive" class="header-Nav">
+      <div v-show="isActive" class="header-List">
         <ul>
           <li class="mouseInteract">About</li>
           <li class="mouseInteract">Rewild</li>
@@ -28,34 +30,46 @@ function toggleActive() {
 
 <style lang="sass" scoped>
 .header
-  position: absolute
-  top: 50vh
-  left: 50%
-  transform: translate(-50%, -50%)
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  color: white
-  font-size: 2.5rem
-  font-family: Georgia, 'Times New Roman', Times, serif
-  z-index: +1
-  &-Logo
-    padding: 0 1em
-    margin-bottom: 1rem
+  position: fixed
+  top: 0
+  right: 0
+  width: 100%
+  height: 100%
+  z-index: 777
+  &-Menu
+    position: absolute
+    top: 1rem
+    right: 1rem
+    width: 44px
+    height: 44px
+    background: rgba(255, 255, 255, 0.33)
+    border-radius: 1000px
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: +1
     &::selection
       background: transparent
-      color: white
-  &-Nav
+      color: transparent
+  &-List
+    position: absolute
+    top: 1rem
+    right: 1rem
+    background: rgba(255, 255, 255, 0.33)
+    padding-right: 44px
+    border-radius: 20px
+    @media (max-width: 768px)
+      left: 1rem
     ul
+      padding: 2rem
       display: flex
       flex-direction: column
-      align-items: center
+      align-items: flex-start
+      gap: .33rem
       li
-        padding: 0 .5em
-        margin-bottom: .5em
         color: white
-        font-size: 1.8rem
-        font-family: Georgia, 'Times New Roman', Times, serif
+        font-size: 1rem
+        font-family: 'Sohne Buch', sans-serif
         &::selection
           background: transparent
           color: white
