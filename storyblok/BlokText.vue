@@ -1,6 +1,14 @@
 <template>
-  <div v-editable="blok" class="blok blokText">
-    <div v-html="$mdRenderer.render(blok.content)" class="markdown" />
+  <div
+    v-editable="blok"
+    class="blok blokText"
+    :class="{ large: blok.size === 'large' }"
+  >
+    <div
+      v-html="$mdRenderer.render(blok.content)"
+      class="markdown"
+      :class="{ large: blok.size === 'large' }"
+    />
   </div>
 </template>
 
@@ -16,6 +24,7 @@ onBeforeMount(() => {
 </script>
 
 <style lang="sass" scoped>
-.markdown p
-  white-space: pre-line
+.markdown
+  p
+    white-space: pre-line
 </style>

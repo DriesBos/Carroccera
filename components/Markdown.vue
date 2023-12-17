@@ -13,6 +13,7 @@ console.log('markdown', props);
 
 <style lang="sass" scoped>
 // Prefer style handling by cascading css (typography.sass) as much as possible.
-.markdown p
-  white-space: pre-line
+.markdown
+  p
+    white-space: pre-line
 </style>
