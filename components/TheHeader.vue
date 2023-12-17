@@ -1,9 +1,8 @@
 <template>
   <header class="header">
     <div @click="toggleActive" class="header-Menu mouseInteract">
-      <div class="icon">
-        <img src="~/assets/icons/menu.png" alt="" />
-      </div>
+      <h1>Menu</h1>
+      <div class="dot" />
     </div>
     <Transition name="fade">
       <div v-show="isActive" class="header-List">
@@ -36,21 +35,39 @@ function toggleActive() {
   width: 100%
   height: 100%
   z-index: 777
+  pointer-events: none
   &-Menu
     position: absolute
-    top: 1rem
-    right: 1rem
-    width: 44px
-    height: 44px
-    background: rgba(255, 255, 255, 0.33)
-    border-radius: 1000px
+    top: 1.5rem
+    right: 2rem
     display: flex
-    justify-content: center
     align-items: center
     z-index: +1
+    gap: 1rem
+    color: white
+    pointer-events: all
+    @media (max-width: 768px)
+      gap: .5rem
+      top: 1rem
+      right: 1rem
+    h1, p
+      font-size: 1.1rem
+      color: currentColor
+      font-family: $sans-serif
     &::selection
       background: transparent
       color: transparent
+    & .dot
+      width: 1rem
+      height: 1rem
+      border-radius: 50%
+      background: white
+      pointer-events: all
+      cursor: pointer
+      transition: all .33s ease
+      &:hover
+        transform: scale(1.1)
+
   &-List
     position: absolute
     top: 1rem
@@ -69,7 +86,7 @@ function toggleActive() {
       li
         color: white
         font-size: 1rem
-        font-family: 'Sohne Buch', sans-serif
+        font-family: $sans-serif
         &::selection
           background: transparent
           color: white
