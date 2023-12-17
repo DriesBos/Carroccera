@@ -1,5 +1,5 @@
 <template>
-  <div @click="scrollTop" class="scrollUp">
+  <div @click="scrollTop" class="scrollUp mouseInteract">
     <p>To Top</p>
     <div class="dot dot-Up" />
   </div>

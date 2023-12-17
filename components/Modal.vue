@@ -8,6 +8,9 @@
       <div @click.native="$emit('close')" class="modal-Close mouseInteract">
         <h1>close x</h1>
       </div>
+      <div class="modal-Tag mouseInteract">
+        <h1>Project</h1>
+      </div>
     </div>
   </div>
 </template>
@@ -23,53 +26,57 @@
   width: 100vw
   height: 100vh
   z-index: $z-modal
-
-  // &-Background
-  //   position: absolute
-  //   width: 100%
-  //   height: 100%
-  //   background: hsla(0,0%,0%,.5 )
-  //   z-index: -1
-
   &-Container
     position: relative
     width: 100%
     height: 100%
     background: white
-
   &-Close
     position: absolute
-    top: 1rem
-    right: 2rem
-
+    top: var(--spacing-ver)
+    right: var(--spacing-hor)
+  &-Tag
+    position: absolute
+    top: var(--spacing-ver)
+    left: var(--spacing-hor)
   &-Content
     position: relative
     width: 100%
-    height: 100%
-    &_Horizontal
+    height: 100vh
+    border: $border
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    & > div
+      flex: 1
+  &-Column
+    border: $border
+    &_One
       position: relative
       width: 100%
       height: 100%
-      padding: 3rem 2rem
-      padding-top: 5rem
-      display: flex
-      flex-direction: row
-      flex-wrap: nowrap
-      & > div
-        flex: 1
-        flex-shrink: 0
-    &_Vertical
-      position: relative
-      width: 100%
-      height: 100%
-      padding: 3rem 2rem
-      padding-top: 5rem
       display: flex
       flex-direction: column
       align-items: center
       overflow-y: auto
+      padding: var(--spacing-ver) var(--spacing-hor)
+      padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
       & > div
-        max-width: 50rem
+        flex: 1
+        flex-shrink: 0
+        margin-bottom: var(--spacing-ver)
+    &_Two
+      position: relative
+      width: 100%
+      height: 100%
+      display: flex
+      flex-direction: row
+      flex-wrap: nowrap
+      padding: var(--spacing-ver) var(--spacing-hor)
+      padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
+      & > div
+        flex: 1
+        flex-shrink: 0
 
 
 .modalSide

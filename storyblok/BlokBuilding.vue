@@ -16,14 +16,14 @@
           :class="{ active: isModalActive }"
           :blok="blok.body"
         >
-          <div v-if="blok.alignment === 'ver'" class="modal-Content_Vertical">
+          <div v-if="blok.body" class="modal-Column modal-Column_One">
             <StoryblokComponent
               v-for="blok in blok.body"
               :key="blok._uid"
               :blok="blok"
             />
           </div>
-          <div v-if="blok.alignment === 'hor'" class="modal-Content_Horizontal">
+          <div v-if="isTwoColumn" class="modal-Column modal-Column_Two">
             <StoryblokComponent
               v-for="blok in blok.layouthor"
               :key="blok._uid"
@@ -39,25 +39,35 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-defineProps({ blok: Object });
+const data = defineProps({ blok: Object });
 
 const isModalActive = ref(false);
 
-const ifHorizontal = false;
+const isTwoColumn = ref(false);
 
 function openModal() {
   isModalActive.value = true;
+  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   isModalActive.value = false;
+  document.body.style.overflow = 'auto';
 }
+
+const init = async () => {
+  // I want use props in this
+  // const { data } = await getRoomByNo(props.no)
+  if (data.blok.layouthor && data.blok.layouthor.length > 0) {
+    isTwoColumn.value = true;
+  }
+};
+init();
 
 onMounted(() => {
   // if (blok.value.layouthor) {
   //   ifHorizontal.value = true;
   // }
-  // console.log('ifHorizontal', ifHorizontal, blok.value);
 });
 </script>
 
@@ -68,6 +78,8 @@ onMounted(() => {
   top: 0
   width: 33vw
   height: 33vw
+  z-index: $z-buildings
+  pointer-events: all
   &-Indicator
     position: absolute
     top: 0
