@@ -1,6 +1,6 @@
 <template>
   <div class="blok blokSlider">
-    <div class="blokSlider-Image">
+    <div class="blokSlider-Image" :class="blok.ratio">
       <Transition name="fade">
         <img :key="currentImage" :src="images[currentImage].filename" alt="" />
       </Transition>
@@ -11,7 +11,7 @@
         @click="nextImage"
         class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
       >
-        <span> next </span>
+        <div class="dot" />
       </div>
     </Transition>
     <Transition name="fade">
@@ -20,7 +20,7 @@
         @click="prevImage"
         class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
       >
-        <span> prev </span>
+        <div class="dot" />
       </div>
     </Transition>
   </div>
@@ -81,29 +81,42 @@ export default {
 .blokSlider
   position: relative
   width: 100%
-  height: 100%
+  border: $border
   &-Nav
     position: absolute
     top: 50%
     transform: translateY(-50%)
-    width: 33.3333%
-    height: 100%
-    display: flex
-    justify-content: center
-    align-items: center
-    span
+    color: black
+    mix-blend-mode: difference
+    .dot
+      width: 1rem
+      height: 1rem
+      border-radius: 1000px
+      pointer-events: all
+      cursor: pointer
       background: white
-    &.blokSlider-Nav_Next
-      right: 0
-    &.blokSlider-Nav_Prev
-      left: 0
+      transition: all .33s ease
+    &_Next
+      right: var(--spacing-hor)
+    &_Prev
+      left: var(--spacing-hor)
   &-Image
     position: relative
     width: 100%
-    height: 100%
     img
       width: 100%
       height: 100%
       object-fit: contain
       object-position: center center
+
+.square
+  aspect-ratio: auto 1 / 1
+.landscape
+  aspect-ratio: auto 3 / 2
+.video
+  aspect-ratio: auto 4 / 3
+.wide
+  aspect-ratio: auto 16 / 9
+.full
+  width: 100%
 </style>

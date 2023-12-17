@@ -58,7 +58,7 @@
       h1
         max-width: 50vw
         @media screen and ( max-width: $breakpoint-tablet)
-          width: 100%
+          max-width: 100%
     &_One
       position: relative
       width: 100%
