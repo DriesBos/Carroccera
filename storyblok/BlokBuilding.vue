@@ -76,7 +76,7 @@ onMounted(() => {
     left: 0
     font-size: .8rem
     text-transform: uppercase
-    font-family: Arial, Helvetica, sans-serif
+    font-family: $sans-serif
   &.left
     left: 0
   &.middle

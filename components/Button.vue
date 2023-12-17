@@ -18,7 +18,7 @@
   gap: 1rem
   align-items: center
   h1
-    font-family: 'Signifier Medium', serif
+    font-family: $serif
     font-size: 1.5rem
     color: currentColor
   &-LogoNav

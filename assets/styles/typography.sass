@@ -1,21 +1,22 @@
 
 @font-face
-  font-family: 'Signifier Medium'
-  src: url('~assets/fonts/Signifier/test-signifier-medium.woff2') format('woff2')
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-medium.woff2') format('woff2')
   font-weight: normal
   font-style: normal
 
 @font-face
-  font-family: 'Sohne Buch'
-  src: url('~assets/fonts/sohne/normal/buch.woff2') format('woff2')
+  font-family: 'Sohne'
+  src: url('~/assets/fonts/sohne/normal/buch.woff2') format('woff2')
   font-weight: normal
   font-style: normal
 
-// @font-face
-//   font-family: ''
-//   src: url('~assets/fonts/') format('')
-//   font-weight: bold
-//   font-style: normal
+@font-face
+  font-family: 'Suisse'
+  src: url('~/assets/fonts/suisse.woff') format('woff')
+  font-weight: normal
+  font-style: normal
+
 
 // https://www.madebymike.com.au/writing/fluid-type-calc-examples/
 html
@@ -28,6 +29,10 @@ html
 @media screen and (min-width: 2000px)
   html
     font-size: 18px
+
+body
+  text-rendering: optimizeLegibility
+  font-kerning: normal
 
 h1, h2, h3, p, a
   word-wrap: break-word
@@ -42,7 +47,7 @@ h1, h2, h3, p, a
   hyphens: none
 
 li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, span, input, button
-  font-family: Helvetica, Arial, sans-serif
+  font-family: $sans-serif
   line-height: 1.5
   color: black
   font-style: normal
