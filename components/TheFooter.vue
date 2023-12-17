@@ -9,7 +9,7 @@ footer
   position: relative
   bottom: 0
   width: 100vw
-  z-index: +1
+  z-index: $z-footer
   img, svg
     width: 100%
     max-width: 100%

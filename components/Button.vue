@@ -11,7 +11,6 @@
   background: rgba(255, 255, 255, 0.33)
   padding: .5rem 4rem
   height: 44px
-  z-index: 888
   border-radius: 1000px
   color: white
   display: flex

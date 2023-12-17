@@ -81,7 +81,7 @@ function onMouseHoverModalOut(e) {
   background: white
   width: 1.5rem
   height: 1.5rem
-  z-index: 999
+  z-index: $z-mouse
   border-radius: 50%
   transform: translate(-50%, -50%)
   pointer-events: none

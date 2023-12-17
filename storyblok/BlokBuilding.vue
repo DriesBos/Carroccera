@@ -9,7 +9,7 @@
     </div>
     <img @click.native="openModal" :src="blok.image.filename" alt="" />
     <Teleport to="body">
-      <Transition name="fade">
+      <Transition name="slideUp">
         <Modal
           v-show="isModalActive"
           @close="closeModal"
@@ -62,8 +62,6 @@ onMounted(() => {
 </script>
 
 <style lang="sass" scoped>
-.test
-  z-index: 999
 .blokBuilding
   position: absolute
   left: 0

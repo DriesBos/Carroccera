@@ -1,5 +1,8 @@
 <template>
   <header class="header">
+    <div class="header-Logo mouseInteract">
+      <h1>Carroccera Collective</h1>
+    </div>
     <div @click="toggleActive" class="header-Menu mouseInteract">
       <h1>Menu</h1>
       <div class="dot" />
@@ -34,26 +37,37 @@ function toggleActive() {
   right: 0
   width: 100%
   height: 100%
-  z-index: 777
+  z-index: $z-header
   pointer-events: none
+  color: white
+  mix-blend-mode: difference
+  & > div
+    pointer-events: all
+    h1, p
+      font-size: 1.1rem
+      color: currentColor
+      font-family: $sans-serif
+      line-height: 1.2em
+  &-Logo
+    position: absolute
+    top: 1.5rem
+    left: 2rem
+    @media (max-width: 768px)
+      gap: .5rem
+      top: 1rem
+      left: 1rem
+      width: 10em
   &-Menu
     position: absolute
     top: 1.5rem
     right: 2rem
     display: flex
     align-items: center
-    z-index: +1
     gap: 1rem
-    color: white
-    pointer-events: all
     @media (max-width: 768px)
       gap: .5rem
       top: 1rem
       right: 1rem
-    h1, p
-      font-size: 1.1rem
-      color: currentColor
-      font-family: $sans-serif
     &::selection
       background: transparent
       color: transparent

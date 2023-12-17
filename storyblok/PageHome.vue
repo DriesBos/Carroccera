@@ -86,7 +86,7 @@ defineProps({ blok: Object });
   position: relative
 .landscape
   position: relative
-  width:100vw
+  width: 100vw
   display: flex
   flex-direction: column
   justify-content: flex-start
