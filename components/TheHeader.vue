@@ -72,9 +72,6 @@ function toggleActive() {
       pointer-events: all
       cursor: pointer
       transition: all .33s ease
-      &:hover
-        transform: scale(1.1)
-
   &-List
     position: absolute
     top: 1rem
