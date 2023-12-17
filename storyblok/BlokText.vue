@@ -1,14 +1,6 @@
 <template>
-  <div
-    v-editable="blok"
-    class="blok blokText"
-    :class="{ large: blok.size === 'large' }"
-  >
-    <div
-      v-html="$mdRenderer.render(blok.content)"
-      class="markdown"
-      :class="{ large: blok.size === 'large' }"
-    />
+  <div v-editable="blok" class="blok blokText">
+    <div v-html="$mdRenderer.render(blok.content)" class="markdown" />
   </div>
 </template>
 
