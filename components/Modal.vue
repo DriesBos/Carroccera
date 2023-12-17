@@ -6,10 +6,10 @@
         <slot></slot>
       </div>
       <div @click.native="$emit('close')" class="modal-Close mouseInteract">
-        <h1>close x</h1>
+        <p>close x</p>
       </div>
       <div class="modal-Tag mouseInteract">
-        <h1>Project</h1>
+        <p>Project</p>
       </div>
     </div>
   </div>
@@ -43,14 +43,22 @@
     position: relative
     width: 100%
     height: 100vh
-    border: $border
     display: flex
     flex-direction: row
-    flex-wrap: wrap
+    @media screen and ( max-width: $breakpoint-tablet)
+      flex-direction: column
+      gap: var(--spacing-one)
     & > div
       flex: 1
   &-Column
-    border: $border
+    &_Title
+      display: flex
+      width: 100%
+      max-width: 100vw
+      h1
+        max-width: 50vw
+        @media screen and ( max-width: $breakpoint-tablet)
+          width: 100%
     &_One
       position: relative
       width: 100%
@@ -61,8 +69,8 @@
       overflow-y: auto
       padding: var(--spacing-ver) var(--spacing-hor)
       padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
+      flex: 1
       & > div
-        flex: 1
         flex-shrink: 0
         margin-bottom: var(--spacing-ver)
     &_Two
@@ -74,8 +82,8 @@
       flex-wrap: nowrap
       padding: var(--spacing-ver) var(--spacing-hor)
       padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
+      flex: 1
       & > div
-        flex: 1
         flex-shrink: 0
 
 

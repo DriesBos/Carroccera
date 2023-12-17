@@ -17,6 +17,9 @@
           :blok="blok.body"
         >
           <div v-if="blok.body" class="modal-Column modal-Column_One">
+            <div v-if="blok.title" class="modal-Column_Title">
+              <h1>{{ blok.title }}</h1>
+            </div>
             <StoryblokComponent
               v-for="blok in blok.body"
               :key="blok._uid"

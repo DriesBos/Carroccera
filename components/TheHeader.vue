@@ -1,10 +1,10 @@
 <template>
   <header class="header">
     <div class="header-Logo mouseInteract">
-      <h1>Carroccera Collective</h1>
+      <p>Carroccera Collective</p>
     </div>
     <div @click="toggleActive" class="header-Menu mouseInteract">
-      <h1>Menu</h1>
+      <p>Menu</p>
       <div class="dot" />
     </div>
     <Transition name="fade">

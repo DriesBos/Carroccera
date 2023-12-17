@@ -41,6 +41,13 @@ h1, h2, h3, p, a
   hyphens: auto
   word-break: keep-all
 
+p
+  font-size: $type-size-p
+  line-height: 1.222em
+h1
+  font-size: $type-size-h1
+  line-height: 1.111em
+
 .markdown p // No broken words in regular sized text paragraphs
   word-wrap: normal
   word-break: normal
@@ -49,7 +56,6 @@ h1, h2, h3, p, a
 
 li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, span, input, button
   font-family: $sans-serif
-  line-height: 1.5
   color: black
   font-style: normal
   font-weight: normal
@@ -57,10 +63,6 @@ li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, 
   -moz-osx-font-smoothing: grayscale
 
 .markdown
-  p
-    font-size: $type-size-p
-  h1
-    font-size: $type-size-h1
   a
     text-decoration: underline
     cursor: none
