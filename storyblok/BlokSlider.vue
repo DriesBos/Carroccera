@@ -77,7 +77,7 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
 .blokSlider
   position: relative
   width: 100%
@@ -97,9 +97,9 @@ export default {
       background: white
       transition: all .33s ease
     &_Next
-      right: var(--spacing-hor)
+      right: .1rem
     &_Prev
-      left: var(--spacing-hor)
+      left: .1rem
   &-Image
     position: relative
     width: 100%
@@ -109,14 +109,21 @@ export default {
       object-fit: contain
       object-position: center center
 
-.square
-  aspect-ratio: auto 1 / 1
-.landscape
-  aspect-ratio: auto 3 / 2
-.video
-  aspect-ratio: auto 4 / 3
-.wide
-  aspect-ratio: auto 16 / 9
-.full
-  width: 100%
+.modal-Column_One
+  .square
+    aspect-ratio: auto 1 / 1
+  .landscape
+    aspect-ratio: auto 3 / 2
+  .video
+    aspect-ratio: auto 4 / 3
+  .wide
+    aspect-ratio: auto 16 / 9
+  .full
+    width: 100%
+
+.modal-Column_Two
+  .blokSlider
+    height: 100%
+    &-Image
+      height: 100%
 </style>
