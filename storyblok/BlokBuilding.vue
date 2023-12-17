@@ -95,6 +95,6 @@ onMounted(() => {
     height: 100%
     object-fit: contain
     object-position: center center
-    border: 1px solid green
+    border: $border
 </style>
 ```

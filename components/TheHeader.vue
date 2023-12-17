@@ -44,37 +44,30 @@ function toggleActive() {
   & > div
     pointer-events: all
     h1, p
-      font-size: 1.1rem
       color: currentColor
-      font-family: $sans-serif
       line-height: 1.2em
   &-Logo
     position: absolute
-    top: 1.5rem
-    left: 2rem
+    top: var(--spacing-ver)
+    left: var(--spacing-hor)
     @media (max-width: 768px)
-      gap: .5rem
-      top: 1rem
-      left: 1rem
       width: 10em
   &-Menu
     position: absolute
-    top: 1.5rem
-    right: 2rem
+    top: var(--spacing-ver)
+    right: var(--spacing-hor)
     display: flex
     align-items: center
     gap: 1rem
     @media (max-width: 768px)
       gap: .5rem
-      top: 1rem
-      right: 1rem
     &::selection
       background: transparent
       color: transparent
     & .dot
       width: 1rem
       height: 1rem
-      border-radius: 50%
+      border-radius: 1000px
       background: white
       pointer-events: all
       cursor: pointer
@@ -88,7 +81,6 @@ function toggleActive() {
     right: 1rem
     background: rgba(255, 255, 255, 0.33)
     padding-right: 44px
-    border-radius: 20px
     @media (max-width: 768px)
       left: 1rem
     ul
@@ -99,8 +91,6 @@ function toggleActive() {
       gap: .33rem
       li
         color: white
-        font-size: 1rem
-        font-family: $sans-serif
         &::selection
           background: transparent
           color: white

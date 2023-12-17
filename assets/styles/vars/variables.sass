@@ -1,5 +1,6 @@
 $breakpoint-mobile: 800px
-$breakpoint-laptop: 1440px
+$breakpoint-tablet: 1100px
+$breakpoint-laptop: 1400px
 
 // Z-INDEX
 $z-footer: 200
@@ -13,16 +14,11 @@ $color-white: white
 $color-secondary: #abb8c3
 $lineheight: 1.5rem
 $type-size-p: 1rem
-$type-size-h1: 2rem
-$type-size-h2: 3rem
-$type-size-h3: 4rem
-$type-size-h4: 5rem
-$type-size-h5: 6rem
-$type-size-blockquote: 6rem
+$type-size-h1: 1.857rem
 
 // COLORS
-$color-support: blue
-$border: 1px solid blue
+$color-support: green
+$border: 1px solid green
 
 // FONTS
 $serif: 'Signifier',Georgia,Garamond,Times,serif
@@ -34,10 +30,17 @@ $trans-img: .33s ease-in
 
 // SPACING
 body
-  --spacing-one: 2vmin
-  --spacing-two: 4vmin
-  --spacing-three: 8vmin
+  --spacing-one: 2.2rem
+  --spacing-two: 4.4rem
+  --spacing-ver: 1.7rem
+  --spacing-hor: 2.2rem
+  @media screen and ( max-width: $breakpoint-tablet)
+    --spacing-one: 1.333rem
+    --spacing-two: 1.333rem
+    --spacing-ver: 1.333rem
+    --spacing-hor: 1.333rem
   @media screen and ( max-width: $breakpoint-mobile)
-    --spacing-one: 1em
-    --spacing-two: 1em
-    --spacing-three: 2em
+    --spacing-one: 1rem
+    --spacing-two: 1rem
+    --spacing-ver: 1rem
+    --spacing-hor: 1rem

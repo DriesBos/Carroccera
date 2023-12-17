@@ -2,11 +2,11 @@
   <div class="modal">
     <!-- <div class="modal-Background mouseInteract" @click="$emit('close')"></div> -->
     <div class="modal-Container mouseInvert">
-      <div @click.native="$emit('close')" class="modal-Close mouseInteract">
-        <h1>close x</h1>
-      </div>
       <div class="modal-Content">
         <slot></slot>
+      </div>
+      <div @click.native="$emit('close')" class="modal-Close mouseInteract">
+        <h1>close x</h1>
       </div>
     </div>
   </div>
@@ -36,7 +36,6 @@
     width: 100%
     height: 100%
     background: white
-    border-radius: 0
 
   &-Close
     position: absolute
@@ -87,7 +86,6 @@
   right: 3vmin
   bottom: 3vmax
   left: 3vmin
-  border-radius: .5rem
 
 .modalContent
   max-width: 50vw
