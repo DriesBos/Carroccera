@@ -1,8 +1,66 @@
 
+// font-weight: 100 thin
+// font-weight: 200 extralight
+// font-weight: 300 light
+// font-weight: 400 regular
+// font-weight: 500 medium
+// font-weight: 600
+// font-weight: 700 bold
+// font-weight: 800 black
+// font-weight: 900
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-black.woff2') format('woff2')
+  font-weight: 800
+  font-style: normal
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-black-italic.woff2') format('woff2')
+  font-weight: 800
+  font-style: italic
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-bold.woff2') format('woff2')
+  font-weight: 700
+  font-style: normal
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-bold-italic.woff2') format('woff2')
+  font-weight: 700
+  font-style: italic
+
 @font-face
   font-family: 'Signifier'
   src: url('~/assets/fonts/Signifier/test-signifier-medium.woff2') format('woff2')
-  font-weight: normal
+  font-weight: 500
+  font-style: normal
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-regular.woff2') format('woff2')
+  font-weight: 400
+  font-style: normal
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-light.woff2') format('woff2')
+  font-weight: 300
+  font-style: normal
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-extralight.woff2') format('woff2')
+  font-weight: 200
+  font-style: normal
+
+@font-face
+  font-family: 'Signifier'
+  src: url('~/assets/fonts/Signifier/test-signifier-thin.woff2') format('woff2')
+  font-weight: 100
   font-style: normal
 
 @font-face
@@ -48,19 +106,30 @@ li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, 
 
 p // Body
   font-size: $type-size-p
+  font-weight: normal
   line-height: $lineheight-p
 h1 // Heading
   font-size: $type-size-h1
-  color: $color-black
+  font-weight: normal
   line-height: $lineheight-h1
 h2 // Serif Heading
   font-family: $serif
   font-size: $type-size-h1
+  font-weight: 700
   line-height: $lineheight-serif-h1
+  strong
+    font-weight: 800
+  em
+    font-style: italic
 h3 // Serif Body
   font-family: $serif
   font-size: $type-size-p
+  font-weight: 400
   line-height: $lineheight-serif-p
+  strong
+    font-weight: 700
+  em
+    font-style: italic
 h6 // Caption
   font-family: $sans-serif
   font-size: $type-size-p
