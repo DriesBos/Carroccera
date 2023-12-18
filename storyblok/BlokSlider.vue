@@ -85,7 +85,7 @@ export default {
 .blokSlider
   position: relative
   width: 100%
-  border: $border
+  // border: $border
   &-Nav
     position: absolute
     top: 50%
@@ -93,7 +93,6 @@ export default {
     color: black
     // mix-blend-mode: difference
     padding: var(--spacing-one)
-    border: $border
     .dot
       width: 1rem
       height: 1rem

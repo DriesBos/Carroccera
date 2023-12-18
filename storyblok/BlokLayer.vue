@@ -19,7 +19,7 @@ defineProps({ blok: Object });
   width: 100vw
   height: auto
   overflow-x: hidden
-  border: $border
+  // border: $border
   pointer-events: none
   img
       width: 100%
