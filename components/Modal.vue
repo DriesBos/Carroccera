@@ -1,6 +1,5 @@
 <template>
   <div class="modal">
-    <!-- <div class="modal-Background mouseInteract" @click="$emit('close')"></div> -->
     <div class="modal-Container mouseInvert">
       <div class="modal-Content">
         <slot></slot>
@@ -41,7 +40,7 @@
     display: flex
     align-items: center
     gap: 1rem
-    @media (max-width: 768px)
+    @media screen and (max-width: $breakpoint-mobile)
       gap: .5rem
     .icon
       width: 1rem
@@ -65,7 +64,11 @@
       gap: var(--spacing-one)
     & > div
       flex: 1
-  &-Column
+  &-Column // Styling for columns
+    position: relative
+    width: 100%
+    & > div
+      flex-shrink: 0
     &_Title
       display: flex
       width: 100%
@@ -77,18 +80,15 @@
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
     &_One
-      position: relative
-      width: 100%
-      height: 100%
       display: flex
       flex-direction: column
+      justify-content: flex-start
       align-items: center
       overflow-y: auto
       padding: var(--spacing-ver) var(--spacing-hor)
       padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
       flex: 1
       & > div
-        flex-shrink: 0
         margin-bottom: var(--spacing-two)
         &:first-child
           margin-top: var(--spacing-two)
@@ -103,7 +103,25 @@
       padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
       flex: 1
       & > div
-        flex-shrink: 0
+        @media screen and (max-width: $breakpoint-tablet)
+          flex-direction: column
+          align-items: center
+          overflow-y: none
+
+  &.isTwoColumn
+    .modal-Content // When two columns AND mobile-tablet
+      @media screen and (max-width: $breakpoint-tablet)
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        height: 100%
+        overflow-y: auto
+        & > div
+          flex-shrink: 0
+          justify-content: flex-start
+          height: auto
+          overflow-y: unset
+
 
 
 .modalSide

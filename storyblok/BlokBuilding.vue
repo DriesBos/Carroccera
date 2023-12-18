@@ -13,7 +13,7 @@
         <Modal
           v-show="isModalActive"
           @close="closeModal"
-          :class="{ active: isModalActive }"
+          :class="{ active: isModalActive, isTwoColumn: isTwoColumn }"
           :blok="blok.body"
         >
           <div v-if="blok.body" class="modal-Column modal-Column_One">
