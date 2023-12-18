@@ -87,6 +87,8 @@ function onMouseHoverModalOut(e) {
   pointer-events: none
   @media (pointer: none)
     display: none
+  @media (pointer: course)
+    display: none
   &.active
     width: 3rem
     height: 3rem
