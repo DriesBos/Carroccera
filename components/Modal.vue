@@ -76,7 +76,6 @@
       h1
         max-width: 50vw
         margin-bottom: var(--spacing-two)
-        border: $border
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
     &_One

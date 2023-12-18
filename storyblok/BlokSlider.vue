@@ -1,7 +1,7 @@
 <template>
   <div class="blok blokSlider">
     <div class="blokSlider-Image" :class="blok.ratio">
-      <Transition name="fade">
+      <Transition name="sliderFade">
         <img :key="currentImage" :src="images[currentImage].filename" alt="" />
       </Transition>
     </div>
@@ -85,7 +85,6 @@ export default {
 .blokSlider
   position: relative
   width: 100%
-  // border: $border
   &-Nav
     position: absolute
     top: 50%
@@ -107,6 +106,7 @@ export default {
   &-Image
     position: relative
     width: 100%
+    overflow: hidden
     img
       width: 100%
       height: 100%
