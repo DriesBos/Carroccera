@@ -6,7 +6,10 @@
         <slot></slot>
       </div>
       <div @click.native="$emit('close')" class="modal-Close mouseInteract">
-        <p>close x</p>
+        <p>Close</p>
+        <div class="icon icon-Close">
+          <img src="~assets/icons/close.png" alt="" />
+        </div>
       </div>
       <div class="modal-Tag mouseInteract">
         <p>Project</p>
@@ -35,6 +38,18 @@
     position: absolute
     top: var(--spacing-ver)
     right: var(--spacing-hor)
+    display: flex
+    align-items: center
+    gap: 1rem
+    @media (max-width: 768px)
+      gap: .5rem
+    .icon
+      width: 1rem
+      height: 1rem
+      img
+        width: 100%
+        height: 100%
+        object-fit: contain
   &-Tag
     position: absolute
     top: var(--spacing-ver)
