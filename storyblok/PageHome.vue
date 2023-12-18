@@ -12,6 +12,7 @@
     <ToTop />
     <TheHeader />
     <TheFooter />
+    <TheFooterNav />
   </div>
 </template>
 
