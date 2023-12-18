@@ -85,6 +85,8 @@ function onMouseHoverModalOut(e) {
   border-radius: 50%
   transform: translate(-50%, -50%)
   pointer-events: none
+  @media (pointer: none)
+    display: none
   &.active
     width: 3rem
     height: 3rem

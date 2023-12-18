@@ -70,7 +70,6 @@ function toggleActive() {
       border-radius: 1000px
       background: white
       pointer-events: all
-      cursor: pointer
       transition: all .33s ease
   &-List
     position: absolute

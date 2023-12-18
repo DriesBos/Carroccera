@@ -93,7 +93,6 @@ export default {
       height: 1rem
       border-radius: 1000px
       pointer-events: all
-      cursor: pointer
       background: white
       transition: all .33s ease
     &_Next

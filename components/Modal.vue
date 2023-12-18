@@ -11,7 +11,7 @@
           <img src="~assets/icons/close.png" alt="" />
         </div>
       </div>
-      <div class="modal-Tag mouseInteract">
+      <div class="modal-Tag">
         <p>Project</p>
       </div>
     </div>
