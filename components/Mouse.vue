@@ -86,7 +86,7 @@ function onMouseHoverModalOut(e) {
   border-radius: 50%
   transform: translate(-50%, -50%)
   pointer-events: none
-  @media (pointer: fine)
+  @media (hover: hover)
     display: inline-block
   &.active
     width: 3rem
