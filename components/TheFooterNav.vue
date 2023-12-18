@@ -9,7 +9,7 @@
           </a>
         </div>
         <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink to="/terms">Terms</NuxtLink>
+          <NuxtLink class="underline" to="/terms">Terms</NuxtLink>
         </div>
       </div>
 

@@ -89,7 +89,4 @@ function toggleActive() {
           color: white
   a
     text-decoration: none
-    &:hover
-      text-decoration: underline
-      text-decoration-color: $color-secondary
 </style>
