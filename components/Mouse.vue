@@ -79,16 +79,15 @@ function onMouseHoverModalOut(e) {
   left: 0
   right: 0
   background: white
+  display: none
   width: 1.5rem
   height: 1.5rem
   z-index: $z-mouse
   border-radius: 50%
   transform: translate(-50%, -50%)
   pointer-events: none
-  @media (pointer: none)
-    display: none
-  @media (pointer: course)
-    display: none
+  @media (pointer: fine)
+    display: inline-block
   &.active
     width: 3rem
     height: 3rem
