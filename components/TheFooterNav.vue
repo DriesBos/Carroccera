@@ -4,7 +4,7 @@
       <div class="footerBar-Column">
         <div class="footerBar-Column-Title">Contact</div>
         <div class="footerBar-Column-Link mouseInteract">
-          <a href="mailto:info@carrocerracollective.com">
+          <a class="underline" href="mailto:info@carrocerracollective.com">
             info@carrocerra.com
           </a>
         </div>
@@ -19,13 +19,17 @@
           <div class="icon icon-Instagram">
             <img src="~assets/icons/insta.png" alt="" />
           </div>
-          <a href="https://instagram.com" target="_blank">instagram</a>
+          <a class="underline" href="https://instagram.com" target="_blank"
+            >instagram</a
+          >
         </div>
         <div class="footerBar-Column-Link mouseInteract">
           <div class="icon icon-Twitter">
             <img src="~assets/icons/x.png" alt="" />
           </div>
-          <a href="https://twitter.com" target="_blank">twitter</a>
+          <a class="underline" href="https://twitter.com" target="_blank"
+            >twitter</a
+          >
         </div>
       </div>
     </div>
@@ -34,19 +38,19 @@
       <div class="footerBar-Column">
         <div class="footerBar-Column-Title">Sitemap</div>
         <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink to="#layer">Building One</NuxtLink>
+          <NuxtLink class="underline" to="#layer">Building One</NuxtLink>
         </div>
         <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink to="#layer">Building Two</NuxtLink>
+          <NuxtLink class="underline" to="#layer">Building Two</NuxtLink>
         </div>
         <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink to="#layer">Building Three</NuxtLink>
+          <NuxtLink class="underline" to="#layer">Building Three</NuxtLink>
         </div>
         <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink to="#layer">Building Four</NuxtLink>
+          <NuxtLink class="underline" to="#layer">Building Four</NuxtLink>
         </div>
         <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink to="#layer">Landscape One</NuxtLink>
+          <NuxtLink class="underline" to="#layer">Landscape One</NuxtLink>
         </div>
       </div>
 
@@ -105,7 +109,9 @@
       @media (max-width: 768px)
         gap: .5rem
       .underline
-        text-decoration: underline !important
+        text-decoration: underline
+        text-decoration-color: $color-secondary
         a
-          text-decoration: underline !important
+          text-decoration: underline
+          text-decoration-color: $color-secondary
 </style>
