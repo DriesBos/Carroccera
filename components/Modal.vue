@@ -72,6 +72,8 @@
       max-width: 100vw
       h1
         max-width: 50vw
+        margin-bottom: var(--spacing-two)
+        border: $border
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
     &_One
@@ -87,7 +89,9 @@
       flex: 1
       & > div
         flex-shrink: 0
-        margin-bottom: var(--spacing-ver)
+        margin-bottom: var(--spacing-two)
+        &:first-child
+          margin-top: var(--spacing-two)
     &_Two
       position: relative
       width: 100%
