@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       viewport: 'width=device-width, initial-scale=1',
-      title: 'title',
+      title: 'Carroccera Collective',
       htmlAttrs: {
         lang: 'en',
       },
