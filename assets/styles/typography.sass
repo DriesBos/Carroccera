@@ -35,13 +35,6 @@ h1, h2, h3, p, a
   hyphens: auto
   word-break: keep-all
 
-p
-  font-size: $type-size-p
-  line-height: 1.222em
-h1
-  font-size: $type-size-h1
-  line-height: 1.111em
-
 .markdown p // No broken words in regular sized text paragraphs
   word-wrap: normal
   word-break: normal
@@ -56,6 +49,27 @@ li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, 
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
+p // Body
+  font-size: $type-size-p
+  line-height: $lineheight-p
+h1, h1 a // Heading
+  font-size: $type-size-h1
+  color: $color-black
+  line-height: $lineheight-h1
+h2, h2 a // Serif Heading
+  font-family: $serif
+  font-size: $type-size-h1
+  line-height: $lineheight-serif-h1
+h3, h3 a // Serif Body
+  font-family: $serif
+  font-size: $type-size-p
+  line-height: $lineheight-serif-p
+h6, h6 a // Caption
+  font-family: $sans-serif
+  font-size: $type-size-p
+  line-height: $lineheight-p
+  color: $color-secondary
+
 .markdown
   a
     text-decoration: underline
@@ -68,8 +82,8 @@ li, h1, h2, h3, h4, h5, blockquote, p, a, a:link, a:visited, a:hover, a:active, 
     font-size: $type-size-h1
   // p, h1, h2, h3, h4, h5, blockquote
   //   margin-bottom: $lineheight
-  p
-    min-height: $lineheight
+  // p
+  //   min-height: $lineheight
 
 .ellipsis // Limit title to one line
   overflow: hidden

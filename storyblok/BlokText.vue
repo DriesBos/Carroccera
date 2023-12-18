@@ -15,8 +15,7 @@ onBeforeMount(() => {
 });
 </script>
 
-<style lang="sass" scoped>
-.markdown
-  p
-    white-space: pre-line
+<style lang="sass">
+.blokText
+  width: 100%
 </style>
