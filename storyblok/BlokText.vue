@@ -18,9 +18,6 @@ onBeforeMount(() => {
 <style lang="sass">
 .blokText
   width: 100%
-  p, h3
-    // border: $border
   h1, h2
     margin-bottom: var(--spacing-two)
-    // border: $border
 </style>

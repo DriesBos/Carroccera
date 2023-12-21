@@ -5,7 +5,18 @@
       :key="blok._uid"
       :blok="blok"
     />
-    <img :src="blok.background.filename" alt="" />
+    <img
+      v-if="blok.background.filename"
+      class="landscape"
+      :src="blok.background.filename"
+      alt=""
+    />
+    <img
+      v-if="blok.backgroundVertical.filename"
+      class="portrait"
+      :src="blok.backgroundVertical.filename"
+      alt=""
+    />
   </div>
 </template>
 
@@ -19,7 +30,7 @@ defineProps({ blok: Object });
   width: 100vw
   height: auto
   overflow-x: hidden
-  // border: $border
+  border: $border
   pointer-events: none
   img
       width: 100%

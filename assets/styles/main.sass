@@ -33,3 +33,21 @@ body
 
 .button
   padding: .5rem
+
+.desktop
+  @media screen and (max-width: $breakpoint-mobile)
+    display: none
+
+.mobile
+  @media screen and (min-width: $breakpoint-mobile)
+    display: none
+
+.landscape
+  display: none
+  @media (orientation: landscape)
+    display: inline-block
+
+.portrait
+  display: none
+  @media (orientation: portrait)
+    display: inline-block

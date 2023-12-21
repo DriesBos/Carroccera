@@ -4,10 +4,15 @@
     class="blokBuilding mouseInteract"
     :class="[blok.position, blok.positionvertical]"
   >
-    <!-- <div class="blokBuilding-Indicator">
+    <div class="blokBuilding-Indicator">
       hor:{{ blok.position }} ver:{{ blok.positionvertical }}
-    </div> -->
-    <img @click.native="openModal" :src="blok.image.filename" alt="" />
+    </div>
+    <img
+      v-if="blok.image.filename"
+      @click.native="openModal"
+      :src="blok.image.filename"
+      alt=""
+    />
     <Teleport to="body">
       <Transition name="slideUp">
         <Modal
@@ -110,6 +115,6 @@ onMounted(() => {
     height: 100%
     object-fit: contain
     object-position: center center
-    // border: $border
+    border: $border
 </style>
 ```
