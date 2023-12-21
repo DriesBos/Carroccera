@@ -4,9 +4,47 @@
       <div class="footerBar-Column">
         <div class="footerBar-Column-Title">Contact</div>
         <div class="footerBar-Column-Link mouseInteract">
+          <a class="underline" href="callto:0044848670933" target="_blank"
+            >+44 8 4867 0933</a
+          >
+        </div>
+        <div class="footerBar-Column-Link mouseInteract">
           <a class="underline" href="mailto:info@carrocerracollective.com">
             info@carrocerra.com
           </a>
+        </div>
+      </div>
+
+      <div class="footerBar-Column">
+        <div class="footerBar-Column-Title">Location</div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <p>Via Verde 1<br />28003 Cera, Italy</p>
+        </div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <a class="underline" href="https://maps.google.com" target="_blank"
+            >View on map</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="footerBar-Block">
+      <div class="footerBar-Column">
+        <div class="footerBar-Column-Title">Sitemap</div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <NuxtLink class="underline" to="#layer">Building One</NuxtLink>
+        </div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <NuxtLink class="underline" to="#layer">Building Two</NuxtLink>
+        </div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <NuxtLink class="underline" to="#layer">Building Three</NuxtLink>
+        </div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <NuxtLink class="underline" to="#layer">Building Four</NuxtLink>
+        </div>
+        <div class="footerBar-Column-Link mouseInteract">
+          <NuxtLink class="underline" to="#layer">Landscape One</NuxtLink>
         </div>
         <div class="footerBar-Column-Link mouseInteract">
           <NuxtLink class="underline" to="/terms">Terms</NuxtLink>
@@ -33,44 +71,6 @@
         </div>
       </div>
     </div>
-
-    <div class="footerBar-Block">
-      <div class="footerBar-Column">
-        <div class="footerBar-Column-Title">Sitemap</div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building One</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building Two</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building Three</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building Four</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Landscape One</NuxtLink>
-        </div>
-      </div>
-
-      <div class="footerBar-Column">
-        <div class="footerBar-Column-Title">Location</div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <p>Via Verde 1<br />28003 Cera, Italy</p>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <a class="underline" href="https://maps.google.com" target="_blank"
-            >View on map</a
-          >
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <a class="underline" href="callto:0044848670933" target="_blank"
-            >+44 8 4867 0933</a
-          >
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -89,6 +89,8 @@
   &-Block
     width: 100%
     display: flex
+    @media screen and ( max-width: $breakpoint-tablet)
+      padding: var(--spacing-ver) 0
     & > div
       flex: 1
   &-Column
