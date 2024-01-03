@@ -1,11 +1,28 @@
 <template>
   <div class="landingParallax">
-    <div class="sky">
-      <img src="~/assets/img/sky.png" alt="" />
+    <div class="sky landscape">
+      <img class="landscape" src="~/assets/img/Sky_Landscape.png" alt="" />
+      <img class="portrait" src="~/assets/img/Sky_Portrait.png" alt="" />
     </div>
+
     <div class="landingParallax_Stars stars panel box">
-      <img src="~assets/img/stars.png" alt="" />
+      <img class="landscape" src="~assets/img/Stars_Landscape.png" alt="" />
+      <img class="portrait" src="~assets/img/Stars_Portrait.png" alt="" />
     </div>
+
+    <div class="landingParallax_Constellation constelation panel box">
+      <img
+        class="landscape"
+        src="~assets/img/Constellation_Landscape.png"
+        alt=""
+      />
+      <img
+        class="portrait"
+        src="~assets/img/Constellation_Portrait.png"
+        alt=""
+      />
+    </div>
+
     <!-- <div class="landingParallax_Sun sun panel box">
       <img src="~assets/img/sun.png" alt="" />
     </div> -->
