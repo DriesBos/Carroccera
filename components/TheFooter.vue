@@ -1,6 +1,7 @@
 <template>
   <footer class="footer">
-    <img src="~assets/img/footer.png" alt="" />
+    <img class="landscape" src="~assets/img/Footer_Landscape.png" alt="" />
+    <img class="portrait" src="~assets/img/Footer_Portrait.png" alt="" />
   </footer>
 </template>
 
