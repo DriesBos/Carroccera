@@ -1,6 +1,6 @@
 <template>
   <div class="landingParallax">
-    <div class="sky landscape">
+    <div class="sky">
       <img class="landscape" src="~/assets/img/Sky_Landscape.png" alt="" />
       <img class="portrait" src="~/assets/img/Sky_Portrait.png" alt="" />
     </div>
@@ -10,7 +10,7 @@
       <img class="portrait" src="~assets/img/Stars_Portrait.png" alt="" />
     </div>
 
-    <div class="landingParallax_Constellation constelation panel box">
+    <div class="landingParallax_Constellation constellation panel box">
       <img
         class="landscape"
         src="~assets/img/Constellation_Landscape.png"
@@ -98,16 +98,17 @@ onUnmounted(() => {
       width: 100%
       max-width: 100%
       height: auto
-  // .sun
-  //   left: auto
-  //   width: 50vw
-  // .moon
-  //   right: auto
-  //   width: 50vw
   .sky
     position: relative
-    left: 0
-    top: 0
+    width: 100%
+    height: 100%
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover
+        object-position: top
+
+  .stars
     width: 100%
     height: 100%
     img
@@ -115,4 +116,14 @@ onUnmounted(() => {
         max-width: 100%
         height: 100%
         object-fit: cover
+        object-position: top
+
+  .constellation
+    width: 100%
+    height: 100%
+    img
+        width: 100%
+        max-width: 100%
+        height: 100%
+        object-fit: contain
 </style>
