@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="page-Home">
+  <div v-editable="blok" class="page page-Home">
     <Mouse />
     <Celestials />
     <div class="landscape">

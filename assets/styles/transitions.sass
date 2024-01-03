@@ -25,13 +25,13 @@
 .sliderFade-leave-to
   opacity: 0
 
-.slideFromRight-enter-active,
-.slideFromRight-leave-active
+.slideLeft-enter-active,
+.slideLeft-leave-active
   transition: 0.25s ease-in-out
   transform: translateX(0)
 
-.slideFromRight-enter-from,
-.slideFromRight-leave-to
+.slideLeft-enter-from,
+.slideLeft-leave-to
   transform: translateX(100%)
 
 .slideUp-enter-active,
@@ -42,3 +42,12 @@
 .slideUp-enter-from,
 .slideUp-leave-to
   transform: translateY(100%)
+
+.slideDown-enter-active,
+.slideDown-leave-active
+  transition: 0.25s ease-in-out
+  transform: translateY(0)
+
+.slideDown-enter-from,
+.slideDown-leave-to
+  transform: translateY(-100%)

@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <div class="header-Container">
+    <div class="header-TopContainer blend">
       <div class="header-Logo mouseInteract">
         <NuxtLink to="/"><p>Carroccera Collective</p></NuxtLink>
       </div>
@@ -9,7 +9,7 @@
         <div class="dot" />
       </div>
     </div>
-    <Transition name="slideUp">
+    <Transition name="slideDown">
       <div
         class="header-Modal"
         v-show="isActive"
@@ -22,17 +22,28 @@
           >
             <p>Close</p>
             <div class="icon icon-Close">
-              <img src="~assets/icons/close.png" alt="" />
+              <img src="~assets/icons/close-white.png" alt="" />
             </div>
           </div>
-          <!-- <div class="header-Modal_List">
-              <ul>
-                <li class="mouseInteract">About</li>
-                <li class="mouseInteract">Rewild</li>
-                <li class="mouseInteract">Build</li>
-                <li class="mouseInteract">Inspire</li>
-              </ul>
-            </div> -->
+          <div class="header-Modal_List">
+            <ul>
+              <li class="mouseInteract">
+                <NuxtLink to="/"><p>Carroccera Collective</p></NuxtLink>
+              </li>
+              <li></li>
+              <template v-if="headerMenu">
+                <li
+                  class="mouseInteract"
+                  v-for="blok in headerMenu"
+                  :key="blok._uid"
+                >
+                  <NuxtLink :to="blok.link.cached_url">
+                    {{ blok.link.story.name }}
+                  </NuxtLink>
+                </li>
+              </template>
+            </ul>
+          </div>
         </div>
       </div>
     </Transition>
@@ -41,6 +52,17 @@
 
 <script setup>
 import { ref } from 'vue';
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/config', {
+  version: 'draft',
+  resolve_links: 'url',
+});
+
+const headerMenu = ref(null);
+headerMenu.value = data.story.content.header_menu;
+
+console.log(data.story.content.header_menu);
 
 let isActive = ref(false);
 
@@ -53,13 +75,12 @@ function toggleActive() {
 .header
   position: fixed
   top: 0
-  right: 0
+  left: 0
   width: 100%
   height: 100%
-  z-index: $z-header
   pointer-events: none
-  color: white
   mix-blend-mode: difference
+  color: white
   & > div
     h1, p
       color: currentColor
@@ -68,39 +89,29 @@ function toggleActive() {
     position: fixed
     mix-blend-mode: unset
     display: flex
-    justify-content: center
-    align-items: flex-end
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
     left: 0
     top: 0
-    width: 100vw
-    height: 100vh
-    z-index: +1
-    isolation: isolate
+    width: 100%
     pointer-events: auto
     &_Container
       position: relative
+      display: flex
       width: 100%
       height: 100%
-      background: black
-      border: 2px solid red
       color: white
-      isolation: isolate
+      background: grey
     &_List
-      position: absolute
-      top: 1rem
-      right: 1rem
-      background: rgba(255, 255, 255, 0.33)
-      padding-right: 44px
-      @media (max-width: 768px)
-        left: 1rem
+      position: relative
+      padding: var(--spacing-ver) var(--spacing-hor)
       ul
-        padding: 2rem
         display: flex
         flex-direction: column
         align-items: flex-start
-        gap: .33rem
+        gap: 1rem
         li
-          color: white
           &::selection
             background: transparent
             color: white
@@ -120,21 +131,17 @@ function toggleActive() {
           width: 100%
           height: 100%
           object-fit: contain
-  &-Container
+  &-TopContainer
     position: relative
-    width: 100%
-    height: 100%
+    display: flex
+    justify-content: space-between
   &-Logo
-    position: absolute
-    top: var(--spacing-ver)
-    left: var(--spacing-hor)
+    padding: var(--spacing-ver) var(--spacing-hor)
     pointer-events: auto
     @media (max-width: 768px)
       width: 10em
   &-Menu
-    position: absolute
-    top: var(--spacing-ver)
-    right: var(--spacing-hor)
+    padding: var(--spacing-ver) var(--spacing-hor)
     display: flex
     align-items: center
     gap: 1rem
