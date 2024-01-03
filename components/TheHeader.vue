@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-Container">
       <div class="header-Logo mouseInteract">
-        <p>Carroccera Collective</p>
+        <NuxtLink to="/"><p>Carroccera Collective</p></NuxtLink>
       </div>
       <div @click="toggleActive" class="header-Menu mouseInteract">
         <p>Menu</p>
@@ -61,7 +61,6 @@ function toggleActive() {
   color: white
   mix-blend-mode: difference
   & > div
-    pointer-events: all
     h1, p
       color: currentColor
       line-height: 1.2em
@@ -77,6 +76,7 @@ function toggleActive() {
     height: 100vh
     z-index: +1
     isolation: isolate
+    pointer-events: auto
     &_Container
       position: relative
       width: 100%
@@ -128,6 +128,7 @@ function toggleActive() {
     position: absolute
     top: var(--spacing-ver)
     left: var(--spacing-hor)
+    pointer-events: auto
     @media (max-width: 768px)
       width: 10em
   &-Menu
@@ -137,6 +138,7 @@ function toggleActive() {
     display: flex
     align-items: center
     gap: 1rem
+    pointer-events: auto
     @media (max-width: 768px)
       gap: .5rem
     &::selection

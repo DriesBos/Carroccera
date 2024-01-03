@@ -9,12 +9,12 @@
 import { onMounted, ref } from 'vue';
 import gsap from 'gsap';
 
-const scrollTop = () => {
+function scrollTop() {
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
   });
-};
+}
 
 onMounted(() => {
   const scrollUp = document.querySelector('.scrollUp');
