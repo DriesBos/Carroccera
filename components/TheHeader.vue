@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header v-editable="blok" class="header">
     <div class="header-TopContainer blend">
       <div class="header-Logo mouseInteract">
         <NuxtLink to="/"><p>Carroccera Collective</p></NuxtLink>
@@ -9,6 +9,7 @@
         <div class="dot" />
       </div>
     </div>
+
     <Transition name="slideDown">
       <div
         class="header-Modal"
@@ -31,16 +32,13 @@
                 <NuxtLink to="/"><p>Carroccera Collective</p></NuxtLink>
               </li>
               <li></li>
+
               <template v-if="headerMenu">
-                <li
-                  class="mouseInteract"
+                <StoryblokComponent
                   v-for="blok in headerMenu"
                   :key="blok._uid"
-                >
-                  <NuxtLink :to="blok.link.cached_url">
-                    {{ blok.link.story.name }}
-                  </NuxtLink>
-                </li>
+                  :blok="blok"
+                />
               </template>
             </ul>
           </div>
@@ -54,21 +52,21 @@
 import { ref } from 'vue';
 
 const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get('cdn/stories/config', {
+const { data } = await storyblokApi.get('cdn/stories/header', {
   version: 'draft',
   resolve_links: 'url',
 });
 
 const headerMenu = ref(null);
-headerMenu.value = data.story.content.header_menu;
-
-console.log(data.story.content.header_menu);
+headerMenu.value = data.story.content.header;
 
 let isActive = ref(false);
 
 function toggleActive() {
   isActive.value = !isActive.value;
 }
+
+// console.log('headerMenu', headerMenu.value);
 </script>
 
 <style lang="sass">
