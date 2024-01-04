@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="page page-General mouseInvert">
+  <div v-editable="blok" id="top" class="page page-General mouseInvert">
     <Mouse />
     <StoryblokComponent
       v-for="blok in blok.body"

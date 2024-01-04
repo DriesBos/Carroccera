@@ -2,7 +2,9 @@
   <header v-editable="blok" class="header">
     <div class="header-TopContainer blend">
       <div class="header-Logo mouseInteract">
-        <NuxtLink to="/"><p>Carroccera Collective</p></NuxtLink>
+        <NuxtLink :to="{ path: '/', hash: '#top' }">
+          Carroccera Collective</NuxtLink
+        >
       </div>
       <div @click="toggleActive" class="header-Menu mouseInteract">
         <p>Menu</p>
