@@ -56,8 +56,6 @@ let isActive = ref(false);
 function toggleActive() {
   isActive.value = !isActive.value;
 }
-
-// console.log('headerMenu', headerMenu.value);
 </script>
 
 <style lang="sass">

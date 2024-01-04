@@ -44,8 +44,6 @@ const isModalActive = ref(false);
 
 const isTwoColumn = ref(false);
 
-console.log('MenuItem', data.blok);
-
 function openModal() {
   isModalActive.value = true;
   document.body.style.overflow = 'hidden';
