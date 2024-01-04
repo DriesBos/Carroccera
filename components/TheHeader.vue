@@ -65,7 +65,7 @@ function toggleActive() {
   left: 0
   width: 100%
   height: 100%
-  // pointer-events: none
+  pointer-events: none
   color: white
   // mix-blend-mode: difference
   & > div
@@ -89,7 +89,7 @@ function toggleActive() {
     justify-content: space-between
   &-Logo
     padding: var(--spacing-ver) var(--spacing-hor)
-    // pointer-events: auto
+    pointer-events: auto
     @media (max-width: 768px)
       width: 10em
   &-Menu
@@ -97,7 +97,7 @@ function toggleActive() {
     display: flex
     align-items: center
     gap: 1rem
-    // pointer-events: auto
+    pointer-events: auto
     @media (max-width: 768px)
       gap: .5rem
     &::selection
@@ -105,7 +105,6 @@ function toggleActive() {
       color: transparent
     & .dot
       background: white
-      // pointer-events: all
       transition: all .33s ease
   &-BottomContainer
     position: relative
@@ -118,37 +117,7 @@ function toggleActive() {
     transition: opacity .33s ease
     & > div
       border-bottom: 1px solid currentColor
-  &-Modal
-    position: absolute
-    display: flex
-    flex-direction: column
-    justify-content: flex-start
-    align-items: flex-start
-    left: 0
-    top: 0
-    width: 100%
-    // pointer-events: auto
-    &_Container
-      position: relative
-      display: flex
-      width: 100%
-      height: 100%
-    &_Close
-      position: absolute
-      top: var(--spacing-ver)
-      right: var(--spacing-hor)
-      display: flex
-      align-items: center
-      gap: 1rem
-      @media screen and (max-width: $breakpoint-mobile)
-        gap: .5rem
-      .icon
-        width: 1rem
-        height: 1rem
-        img
-          width: 100%
-          height: 100%
-          object-fit: contain
+      pointer-events: auto
   a
     text-decoration: none
   &.active

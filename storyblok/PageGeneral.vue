@@ -18,6 +18,5 @@ defineProps({ blok: Object });
 .page
   &-General
     position: relative
-    background: green
     min-height: 100vh
 </style>
