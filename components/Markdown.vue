@@ -7,8 +7,6 @@
 const props = defineProps({ content: String });
 
 const resolvedRichText = computed(() => renderRichText(props.content));
-
-console.log('markdown', props);
 </script>
 
 <style lang="sass" scoped>
