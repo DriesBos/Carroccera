@@ -1,11 +1,14 @@
 <template>
-  <li>
-    <p class="mouseInteract" @click.native="openModal">{{ blok.title }}</p>
+  <div class="menuItem">
+    <div class="mouseInteract" @click.native="openModal">
+      <p>{{ blok.title }}</p>
+    </div>
     <Teleport to="body">
       <Transition name="slideUp">
         <Modal
           v-show="isModalActive"
           @close="closeModal"
+          class="mouseInvert"
           :class="{ active: isModalActive, isTwoColumn: isTwoColumn }"
           :blok="blok.body"
         >
@@ -29,7 +32,7 @@
         </Modal>
       </Transition>
     </Teleport>
-  </li>
+  </div>
 </template>
 
 <script setup>
@@ -41,7 +44,7 @@ const isModalActive = ref(false);
 
 const isTwoColumn = ref(false);
 
-// console.log('MenuItem', data.blok);
+console.log('MenuItem', data.blok);
 
 function openModal() {
   isModalActive.value = true;
@@ -71,5 +74,6 @@ onMounted(() => {
 
 <style lang="sass" scoped>
 .menuItem
-  border: $border
+  width: 100%
+  border-bottom: 1px solid currentColor
 </style>
