@@ -67,6 +67,7 @@ function toggleActive() {
   height: 100%
   pointer-events: none
   color: white
+  z-index: $z-header
   // mix-blend-mode: difference
   & > div
     color: currentColor
