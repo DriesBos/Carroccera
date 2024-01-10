@@ -2,6 +2,7 @@
   <div v-editable="blok" id="top" class="page page-Home">
     <Mouse />
     <Celestials />
+    <TheFooterLanding />
     <div class="landscape">
       <StoryblokComponent
         v-for="blok in blok.body"
