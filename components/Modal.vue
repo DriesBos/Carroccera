@@ -91,6 +91,11 @@
         margin-bottom: var(--spacing-two)
         &:first-child
           margin-top: var(--spacing-two)
+          initial-letter: 4
+          p, h1, h2, h3
+            &::first-letter
+              initial-letter: 1.95
+              margin: 0 .25em .25em .25em
     &_Two
       position: relative
       width: 100%
