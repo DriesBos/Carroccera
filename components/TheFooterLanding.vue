@@ -20,8 +20,8 @@ onMounted(() => {
     scrollTrigger: {
       trigger: footerlanding,
       scrub: true,
-      start: 'top top',
-      end: 'bottom 10%',
+      start: 'top 50%',
+      end: 'bottom -5%',
     },
     ease: 'none',
   });
