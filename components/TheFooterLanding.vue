@@ -1,7 +1,7 @@
 <template>
   <footer class="footerlanding">
-    <img class="landscape" src="~assets/img/Footer_Landscape.png" alt="" />
-    <img class="portrait" src="~assets/img/Footer_Portrait.png" alt="" />
+    <img class="landscape" src="~assets/img/landing-footer-l.png" alt="" />
+    <img class="portrait" src="~assets/img/landing-footer-p.png" alt="" />
   </footer>
 </template>
 
