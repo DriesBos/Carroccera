@@ -126,4 +126,9 @@ onUnmounted(() => {
         max-width: 100%
         height: 100%
         object-fit: contain
+        object-position: center top
+    @media (orientation: portrait)
+      padding: 5vw 10vw
+    @media (orientation: landscape)
+      margin-top: 10vh
 </style>
