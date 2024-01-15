@@ -2,7 +2,7 @@
   <footer class="footer">
     <img class="landscape" src="~assets/img/Footer_Landscape.png" alt="" />
     <img class="portrait" src="~assets/img/Footer_Portrait.png" alt="" />
-    <TheFooterNav />
+    <!-- <TheFooterNav /> -->
   </footer>
 </template>
 

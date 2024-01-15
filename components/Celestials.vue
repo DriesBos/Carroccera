@@ -67,12 +67,12 @@ onMounted(() => {
   //   ease: 'none',
   // });
   gsap.to(stars, {
-    y: '-100%',
+    y: '-33%',
     scrollTrigger: {
       trigger: stars,
       scrub: true,
       start: 'top top',
-      end: 'bottom -50%',
+      end: 'bottom -5%',
     },
     ease: 'none',
   });
@@ -129,8 +129,8 @@ onUnmounted(() => {
         height: 100%
         object-fit: contain
         object-position: center top
-    @media (orientation: portrait)
-      padding: 5vw 10vw
-    @media (orientation: landscape)
-      margin-top: 10vh
+    // @media (orientation: portrait)
+    //   padding: 0 10vw
+    // @media (orientation: landscape)
+    //   margin-top: 15vh
 </style>
