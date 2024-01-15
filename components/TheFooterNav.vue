@@ -1,11 +1,10 @@
 <template>
-  <div class="footerBar mouseInvert">
+  <div class="footerBar">
     <div class="footerBar-Block">
       <div class="footerBar-Column">
-        <div class="footerBar-Column-Title">Contact</div>
         <div class="footerBar-Column-Link mouseInteract">
           <a class="underline" href="callto:0044848670933" target="_blank"
-            >+44 8 4867 0933</a
+            >+39 3456867324</a
           >
         </div>
         <div class="footerBar-Column-Link mouseInteract">
@@ -13,60 +12,20 @@
             info@carrocerra.com
           </a>
         </div>
-      </div>
-
-      <div class="footerBar-Column">
-        <div class="footerBar-Column-Title">Location</div>
         <div class="footerBar-Column-Link mouseInteract">
-          <p>Via Verde 1<br />28003 Cera, Italy</p>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <a class="underline" href="https://maps.google.com" target="_blank"
-            >View on map</a
-          >
-        </div>
-      </div>
-    </div>
-
-    <div class="footerBar-Block">
-      <div class="footerBar-Column">
-        <div class="footerBar-Column-Title">Sitemap</div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building One</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building Two</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building Three</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Building Four</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="#layer">Landscape One</NuxtLink>
-        </div>
-        <div class="footerBar-Column-Link mouseInteract">
-          <NuxtLink class="underline" to="/terms">Terms</NuxtLink>
-        </div>
-      </div>
-
-      <div class="footerBar-Column">
-        <div class="footerBar-Column-Title">Follow</div>
-        <div class="footerBar-Column-Link mouseInteract">
+          <a class="underline" href="https://instagram.com" target="_blank">
+            instagram
+          </a>
           <div class="icon icon-Instagram">
             <img src="~assets/icons/insta.png" alt="" />
           </div>
-          <a class="underline" href="https://instagram.com" target="_blank"
-            >instagram</a
-          >
         </div>
+      </div>
+
+      <div class="footerBar-Column">
         <div class="footerBar-Column-Link mouseInteract">
-          <div class="icon icon-Twitter">
-            <img src="~assets/icons/x.png" alt="" />
-          </div>
-          <a class="underline" href="https://twitter.com" target="_blank"
-            >twitter</a
+          <a class="underline" href="https://maps.google.com" target="_blank"
+            >Via Verd1 1<br />20344 Milano, Italy</a
           >
         </div>
       </div>
@@ -76,14 +35,16 @@
 
 <style lang="sass" scoped>
 .footerBar
-  position: relative
+  position: absolute
+  left: 0
+  bottom: 0
   display: flex
   flex-direction: row
   width: 100%
-  padding: var(--spacing-ver) 0
   font-size: $type-size-p
   font-weight: normal
   line-height: $lineheight-p
+  color: white
   @media screen and ( max-width: $breakpoint-tablet)
     flex-direction: column
   &-Block
@@ -93,10 +54,15 @@
       padding: var(--spacing-ver) 0
     & > div
       flex: 1
+      &:last-child
+        align-items: flex-end
+        a
+          text-align: right
   &-Column
     display: flex
     flex-direction: column
     padding: var(--spacing-hor) var(--spacing-ver)
+    padding-bottom: 16%
     &-Title
       margin-bottom: 2rem
     &-Link
@@ -110,10 +76,10 @@
         text-decoration: none
       @media (max-width: 768px)
         gap: .5rem
-      .underline
-        text-decoration: underline
-        text-decoration-color: $color-secondary
-        a
-          text-decoration: underline
-          text-decoration-color: $color-secondary
+      // .underline
+      //   text-decoration: underline
+      //   text-decoration-color: $color-secondary
+      //   a
+      //     text-decoration: underline
+      //     text-decoration-color: $color-secondary
 </style>
