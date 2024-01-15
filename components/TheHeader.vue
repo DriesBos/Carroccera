@@ -2,11 +2,11 @@
   <header v-editable="blok" class="header" :class="{ active: isActive }">
     <div class="header-Background" />
     <div class="header-TopContainer">
-      <div class="header-Logo mouseInteract">
+      <!-- <div class="header-Logo mouseInteract">
         <NuxtLink :to="{ path: '/', hash: '#top' }">
           Carroccera Collective</NuxtLink
         >
-      </div>
+      </div> -->
       <div
         v-show="!isActive"
         @click="toggleActive"
@@ -68,7 +68,7 @@ function toggleActive() {
   pointer-events: none
   color: white
   z-index: $z-header
-  // mix-blend-mode: difference
+  mix-blend-mode: difference
   & > div
     color: currentColor
     line-height: 1.2em
@@ -87,7 +87,7 @@ function toggleActive() {
   &-TopContainer
     position: relative
     display: flex
-    justify-content: space-between
+    justify-content: flex-end
   &-Logo
     padding: var(--spacing-ver) var(--spacing-hor)
     pointer-events: auto

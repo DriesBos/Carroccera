@@ -45,6 +45,7 @@
   font-weight: normal
   line-height: $lineheight-p
   color: white
+  mix-blend-mode: difference
   @media screen and ( max-width: $breakpoint-tablet)
     flex-direction: column
   &-Block
