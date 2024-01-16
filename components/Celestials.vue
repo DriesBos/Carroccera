@@ -10,7 +10,10 @@
       <img class="portrait" src="~assets/img/Stars_Portrait.png" alt="" />
     </div>
 
-    <div class="landingParallax_Constellation constellation panel box">
+    <div
+      :class="{ headerActive: headerState }"
+      class="landingParallax_Constellation constellation panel box"
+    >
       <img
         class="landscape"
         src="~assets/img/Constellation_Landscape.png"
@@ -38,6 +41,10 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
+
+defineProps({
+  headerState: Boolean,
+});
 
 const main = ref();
 let ctx;
@@ -123,12 +130,16 @@ onUnmounted(() => {
   .constellation
     width: 100%
     height: 100%
+    opacity: 1
+    transition: all .5s ease
     img
         width: 100%
         max-width: 100%
         height: 100%
         object-fit: contain
         object-position: center top
+    &.headerActive
+      opacity: 0
     // @media (orientation: portrait)
     //   padding: 0 10vw
     // @media (orientation: landscape)

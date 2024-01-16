@@ -1,5 +1,5 @@
 <template>
-  <footer class="footerlanding">
+  <footer class="footerlanding" :class="{ headerActive: headerState }">
     <img class="landscape" src="~assets/img/landing-footer-l.png" alt="" />
     <img class="portrait" src="~assets/img/landing-footer-p.png" alt="" />
   </footer>
@@ -8,6 +8,12 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
+
+defineProps({
+  headerState: Boolean,
+});
+
+// console.log('FooterLanding', props.headerstate);
 
 const main = ref();
 let ctx;
@@ -39,8 +45,13 @@ onUnmounted(() => {
   bottom: 0
   width: 100%
   z-index: $z-footer
+  opacity: 1
+  transition: all .5s ease
   img, svg
     width: 100%
     max-width: 100%
     height: auto
+  &.headerActive
+    opacity: .5
+    bottom: -100%
 </style>

@@ -69,9 +69,3 @@ onMounted(() => {
   // }
 });
 </script>
-
-<style lang="sass" scoped>
-.menuItem
-  width: 100%
-  border-bottom: 1px solid currentColor
-</style>

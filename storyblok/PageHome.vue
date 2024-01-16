@@ -1,8 +1,9 @@
 <template>
   <div v-editable="blok" id="top" class="page page-Home">
     <Mouse />
-    <Celestials />
-    <TheFooterLanding />
+    <TheHeader @headerActive="headerIsActive" />
+    <Celestials :headerState="headerActive" />
+    <TheFooterLanding :headerState="headerActive" />
     <div class="landscape">
       <StoryblokComponent
         v-for="blok in blok.body"
@@ -11,16 +12,19 @@
       />
     </div>
     <ToTop />
-    <TheHeader />
     <TheFooter />
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-import gsap from 'gsap';
-
 defineProps({ blok: Object });
+
+const headerActive = ref(false);
+
+function headerIsActive() {
+  headerActive.value = !headerActive.value;
+  console.log('headerActive', headerActive.value);
+}
 
 // onMounted(() => {
 //   const layers = document.querySelectorAll('.blokLayer');
