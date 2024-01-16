@@ -1,5 +1,6 @@
 <template>
-  <header v-editable="blok" class="header" :class="{ active: isActive }">
+  <header v-editable="blok" :class="{ active: isActive }" class="header">
+    <div class="header-Background" />
     <div class="header-Toggle">
       <div
         v-show="!isActive"
@@ -53,6 +54,10 @@ function toggleActive() {
   isActive.value = !isActive.value;
   if (isActive.value) {
     emit('headerActive', true);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   } else {
     emit('headerActive', false);
   }
@@ -68,7 +73,6 @@ function toggleActive() {
   height: 100%
   pointer-events: none
   color: white
-  // mix-blend-mode: difference
   & > div
     color: currentColor
     line-height: 1.2em
@@ -105,7 +109,21 @@ function toggleActive() {
     transition: opacity .33s ease
     & > div
       pointer-events: auto
+  &-Background
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: hsla(0, 0%, 0%, .33)
+    transition: opacity .33s ease
+    opacity: 0
+
   &.active
     .header-Menu
       opacity: 1
+      transition: opacity .33s ease-in .66s
+    .header-Background
+      opacity: 1
+      transition: opacity .33s ease-in .66s
 </style>

@@ -106,7 +106,7 @@ onUnmounted(() => {
     width: 100%
     height: 100%
     opacity: 1
-    transition: opacity $transition-general
+    transition: opacity .66s ease
     img
         width: 100%
         max-width: 100%
