@@ -4,9 +4,9 @@
     class="blokBuilding mouseInteract"
     :class="[blok.position, blok.positionvertical]"
   >
-    <!-- <div class="blokBuilding-Indicator">
+    <div class="blokBuilding-Indicator">
       hor:{{ blok.position }} ver:{{ blok.positionvertical }}
-    </div> -->
+    </div>
     <img
       v-if="blok.image.filename"
       @click.native="openModal"
@@ -84,9 +84,12 @@ onMounted(() => {
   position: absolute
   left: 0
   top: 0
-  width: 33vw
-  height: 33vw
+  width: 33.3333vw
+  height: 33.3333vw
   pointer-events: all
+  @media (orientation: portrait)
+    width: 33.3333vw
+    height: 33.3333vw
   &-Indicator
     position: absolute
     top: 0
@@ -97,18 +100,32 @@ onMounted(() => {
   &.left
     left: 0
   &.middle
-    left: 33vw
+    left: 33.3333vw
   &.right
-    left: 66vw
+    left: 66.6666vw
   &.top
-    top: 0
+    top: -12%
+    @media (orientation: landscape)
+      top: -50%
+    @media (orientation: portrait)
+      top: -12%
   &.center
-    top: 42%
+    top: 30%
     transform: translateY(-50%)
+    @media (orientation: landscape)
+      top: 25%
+    @media (orientation: portrait)
+      top: 30%
+      transform: translateY(-50%)
   &.bottom
     top: auto
-    bottom: 16%
-    // transform: translateY(-50%)
+    bottom: 30%
+    @media (orientation: landscape)
+      top: auto
+      bottom: 30%
+    @media (orientation: portrait)
+      top: auto
+      bottom: 30%
   img
     width: 100%
     height: 100%
