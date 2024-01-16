@@ -3,6 +3,7 @@
     <!-- <Mouse /> -->
     <div class="layerOne">
       <Celestials :headerState="headerActive" />
+      <TheMenu :headerState="headerActive" />
     </div>
     <div class="layerTwo theLandscape">
       <StoryblokComponent
