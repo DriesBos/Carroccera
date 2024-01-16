@@ -12,6 +12,7 @@
         :blok="blok"
       />
     </div>
+    <TheClouds :headerState="headerActive" />
     <TheFooter class="layerThree" />
     <div class="layerFour">
       <TheHeader @headerActive="headerIsActive" />
