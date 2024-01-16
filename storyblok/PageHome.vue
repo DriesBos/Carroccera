@@ -32,13 +32,11 @@
   display: flex
   flex-direction: column
   justify-content: flex-start
-//   & > div
-//     &:first-child
-//       margin-top: -15%
-//     &:nth-child(n+2)
-//       margin-top: -33%
-// .footer
-//   margin-top: -16%
+  & > div:first-child
+    @media (orientation: landscape)
+      margin-top: 23%
+    @media (orientation: portrait)
+      margin-top: 30%
 </style>
 
 <script setup>
@@ -50,8 +48,6 @@ function headerIsActive() {
   headerActive.value = !headerActive.value;
   console.log('headerActive', headerActive.value);
 }
-
-// onMounted(() => {
 //   const layers = document.querySelectorAll('.blokLayer');
 //   const footer = document.querySelectorAll('footer');
 //   const firstLayer = layers[0];
