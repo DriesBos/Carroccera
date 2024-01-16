@@ -5,7 +5,6 @@
     </div>
     <img class="landscape" src="~assets/img/Footer_Landscape.png" alt="" />
     <img class="portrait" src="~assets/img/Footer_Portrait.png" alt="" />
-    <!-- <TheFooterNav /> -->
   </footer>
 </template>
 
@@ -26,7 +25,7 @@
     left: 50%
     bottom: var(--spacing-ver)
     transform: translateX(-50%)
-    width: 4rem
+    width: 6rem
     img, svg
       margin-top: 0
 </style>

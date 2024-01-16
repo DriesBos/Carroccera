@@ -56,7 +56,7 @@ onUnmounted(() => {
     top: 0
     width: 100%
     height: 100%
-    opacity: 1
+    opacity: .75
     transition: opacity .66s ease
     img
       width: 100%
@@ -64,5 +64,5 @@ onUnmounted(() => {
       object-fit: cover
       object-position: top
     &.headerActive
-      opacity: 0
+      opacity: .33
 </style>
