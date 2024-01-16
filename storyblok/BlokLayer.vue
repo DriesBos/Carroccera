@@ -37,5 +37,5 @@ defineProps({ blok: Object });
       @media (orientation: landscape)
         margin-top: -23%
       @media (orientation: portrait)
-        margin-top: -32%
+        margin-top: -30%
 </style>

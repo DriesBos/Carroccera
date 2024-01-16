@@ -43,7 +43,7 @@ onMounted(() => {
   align-items: flex-end
   gap: 1rem
   color: white
-  mix-blend-mode: difference
+  // mix-blend-mode: difference
   transition: all $transition-general
   h1, p
     color: currentColor

@@ -68,7 +68,7 @@ function toggleActive() {
   height: 100%
   pointer-events: none
   color: white
-  mix-blend-mode: difference
+  // mix-blend-mode: difference
   & > div
     color: currentColor
     line-height: 1.2em
