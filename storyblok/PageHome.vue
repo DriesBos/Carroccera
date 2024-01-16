@@ -42,6 +42,8 @@
 </style>
 
 <script setup>
+import { ref, watch } from 'vue';
+
 defineProps({ blok: Object });
 
 const headerActive = ref(false);
@@ -50,6 +52,14 @@ function headerIsActive() {
   headerActive.value = !headerActive.value;
   console.log('headerActive', headerActive.value);
 }
+
+watch(headerActive, (newVal) => {
+  if (newVal) {
+    document.documentElement.style.overflow = 'hidden';
+  } else {
+    document.documentElement.style.overflow = 'auto';
+  }
+});
 //   const layers = document.querySelectorAll('.blokLayer');
 //   const footer = document.querySelectorAll('footer');
 //   const firstLayer = layers[0];
