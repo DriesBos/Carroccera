@@ -24,8 +24,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
 const emit = defineEmits(['headerActive']);
 
 let isActive = ref(false);
