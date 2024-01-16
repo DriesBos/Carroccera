@@ -4,7 +4,7 @@
     <TheHeader @headerActive="headerIsActive" />
     <Celestials :headerState="headerActive" />
     <TheFooterLanding :headerState="headerActive" />
-    <div class="landscape">
+    <div class="theLandscape">
       <StoryblokComponent
         v-for="blok in blok.body"
         :key="blok._uid"
@@ -15,6 +15,30 @@
     <TheFooter />
   </div>
 </template>
+
+<style lang="sass" scoped>
+.page-Home
+  position: relative
+.theSky
+  position: relative
+  width: 100vw
+  height: 100vh
+  overflow: hidden
+
+.theLandscape
+  position: relative
+  width: 100vw
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  & > div
+    &:first-child
+      margin-top: -15%
+    &:nth-child(n+2)
+      margin-top: -33%
+.footer
+  margin-top: -16%
+</style>
 
 <script setup>
 defineProps({ blok: Object });
@@ -84,22 +108,3 @@ function headerIsActive() {
 //   });
 // });
 </script>
-
-<style lang="sass" scoped>
-
-.page-Home
-  position: relative
-.landscape
-  position: relative
-  width: 100vw
-  display: flex
-  flex-direction: column
-  justify-content: flex-start
-  & > div
-    &:first-child
-      margin-top: -15%
-    &:nth-child(n+2)
-      margin-top: -33%
-.footer
-  margin-top: -16%
-</style>
