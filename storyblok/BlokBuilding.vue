@@ -86,7 +86,6 @@ onMounted(() => {
   top: 0
   width: 33vw
   height: 33vw
-  z-index: $z-buildings
   pointer-events: all
   &-Indicator
     position: absolute

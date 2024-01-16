@@ -44,8 +44,7 @@ onMounted(() => {
   gap: 1rem
   color: white
   mix-blend-mode: difference
-  z-index: $z-scrollUp
-  transition: $transition-general
+  transition: all $transition-general
   h1, p
     color: currentColor
     line-height: 1.2em

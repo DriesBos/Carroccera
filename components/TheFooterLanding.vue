@@ -43,7 +43,6 @@ onUnmounted(() => {
   top: 0
   width: 100%
   height: 100vh
-  z-index: 999
   transition: top .5s ease
   pointer-events: none
   img, svg

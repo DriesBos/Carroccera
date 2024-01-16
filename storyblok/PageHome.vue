@@ -1,43 +1,44 @@
 <template>
   <div v-editable="blok" id="top" class="page page-Home">
-    <Mouse />
-    <TheHeader @headerActive="headerIsActive" />
-    <Celestials :headerState="headerActive" />
-    <TheFooterLanding :headerState="headerActive" />
-    <div class="theLandscape">
+    <!-- <Mouse /> -->
+    <div class="layerOne">
+      <Celestials :headerState="headerActive" />
+    </div>
+    <div class="layerTwo theLandscape">
       <StoryblokComponent
         v-for="blok in blok.body"
         :key="blok._uid"
         :blok="blok"
       />
     </div>
-    <ToTop />
-    <TheFooter />
+    <TheFooter class="layerThree" />
+    <div class="layerFour">
+      <TheHeader @headerActive="headerIsActive" />
+      <ToTop />
+      <TheFooterLanding :headerState="headerActive" />
+    </div>
   </div>
 </template>
 
 <style lang="sass" scoped>
 .page-Home
   position: relative
-.theSky
-  position: relative
-  width: 100vw
-  height: 100vh
-  overflow: hidden
 
 .theLandscape
   position: relative
   width: 100vw
+  height: 100%
+  overflow: visible
   display: flex
   flex-direction: column
   justify-content: flex-start
-  & > div
-    &:first-child
-      margin-top: -15%
-    &:nth-child(n+2)
-      margin-top: -33%
-.footer
-  margin-top: -16%
+//   & > div
+//     &:first-child
+//       margin-top: -15%
+//     &:nth-child(n+2)
+//       margin-top: -33%
+// .footer
+//   margin-top: -16%
 </style>
 
 <script setup>

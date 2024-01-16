@@ -27,7 +27,6 @@
   top: 0
   width: 100vw
   height: 100vh
-  z-index: $z-modal
   &-Container
     position: relative
     width: 100%

@@ -9,11 +9,14 @@
 <style scoped lang="sass">
 footer
   position: relative
-  bottom: 0
   width: 100vw
-  z-index: $z-footer
+  height: 100%
+  overflow: visible
   img, svg
     width: 100%
     max-width: 100%
-    height: auto
+    @media (orientation: landscape)
+      margin-top: -10%
+    @media (orientation: portrait)
+      margin-top: -20%
 </style>
