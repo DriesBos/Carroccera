@@ -86,30 +86,12 @@ onMounted(() => {
   });
 
   const footer = document.querySelectorAll('footer');
-  // const firstLayer = layers[0];
-  // const layersArray = array.slice(1);
-
-  //   gsap.fromTo(
-  //     firstLayer,
-  //     {
-  //       marginTop: '-15%',
-  //     },
-  //     {
-  //       marginTop: '-25%',
-  //       scrollTrigger: {
-  //         trigger: firstLayer,
-  //         start: 'top 80%',
-  //         end: 'top 50%',
-  //         scrub: true,
-  //       },
-  //     }
-  //   );
 
   gsap.to(footer, {
     y: '-5%',
     scrollTrigger: {
       trigger: footer,
-      start: 'top bottom%',
+      start: 'top bottom',
       end: 'top 75%',
       scrub: true,
     },
