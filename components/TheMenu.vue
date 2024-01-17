@@ -38,8 +38,8 @@ headerMenu.value = data.story.content.header;
   left: 0
   width: 100%
   height: 100%
-  pointer-events: none
   color: white
+  pointer-events: none
   & > div
     color: currentColor
     line-height: 1.2em

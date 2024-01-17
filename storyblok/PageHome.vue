@@ -52,7 +52,6 @@ let ctx;
 
 function headerIsActive() {
   headerActive.value = !headerActive.value;
-  console.log('headerActive', headerActive.value);
 }
 
 watch(headerActive, (newVal) => {
@@ -69,8 +68,6 @@ onMounted(() => {
   const firstLayer = layers[0];
   const array = Array.from(layers);
   const layersArray = array.slice(1);
-  console.log('array', layersArray);
-  console.log('first', firstLayer);
 
   layersArray.forEach((el) => {
     gsap.to(el, {
