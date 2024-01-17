@@ -22,16 +22,20 @@
   position: fixed
   display: flex
   justify-content: center
-  align-items: flex-end
+  align-items: center
   left: 0
   top: 0
-  width: 100vw
-  height: 100vh
+  width: 100%
+  height: 100%
+  z-index: 9999
+  pointer-events: none
   &-Container
     position: relative
-    width: 100%
-    height: 100%
+    width: calc(100% - 10vmin)
+    height: calc(100% - 10vmin)
     background: white
+    color: black
+    pointer-events: auto
   &-Close
     position: absolute
     top: var(--spacing-ver)
@@ -124,8 +128,6 @@
           justify-content: flex-start
           height: auto
           overflow-y: unset
-
-
 
 .modalSide
   top: 0

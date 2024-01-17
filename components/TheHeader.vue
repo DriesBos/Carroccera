@@ -63,8 +63,9 @@ function toggleActive() {
     right: 0
     display: inline-flex
     p
-      opacity: 0
-      transition: opacity $transition-hover
+      @media (hover: hover)
+        opacity: 0
+        transition: opacity $transition-hover
     &:hover
       p
         opacity: 1

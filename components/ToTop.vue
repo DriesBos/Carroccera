@@ -48,8 +48,9 @@ onMounted(() => {
   h1, p
     color: currentColor
     line-height: 1.2em
-    opacity: 0
-    transition: opacity $transition-hover
+    @media (hover: hover)
+      opacity: 0
+      transition: opacity $transition-hover
   @media (max-width: 768px)
     gap: .5rem
   & .dot-Up
