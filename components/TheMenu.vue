@@ -1,5 +1,5 @@
 <template>
-  <header v-editable="blok" :class="{ active: headerState }" class="header">
+  <header :class="{ active: headerState }" class="header">
     <div class="header-Background" />
 
     <div class="header-Menu">

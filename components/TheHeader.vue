@@ -1,5 +1,5 @@
 <template>
-  <header v-editable="blok" :class="{ active: isActive }" class="header">
+  <header :class="{ active: isActive }" class="header">
     <div class="header-Toggle">
       <div
         v-show="!isActive"
