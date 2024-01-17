@@ -62,6 +62,12 @@ function toggleActive() {
     top: 0
     right: 0
     display: inline-flex
+    p
+      opacity: 0
+      transition: opacity $transition-hover
+    &:hover
+      p
+        opacity: 1
     &_Item
       padding: var(--spacing-ver) var(--spacing-hor)
       display: flex
