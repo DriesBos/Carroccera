@@ -31,7 +31,6 @@ defineProps({ blok: Object });
   height: auto
   overflow: visible
   pointer-events: none
-  border: 1px solid red
   img
       width: 100%
       max-width: 100%

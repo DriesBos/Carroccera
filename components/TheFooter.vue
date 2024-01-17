@@ -12,7 +12,7 @@
 .footer
   position: relative
   width: 100vw
-  height: 100%
+  height: auto
   img, svg
     width: 100%
     max-width: 100%
