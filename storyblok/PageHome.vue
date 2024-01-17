@@ -43,10 +43,12 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import gsap from 'gsap';
 
 defineProps({ blok: Object });
 
 const headerActive = ref(false);
+let ctx;
 
 function headerIsActive() {
   headerActive.value = !headerActive.value;
@@ -60,60 +62,58 @@ watch(headerActive, (newVal) => {
     document.documentElement.style.overflow = 'auto';
   }
 });
-//   const layers = document.querySelectorAll('.blokLayer');
-//   const footer = document.querySelectorAll('footer');
-//   const firstLayer = layers[0];
-//   const array = Array.from(layers);
-//   const layersArray = array.slice(1);
 
-//   gsap.fromTo(
-//     firstLayer,
-//     {
-//       marginTop: '-15%',
-//     },
-//     {
-//       marginTop: '-25%',
-//       scrollTrigger: {
-//         trigger: firstLayer,
-//         start: 'top 80%',
-//         end: 'top 50%',
-//         scrub: true,
-//       },
-//     }
-//   );
+onMounted(() => {
+  const layers = document.querySelectorAll('.blokLayer');
+  // const celestials = document.querySelectorAll('.celestials');
+  const firstLayer = layers[0];
+  const array = Array.from(layers);
+  const layersArray = array.slice(1);
+  console.log('array', layersArray);
+  console.log('first', firstLayer);
 
-//   gsap.fromTo(
-//     footer,
-//     {
-//       marginTop: '-25%',
-//     },
-//     {
-//       marginTop: '-35%',
-//       scrollTrigger: {
-//         trigger: footer,
-//         start: 'top 80%',
-//         end: 'top 50%',
-//         scrub: true,
-//       },
-//     }
-//   );
+  layersArray.forEach((el) => {
+    gsap.to(el, {
+      y: '-5%',
+      duration: 1,
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom',
+        end: 'top 75%',
+        scrub: true,
+      },
+    });
+  });
 
-//   layersArray.forEach((el) => {
-//     gsap.fromTo(
-//       el,
-//       {
-//         marginTop: '-33%',
-//       },
-//       {
-//         marginTop: '-43%',
-//         scrollTrigger: {
-//           trigger: el,
-//           start: 'top 5%',
-//           end: 'top 10%',
-//           scrub: true,
-//         },
-//       }
-//     );
-//   });
+  const footer = document.querySelectorAll('footer');
+  // const firstLayer = layers[0];
+  // const layersArray = array.slice(1);
+
+  //   gsap.fromTo(
+  //     firstLayer,
+  //     {
+  //       marginTop: '-15%',
+  //     },
+  //     {
+  //       marginTop: '-25%',
+  //       scrollTrigger: {
+  //         trigger: firstLayer,
+  //         start: 'top 80%',
+  //         end: 'top 50%',
+  //         scrub: true,
+  //       },
+  //     }
+  //   );
+
+  gsap.to(footer, {
+    y: '-5%',
+    scrollTrigger: {
+      trigger: footer,
+      start: 'top bottom%',
+      end: 'top 75%',
+      scrub: true,
+    },
+  });
+});
 // });
 </script>
