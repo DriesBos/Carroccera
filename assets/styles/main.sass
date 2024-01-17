@@ -2,11 +2,16 @@
 html, body, #_nuxt
   position: relative
   height: 100%
-  overscroll-behavior: none
+
 
 body
-  background: white
+  -ms-overflow-style: none // Prevents scrollbar 
+  scrollbar-width: none
+  overflow-x: hidden
   // cursor: none
+
+body::-webkit-scrollbar
+  display: none
 
 .page-Home
   position: relative
