@@ -82,7 +82,7 @@ headerMenu.value = data.story.content.header;
     left: 0
     width: 100%
     height: 100%
-    background: hsla(0, 0%, 0%, .33)
+    background: hsla(0, 0%, 0%, .165)
     transition: opacity .33s ease
     opacity: 0
 
