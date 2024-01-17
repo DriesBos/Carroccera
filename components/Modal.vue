@@ -1,5 +1,6 @@
 <template>
   <div class="modal">
+    <div @click.native="$emit('close')" class="modal-Background" />
     <div class="modal-Container mouseInvert">
       <div class="modal-Content">
         <slot></slot>
@@ -10,9 +11,9 @@
           <img src="~assets/icons/close.png" alt="" />
         </div>
       </div>
-      <div class="modal-Tag">
+      <!-- <div class="modal-Tag">
         <p>Project</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -28,7 +29,12 @@
   width: 100%
   height: 100%
   z-index: 9999
-  pointer-events: none
+  &-Background
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
   &-Container
     position: relative
     width: calc(100% - 10vmin)
@@ -52,10 +58,10 @@
         width: 100%
         height: 100%
         object-fit: contain
-  &-Tag
-    position: absolute
-    top: var(--spacing-ver)
-    left: var(--spacing-hor)
+  // &-Tag
+  //   position: absolute
+  //   top: var(--spacing-ver)
+  //   left: var(--spacing-hor)
   &-Content
     position: relative
     width: 100%

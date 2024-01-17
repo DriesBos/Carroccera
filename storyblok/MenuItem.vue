@@ -4,7 +4,7 @@
       <p>{{ blok.title }}</p>
     </div>
     <!-- <Teleport to="layerFour"> -->
-    <Transition name="slideUp">
+    <Transition name="fade">
       <Modal
         v-if="isModalActive"
         @close="closeModal"
@@ -54,14 +54,12 @@ function closeModal() {
   // document.body.style.overflow = 'auto';
 }
 
-// const init = async () => {
-//   // I want use props in this
-//   // const { data } = await getRoomByNo(props.no)
-//   if (data.blok.layouthor && data.blok.layouthor.length > 0) {
-//     isTwoColumn.value = true;
-//   }
-// };
-// init();
+const init = async () => {
+  if (data.blok.layouthor && data.blok.layouthor.length > 0) {
+    isTwoColumn.value = true;
+  }
+};
+init();
 
 // onMounted(() => {
 // if (blok.value.layouthor) {
