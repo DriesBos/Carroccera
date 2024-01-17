@@ -22,12 +22,13 @@ const main = ref();
 let ctx;
 
 onMounted(() => {
+  const trigger = document.querySelector('.celestials');
   const clouds = document.querySelector('.clouds');
   const footer = document.querySelector('.footer');
   gsap.to(clouds, {
-    y: '-25%',
+    y: '-100%',
     scrollTrigger: {
-      trigger: clouds,
+      trigger: trigger,
       scrub: true,
       start: 'top top',
       endTrigger: footer,
@@ -50,13 +51,14 @@ onUnmounted(() => {
   width: 100vw
   height: 100vh
   pointer-events: none
+  overflow: visible
   .clouds
     position: fixed
     left: 0
-    top: 0
+    top: 50vh
     width: 100%
     height: 100%
-    opacity: .75
+    opacity: .85
     transition: opacity .66s ease
     img
       width: 100%
@@ -64,5 +66,5 @@ onUnmounted(() => {
       object-fit: cover
       object-position: top
     &.headerActive
-      opacity: .33
+      opacity: 0
 </style>
