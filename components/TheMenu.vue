@@ -3,12 +3,26 @@
     <div class="header-Background" />
 
     <div class="header-Menu">
-      <template v-if="headerMenu">
+      <template v-if="headerMenu && !contactActive">
         <StoryblokComponent
           v-for="blok in headerMenu"
           :key="blok._uid"
           :blok="blok"
         />
+        <div @click="toggleContact" class="menuItem">
+          <p>Contact</p>
+        </div>
+      </template>
+      <template v-if="contactActive">
+        <div class="menuItem">
+          <p>Contact</p>
+        </div>
+        <div class="menuItem">
+          <p>info@carrocera.com</p>
+        </div>
+        <div @click="toggleContact" class="menuItem">
+          <p>Close</p>
+        </div>
       </template>
     </div>
   </header>
@@ -28,7 +42,12 @@ const { data } = await storyblokApi.get('cdn/stories/header', {
 });
 
 const headerMenu = ref(null);
+const contactActive = ref(false);
 headerMenu.value = data.story.content.header;
+
+function toggleContact() {
+  contactActive.value = !contactActive.value;
+}
 </script>
 
 <style lang="sass">
