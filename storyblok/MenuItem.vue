@@ -15,9 +15,7 @@
         <div v-if="blok.body" class="modal-Column modal-Column_One">
           <div v-if="blok.title" class="modal-Column_Title">
             <h1>{{ blok.title }}</h1>
-          </div>
-          <div v-if="blok.date" class="modal-Column_Date">
-            <h1>{{ blok.date }}</h1>
+            <p v-if="blok.date">{{ blok.date }}</p>
           </div>
           <StoryblokComponent
             v-for="blok in blok.body"

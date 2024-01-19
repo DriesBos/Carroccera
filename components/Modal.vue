@@ -35,6 +35,7 @@
     height: 100%
     top: 0
     left: 0
+    background: hsla(0, 0%, 0%, .165)
   &-Container
     position: relative
     width: calc(100% - 10vmin)
@@ -85,13 +86,16 @@
       flex-shrink: 0
     &_Title
       display: flex
+      flex-direction: column
       width: 100%
-      max-width: 100vw
+      max-width: 100%
+      margin-bottom: var(--spacing-one)
       h1
         max-width: 50vw
-        margin-bottom: var(--spacing-one)
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
+      p
+        margin-top: .5rem
     &_One
       display: flex
       flex-direction: column

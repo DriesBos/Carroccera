@@ -4,9 +4,6 @@
     class="blokBuilding mouseInteract"
     :class="[blok.position, blok.positionvertical]"
   >
-    <!-- <div class="blokBuilding-Indicator">
-      hor:{{ blok.position }} ver:{{ blok.positionvertical }}
-    </div> -->
     <img
       v-if="blok.image.filename"
       @click.native="openModal"
@@ -24,6 +21,7 @@
           <div v-if="blok.body" class="modal-Column modal-Column_One">
             <div v-if="blok.title" class="modal-Column_Title">
               <h1>{{ blok.title }}</h1>
+              <p v-if="blok.date">{{ blok.date }}</p>
             </div>
             <StoryblokComponent
               v-for="blok in blok.body"
