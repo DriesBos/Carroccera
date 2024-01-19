@@ -42,6 +42,7 @@
     background: white
     color: black
     pointer-events: auto
+    overflow: hidden
   &-Close
     position: absolute
     top: var(--spacing-ver)
@@ -65,7 +66,7 @@
   &-Content
     position: relative
     width: 100%
-    height: 100vh
+    height: 100%
     display: flex
     flex-direction: row
     @media screen and ( max-width: $breakpoint-tablet)
@@ -76,6 +77,10 @@
   &-Column // Styling for columns
     position: relative
     width: 100%
+    -ms-overflow-style: none // Prevents scrollbar
+    scrollbar-width: none
+    &::-webkit-scrollbar
+      display: none
     & > div
       flex-shrink: 0
     &_Title
@@ -84,7 +89,7 @@
       max-width: 100vw
       h1
         max-width: 50vw
-        margin-bottom: var(--spacing-two)
+        margin-bottom: var(--spacing-one)
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
     &_One
@@ -94,17 +99,19 @@
       align-items: center
       overflow-y: auto
       padding: var(--spacing-ver) var(--spacing-hor)
-      padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
+      // padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
       flex: 1
       & > div
-        margin-bottom: var(--spacing-two)
+        // margin-bottom: var(--spacing-two)
         &:first-child
-          margin-top: var(--spacing-two)
-          initial-letter: 4
+          // margin-top: var(--spacing-two)
+          // initial-letter: 4
           p, h1, h2, h3
             &::first-letter
-              initial-letter: 1.95
-              margin: 0 .25em .25em .25em
+              // initial-letter: 1.95
+              // margin: 0 .25em .25em .25em
+        &:last-child
+          margin-bottom: var(--spacing-two)
     &_Two
       position: relative
       width: 100%
@@ -113,7 +120,7 @@
       flex-direction: row
       flex-wrap: nowrap
       padding: var(--spacing-ver) var(--spacing-hor)
-      padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
+      // padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
       flex: 1
       & > div
         @media screen and (max-width: $breakpoint-tablet)
