@@ -34,7 +34,8 @@ onMounted(() => {
   height: 100%
   pointer-events: none
   opacity: 0
-  transition: opacity .165s ease-in-out
+  transition: opacity .33s ease-in-out
+  background: hsla(0, 0%, 0%, .33)
   &.active
     opacity: 1
   img, svg
