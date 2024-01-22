@@ -63,6 +63,7 @@ function toggleContact() {
     color: currentColor
     h1, p
       color: currentColor
+      line-height: 1
   &-Toggle
     position: absolute
     top: 0
