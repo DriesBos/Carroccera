@@ -18,6 +18,7 @@
       <TheHeader @headerActive="headerIsActive" />
       <ToTop />
       <TheFooterLanding :headerState="headerActive" />
+      <TheLogo />
     </div>
   </div>
 </template>
