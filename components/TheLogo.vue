@@ -7,7 +7,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const isVisible = ref(true);
+const isVisible = ref(false);
 
 function offDocument() {
   isVisible.value = true;
