@@ -17,15 +17,13 @@
     width: 100%
     max-width: 100%
     @media (orientation: landscape)
-      margin-top: -11%
+      margin-top: -13%
     @media (orientation: portrait)
-      margin-top: -20%
+      margin-top: -26%
   &-Logo
     position: absolute
     left: 50%
     bottom: var(--spacing-ver)
     transform: translateX(-50%)
     width: 6rem
-    img, svg
-      margin-top: 0
 </style>

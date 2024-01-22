@@ -83,16 +83,22 @@ onMounted(() => {
     });
   });
 
-  const footer = document.querySelectorAll('footer');
+  // const footer = document.querySelectorAll('footer');
 
-  gsap.to(footer, {
-    y: '-5%',
-    scrollTrigger: {
-      trigger: footer,
-      start: 'top bottom',
-      end: 'top 75%',
-      scrub: true,
-    },
-  });
+  // gsap.fromTo(
+  //   footer,
+  //   {
+  //     y: '5%',
+  //   },
+  //   {
+  //     y: '0%',
+  //     scrollTrigger: {
+  //       trigger: footer,
+  //       start: 'top bottom',
+  //       end: 'top 75%',
+  //       scrub: true,
+  //     },
+  //   }
+  // );
 });
 </script>
