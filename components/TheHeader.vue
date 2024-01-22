@@ -53,10 +53,8 @@ function toggleActive() {
   color: white
   & > div
     color: currentColor
-    line-height: 1.2em
     h1, p
       color: currentColor
-      line-height: 1.2em
   &-Toggle
     position: absolute
     top: 0

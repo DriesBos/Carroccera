@@ -92,6 +92,7 @@
       margin-bottom: var(--spacing-one)
       h1
         max-width: 50vw
+        text-transform: uppercase
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
       p

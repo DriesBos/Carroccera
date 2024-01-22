@@ -47,7 +47,6 @@ onMounted(() => {
   transition: all $transition-general
   h1, p
     color: currentColor
-    line-height: 1.2em
     @media (hover: hover)
       opacity: 0
       transition: opacity $transition-hover
