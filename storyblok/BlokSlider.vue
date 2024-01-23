@@ -90,7 +90,6 @@ export default {
     top: 50%
     transform: translateY(-50%)
     color: black
-    // mix-blend-mode: difference
     padding: var(--spacing-one)
     .dot
       width: 1rem
@@ -114,12 +113,12 @@ export default {
       object-position: center center
 
 .modal-Column_One
-  .square, .landscape, .video, .wide
+  .square, .rectangular, .video, .wide
     width: 100%
   @media screen and ( min-width: $breakpoint-mobile)
     .square
       aspect-ratio: auto 1 / 1
-    .landscape
+    .rectangular
       aspect-ratio: auto 3 / 2
     .video
       aspect-ratio: auto 4 / 3
@@ -134,4 +133,5 @@ export default {
     height: 100%
     &-Image
       height: 100%
+      img
 </style>

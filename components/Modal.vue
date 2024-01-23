@@ -11,9 +11,6 @@
           <img src="~assets/icons/close.png" alt="" />
         </div>
       </div>
-      <!-- <div class="modal-Tag">
-        <p>Project</p>
-      </div> -->
     </div>
   </div>
 </template>
@@ -60,21 +57,18 @@
         width: 100%
         height: 100%
         object-fit: contain
-  // &-Tag
-  //   position: absolute
-  //   top: var(--spacing-ver)
-  //   left: var(--spacing-hor)
   &-Content
     position: relative
     width: 100%
     height: 100%
-    display: flex
+    display: inline-flex
     flex-direction: row
     @media screen and ( max-width: $breakpoint-tablet)
       flex-direction: column
       gap: var(--spacing-one)
     & > div
-      flex: 1
+      @media screen and ( min-width: $breakpoint-tablet)
+        flex: 1
   &-Column // Styling for columns
     position: relative
     width: 100%
@@ -83,7 +77,8 @@
     &::-webkit-scrollbar
       display: none
     & > div
-      flex-shrink: 0
+      @media screen and ( min-width: $breakpoint-tablet)
+        flex-shrink: 0
     &_Title
       display: flex
       flex-direction: column
@@ -98,35 +93,22 @@
       p
         margin-top: .5rem
     &_One
-      display: flex
+      display: inline-flex
       flex-direction: column
       justify-content: flex-start
       align-items: center
       overflow-y: auto
       padding: var(--spacing-ver) var(--spacing-hor)
-      // padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
-      flex: 1
-      & > div
-        // margin-bottom: var(--spacing-two)
-        &:first-child
-          // margin-top: var(--spacing-two)
-          // initial-letter: 4
-          p, h1, h2, h3
-            &::first-letter
-              // initial-letter: 1.95
-              // margin: 0 .25em .25em .25em
-        &:last-child
-          margin-bottom: var(--spacing-two)
+      & > div:last-child
+        margin-bottom: var(--spacing-two)
     &_Two
       position: relative
       width: 100%
       height: 100%
-      display: flex
+      display: inline-flex
       flex-direction: row
       flex-wrap: nowrap
       padding: var(--spacing-ver) var(--spacing-hor)
-      // padding-top: calc(#{var(--spacing-ver)} * 2 + 1rem)
-      flex: 1
       & > div
         @media screen and (max-width: $breakpoint-tablet)
           flex-direction: column
