@@ -24,6 +24,8 @@
 </template>
 
 <script setup>
+import { defineEmits, onMounted, ref } from 'vue';
+
 const emit = defineEmits(['headerActive']);
 
 let isActive = ref(false);
@@ -40,6 +42,14 @@ function toggleActive() {
     emit('headerActive', false);
   }
 }
+
+onMounted(() => {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      isActive.value = false;
+    }
+  });
+});
 </script>
 
 <style lang="sass">

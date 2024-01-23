@@ -70,6 +70,12 @@ onMounted(() => {
   const array = Array.from(layers);
   const layersArray = array.slice(1);
 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      headerActive.value = false;
+    }
+  });
+
   layersArray.forEach((el) => {
     gsap.to(el, {
       y: '-5%',

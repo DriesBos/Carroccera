@@ -62,9 +62,11 @@ const init = async () => {
 };
 init();
 
-// onMounted(() => {
-// if (blok.value.layouthor) {
-//   ifHorizontal.value = true;
-// }
-// });
+onMounted(() => {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      isModalActive.value = false;
+    }
+  });
+});
 </script>

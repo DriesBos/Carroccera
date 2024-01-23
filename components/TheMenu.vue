@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 defineProps({
   headerState: Boolean,
@@ -48,6 +48,18 @@ headerMenu.value = data.story.content.header;
 function toggleContact() {
   contactActive.value = !contactActive.value;
 }
+
+function closeContact() {
+  contactActive.value = false;
+}
+
+onMounted(() => {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      contactActive.value = false;
+    }
+  });
+});
 </script>
 
 <style lang="sass">

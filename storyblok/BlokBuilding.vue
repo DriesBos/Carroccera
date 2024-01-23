@@ -48,7 +48,6 @@ import { ref, onMounted } from 'vue';
 const data = defineProps({ blok: Object });
 
 const isModalActive = ref(false);
-
 const isTwoColumn = ref(false);
 
 function openModal() {
@@ -71,9 +70,11 @@ const init = async () => {
 init();
 
 onMounted(() => {
-  // if (blok.value.layouthor) {
-  //   ifHorizontal.value = true;
-  // }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      isModalActive.value = false;
+    }
+  });
 });
 </script>
 
