@@ -57,14 +57,16 @@ onUnmounted(() => {
     left: 0
     top: 50vh
     width: 100%
-    height: 100%
+    height: auto
     opacity: .85
     transition: opacity .66s ease
+    overflow: visible
     img
       width: 100%
-      height: 100%
+      height: auto
       object-fit: cover
       object-position: top
+      overflow: visible
     &.headerActive
       opacity: 0
 </style>
