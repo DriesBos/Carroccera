@@ -61,9 +61,6 @@ function toggleContact() {
   pointer-events: none
   & > div
     color: currentColor
-    h1, p
-      color: currentColor
-      line-height: 1
   &-Toggle
     position: absolute
     top: 0
@@ -74,6 +71,9 @@ function toggleContact() {
       display: flex
       gap: 1rem
       pointer-events: auto
+      h1, p
+        color: currentColor
+        line-height: 1
       @media (max-width: 768px)
         gap: .5rem
       & .dot
