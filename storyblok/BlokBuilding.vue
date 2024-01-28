@@ -23,7 +23,7 @@
     <Teleport to="body">
       <Transition name="slideUp">
         <Modal
-          v-show="isModalActive"
+          v-if="isModalActive"
           @close="closeModal"
           :class="{
             active: isModalActive,
@@ -67,17 +67,13 @@ const isTwoColumn = ref(false);
 
 function openModal() {
   isModalActive.value = true;
-  document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   isModalActive.value = false;
-  document.body.style.overflow = 'auto';
 }
 
 const init = async () => {
-  // I want use props in this
-  // const { data } = await getRoomByNo(props.no)
   if (data.blok.layouthor && data.blok.layouthor.length > 0) {
     isTwoColumn.value = true;
     isOneColumn.value = false;

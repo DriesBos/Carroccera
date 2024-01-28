@@ -44,6 +44,7 @@ const data = defineProps({
   width: 100%
   height: 100%
   z-index: 9999
+  pointer-events: none
   &-Background
     position: absolute
     top: 0
@@ -51,6 +52,7 @@ const data = defineProps({
     width: 100%
     height: 100%
     background: hsla(0, 0%, 0%, .165)
+    pointer-events: auto
   &-Container
     position: relative
     width: calc(100% - 10vmin)

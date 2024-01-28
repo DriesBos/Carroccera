@@ -10,15 +10,17 @@
         <Modal
           v-if="isModalActive"
           @close="closeModal"
-          :class="{ active: isModalActive, isTwoColumn: isTwoColumn }"
+          :class="{
+            active: isModalActive,
+            isTwoColumn: isTwoColumn,
+            isOneColumn: isOneColumn,
+          }"
           :blok="blok.body"
+          :title="blok.title"
+          :subtitle="blok.date"
         >
           <!-- Col One -->
           <div v-if="blok.body" class="modal-Column modal-Column_One">
-            <div v-if="blok.title" class="modal-Column_Title">
-              <h1>{{ blok.title }}</h1>
-              <p v-if="blok.date">{{ blok.date }}</p>
-            </div>
             <StoryblokComponent
               v-for="blok in blok.body"
               :key="blok._uid"
@@ -45,6 +47,7 @@ import { ref, onMounted } from 'vue';
 const data = defineProps({ blok: Object });
 
 const isModalActive = ref(false);
+const isOneColumn = ref(true);
 const isTwoColumn = ref(false);
 
 function openModal() {
@@ -58,6 +61,10 @@ function closeModal() {
 const init = async () => {
   if (data.blok.layouthor && data.blok.layouthor.length > 0) {
     isTwoColumn.value = true;
+    isOneColumn.value = false;
+  } else {
+    isOneColumn.value = true;
+    isTwoColumn.value = false;
   }
 };
 init();
