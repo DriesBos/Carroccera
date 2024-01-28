@@ -138,6 +138,8 @@ const data = defineProps({
       flex-direction: row
       flex-wrap: nowrap
       padding: var(--spacing-ver) var(--spacing-hor)
+      @media screen and (max-width: $breakpoint-tablet)
+        padding-bottom: calc(3 * #{var(--spacing-ver)})
       // & > div
       //   @media screen and (max-width: $breakpoint-tablet)
       //     flex-direction: column
@@ -149,7 +151,7 @@ const data = defineProps({
       overflow-y: auto
       & > div:last-child
         & > div:last-child
-          padding-bottom: var(--spacing-ver)
+          padding-bottom: calc(3 * #{var(--spacing-ver)})
     .modal-Header
       background: white
 
@@ -168,6 +170,7 @@ const data = defineProps({
       @media screen and (min-width: $breakpoint-tablet)
         .modal-Column_One
           overflow-y: auto
+          padding-bottom: calc(3 * #{var(--spacing-ver)})
     .modal-Header
       &_Title
         background: white
