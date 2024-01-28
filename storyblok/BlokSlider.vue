@@ -4,30 +4,26 @@
       <Transition name="sliderFade">
         <img :key="currentImage" :src="images[currentImage].filename" alt="" />
       </Transition>
-      <Transition name="fade">
-        <div
-          v-show="isNextVisible"
-          @click="nextImage"
-          class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
-        >
-          <!-- <div class="icon icon-ArrowRight">
+      <div
+        v-show="isNextVisible"
+        @click="nextImage"
+        class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
+      >
+        <!-- <div class="icon icon-ArrowRight">
             <img src="~assets/icons/arrow.png" alt="" />
           </div> -->
-          <div class="dot" />
-        </div>
-      </Transition>
-      <Transition name="fade">
-        <div
-          v-show="isPrevVisible"
-          @click="prevImage"
-          class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
-        >
-          <!-- <div class="icon">
+        <div class="dot" />
+      </div>
+      <div
+        v-show="isPrevVisible"
+        @click="prevImage"
+        class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
+      >
+        <!-- <div class="icon">
             <img src="~assets/icons/arrow.png" alt="" />
           </div> -->
-          <div class="dot" />
-        </div>
-      </Transition>
+        <div class="dot" />
+      </div>
     </div>
     <div class="blokSlider-Counter" :class="{ active: isCounterVisible }">
       <p>{{ currentImage + 1 }} of {{ images.length }}</p>
