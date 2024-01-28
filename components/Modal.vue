@@ -1,19 +1,39 @@
 <template>
   <div class="modal">
     <div @click.native="$emit('close')" class="modal-Background" />
+
     <div class="modal-Container mouseInvert">
+      <div class="modal-Header">
+        <div v-if="data.title" class="modal-Header_Title">
+          <h1>{{ data.title }}</h1>
+          <p v-if="data.subtitle">{{ data.subtitle }}</p>
+        </div>
+        <div
+          @click.native="$emit('close')"
+          class="modal-Header_Close mouseInteract"
+        >
+          <p>Close</p>
+          <div class="icon icon-Close">
+            <img src="~assets/icons/close.png" alt="" />
+          </div>
+        </div>
+      </div>
+
       <div class="modal-Content">
         <slot></slot>
-      </div>
-      <div @click.native="$emit('close')" class="modal-Close mouseInteract">
-        <p>Close</p>
-        <div class="icon icon-Close">
-          <img src="~assets/icons/close.png" alt="" />
-        </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const data = defineProps({
+  title: String,
+  subtitle: String,
+});
+</script>
 
 <style lang="sass">
 .modal
@@ -28,63 +48,45 @@
   z-index: 9999
   &-Background
     position: absolute
-    width: 100%
-    height: 100%
     top: 0
     left: 0
+    width: 100%
+    height: 100%
     background: hsla(0, 0%, 0%, .165)
   &-Container
     position: relative
     width: calc(100% - 10vmin)
-    height: calc(100% - 10vmin)
+    height: calc(100% - 5vmin)
     background: white
     color: black
     pointer-events: auto
     overflow: hidden
-  &-Close
-    position: absolute
-    top: var(--spacing-ver)
-    right: var(--spacing-hor)
-    display: flex
-    align-items: center
-    gap: 1rem
     @media screen and (max-width: $breakpoint-mobile)
-      gap: .5rem
-    .icon
-      width: 1rem
-      height: 1rem
-      img
-        width: 100%
-        height: 100%
-        object-fit: contain
-  &-Content
-    position: relative
-    width: 100%
-    height: 100%
-    display: inline-flex
-    flex-direction: row
-    @media screen and ( max-width: $breakpoint-tablet)
+      display: flex
       flex-direction: column
-      gap: var(--spacing-one)
+      width: calc(100% - 6vmin)
+      height: calc(100% - 4vmin)
+  &-Header
+    z-index: +1
+    background: white // Only if one column
+    @media screen and ( min-width: $breakpoint-tablet)
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+    @media screen and ( max-width: $breakpoint-tablet)
+      display: flex
+      align-items: flex-start
     & > div
-      @media screen and ( min-width: $breakpoint-tablet)
-        flex: 1
-  &-Column // Styling for columns
-    position: relative
-    width: 100%
-    -ms-overflow-style: none // Prevents scrollbar
-    scrollbar-width: none
-    &::-webkit-scrollbar
-      display: none
-    & > div
-      @media screen and ( min-width: $breakpoint-tablet)
-        flex-shrink: 0
+      padding: var(--spacing-ver) var(--spacing-hor)
     &_Title
       display: flex
       flex-direction: column
       width: 100%
       max-width: 100%
-      margin-bottom: var(--spacing-one)
+      @media screen and ( min-width: $breakpoint-tablet)
+        width: 100%
+        max-width: 50%
       h1
         max-width: 50vw
         text-transform: uppercase
@@ -92,15 +94,44 @@
           max-width: 100%
       p
         margin-top: .5rem
+    &_Close
+      position: absolute
+      top: 0
+      right: 0
+      display: flex
+      align-items: center
+      gap: .5rem
+      .icon
+        width: 1rem
+        height: 1rem
+        img
+          width: 100%
+          height: 100%
+          object-fit: contain
+  &-Content
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: row
+    flex: 1
+    @media screen and ( max-width: $breakpoint-tablet)
+      flex-direction: column
+  &-Column
+    position: relative
+    width: 100%
+    height: 100%
+    -ms-overflow-style: none // Prevents scrollbar
+    scrollbar-width: none
+    &::-webkit-scrollbar
+      display: none
     &_One
-      display: inline-flex
+      display: flex
       flex-direction: column
       justify-content: flex-start
-      align-items: center
-      overflow-y: auto
       padding: var(--spacing-ver) var(--spacing-hor)
-      & > div:last-child
-        margin-bottom: var(--spacing-two)
+      gap: 1rem
+      @media screen and (min-width: $breakpoint-tablet)
+        padding-top: calc(7rem + #{var(--spacing-ver)})
     &_Two
       position: relative
       width: 100%
@@ -109,14 +140,22 @@
       flex-direction: row
       flex-wrap: nowrap
       padding: var(--spacing-ver) var(--spacing-hor)
-      & > div
-        @media screen and (max-width: $breakpoint-tablet)
-          flex-direction: column
-          align-items: center
-          overflow-y: none
+      // & > div
+      //   @media screen and (max-width: $breakpoint-tablet)
+      //     flex-direction: column
+      //     align-items: center
+      //     overflow-y: none
+
+  &.isOneColumn
+    .modal-Content
+      overflow-y: auto
+      & > div:last-child
+        & > div:last-child
+          padding-bottom: var(--spacing-ver)
+
 
   &.isTwoColumn
-    .modal-Content // When two columns AND mobile-tablet
+    .modal-Content
       @media screen and (max-width: $breakpoint-tablet)
         display: flex
         flex-direction: column
@@ -125,9 +164,10 @@
         overflow-y: auto
         & > div
           flex-shrink: 0
-          justify-content: flex-start
           height: auto
-          overflow-y: unset
+      @media screen and (min-width: $breakpoint-tablet)
+        .modal-Column_One
+          overflow-y: auto
 
 .modalSide
   top: 0

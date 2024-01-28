@@ -133,5 +133,4 @@ export default {
     height: 100%
     &-Image
       height: 100%
-      img
 </style>

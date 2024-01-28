@@ -4,31 +4,37 @@
     class="blokBuilding mouseInteract"
     :class="[blok.position, blok.positionvertical]"
   >
+    <!-- Visible -->
     <img
       v-if="blok.image.filename"
       @click.native="openModal"
       :src="blok.image.filename"
       alt=""
     />
+    <!-- Invisible -->
     <Teleport to="body">
       <Transition name="slideUp">
         <Modal
           v-show="isModalActive"
           @close="closeModal"
-          :class="{ active: isModalActive, isTwoColumn: isTwoColumn }"
+          :class="{
+            active: isModalActive,
+            isTwoColumn: isTwoColumn,
+            isOneColumn: isOneColumn,
+          }"
           :blok="blok.body"
+          :title="blok.title"
+          :subtitle="blok.date"
         >
+          <!-- Col One -->
           <div v-if="blok.body" class="modal-Column modal-Column_One">
-            <div v-if="blok.title" class="modal-Column_Title">
-              <h1>{{ blok.title }}</h1>
-              <p v-if="blok.date">{{ blok.date }}</p>
-            </div>
             <StoryblokComponent
               v-for="blok in blok.body"
               :key="blok._uid"
               :blok="blok"
             />
           </div>
+          <!-- Col Two -->
           <div v-if="isTwoColumn" class="modal-Column modal-Column_Two">
             <StoryblokComponent
               v-for="blok in blok.layouthor"
@@ -48,6 +54,7 @@ import { ref, onMounted } from 'vue';
 const data = defineProps({ blok: Object });
 
 const isModalActive = ref(false);
+const isOneColumn = ref(true);
 const isTwoColumn = ref(false);
 
 function openModal() {
@@ -65,6 +72,10 @@ const init = async () => {
   // const { data } = await getRoomByNo(props.no)
   if (data.blok.layouthor && data.blok.layouthor.length > 0) {
     isTwoColumn.value = true;
+    isOneColumn.value = false;
+  } else {
+    isOneColumn.value = true;
+    isTwoColumn.value = false;
   }
 };
 init();
