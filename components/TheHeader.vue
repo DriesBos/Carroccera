@@ -13,6 +13,7 @@
         v-show="isActive"
         @click="toggleActive"
         class="header-Toggle_Item mouseInteract"
+        :class="{ active: isActive }"
       >
         <p>Close</p>
         <div class="icon icon-Close">
@@ -80,10 +81,11 @@ onMounted(() => {
     &_Item
       padding: var(--spacing-ver) var(--spacing-hor)
       display: flex
-      gap: 1rem
+      gap: .5rem
       pointer-events: auto
-      @media (max-width: 768px)
-        gap: .5rem
+      &.active
+        p
+          opacity: 1
       & .dot
         background: white
         transition: all .33s ease

@@ -27,8 +27,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-
 const data = defineProps({
   title: String,
   subtitle: String,
