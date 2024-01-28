@@ -49,13 +49,10 @@ const isTwoColumn = ref(false);
 
 function openModal() {
   isModalActive.value = true;
-  console.log('openModal', isModalActive.value);
-  // document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
   isModalActive.value = false;
-  // document.body.style.overflow = 'auto';
 }
 
 const init = async () => {

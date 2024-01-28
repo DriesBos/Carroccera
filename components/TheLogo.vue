@@ -11,12 +11,10 @@ const isVisible = ref(false);
 
 function offDocument() {
   isVisible.value = true;
-  console.log('hidden');
 }
 
 function onDocument() {
   isVisible.value = false;
-  console.log('visible');
 }
 
 onMounted(() => {
