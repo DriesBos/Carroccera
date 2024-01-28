@@ -171,6 +171,7 @@ const data = defineProps({
         .modal-Column_One
           overflow-y: auto
           padding-bottom: calc(3 * #{var(--spacing-ver)})
+          height: 100%
         .modal-Column_Two
           .blokSlider
             height: 100%
@@ -180,36 +181,36 @@ const data = defineProps({
       &_Title
         background: white
 
-.modalSide
-  top: 0
-  right: 0
-  width: 66vw
-  height: 100vh
+// .modalSide
+//   top: 0
+//   right: 0
+//   width: 66vw
+//   height: 100vh
 
-.modalCenter
-  display: flex
-  flex-direction: column
-  align-items: center
-  top: 3vmax
-  right: 3vmin
-  bottom: 3vmax
-  left: 3vmin
+// .modalCenter
+//   display: flex
+//   flex-direction: column
+//   align-items: center
+//   top: 3vmax
+//   right: 3vmin
+//   bottom: 3vmax
+//   left: 3vmin
 
-.modalContent
-  max-width: 50vw
-  padding-bottom: 3rem
+// .modalContent
+//   max-width: 50vw
+//   padding-bottom: 3rem
 
-.twoColumn
-  display: flex
-  flex-direction: row
-  justify-content: space-between
-  width: 100%
-  height: 100%
-  &_Left
-    flex: 1
-    padding-right: 1rem
-    position: sticky
-  &_Right
-    flex: 1
-    padding-left: 1rem
+// .twoColumn
+//   display: flex
+//   flex-direction: row
+//   justify-content: space-between
+//   width: 100%
+//   height: 100%
+//   &_Left
+//     flex: 1
+//     padding-right: 1rem
+//     position: sticky
+//   &_Right
+//     flex: 1
+//     padding-left: 1rem
 </style>
