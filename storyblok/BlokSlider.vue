@@ -4,31 +4,34 @@
       <Transition name="sliderFade">
         <img :key="currentImage" :src="images[currentImage].filename" alt="" />
       </Transition>
+      <Transition name="fade">
+        <div
+          v-show="isNextVisible"
+          @click="nextImage"
+          class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
+        >
+          <!-- <div class="icon icon-ArrowRight">
+            <img src="~assets/icons/arrow.png" alt="" />
+          </div> -->
+          <div class="dot" />
+        </div>
+      </Transition>
+      <Transition name="fade">
+        <div
+          v-show="isPrevVisible"
+          @click="prevImage"
+          class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
+        >
+          <!-- <div class="icon">
+            <img src="~assets/icons/arrow.png" alt="" />
+          </div> -->
+          <div class="dot" />
+        </div>
+      </Transition>
     </div>
-    <Transition name="fade">
-      <div
-        v-show="isNextVisible"
-        @click="nextImage"
-        class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
-      >
-        <!-- <div class="icon icon-ArrowRight">
-          <img src="~assets/icons/arrow.png" alt="" />
-        </div> -->
-        <div class="dot" />
-      </div>
-    </Transition>
-    <Transition name="fade">
-      <div
-        v-show="isPrevVisible"
-        @click="prevImage"
-        class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
-      >
-        <!-- <div class="icon">
-          <img src="~assets/icons/arrow.png" alt="" />
-        </div> -->
-        <div class="dot" />
-      </div>
-    </Transition>
+    <div class="blokSlider-Counter" :class="{ active: isCounterVisible }">
+      <p>{{ currentImage + 1 }} of {{ images.length }}</p>
+    </div>
   </div>
 </template>
 
@@ -42,11 +45,13 @@ export default {
       currentImage: 0,
       isNextVisible: true,
       isPrevVisible: true,
+      isCounterVisible: false,
       images: this.blok.images,
     };
   },
   mounted() {
     this.navVisibility();
+    this.counterVisibility();
     this.nextprevVisibility();
   },
   methods: {
@@ -57,6 +62,13 @@ export default {
       } else {
         this.isNextVisible = true;
         this.isPrevVisible = true;
+      }
+    },
+    counterVisibility() {
+      if (this.images.length <= 1) {
+        this.isCounterVisible = false;
+      } else {
+        this.isCounterVisible = true;
       }
     },
     nextprevVisibility() {
@@ -105,6 +117,21 @@ export default {
       right: 0
     &_Prev
       left: 0
+  &-Counter
+    visibility: hidden
+    @media screen and ( min-width: $breakpoint-tablet)
+      position: absolute
+      right: 0
+      bottom: 0
+    @media screen and ( max-width: $breakpoint-tablet)
+      position: relative
+      width: 100%
+      display: flex
+      justify-content: center
+    &.active
+      padding-top: 1rem
+      visibility: visible
+      text-align: center
   &-Image
     position: relative
     width: 100%
@@ -129,11 +156,4 @@ export default {
       aspect-ratio: auto 16 / 9
     .full
       width: 100%
-
-
-.modal-Column_Two
-  .blokSlider
-    height: 100%
-    &-Image
-      height: 100%
 </style>

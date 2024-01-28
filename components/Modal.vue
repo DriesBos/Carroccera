@@ -171,6 +171,11 @@ const data = defineProps({
         .modal-Column_One
           overflow-y: auto
           padding-bottom: calc(3 * #{var(--spacing-ver)})
+        .modal-Column_Two
+          .blokSlider
+            height: 100%
+            &-Image
+              height: 100%
     .modal-Header
       &_Title
         background: white
