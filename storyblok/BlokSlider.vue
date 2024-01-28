@@ -11,9 +11,10 @@
         @click="nextImage"
         class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
       >
-        <div class="icon icon-ArrowRight">
+        <!-- <div class="icon icon-ArrowRight">
           <img src="~assets/icons/arrow.png" alt="" />
-        </div>
+        </div> -->
+        <div class="dot" />
       </div>
     </Transition>
     <Transition name="fade">
@@ -22,9 +23,10 @@
         @click="prevImage"
         class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
       >
-        <div class="icon">
+        <!-- <div class="icon">
           <img src="~assets/icons/arrow.png" alt="" />
-        </div>
+        </div> -->
+        <div class="dot" />
       </div>
     </Transition>
   </div>
@@ -90,7 +92,8 @@ export default {
     top: 50%
     transform: translateY(-50%)
     color: black
-    padding: var(--spacing-one)
+    padding: 1rem
+    mix-blend-mode: difference
     .dot
       width: 1rem
       height: 1rem

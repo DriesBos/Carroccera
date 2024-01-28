@@ -38,7 +38,7 @@ const data = defineProps({
   position: fixed
   display: flex
   justify-content: center
-  align-items: center
+  align-items: flex-end
   left: 0
   top: 0
   width: 100%
@@ -66,13 +66,13 @@ const data = defineProps({
       height: calc(100% - 4vmin)
   &-Header
     z-index: +1
-    background: white // Only if one column
     @media screen and ( min-width: $breakpoint-tablet)
       position: absolute
       left: 0
       top: 0
       width: 100%
     @media screen and ( max-width: $breakpoint-tablet)
+      background: white // Only if one column
       display: flex
       align-items: flex-start
     & > div
@@ -150,6 +150,8 @@ const data = defineProps({
       & > div:last-child
         & > div:last-child
           padding-bottom: var(--spacing-ver)
+    .modal-Header
+      background: white
 
 
   &.isTwoColumn
@@ -166,6 +168,9 @@ const data = defineProps({
       @media screen and (min-width: $breakpoint-tablet)
         .modal-Column_One
           overflow-y: auto
+    .modal-Header
+      &_Title
+        background: white
 
 .modalSide
   top: 0

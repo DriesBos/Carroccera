@@ -6,7 +6,15 @@
   >
     <!-- Visible -->
     <img
+      v-if="blok.imagelandscape.filename"
+      class="landscape"
+      @click.native="openModal"
+      :src="blok.imagelandscape.filename"
+      alt=""
+    />
+    <img
       v-if="blok.image.filename"
+      class="portrait"
       @click.native="openModal"
       :src="blok.image.filename"
       alt=""
