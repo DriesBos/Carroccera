@@ -101,11 +101,14 @@ export default {
   width: 100%
   &-Nav
     position: absolute
-    top: 50%
-    transform: translateY(-50%)
+    top: 0
+    bottom: 0
+    width: 50%
     color: black
     padding: 1rem
     mix-blend-mode: difference
+    display: flex
+    align-items: center
     .dot
       width: 1rem
       height: 1rem
@@ -115,8 +118,10 @@ export default {
       transition: all .33s ease
     &_Next
       right: 0
+      justify-content: flex-end
     &_Prev
       left: 0
+      justify-content: flex-start
   &-Counter
     visibility: hidden
     @media screen and ( min-width: $breakpoint-tablet)
