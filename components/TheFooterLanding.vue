@@ -43,12 +43,14 @@ onUnmounted(() => {
   top: 0
   width: 100%
   height: 100vh
+  height: 100svh
   transition: top .5s ease
   pointer-events: none
   img, svg
     position: absolute
     left: 0
     bottom: 0
+    bottom: env(safe-area-inset-bottom)
     width: 100%
     max-width: 100%
     height: auto
