@@ -23,7 +23,7 @@ const content = ref(null);
 let projectList = ref(null);
 content.value = data.story.content.body;
 
-let ctx;
+// let ctx;
 
 function scrollToProject(el) {
   emit('closeAllEmit', true);
@@ -58,9 +58,9 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  ctx.revert();
-});
+// onUnmounted(() => {
+//   ctx.revert();
+// });
 </script>
 
 <style scoped></style>

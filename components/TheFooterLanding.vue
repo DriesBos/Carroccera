@@ -14,7 +14,7 @@ defineProps({
 });
 
 const main = ref();
-let ctx;
+// let ctx;
 
 onMounted(() => {
   const footerlanding = document.querySelector('.footerlanding');
@@ -31,9 +31,9 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  ctx.revert();
-});
+// onUnmounted(() => {
+//   ctx.revert();
+// });
 </script>
 
 <style scoped lang="sass">

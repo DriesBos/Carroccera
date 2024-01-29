@@ -68,7 +68,7 @@ const headerState = ref(false);
 const projectsState = ref(false);
 const contactState = ref(false);
 
-let ctx;
+// let ctx;
 
 function headerToggle() {
   headerState.value = !headerState.value;
@@ -121,7 +121,7 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  ctx.revert();
-});
+// onUnmounted(() => {
+//   ctx.revert();
+// });
 </script>

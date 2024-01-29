@@ -40,7 +40,7 @@ defineProps({
   contactState: Boolean,
 });
 
-let ctx;
+// let ctx;
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/header', {
@@ -63,9 +63,9 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  ctx.revert();
-});
+// onUnmounted(() => {
+//   ctx.revert();
+// });
 </script>
 
 <style lang="sass">

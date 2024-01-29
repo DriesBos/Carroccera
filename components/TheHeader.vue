@@ -62,7 +62,7 @@ const props = defineProps({
   contactState: Boolean,
 });
 
-let ctx;
+// let ctx;
 
 function headerToggle() {
   emit('headerEmit');
@@ -79,9 +79,9 @@ onMounted(() => {
   });
 });
 
-onUnmounted(() => {
-  ctx.revert();
-});
+// onUnmounted(() => {
+//   ctx.revert();
+// });
 </script>
 
 <style lang="sass">
