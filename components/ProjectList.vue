@@ -1,5 +1,8 @@
 <template>
-  <div v-for="item in projectList" class="menuItem mouseInteract">
+  <div
+    v-for="item in projectList"
+    class="menuItem header-Menu_ProjectList mouseInteract"
+  >
     <p @click="scrollToProject(item)">{{ item }}</p>
   </div>
 </template>
@@ -53,3 +56,5 @@ onMounted(() => {
   });
 });
 </script>
+
+<style scoped></style>

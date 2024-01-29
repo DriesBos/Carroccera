@@ -128,5 +128,7 @@ onMounted(() => {
       opacity: 1
 
 .menuItem
-  opacity: 0
+  opacity: 1
+  &.header-Menu_Contact, &.header-Menu_ProjectList
+    opacity: 1
 </style>
