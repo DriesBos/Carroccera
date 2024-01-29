@@ -3,7 +3,11 @@
     <!-- <Mouse /> -->
     <div class="layerOne">
       <Celestials :headerState="headerActive" />
-      <TheMenu :headerState="headerActive" />
+      <TheMenu
+        @contactEmitActive="contactToggle"
+        :headerState="headerActive"
+        :contactState="contactState"
+      />
     </div>
     <div class="layerTwo theLandscape">
       <StoryblokComponent
@@ -15,7 +19,11 @@
     <TheClouds :headerState="headerActive" />
     <TheFooter class="layerThree" />
     <div class="layerFour">
-      <TheHeader @headerActive="headerIsActive" />
+      <TheHeader
+        @headerActive="headerIsActive"
+        @contactEmitInactive="contactToggle"
+        :contactState="contactState"
+      />
       <ToTop />
       <TheFooterLanding :headerState="headerActive" />
       <TheLogo />
@@ -49,10 +57,16 @@ import gsap from 'gsap';
 defineProps({ blok: Object });
 
 const headerActive = ref(false);
+const contactState = ref(false);
+
 let ctx;
 
 function headerIsActive() {
   headerActive.value = !headerActive.value;
+}
+
+function contactToggle() {
+  contactState.value = !contactState.value;
 }
 
 watch(headerActive, (newVal) => {
@@ -65,8 +79,6 @@ watch(headerActive, (newVal) => {
 
 onMounted(() => {
   const layers = document.querySelectorAll('.blokLayer');
-  // const celestials = document.querySelectorAll('.celestials');
-  const firstLayer = layers[0];
   const array = Array.from(layers);
   const layersArray = array.slice(1);
 
@@ -88,23 +100,5 @@ onMounted(() => {
       },
     });
   });
-
-  // const footer = document.querySelectorAll('footer');
-
-  // gsap.fromTo(
-  //   footer,
-  //   {
-  //     y: '5%',
-  //   },
-  //   {
-  //     y: '0%',
-  //     scrollTrigger: {
-  //       trigger: footer,
-  //       start: 'top bottom',
-  //       end: 'top 75%',
-  //       scrub: true,
-  //     },
-  //   }
-  // );
 });
 </script>

@@ -3,25 +3,22 @@
     <div class="header-Background" />
 
     <div class="header-Menu">
-      <template v-if="headerMenu && !contactActive">
+      <template v-if="headerMenu && !contactState">
         <StoryblokComponent
           v-for="blok in headerMenu"
           :key="blok._uid"
           :blok="blok"
         />
-        <div @click="toggleContact" class="menuItem">
+        <div
+          @click="emit('contactEmitActive', true)"
+          class="menuItem mouseInteract"
+        >
           <p>Contact</p>
         </div>
       </template>
-      <template v-if="contactActive">
-        <div class="menuItem">
-          <p>Contact</p>
-        </div>
-        <div class="menuItem">
-          <p>info@carrocera.com</p>
-        </div>
-        <div @click="toggleContact" class="menuItem">
-          <p>Close</p>
+      <template v-if="contactState">
+        <div class="menuItem header-Menu_Contact">
+          <a href="mailto: info@carrocera.com">info@carrocera.com</a>
         </div>
       </template>
     </div>
@@ -31,8 +28,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+const emit = defineEmits(['contactEmitActive']);
+
 defineProps({
   headerState: Boolean,
+  contactState: Boolean,
 });
 
 const storyblokApi = useStoryblokApi();
@@ -44,14 +44,6 @@ const { data } = await storyblokApi.get('cdn/stories/header', {
 const headerMenu = ref(null);
 const contactActive = ref(false);
 headerMenu.value = data.story.content.header;
-
-function toggleContact() {
-  contactActive.value = !contactActive.value;
-}
-
-function closeContact() {
-  contactActive.value = false;
-}
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
@@ -104,6 +96,12 @@ onMounted(() => {
     gap: 1rem
     opacity: 0
     transition: opacity .33s ease
+    &_Contact
+      a
+        color: currentColor
+        text-decoration: none
+        &:hover
+          text-decoration: underline
     & > div
       pointer-events: auto
   &-Background

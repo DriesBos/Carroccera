@@ -2,7 +2,7 @@
   <header :class="{ active: isActive }" class="header">
     <div class="header-Toggle">
       <div
-        v-show="!isActive"
+        v-show="!isActive && !contactState"
         @click="toggleActive"
         class="header-Toggle_Item mouseInteract"
       >
@@ -10,7 +10,7 @@
         <div class="dot" />
       </div>
       <div
-        v-show="isActive"
+        v-show="isActive && !contactState"
         @click="toggleActive"
         class="header-Toggle_Item mouseInteract"
         :class="{ active: isActive }"
@@ -20,6 +20,17 @@
           <img src="~assets/icons/close-white.png" alt="" />
         </div>
       </div>
+      <div
+        v-show="contactState"
+        @click="emit('contactEmitInactive', true)"
+        class="header-Toggle_Item mouseInteract"
+        :class="{ active: contactState }"
+      >
+        <p>Back</p>
+        <div class="icon icon-Close">
+          <img src="~assets/icons/arrow-back-white.png" alt="" />
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -27,7 +38,11 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-const emit = defineEmits(['headerActive']);
+const emit = defineEmits(['headerActive', 'contactEmitInactive']);
+
+defineProps({
+  contactState: Boolean,
+});
 
 let isActive = ref(false);
 
