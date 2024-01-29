@@ -50,14 +50,12 @@ headerMenu.value = data.story.content.header;
 
 function allClose() {
   emit('closeAllEmit', true);
-  console.log('TheMenu - closeAllEmit');
 }
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       emit('closeAllEmit', true);
-      console.log('TheMenu esc - closeAllEmit');
     }
   });
 });

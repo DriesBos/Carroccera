@@ -6,6 +6,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
 
 const emit = defineEmits(['closeAllEmit']);
 
@@ -21,12 +22,11 @@ content.value = data.story.content.body;
 
 function scrollToProject(el) {
   emit('closeAllEmit', true);
-  console.log('ProjectList — scrollToProject');
   const project = document.getElementById(el.replace(/\s/g, ''));
-  const projectTop = project.getBoundingClientRect().top;
-  window.scrollTo({
-    top: projectTop,
-    behavior: 'smooth',
+  gsap.to(window, {
+    duration: 0.66,
+    scrollTo: project,
+    ease: 'power4.out',
   });
 }
 
@@ -36,23 +36,19 @@ onMounted(() => {
     .map((innerArray) => {
       return { landscapes: innerArray.body };
     });
-  // console.log('Array of Landscapes', arrayOfLandscapes);
 
   let arrayOfBuildings = arrayOfLandscapes.map((innerArray) => {
     return { buildings: innerArray.landscapes };
   });
-  // console.log('Array of Buildings', arrayOfBuildings);
 
   let arrayOfTitles = arrayOfBuildings.map((innerArray) => {
     return innerArray.buildings[0].title;
   });
-  // console.log('Array of titles', arrayOfTitles);
   projectList.value = arrayOfTitles;
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       emit('closeAllEmit', true);
-      console.log('ProjectList esc - closeAllEmit');
     }
   });
 });

@@ -51,7 +51,8 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted } from 'vue';
+import gsap from 'gsap';
 
 const emit = defineEmits(['headerEmit', 'contactEmit', 'projectsEmit']);
 
@@ -63,12 +64,8 @@ const props = defineProps({
 
 function headerToggle() {
   emit('headerEmit');
-  console.log('TheHeader — headerToggle', props.headerState);
   if (!props.headerState) {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    gsap.to(window, { duration: 0.66, scrollTo: 0, ease: 'power4.out' });
   }
 }
 
@@ -76,7 +73,6 @@ onMounted(() => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       emit('closeAllEmit', true);
-      console.log('TheHeader Esc — closeAllEmit');
     }
   });
 });

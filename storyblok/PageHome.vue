@@ -72,29 +72,20 @@ let ctx;
 
 function headerToggle() {
   headerState.value = !headerState.value;
-  console.log('PageHome — headerState', headerState.value);
 }
 
 function projectsToggle() {
   projectsState.value = !projectsState.value;
-  console.log('PageHome — projectsToggle', projectsState.value);
 }
 
 function contactToggle() {
   contactState.value = !contactState.value;
-  console.log('PageHome — contactState', contactState.value);
 }
 
 function allClose() {
   headerState.value = false;
   projectsState.value = false;
   contactState.value = false;
-  console.log(
-    'PageHome — allClose',
-    headerState.value,
-    projectsState.value,
-    contactState.value
-  );
 }
 
 watch(headerState, (newVal) => {
