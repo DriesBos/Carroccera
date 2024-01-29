@@ -72,18 +72,6 @@ let ctx;
 
 function headerToggle() {
   headerState.value = !headerState.value;
-  // if (headerState.value) {
-  //   gsap.to('.menuItem', {
-  //     opacity: 1,
-  //     ease: 'power1.inOut',
-  //     duration: 0.66,
-  //     stagger: {
-  //       amount: 0.33,
-  //     },
-  //   });
-  // } else {
-  //   // gsap.set('.menuItem', { opacity: 0 });
-  // }
 }
 
 function projectsToggle() {
