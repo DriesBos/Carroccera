@@ -74,7 +74,7 @@ onUnmounted(() => {
   position: relative
   top: 0
   left: 0
-  width: 100%
+  width: 100vw
   height: 100vh
   height: 100svh
   pointer-events: none
@@ -82,6 +82,7 @@ onUnmounted(() => {
     position: fixed
     left: 0
     top: 0
+    width: 100%
     height: 100vh
     height: 100lvh
     img
