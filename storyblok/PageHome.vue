@@ -2,10 +2,14 @@
   <div v-editable="blok" id="top" class="page page-Home">
     <!-- <Mouse /> -->
     <div class="layerOne">
-      <Celestials :headerState="headerActive" />
+      <Celestials :headerState="headerState" />
       <TheMenu
-        @contactEmitActive="contactToggle"
-        :headerState="headerActive"
+        @contactEmit="contactToggle"
+        @headerEmit="headerToggle"
+        @projectsEmit="projectsToggle"
+        @closeAllEmit="allClose"
+        :headerState="headerState"
+        :projectsState="projectsState"
         :contactState="contactState"
       />
     </div>
@@ -16,16 +20,20 @@
         :blok="blok"
       />
     </div>
-    <TheClouds :headerState="headerActive" />
+    <TheClouds :headerState="headerState" />
     <TheFooter class="layerThree" />
     <div class="layerFour">
       <TheHeader
-        @headerActive="headerIsActive"
-        @contactEmitInactive="contactToggle"
+        @contactEmit="contactToggle"
+        @headerEmit="headerToggle"
+        @projectsEmit="projectsToggle"
+        @closeAllEmit="allClose"
+        :headerState="headerState"
+        :projectsState="projectsState"
         :contactState="contactState"
       />
       <ToTop />
-      <TheFooterLanding :headerState="headerActive" />
+      <TheFooterLanding :headerState="headerState" />
       <TheLogo />
     </div>
   </div>
@@ -56,20 +64,40 @@ import gsap from 'gsap';
 
 defineProps({ blok: Object });
 
-const headerActive = ref(false);
+const headerState = ref(false);
+const projectsState = ref(false);
 const contactState = ref(false);
 
 let ctx;
 
-function headerIsActive() {
-  headerActive.value = !headerActive.value;
+function headerToggle() {
+  headerState.value = !headerState.value;
+  console.log('PageHome — headerState', headerState.value);
+}
+
+function projectsToggle() {
+  projectsState.value = !projectsState.value;
+  console.log('PageHome — projectsToggle', projectsState.value);
 }
 
 function contactToggle() {
   contactState.value = !contactState.value;
+  console.log('PageHome — contactState', contactState.value);
 }
 
-watch(headerActive, (newVal) => {
+function allClose() {
+  headerState.value = false;
+  projectsState.value = false;
+  contactState.value = false;
+  console.log(
+    'PageHome — allClose',
+    headerState.value,
+    projectsState.value,
+    contactState.value
+  );
+}
+
+watch(headerState, (newVal) => {
   if (newVal) {
     document.documentElement.style.overflow = 'hidden';
   } else {
@@ -84,7 +112,7 @@ onMounted(() => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      headerActive.value = false;
+      headerState.value = false;
     }
   });
 

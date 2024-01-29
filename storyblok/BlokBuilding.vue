@@ -1,6 +1,7 @@
 <template>
   <div
     v-editable="blok"
+    :id="blok.title.replace(/\s/g, '')"
     class="blokBuilding mouseInteract"
     :class="[blok.position, blok.positionvertical]"
   >

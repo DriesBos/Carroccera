@@ -1,19 +1,23 @@
 <template>
-  <header :class="{ active: isActive }" class="header">
+  <header :class="{ active: props.headerState }" class="header">
     <div class="header-Toggle">
       <div
-        v-show="!isActive && !contactState"
-        @click="toggleActive"
+        v-show="
+          !props.headerState && !props.contactState && !props.projectsState
+        "
+        @click="headerToggle"
         class="header-Toggle_Item mouseInteract"
       >
         <p>Menu</p>
         <div class="dot" />
       </div>
       <div
-        v-show="isActive && !contactState"
-        @click="toggleActive"
+        v-show="
+          props.headerState && !props.contactState && !props.projectsState
+        "
+        @click="headerToggle"
         class="header-Toggle_Item mouseInteract"
-        :class="{ active: isActive }"
+        :class="{ active: props.headerState }"
       >
         <p>Close</p>
         <div class="icon icon-Close">
@@ -21,10 +25,21 @@
         </div>
       </div>
       <div
-        v-show="contactState"
-        @click="emit('contactEmitInactive', true)"
+        v-show="props.contactState"
+        @click="emit('contactEmit', true)"
         class="header-Toggle_Item mouseInteract"
-        :class="{ active: contactState }"
+        :class="{ active: props.contactState }"
+      >
+        <p>Back</p>
+        <div class="icon icon-Close">
+          <img src="~assets/icons/arrow-back-white.png" alt="" />
+        </div>
+      </div>
+      <div
+        v-show="props.projectsState"
+        @click="emit('projectsEmit', true)"
+        class="header-Toggle_Item mouseInteract"
+        :class="{ active: props.projectsState }"
       >
         <p>Back</p>
         <div class="icon icon-Close">
@@ -38,31 +53,30 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 
-const emit = defineEmits(['headerActive', 'contactEmitInactive']);
+const emit = defineEmits(['headerEmit', 'contactEmit', 'projectsEmit']);
 
-defineProps({
+const props = defineProps({
+  headerState: Boolean,
+  projectsState: Boolean,
   contactState: Boolean,
 });
 
-let isActive = ref(false);
-
-function toggleActive() {
-  isActive.value = !isActive.value;
-  if (isActive.value) {
-    emit('headerActive', true);
+function headerToggle() {
+  emit('headerEmit');
+  console.log('TheHeader — headerToggle', props.headerState);
+  if (!props.headerState) {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
     });
-  } else {
-    emit('headerActive', false);
   }
 }
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      isActive.value = false;
+      emit('closeAllEmit', true);
+      console.log('TheHeader Esc — closeAllEmit');
     }
   });
 });

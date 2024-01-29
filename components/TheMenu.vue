@@ -3,18 +3,21 @@
     <div class="header-Background" />
 
     <div class="header-Menu">
-      <template v-if="headerMenu && !contactState">
+      <template v-if="headerMenu && !contactState && !projectsState">
         <StoryblokComponent
           v-for="blok in headerMenu"
           :key="blok._uid"
           :blok="blok"
         />
-        <div
-          @click="emit('contactEmitActive', true)"
-          class="menuItem mouseInteract"
-        >
+        <div @click="emit('projectsEmit', true)" class="menuItem mouseInteract">
+          <p>Projects</p>
+        </div>
+        <div @click="emit('contactEmit', true)" class="menuItem mouseInteract">
           <p>Contact</p>
         </div>
+      </template>
+      <template v-if="projectsState">
+        <ProjectList @closeAllEmit="allClose" />
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact">
@@ -28,10 +31,11 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const emit = defineEmits(['contactEmitActive']);
+const emit = defineEmits(['contactEmit', 'projectsEmit']);
 
 defineProps({
   headerState: Boolean,
+  projectsState: Boolean,
   contactState: Boolean,
 });
 
@@ -42,13 +46,18 @@ const { data } = await storyblokApi.get('cdn/stories/header', {
 });
 
 const headerMenu = ref(null);
-const contactActive = ref(false);
 headerMenu.value = data.story.content.header;
+
+function allClose() {
+  emit('closeAllEmit', true);
+  console.log('TheMenu - closeAllEmit');
+}
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      contactActive.value = false;
+      emit('closeAllEmit', true);
+      console.log('TheMenu esc - closeAllEmit');
     }
   });
 });
