@@ -74,15 +74,15 @@ onUnmounted(() => {
   position: relative
   top: 0
   left: 0
-  width: 100vw
+  width: 100%
   height: 100vh
+  height: 100svh
   pointer-events: none
   .sky
     position: fixed
     left: 0
     top: 0
-    width: 100%
-    height: 100%
+    height: 100vh
     img
         width: 100%
         height: 100%
@@ -104,7 +104,8 @@ onUnmounted(() => {
     top: 0
     left: 0
     width: 100%
-    height: 100%
+    height: 100vh
+    height: 100svh
     opacity: 1
     transition: opacity .66s ease
     img

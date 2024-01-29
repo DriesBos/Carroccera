@@ -1,7 +1,9 @@
 
-html, body, #_nuxt
+html, body, #_nuxt, .page-Home
   position: relative
   height: 100%
+  @supports (-webkit-touch-callout: none)
+    height: -webkit-fill-available
 
 body
   -ms-overflow-style: none // Prevents scrollbar 
@@ -11,10 +13,6 @@ body
 
 body::-webkit-scrollbar
   display: none
-
-.page-Home
-  position: relative
-  height: 100%
 
 .mouseInteract
   cursor: pointer
