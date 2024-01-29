@@ -30,7 +30,7 @@ function scrollToProject(el) {
   const project = document.getElementById(el.replace(/\s/g, ''));
   gsap.to(window, {
     duration: 0.66,
-    scrollTo: project,
+    scrollTo: { y: project, offsetY: 100 },
     ease: 'power4.out',
   });
 }
