@@ -51,8 +51,10 @@ const data = defineProps({
     left: 0
     width: 100%
     height: 100%
-    background: hsla(0, 0%, 0%, .165)
+    opacity: 0
+    background: $color-bg
     pointer-events: auto
+    transition: opacity $transition-bg 1s
   &-Container
     position: relative
     width: calc(100% - 10vmin)
@@ -182,6 +184,11 @@ const data = defineProps({
     .modal-Header
       &_Title
         background: white
+
+  &.active
+    .modal-Background
+      opacity: 1
+      transition: opacity $transition-bg 1s
 
 // .modalSide
 //   top: 0

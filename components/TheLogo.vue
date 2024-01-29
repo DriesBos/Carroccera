@@ -32,7 +32,7 @@ onMounted(() => {
   height: 100%
   pointer-events: none
   opacity: 0
-  transition: opacity .33s ease-in-out
+  transition: opacity $transition-bg
   background: hsla(0, 0%, 0%, .66)
   &.active
     opacity: 1

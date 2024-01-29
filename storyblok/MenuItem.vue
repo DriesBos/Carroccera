@@ -6,7 +6,7 @@
     </div>
     <!-- Invisible -->
     <Teleport to="body">
-      <Transition name="slideUp">
+      <Transition name="modalSlideUp">
         <Modal
           v-if="isModalActive"
           @close="closeModal"

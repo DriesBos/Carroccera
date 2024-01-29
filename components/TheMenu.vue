@@ -30,6 +30,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
 
 const emit = defineEmits(['contactEmit', 'projectsEmit']);
 
@@ -102,7 +103,6 @@ onMounted(() => {
     align-items: center
     gap: 1rem
     opacity: 0
-    transition: opacity .33s ease
     &_Contact
       a
         color: currentColor
@@ -117,15 +117,16 @@ onMounted(() => {
     left: 0
     width: 100%
     height: 100%
-    background: hsla(0, 0%, 0%, .165)
-    transition: opacity .33s ease
+    background: $color-bg
+    transition: $transition-bg
     opacity: 0
 
   &.active
     .header-Menu
       opacity: 1
-      transition: opacity .33s ease-in .66s
     .header-Background
       opacity: 1
-      transition: opacity .33s ease-in .66s
+
+.menuItem
+  opacity: 0
 </style>
