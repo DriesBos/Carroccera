@@ -32,7 +32,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  ctx.revert(); // <- Easy Cleanup!
+  ctx.revert();
 });
 </script>
 

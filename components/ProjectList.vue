@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
 
 const emit = defineEmits(['closeAllEmit']);
@@ -22,6 +22,8 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 const content = ref(null);
 let projectList = ref(null);
 content.value = data.story.content.body;
+
+let ctx;
 
 function scrollToProject(el) {
   emit('closeAllEmit', true);
@@ -54,6 +56,10 @@ onMounted(() => {
       emit('closeAllEmit', true);
     }
   });
+});
+
+onUnmounted(() => {
+  ctx.revert();
 });
 </script>
 

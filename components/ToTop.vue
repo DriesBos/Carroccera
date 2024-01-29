@@ -6,8 +6,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
+
+let ctx;
 
 function scrollTop() {
   gsap.to(window, { duration: 0.66, scrollTo: 0, ease: 'power4.out' });
@@ -28,6 +30,10 @@ onMounted(() => {
     },
     ease: 'none',
   });
+});
+
+onUnmounted(() => {
+  ctx.revert();
 });
 </script>
 

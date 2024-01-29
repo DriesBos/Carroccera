@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
 
 const emit = defineEmits(['headerEmit', 'contactEmit', 'projectsEmit']);
@@ -61,6 +61,8 @@ const props = defineProps({
   projectsState: Boolean,
   contactState: Boolean,
 });
+
+let ctx;
 
 function headerToggle() {
   emit('headerEmit');
@@ -75,6 +77,10 @@ onMounted(() => {
       emit('closeAllEmit', true);
     }
   });
+});
+
+onUnmounted(() => {
+  ctx.revert();
 });
 </script>
 

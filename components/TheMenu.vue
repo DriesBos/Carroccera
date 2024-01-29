@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
 
 const emit = defineEmits(['contactEmit', 'projectsEmit']);
@@ -39,6 +39,8 @@ defineProps({
   projectsState: Boolean,
   contactState: Boolean,
 });
+
+let ctx;
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/header', {
@@ -59,6 +61,10 @@ onMounted(() => {
       emit('closeAllEmit', true);
     }
   });
+});
+
+onUnmounted(() => {
+  ctx.revert();
 });
 </script>
 

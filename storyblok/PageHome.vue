@@ -120,4 +120,8 @@ onMounted(() => {
     });
   });
 });
+
+onUnmounted(() => {
+  ctx.revert();
+});
 </script>
