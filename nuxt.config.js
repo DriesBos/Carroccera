@@ -10,12 +10,21 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
       title: 'Carroccera Collective',
       htmlAttrs: {
         lang: 'en',
       },
       meta: [{ name: 'description', content: 'content' }],
+      meta: [{ name: 'mobile-web-app-capable', content: 'yes' }],
+      meta: [{ name: 'apple-mobile-web-app-capable', content: 'yes' }],
+      meta: [{ name: 'apple-touch-fullscreen', content: 'yes' }],
+      meta: [
+        {
+          name: 'apple-mobile-web-app-status-bar-style',
+          content: 'black-translucent',
+        },
+      ],
     },
   },
 
