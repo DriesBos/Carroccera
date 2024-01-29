@@ -83,6 +83,7 @@ onUnmounted(() => {
     left: 0
     top: 0
     height: 100vh
+    height: 100lvh
     img
         width: 100%
         height: 100%
