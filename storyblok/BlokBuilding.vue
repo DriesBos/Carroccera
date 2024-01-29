@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 const data = defineProps({ blok: Object });
 
@@ -83,6 +83,14 @@ const init = async () => {
   }
 };
 init();
+
+watch(isModalActive, (newVal) => {
+  if (newVal) {
+    document.documentElement.style.overflow = 'hidden';
+  } else {
+    document.documentElement.style.overflow = 'auto';
+  }
+});
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {
