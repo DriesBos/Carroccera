@@ -114,6 +114,7 @@ onUnmounted(() => {
     opacity: 1
     transition: opacity .66s ease
     pointer-events: auto
+    cursor: pointer
     img
         width: 100%
         max-width: 100%

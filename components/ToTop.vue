@@ -43,8 +43,9 @@ onUnmounted(() => {
 <style lang="sass">
 .scrollUp
   position: fixed
-  bottom: var(--spacing-ver)
-  right: var(--spacing-hor)
+  bottom: 0
+  right: 0
+  padding: var(--spacing-ver) var(--spacing-hor)
   display: flex
   align-items: flex-end
   gap: 1rem
