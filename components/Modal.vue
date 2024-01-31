@@ -12,7 +12,6 @@
           @click.native="$emit('close')"
           class="modal-Header_Close mouseInteract"
         >
-          <p>Close</p>
           <div class="icon icon-Close">
             <img src="~assets/icons/close.png" alt="" />
           </div>
