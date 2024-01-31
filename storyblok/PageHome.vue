@@ -7,6 +7,7 @@
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
         @projectsEmit="projectsToggle"
+        @backgroundEmit="backgroundClick"
         @closeAllEmit="allClose"
         :headerState="headerState"
         :projectsState="projectsState"
@@ -80,6 +81,20 @@ function projectsToggle() {
 
 function contactToggle() {
   contactState.value = !contactState.value;
+}
+
+function backgroundClick() {
+  console.log('hit it');
+  if (projectsState.value) {
+    projectsState.value = false;
+  } else if (contactState.value) {
+    contactState.value = false;
+  } else {
+    headerState.value = false;
+  }
+  // headerState.value = false;
+  // projectsState.value = false;
+  // contactState.value = false;
 }
 
 function allClose() {

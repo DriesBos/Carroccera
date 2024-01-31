@@ -1,6 +1,6 @@
 <template>
   <header :class="{ active: headerState }" class="header">
-    <div class="header-Background" />
+    <div @click="emit('backgroundEmit', true)" class="header-Background" />
 
     <div class="header-Menu">
       <template v-if="headerMenu && !contactState && !projectsState">
@@ -17,12 +17,16 @@
         </div>
       </template>
       <template v-if="projectsState">
-        <ProjectList @closeAllEmit="allClose" />
+        <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact">
           <a href="mailto: info@carrocera.com">info@carrocera.com</a>
         </div>
+        <!-- <div
+          @click="emit('contactEmit', true)"
+          class="header-Menu_ContactBackground"
+        /> -->
       </template>
     </div>
   </header>
@@ -32,7 +36,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
 
-const emit = defineEmits(['contactEmit', 'projectsEmit']);
+const emit = defineEmits(['contactEmit', 'projectsEmit', 'backgroundEmit']);
 
 defineProps({
   headerState: Boolean,
@@ -53,6 +57,10 @@ headerMenu.value = data.story.content.header;
 
 function allClose() {
   emit('closeAllEmit', true);
+}
+
+function projectsToggle() {
+  emit('projectsEmit', true);
 }
 
 onMounted(() => {
@@ -109,7 +117,17 @@ onMounted(() => {
     align-items: center
     gap: 1rem
     opacity: 0
+    // &_ContactBackground, &_ProjectsBackground
+    //   position: absolute
+    //   top: 0
+    //   left: 0
+    //   width: 100%
+    //   height: 100%
+    //   z-index: -1
+    // &_ProjectList
+    //   z-index: 1
     &_Contact
+      // z-index: 1
       a
         color: currentColor
         text-decoration: none
@@ -126,6 +144,7 @@ onMounted(() => {
     background: $color-bg
     transition: $transition-bg
     opacity: 0
+    pointer-events: auto
 
   &.active
     .header-Menu

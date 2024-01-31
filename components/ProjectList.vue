@@ -1,9 +1,15 @@
 <template>
-  <div
-    v-for="item in projectList"
-    class="menuItem header-Menu_ProjectList mouseInteract"
-  >
-    <p @click="scrollToProject(item)">{{ item }}</p>
+  <div>
+    <div
+      v-for="item in projectList"
+      class="menuItem header-Menu_ProjectList mouseInteract"
+    >
+      <p @click="scrollToProject(item)">{{ item }}</p>
+    </div>
+    <!-- <div
+      @click="emit('projectsEmit', true)"
+      class="header-Menu_ProjectsBackground"
+    /> -->
   </div>
 </template>
 
@@ -11,7 +17,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
 
-const emit = defineEmits(['closeAllEmit']);
+const emit = defineEmits(['projectsEmit', 'closeAllEmit']);
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/home', {
