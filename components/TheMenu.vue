@@ -97,6 +97,7 @@ onMounted(() => {
       display: flex
       gap: 1rem
       pointer-events: auto
+      text-transform: uppercase
       h1, p
         color: currentColor
         line-height: 1
@@ -135,6 +136,7 @@ onMounted(() => {
           text-decoration: underline
     & > div
       pointer-events: auto
+      text-transform: uppercase
   &-Background
     position: absolute
     top: 0
