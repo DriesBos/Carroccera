@@ -92,9 +92,6 @@ function backgroundClick() {
   } else {
     headerState.value = false;
   }
-  // headerState.value = false;
-  // projectsState.value = false;
-  // contactState.value = false;
 }
 
 function allClose() {
