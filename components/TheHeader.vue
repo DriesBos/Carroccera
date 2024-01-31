@@ -19,7 +19,7 @@
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.headerState }"
       >
-        <p>Close</p>
+        <!-- <p>Close</p> -->
         <div class="icon icon-Close">
           <img src="~assets/icons/close-white.png" alt="" />
         </div>
@@ -30,7 +30,7 @@
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.contactState }"
       >
-        <p>Back</p>
+        <!-- <p>Back</p> -->
         <div class="icon icon-Close">
           <img src="~assets/icons/arrow-back-white.png" alt="" />
         </div>
@@ -41,7 +41,7 @@
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.projectsState }"
       >
-        <p>Back</p>
+        <!-- <p>Back</p> -->
         <div class="icon icon-Close">
           <img src="~assets/icons/arrow-back-white.png" alt="" />
         </div>

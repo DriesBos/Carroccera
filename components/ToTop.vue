@@ -1,7 +1,10 @@
 <template>
   <div @click="scrollTop" class="scrollUp mouseInteract">
-    <p>To Top</p>
-    <div class="dot dot-Up" />
+    <!-- <p>To Top</p> -->
+    <!-- <div class="dot dot-Up" /> -->
+    <div class="icon icon-ToTop">
+      <img src="~assets/icons/arrow-totop.png" alt="" />
+    </div>
   </div>
 </template>
 
