@@ -12,7 +12,7 @@
         <!-- <div class="icon icon-ArrowRight">
             <img src="~assets/icons/arrow.png" alt="" />
           </div> -->
-        <div class="dot" />
+        <!-- <div class="dot" /> -->
       </div>
       <div
         v-show="isPrevVisible"
@@ -22,7 +22,7 @@
         <!-- <div class="icon">
             <img src="~assets/icons/arrow.png" alt="" />
           </div> -->
-        <div class="dot" />
+        <!-- <div class="dot" /> -->
       </div>
     </div>
     <div class="blokSlider-Counter" :class="{ active: isCounterVisible }">
