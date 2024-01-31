@@ -146,13 +146,13 @@ onMounted(() => {
     background: $color-bg
     transition: $transition-bg
     opacity: 0
-    pointer-events: auto
 
   &.active
     .header-Menu
       opacity: 1
     .header-Background
       opacity: 1
+      pointer-events: auto
 
 .menuItem
   opacity: 1

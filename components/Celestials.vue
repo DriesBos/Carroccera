@@ -11,6 +11,7 @@
     </div>
 
     <div
+      @click="emit('headerEmit', true)"
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
     >
@@ -31,6 +32,8 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
+
+const emit = defineEmits(['headerEmit']);
 
 defineProps({
   headerState: Boolean,
@@ -110,6 +113,7 @@ onUnmounted(() => {
     height: 100svh
     opacity: 1
     transition: opacity .66s ease
+    pointer-events: auto
     img
         width: 100%
         max-width: 100%

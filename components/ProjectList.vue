@@ -1,15 +1,9 @@
 <template>
-  <div>
-    <div
-      v-for="item in projectList"
-      class="menuItem header-Menu_ProjectList mouseInteract"
-    >
-      <p @click="scrollToProject(item)">{{ item }}</p>
-    </div>
-    <!-- <div
-      @click="emit('projectsEmit', true)"
-      class="header-Menu_ProjectsBackground"
-    /> -->
+  <div
+    v-for="item in projectList"
+    class="menuItem header-Menu_ProjectList mouseInteract"
+  >
+    <p @click="scrollToProject(item)">{{ item }}</p>
   </div>
 </template>
 
