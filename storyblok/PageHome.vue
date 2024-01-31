@@ -121,15 +121,28 @@ onMounted(() => {
 
   layersArray.forEach((el) => {
     gsap.to(el, {
-      y: '-5%',
+      y: '-25%',
       duration: 1,
       scrollTrigger: {
         trigger: el,
         start: 'top bottom',
-        end: 'top 75%',
+        end: 'top 50%',
         scrub: true,
       },
     });
+  });
+
+  const footer = document.querySelectorAll('.footer');
+
+  gsap.to(footer, {
+    y: '-25%',
+    duration: 1,
+    scrollTrigger: {
+      trigger: footer,
+      start: 'top bottom',
+      end: 'top 50%',
+      scrub: true,
+    },
   });
 });
 
