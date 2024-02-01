@@ -35,8 +35,8 @@
         :contactState="contactState"
       />
       <ToTop />
-      <!-- <TheFooterLanding :headerState="headerState" /> -->
-      <!-- <TheLogo /> -->
+      <TheFooterLanding :headerState="headerState" />
+      <TheLogo />
     </div>
   </div>
 </template>
