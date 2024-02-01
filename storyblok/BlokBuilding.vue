@@ -6,14 +6,20 @@
     :class="[blok.position, blok.positionvertical]"
   >
     <!-- Visible -->
-    <img
+    <NuxtImg
+      provider="storyblok"
+      format="webp"
+      quality="80"
       v-if="blok.imagelandscape.filename"
       class="landscape"
       @click.native="openModal"
       :src="blok.imagelandscape.filename"
       alt=""
     />
-    <img
+    <NuxtImg
+      provider="storyblok"
+      format="webp"
+      quality="80"
       v-if="blok.image.filename"
       class="portrait"
       @click.native="openModal"

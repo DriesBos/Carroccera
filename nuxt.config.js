@@ -28,6 +28,14 @@ export default defineNuxtConfig({
     },
   },
 
+  image: {
+    inject: true,
+    quality: 80,
+    storyblok: {
+      baseURL: 'https://a.storyblok.com',
+    },
+  },
+
   vite: {
     plugins: [svgLoader()],
     css: {
@@ -55,6 +63,7 @@ export default defineNuxtConfig({
       },
     ],
     ['@vueuse/nuxt'],
+    ['@nuxt/image'],
   ],
 
   build: {

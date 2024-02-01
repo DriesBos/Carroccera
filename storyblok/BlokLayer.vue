@@ -5,13 +5,19 @@
       :key="blok._uid"
       :blok="blok"
     />
-    <img
+    <NuxtImg
+      provider="storyblok"
+      format="webp"
+      quality="80"
       v-if="blok.background.filename"
       class="landscape"
       :src="blok.background.filename"
       alt=""
     />
-    <img
+    <NuxtImg
+      provider="storyblok"
+      format="webp"
+      quality="80"
       v-if="blok.backgroundVertical.filename"
       class="portrait"
       :src="blok.backgroundVertical.filename"

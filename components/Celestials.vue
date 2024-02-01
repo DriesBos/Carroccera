@@ -81,6 +81,7 @@ onUnmounted(() => {
   height: 100vh
   height: 100svh
   pointer-events: none
+  // background: linear-gradient(180deg, rgba(69,80,81,1) 0%, rgba(197,199,199,1) 100%)
   .sky
     position: fixed
     left: 0

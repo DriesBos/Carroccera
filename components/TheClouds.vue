@@ -34,7 +34,6 @@ onMounted(() => {
       endTrigger: footer,
       end: 'bottom bottom',
     },
-    ease: 'none',
   });
 });
 
