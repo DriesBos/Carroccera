@@ -21,11 +21,13 @@
     overflow: visible
     // border: 2px solid blue
     // opacity: 0.5
-    margin-bottom: -25%
+
     @media (orientation: landscape)
       margin-top: -13%
+      margin-bottom: -25%
     @media (orientation: portrait)
       margin-top: -26%
+      margin-bottom: -38%
   // &-Logo
   //   position: absolute
   //   left: 50%
