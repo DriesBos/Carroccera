@@ -1,8 +1,5 @@
 <template>
   <footer class="footer">
-    <!-- <div class="footer-Logo">
-      <img src="~assets/img/logo.png" alt="" />
-    </div> -->
     <img class="landscape" src="~assets/img/Footer_Landscape.png" alt="" />
     <img class="portrait" src="~assets/img/Footer_Portrait.png" alt="" />
   </footer>
@@ -21,13 +18,12 @@
     overflow: visible
     // border: 2px solid blue
     // opacity: 0.5
-
     @media (orientation: landscape)
-      margin-top: -13%
-      margin-bottom: -25%
+      margin-top: 0%
+      // margin-bottom: -25%
     @media (orientation: portrait)
-      margin-top: -26%
-      margin-bottom: -38%
+      margin-top: -4%
+      // margin-bottom: -38%
   // &-Logo
   //   position: absolute
   //   left: 50%

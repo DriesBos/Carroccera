@@ -35,8 +35,8 @@
         :contactState="contactState"
       />
       <ToTop />
-      <TheFooterLanding :headerState="headerState" />
-      <TheLogo />
+      <!-- <TheFooterLanding :headerState="headerState" /> -->
+      <!-- <TheLogo /> -->
     </div>
   </div>
 </template>
@@ -53,11 +53,11 @@
   display: flex
   flex-direction: column
   justify-content: flex-start
-  & > div:first-child
-    @media (orientation: landscape)
-      margin-top: 23%
-    @media (orientation: portrait)
-      margin-top: 30%
+  // & > div:first-child
+  //   @media (orientation: landscape)
+  //     margin-top: 23%
+  //   @media (orientation: portrait)
+  //     margin-top: 30%
 </style>
 
 <script setup>
@@ -112,7 +112,7 @@ watch(headerState, (newVal) => {
 onMounted(() => {
   const layers = document.querySelectorAll('.blokLayer');
   const array = Array.from(layers);
-  const layersArray = array.slice(1);
+  // const layersArray = array.slice(1);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -120,7 +120,7 @@ onMounted(() => {
     }
   });
 
-  layersArray.forEach((el) => {
+  array.forEach((el) => {
     gsap.to(el, {
       y: '-25%',
       duration: 1,
@@ -133,18 +133,18 @@ onMounted(() => {
     });
   });
 
-  const footer = document.querySelectorAll('.footer');
+  // const footer = document.querySelectorAll('.footer');
 
-  gsap.to(footer, {
-    y: '-25%',
-    duration: 1,
-    scrollTrigger: {
-      trigger: footer,
-      start: 'top bottom',
-      end: 'top 50%',
-      scrub: true,
-    },
-  });
+  // gsap.to(footer, {
+  //   y: '-25%',
+  //   duration: 1,
+  //   scrollTrigger: {
+  //     trigger: footer,
+  //     start: 'top bottom',
+  //     end: 'top 50%',
+  //     scrub: true,
+  //   },
+  // });
 });
 
 // onUnmounted(() => {

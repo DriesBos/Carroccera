@@ -116,9 +116,6 @@ onMounted(() => {
   width: 33.3333vw
   height: 33.3333vw
   pointer-events: all
-  @media (orientation: portrait)
-    width: 33.3333vw
-    height: 33.3333vw
   &-Indicator
     position: absolute
     top: 0
@@ -133,11 +130,11 @@ onMounted(() => {
   &.right
     left: 66.6666vw
   &.top
-    top: -12%
-    @media (orientation: landscape)
-      top: -50%
-    @media (orientation: portrait)
-      top: -12%
+    top: 0%
+    // @media (orientation: landscape)
+      // top: -50%
+    // @media (orientation: portrait)
+    //   top: -12%
   &.center
     top: 30%
     transform: translateY(-50%)

@@ -38,13 +38,17 @@ defineProps({ blok: Object });
   overflow: visible
   pointer-events: none
   // border: 2px solid blue
-  margin-bottom: -3%
+  @media (orientation: landscape)
+    margin-bottom: -38%
+  @media (orientation: portrait)
+    margin-bottom: -54%
   img
       width: 100%
       max-width: 100%
       // border: 2px solid red
-      @media (orientation: landscape)
-        margin-top: -23%
-      @media (orientation: portrait)
-        margin-top: -32%
+      // opacity: 0.66
+      // @media (orientation: landscape)
+      //   // margin-top: -25%
+      // @media (orientation: portrait)
+      //   // margin-top: -32%
 </style>
