@@ -2,6 +2,7 @@
   <div v-editable="blok" id="top" class="page page-Home">
     <!-- <Mouse /> -->
     <div class="layerOne">
+      <Sky />
       <Celestials @headerEmit="headerToggle" :headerState="headerState" />
       <TheMenu
         @contactEmit="contactToggle"

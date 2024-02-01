@@ -1,10 +1,5 @@
 <template>
   <div class="celestials">
-    <div class="celestials-Sky sky">
-      <img class="landscape" src="~/assets/img/Sky_Landscape.png" alt="" />
-      <img class="portrait" src="~/assets/img/Sky_Portrait.png" alt="" />
-    </div>
-
     <div class="celestials-Stars stars">
       <img class="landscape" src="~assets/img/Stars_Landscape.png" alt="" />
       <img class="portrait" src="~assets/img/Stars_Portrait.png" alt="" />
@@ -81,20 +76,6 @@ onUnmounted(() => {
   height: 100vh
   height: 100svh
   pointer-events: none
-  // background: linear-gradient(180deg, rgba(69,80,81,1) 0%, rgba(197,199,199,1) 100%)
-  .sky
-    position: fixed
-    left: 0
-    top: 0
-    width: 100%
-    height: 100vh
-    height: 100lvh
-    img
-        width: 100%
-        height: 100%
-        object-fit: cover
-        object-position: top
-
   .stars
     width: 100%
     height: 100%
@@ -104,7 +85,6 @@ onUnmounted(() => {
         height: 100%
         object-fit: cover
         object-position: center top
-
   .constellation
     position: fixed
     top: 0

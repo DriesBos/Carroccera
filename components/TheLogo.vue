@@ -33,7 +33,7 @@ onMounted(() => {
   pointer-events: none
   opacity: 0
   transition: opacity $transition-bg
-  background: hsla(0, 0%, 0%, .66)
+  background: hsla(0, 0%, 0%, 100)
   &.active
     opacity: 1
   img, svg

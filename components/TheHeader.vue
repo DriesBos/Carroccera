@@ -112,7 +112,7 @@ onMounted(() => {
     &_Item
       padding: var(--spacing-ver) var(--spacing-hor)
       display: flex
-      gap: .5rem
+      gap: 1rem
       pointer-events: auto
       &.active
         p

@@ -37,7 +37,7 @@ const data = defineProps({
   position: fixed
   display: flex
   justify-content: center
-  align-items: flex-end
+  align-items: center
   left: 0
   top: 0
   width: 100%
@@ -56,8 +56,8 @@ const data = defineProps({
     transition: opacity $transition-bg 1s
   &-Container
     position: relative
-    width: calc(100% - 10vmin)
-    height: calc(100% - 5vmin)
+    width: calc(100% - 12.5vmin)
+    height: calc(100% - 12.5vmin)
     background: white
     color: black
     pointer-events: auto
@@ -65,8 +65,8 @@ const data = defineProps({
     @media screen and (max-width: $breakpoint-mobile)
       display: flex
       flex-direction: column
-      width: calc(100% - 6vmin)
-      height: calc(100% - 4vmin)
+      width: calc(100% - 6.25vmin)
+      height: calc(100% - 6.25vmin)
   &-Header
     z-index: +1
     @media screen and ( min-width: $breakpoint-tablet)
@@ -115,6 +115,7 @@ const data = defineProps({
     display: flex
     flex-direction: row
     flex: 1
+    // padding-bottom: 2rem
     @media screen and ( max-width: $breakpoint-tablet)
       flex-direction: column
   &-Column
@@ -123,6 +124,7 @@ const data = defineProps({
     height: 100%
     -ms-overflow-style: none // Prevents scrollbar
     scrollbar-width: none
+
     &::-webkit-scrollbar
       display: none
     &_One
