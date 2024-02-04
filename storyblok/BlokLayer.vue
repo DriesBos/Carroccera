@@ -5,24 +5,28 @@
       :key="blok._uid"
       :blok="blok"
     />
-    <NuxtImg
-      provider="storyblok"
-      format="webp"
-      quality="80"
-      v-if="blok.background.filename"
-      class="landscape"
-      :src="blok.background.filename"
-      alt=""
-    />
-    <NuxtImg
-      provider="storyblok"
-      format="webp"
-      quality="80"
-      v-if="blok.backgroundVertical.filename"
-      class="portrait"
-      :src="blok.backgroundVertical.filename"
-      alt=""
-    />
+    <div class="blokLayer-ImageContainer">
+      <NuxtImg
+        provider="storyblok"
+        format="webp"
+        quality="80"
+        v-if="blok.background.filename"
+        class="landscape"
+        :src="blok.background.filename"
+        alt=""
+      />
+      <NuxtImg
+        provider="storyblok"
+        format="webp"
+        quality="80"
+        v-if="blok.backgroundVertical.filename"
+        class="portrait"
+        :src="blok.backgroundVertical.filename"
+        alt=""
+      />
+    </div>
+    <!-- <div class="landscape test-Portrait"></div>
+    <div class="portrait test-Portrait"></div> -->
   </div>
 </template>
 
@@ -34,21 +38,63 @@ defineProps({ blok: Object });
 .blokLayer
   position: relative
   width: 100vw
-  height: auto
   overflow: visible
   pointer-events: none
-  // border: 2px solid blue
+  display: inline-block
+  // border: 1px solid white
   @media (orientation: landscape)
-    margin-bottom: -38%
+    aspect-ratio: 16 / 9
   @media (orientation: portrait)
-    margin-bottom: -54%
-  img
-      width: 100%
-      max-width: 100%
-      // border: 2px solid red
-      // opacity: 0.66
-      // @media (orientation: landscape)
-      //   // margin-top: -25%
-      // @media (orientation: portrait)
-      //   // margin-top: -32%
+    aspect-ratio: 9 / 16
+  .blokLayer-ImageContainer
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 0
+    @media (orientation: landscape)
+      // border: 1px solid red
+      padding-top: calc(56.25% * 1.5)
+    @media (orientation: portrait)
+      // border: 1px solid blue
+      padding-top: calc(177.77% * 1.5)
+    img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        // opacity: .33
+        // border: 1px solid red
+        // opacity: 1
+        // background: red
+        // border: 2px solid yellow
+        object-fit: cover
+        object-position: center top
+        // @media (orientation: landscape)
+        //   border: 1px solid red
+        //   padding-top: calc(56.25% * 1.33)
+        // @media (orientation: portrait)
+        //   border: 1px solid blue
+        //   padding-top: calc(177.77% * 1.33)
+
+  // Testing Blocks
+  .test-Portrait
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 0
+    &.landscape
+      // aspect-ratio: 16 / 9
+      background: hsla(5, 90%, 51%, .33)
+      border: 1px solid red
+      padding-top: 56.25% // 16/9
+      padding-top: calc(56.25% * 1.33)
+    &.portrait
+      // aspect-ratio: 9 / 16
+      background: hsla(241, 91%, 45%, .33)
+      border: 1px solid blue
+      padding-top: 177.77% // 9/16
+      padding-top: calc(177.77% * 1.33)
 </style>

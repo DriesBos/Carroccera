@@ -25,6 +25,9 @@ body::-webkit-scrollbar
   border-radius: 1000px
   background: black
 
+.hide
+  opacity: 0
+
 // .firstLetter
 //   initial-letter: 2
 
@@ -67,14 +70,12 @@ body::-webkit-scrollbar
     display: none
 
 .landscape
-  display: none
-  @media (orientation: landscape)
-    display: inline-block
+  @media (orientation: portrait)
+    display: none
 
 .portrait
-  display: none
-  @media (orientation: portrait)
-    display: inline-block
+  @media (orientation: landscape)
+    display: none
 
 .blend
   mix-blend-mode: difference

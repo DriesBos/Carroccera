@@ -112,7 +112,7 @@ watch(headerState, (newVal) => {
 onMounted(() => {
   const layers = document.querySelectorAll('.blokLayer');
   const array = Array.from(layers);
-  // const layersArray = array.slice(1);
+  const layersArray = array.slice(1);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -121,33 +121,22 @@ onMounted(() => {
   });
 
   array.forEach((el) => {
-    gsap.to(el, {
-      y: '-25%',
-      duration: 1,
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom',
-        end: 'top 50%',
-        scrub: true,
+    gsap.fromTo(
+      el,
+      {
+        y: '0',
       },
-    });
+      {
+        y: '-25%',
+        duration: 1,
+        scrollTrigger: {
+          trigger: el,
+          start: 'top bottom',
+          end: 'top 66%',
+          scrub: true,
+        },
+      }
+    );
   });
-
-  // const footer = document.querySelectorAll('.footer');
-
-  // gsap.to(footer, {
-  //   y: '-25%',
-  //   duration: 1,
-  //   scrollTrigger: {
-  //     trigger: footer,
-  //     start: 'top bottom',
-  //     end: 'top 50%',
-  //     scrub: true,
-  //   },
-  // });
 });
-
-// onUnmounted(() => {
-//   ctx.revert();
-// });
 </script>
