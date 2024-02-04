@@ -6,27 +6,22 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 
 defineProps({
   headerState: Boolean,
 });
 
-const main = ref();
-let ctx;
-
 onMounted(() => {
-  const trigger = document.querySelector('.celestials');
+  const trigger = document.querySelector('.page');
   const clouds = document.querySelector('.clouds');
-  const footer = document.querySelector('.footer');
   gsap.to(clouds, {
-    y: '-200%',
+    y: '100%',
     scrollTrigger: {
       trigger: trigger,
       scrub: true,
       start: 'top top',
-      endTrigger: footer,
       end: 'bottom bottom',
     },
   });
@@ -35,7 +30,7 @@ onMounted(() => {
 
 <style scoped lang="sass">
 .clouds
-  position: fixed
+  position: absolute
   top: 66vh
   left: 0
   width: 100vw
