@@ -2,7 +2,14 @@
   <div class="blok blokSlider">
     <div class="blokSlider-Image" :class="blok.ratio">
       <Transition name="sliderFade">
-        <img :key="currentImage" :src="images[currentImage].filename" alt="" />
+        <NuxtImg
+          provider="storyblok"
+          format="webp"
+          quality="80"
+          :src="images[currentImage].filename"
+          :key="currentImage"
+          alt=""
+        />
       </Transition>
       <div
         v-show="isNextVisible"
