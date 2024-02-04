@@ -29,7 +29,7 @@
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="modalSlideUp">
-        <Modal
+        <lazyModal
           v-if="isModalActive"
           @close="closeModal"
           :class="{
@@ -57,16 +57,18 @@
               :blok="blok"
             />
           </div>
-        </Modal>
+        </lazyModal>
       </Transition>
     </Teleport>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, defineAsyncComponent } from 'vue';
 
 const data = defineProps({ blok: Object });
+
+const lazyModal = defineAsyncComponent(() => import('@/components/Modal.vue'));
 
 const isModalActive = ref(false);
 const isOneColumn = ref(true);

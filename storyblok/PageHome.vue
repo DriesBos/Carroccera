@@ -23,7 +23,7 @@
       />
     </div>
     <TheClouds :headerState="headerState" />
-    <TheFooter class="layerThree" />
+    <lazyTheFooter class="layerThree" />
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
@@ -53,18 +53,23 @@
   display: flex
   flex-direction: column
   justify-content: flex-start
-  // & > div:first-child
-  //   @media (orientation: landscape)
-  //     margin-top: 23%
-  //   @media (orientation: portrait)
-  //     margin-top: 30%
 </style>
 
 <script setup>
-import { ref, watch } from 'vue';
+import {
+  ref,
+  watch,
+  onMounted,
+  onBeforeMount,
+  defineAsyncComponent,
+} from 'vue';
 import gsap from 'gsap';
 
 defineProps({ blok: Object });
+
+const lazyTheFooter = defineAsyncComponent(
+  () => import('@/components/TheFooter.vue')
+);
 
 const headerState = ref(false);
 const projectsState = ref(false);
@@ -107,6 +112,10 @@ watch(headerState, (newVal) => {
   } else {
     document.documentElement.style.overflow = 'auto';
   }
+});
+
+onBeforeMount(() => {
+  window.scrollTo(0, 0);
 });
 
 onMounted(() => {
