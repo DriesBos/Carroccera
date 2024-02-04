@@ -40,6 +40,7 @@ onMounted(() => {
   opacity: .85
   transition: opacity .66s ease
   overflow: visible
+  pointer-events: none
   img
     width: 100%
     height: auto
