@@ -1,12 +1,7 @@
 <template>
-  <div class="celestials">
-    <div
-      :class="{ headerActive: headerState }"
-      class="celestials-Clouds clouds"
-    >
-      <img class="landscape" src="~/assets/img/Clouds_Landscape.png" alt="" />
-      <img class="portrait" src="~/assets/img/Clouds_Portrait.png" alt="" />
-    </div>
+  <div class="clouds" :class="{ headerActive: headerState }">
+    <img class="landscape" src="~/assets/img/Clouds_Landscape.png" alt="" />
+    <img class="portrait" src="~/assets/img/Clouds_Portrait.png" alt="" />
   </div>
 </template>
 
@@ -36,37 +31,26 @@ onMounted(() => {
     },
   });
 });
-
-onUnmounted(() => {
-  ctx.revert();
-});
 </script>
 
 <style scoped lang="sass">
-.celestials
+.clouds
   position: fixed
-  top: 0
+  top: 66vh
   left: 0
   width: 100vw
   height: 100vh
   height: 100lvh
   pointer-events: none
   overflow: visible
-  .clouds
-    position: fixed
-    left: 0
-    top: 50vh
+  opacity: 1
+  transition: opacity .66s ease
+  img
     width: 100%
     height: auto
-    opacity: .85
-    transition: opacity .66s ease
+    object-fit: cover
+    object-position: center top
     overflow: visible
-    img
-      width: 100%
-      height: auto
-      object-fit: cover
-      object-position: top
-      overflow: visible
-    &.headerActive
-      opacity: 0
+  &.headerActive
+    opacity: 0
 </style>
