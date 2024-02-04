@@ -39,14 +39,12 @@ onMounted(() => {
   height: auto
   opacity: .85
   transition: opacity .66s ease
-  overflow: visible
   pointer-events: none
   img
     width: 100%
     height: auto
     object-fit: cover
     object-position: top
-    overflow: visible
   &.headerActive
     opacity: 0
 </style>

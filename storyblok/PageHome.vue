@@ -49,7 +49,6 @@
   position: relative
   width: 100vw
   height: 100%
-  overflow: visible
   display: flex
   flex-direction: column
   justify-content: flex-start

@@ -38,10 +38,8 @@ defineProps({ blok: Object });
 .blokLayer
   position: relative
   width: 100vw
-  overflow: visible
   pointer-events: none
   display: inline-block
-  // border: 1px solid white
   @media (orientation: landscape)
     aspect-ratio: 16 / 9
   @media (orientation: portrait)
@@ -53,10 +51,8 @@ defineProps({ blok: Object });
     width: 100%
     height: 0
     @media (orientation: landscape)
-      // border: 1px solid red
       padding-top: calc(56.25% * 1.5)
     @media (orientation: portrait)
-      // border: 1px solid blue
       padding-top: calc(177.77% * 1.5)
     img
         position: absolute
