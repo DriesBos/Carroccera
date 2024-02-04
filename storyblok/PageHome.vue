@@ -36,7 +36,7 @@
       />
       <ToTop />
       <TheFooterLanding :headerState="headerState" />
-      <TheLogo />
+      <!-- <TheLogo /> -->
     </div>
   </div>
 </template>
@@ -110,15 +110,15 @@ watch(headerState, (newVal) => {
 });
 
 onMounted(() => {
-  const layers = document.querySelectorAll('.blokLayer');
-  const array = Array.from(layers);
-  const layersArray = array.slice(1);
-
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       headerState.value = false;
     }
   });
+
+  const layers = document.querySelectorAll('.blokLayer');
+  const array = Array.from(layers);
+  const layersArray = array.slice(1);
 
   array.forEach((el) => {
     gsap.fromTo(

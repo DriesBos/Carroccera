@@ -1,12 +1,12 @@
 <template>
-  <div class="clouds" :class="{ headerActive: headerState }">
+  <div :class="{ headerActive: headerState }" class="celestials-Clouds clouds">
     <img class="landscape" src="~/assets/img/Clouds_Landscape.png" alt="" />
     <img class="portrait" src="~/assets/img/Clouds_Portrait.png" alt="" />
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted, ref } from 'vue';
 import gsap from 'gsap';
 
 defineProps({
@@ -16,12 +16,14 @@ defineProps({
 onMounted(() => {
   const trigger = document.querySelector('.page');
   const clouds = document.querySelector('.clouds');
+  const footer = document.querySelector('.footer');
   gsap.to(clouds, {
-    y: '100%',
+    y: '-200%',
     scrollTrigger: {
       trigger: trigger,
       scrub: true,
       start: 'top top',
+      endTrigger: footer,
       end: 'bottom bottom',
     },
   });
@@ -30,21 +32,19 @@ onMounted(() => {
 
 <style scoped lang="sass">
 .clouds
-  position: absolute
-  top: 66vh
+  position: fixed
   left: 0
-  width: 100vw
-  height: 100vh
-  height: 100lvh
-  pointer-events: none
-  overflow: visible
-  opacity: 1
+  top: 50vh
+  width: 100%
+  height: auto
+  opacity: .85
   transition: opacity .66s ease
+  overflow: visible
   img
     width: 100%
     height: auto
     object-fit: cover
-    object-position: center top
+    object-position: top
     overflow: visible
   &.headerActive
     opacity: 0

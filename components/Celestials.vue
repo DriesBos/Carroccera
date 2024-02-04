@@ -39,7 +39,7 @@ let ctx;
 
 onMounted(() => {
   const stars = document.querySelector('.stars');
-  const constellation = document.querySelector('.constellation');
+
   gsap.to(stars, {
     y: '25%',
     scrollTrigger: {
@@ -50,6 +50,9 @@ onMounted(() => {
     },
     ease: 'none',
   });
+
+  const constellation = document.querySelector('.constellation');
+
   gsap.to(constellation, {
     y: '12.5%',
     scrollTrigger: {
