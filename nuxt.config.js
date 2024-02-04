@@ -15,7 +15,13 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      meta: [{ name: 'description', content: 'content' }],
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Carroccera explores the imposed boundaries between the human and the natural world, offers residency and rewilds neglected plots of land.',
+        },
+      ],
       meta: [{ name: 'mobile-web-app-capable', content: 'yes' }],
       meta: [{ name: 'apple-mobile-web-app-capable', content: 'yes' }],
       meta: [{ name: 'apple-touch-fullscreen', content: 'yes' }],
@@ -64,6 +70,7 @@ export default defineNuxtConfig({
     ],
     ['@vueuse/nuxt'],
     ['@nuxt/image'],
+    ['@nuxtjs/robots'],
   ],
 
   build: {
