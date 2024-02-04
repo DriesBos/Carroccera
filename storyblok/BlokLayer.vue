@@ -9,7 +9,7 @@
       <NuxtImg
         provider="storyblok"
         format="webp"
-        quality="80"
+        quality="75"
         v-if="blok.background.filename"
         class="landscape"
         :src="blok.background.filename"
@@ -18,15 +18,13 @@
       <NuxtImg
         provider="storyblok"
         format="webp"
-        quality="80"
+        quality="75"
         v-if="blok.backgroundVertical.filename"
         class="portrait"
         :src="blok.backgroundVertical.filename"
         alt=""
       />
     </div>
-    <!-- <div class="landscape test-Portrait"></div>
-    <div class="portrait test-Portrait"></div> -->
   </div>
 </template>
 
