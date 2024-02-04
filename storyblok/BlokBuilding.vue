@@ -116,6 +116,7 @@ onMounted(() => {
   width: 33.3333vw
   height: 33.3333vw
   pointer-events: all
+  z-index: +1
   &-Indicator
     position: absolute
     top: 0
