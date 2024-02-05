@@ -116,7 +116,7 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
-    gap: 1rem
+    gap: .75rem
     opacity: 0
     // &_ContactBackground, &_ProjectsBackground
     //   position: absolute
@@ -137,6 +137,10 @@ onMounted(() => {
     & > div
       pointer-events: auto
       text-transform: uppercase
+      &:first-child
+        margin-bottom: 1.5rem
+      &:last-child
+        margin-top: 1.5rem
   &-Background
     position: absolute
     top: 0
