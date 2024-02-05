@@ -134,27 +134,16 @@ onMounted(() => {
     left: 66.6666vw
   &.top
     top: 0%
-    // @media (orientation: landscape)
-      // top: -50%
-    // @media (orientation: portrait)
-    //   top: -12%
   &.center
-    top: 30%
-    transform: translateY(-50%)
     @media (orientation: landscape)
-      top: 25%
+      top: 25vmin
     @media (orientation: portrait)
-      top: 30%
-      transform: translateY(-50%)
+      top: 38vw
   &.bottom
-    top: auto
-    bottom: 30%
     @media (orientation: landscape)
-      top: auto
-      bottom: 30%
+      top: 50vmin
     @media (orientation: portrait)
-      top: auto
-      bottom: 30%
+      top: 76vw
   img
     width: 100%
     height: 100%
