@@ -26,6 +26,9 @@
       :src="blok.image.filename"
       alt=""
     />
+    <div class="blokBuilding-Icon icon icon-Plus">
+      <img src="~assets/icons/icon-plus-white.png" alt="" />
+    </div>
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="modalSlideUp">
@@ -126,6 +129,11 @@ onMounted(() => {
     font-size: .8rem
     text-transform: uppercase
     font-family: $sans-serif
+  &-Icon
+    position: absolute
+    top: 25%
+    left: 25%
+    transform: translate(-50%, -50%)
   &.left
     left: 0
   &.middle
