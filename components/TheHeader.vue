@@ -32,7 +32,7 @@
       >
         <!-- <p>Back</p> -->
         <div class="icon icon-Close">
-          <img src="~assets/icons/arrow-back-white.png" alt="" />
+          <img src="~assets/icons/arrow-left.png" alt="" />
         </div>
       </div>
       <div
@@ -43,7 +43,7 @@
       >
         <!-- <p>Back</p> -->
         <div class="icon icon-Close">
-          <img src="~assets/icons/arrow-back-white.png" alt="" />
+          <img src="~assets/icons/arrow-left.png" alt="" />
         </div>
       </div>
     </div>
@@ -117,7 +117,4 @@ onMounted(() => {
       &.active
         p
           opacity: 1
-      & .dot
-        background: white
-        transition: all .33s ease
 </style>

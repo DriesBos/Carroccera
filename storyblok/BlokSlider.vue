@@ -15,25 +15,29 @@
         v-show="isNextVisible"
         @click="nextImage"
         class="blokSlider-Nav blokSlider-Nav_Next mouseInteract"
-      >
-        <!-- <div class="icon icon-ArrowRight">
-            <img src="~assets/icons/arrow.png" alt="" />
-          </div> -->
-        <!-- <div class="dot" /> -->
-      </div>
+      ></div>
       <div
         v-show="isPrevVisible"
         @click="prevImage"
         class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
-      >
-        <!-- <div class="icon">
-            <img src="~assets/icons/arrow.png" alt="" />
-          </div> -->
-        <!-- <div class="dot" /> -->
-      </div>
+      ></div>
     </div>
     <div class="blokSlider-Counter" :class="{ active: isCounterVisible }">
+      <div
+        @click="prevImage"
+        :class="{ active: isPrevVisible }"
+        class="icon icon-Half blokSlider-Counter_Prev"
+      >
+        <img src="~assets/icons/arrow-half-left.png" alt="" />
+      </div>
       <p>{{ currentImage + 1 }} of {{ images.length }}</p>
+      <div
+        @click="nextImage"
+        :class="{ active: isNextVisible }"
+        class="icon icon-Half blokSlider-Counter_Next"
+      >
+        <img src="~assets/icons/arrow-half-right.png" alt="" />
+      </div>
     </div>
   </div>
 </template>
@@ -127,6 +131,16 @@ export default {
       justify-content: flex-start
   &-Counter
     visibility: hidden
+    display: flex
+    align-items: center
+    gap: .5rem
+    &_Prev, &_Next
+      cursor: pointer
+      pointer-events: none
+      opacity: .25
+      &.active
+        pointer-events: auto
+        opacity: 1
     @media screen and ( min-width: $breakpoint-tablet)
       position: absolute
       right: 0

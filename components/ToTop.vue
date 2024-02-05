@@ -1,7 +1,5 @@
 <template>
   <div @click="scrollTop" class="scrollUp mouseInteract">
-    <!-- <p>To Top</p> -->
-    <!-- <div class="dot dot-Up" /> -->
     <div class="icon icon-ToTop">
       <img src="~assets/icons/arrow-totop.png" alt="" />
     </div>
@@ -52,22 +50,4 @@ onUnmounted(() => {
   color: white
   // mix-blend-mode: difference
   transition: all $transition-general
-  h1, p
-    color: currentColor
-    line-height: 1
-    @media (hover: hover)
-      opacity: 0
-      transition: opacity $transition-hover
-  @media (max-width: 768px)
-    gap: .5rem
-  & .dot-Up
-    width: 1rem
-    height: 2rem
-    border-radius: 1000px
-    background: white
-    pointer-events: all
-    transition: all .33s ease
-  &:hover
-    p
-      opacity: 1
 </style>
