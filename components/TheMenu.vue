@@ -161,5 +161,9 @@ onMounted(() => {
 .menuItem
   opacity: 1
   &.header-Menu_Contact, &.header-Menu_ProjectList
+    margin-top: 0 !important // Negate main menu
+    margin-bottom: 0 !important
     opacity: 1
+  &.header-Menu_ProjectList
+    text-transform: none
 </style>
