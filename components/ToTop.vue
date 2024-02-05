@@ -1,7 +1,7 @@
 <template>
   <div @click="scrollTop" class="scrollUp mouseInteract">
     <div class="icon icon-ToTop">
-      <img src="~assets/icons/arrow-totop.png" alt="" />
+      <img src="~assets/icons/iconblok-up.png" alt="" />
     </div>
   </div>
 </template>
