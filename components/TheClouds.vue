@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 
 defineProps({

@@ -105,6 +105,14 @@ function allClose() {
   contactState.value = false;
 }
 
+function checkOrientation() {
+  if (window.innerHeight > window.innerWidth) {
+    console.log('Portrait');
+  } else {
+    console.log('Landscape');
+  }
+}
+
 watch(headerState, (newVal) => {
   if (newVal) {
     document.documentElement.style.overflow = 'hidden';
