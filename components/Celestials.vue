@@ -84,12 +84,12 @@ onMounted(() => {
   const constellation = document.querySelector('.constellation');
 
   gsap.to(constellation, {
-    y: '12.5%',
+    y: '15%',
     scrollTrigger: {
       trigger: constellation,
       scrub: true,
       start: 'top top',
-      end: 'bottom 0%',
+      end: 'bottom -100%',
     },
     ease: 'none',
   });
@@ -97,12 +97,12 @@ onMounted(() => {
   const clouds = document.querySelector('.clouds');
 
   gsap.to(clouds, {
-    y: '-100%',
+    y: '-137%',
     scrollTrigger: {
       trigger: clouds,
       scrub: true,
-      start: 'top top',
-      end: 'bottom 0%',
+      start: 'top 50%',
+      end: 'bottom -100%',
     },
     ease: 'none',
   });
@@ -154,7 +154,7 @@ onMounted(() => {
     height: 100vh
     height: 100svh
     opacity: 1
-    // transition: opacity .66s ease
+    transition: opacity .33s ease
     pointer-events: auto
     cursor: pointer
     img
