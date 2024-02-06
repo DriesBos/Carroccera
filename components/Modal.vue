@@ -56,8 +56,8 @@ const data = defineProps({
     transition: opacity $transition-bg 1s
   &-Container
     position: relative
-    width: calc(100% - 12.5vmin)
-    height: calc(100% - 12.5vmin)
+    width: calc(100% - 2 * #{var(--spacing-hor)})
+    height: calc(100% - 2 * #{var(--spacing-ver)})
     background: white
     color: black
     pointer-events: auto
