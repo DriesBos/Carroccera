@@ -74,6 +74,7 @@ const data = defineProps({
       left: 0
       top: 0
       width: 100%
+      border-right: 1px solid hsla(0, 0%, 0%, .1)
     @media screen and ( max-width: $breakpoint-tablet)
       background: white // Only if one column
       display: flex
@@ -125,6 +126,7 @@ const data = defineProps({
     -ms-overflow-style: none // Prevents scrollbar
     scrollbar-width: none
 
+
     &::-webkit-scrollbar
       display: none
     &_One
@@ -135,6 +137,7 @@ const data = defineProps({
       gap: 1rem
       @media screen and (min-width: $breakpoint-tablet)
         padding-top: calc(7rem + #{var(--spacing-ver)})
+        border-right: 1px solid hsla(0, 0%, 0%, .1)
     &_Two
       position: relative
       width: 100%
