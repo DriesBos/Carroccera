@@ -41,13 +41,13 @@
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="~assets/img/Constellation_Landscape.png"
+        src="~assets/img/Constellation_Landscape_new.png"
         alt=""
       />
       <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="~assets/img/Constellation_Portrait.png"
+        src="~assets/img/Constellation_Portrait_new.png"
         alt=""
       />
     </div>
