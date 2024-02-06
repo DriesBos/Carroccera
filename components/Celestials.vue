@@ -121,6 +121,7 @@ onMounted(() => {
   .stars
     width: 100%
     height: 100%
+    will-change: transform
     img
         width: 100%
         max-width: 100%
@@ -138,6 +139,7 @@ onMounted(() => {
     transition: opacity .66s ease
     pointer-events: auto
     cursor: pointer
+    will-change: transform
     img
         width: 100%
         max-width: 100%
@@ -157,6 +159,7 @@ onMounted(() => {
     transition: opacity .33s ease
     pointer-events: auto
     cursor: pointer
+    will-change: transform
     img
         width: 100%
         max-width: 100%
