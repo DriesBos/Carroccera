@@ -91,11 +91,15 @@ const data = defineProps({
         max-width: 50%
       h1
         max-width: 50vw
+        font-family: 'Signifier', 'Times New Roman', Times, serif
+        font-size: 3rem
         // text-transform: uppercase
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
       p
         margin-top: .5rem
+        line-height: 1
+        font-size: .75rem
     &_Close
       position: absolute
       top: 0
