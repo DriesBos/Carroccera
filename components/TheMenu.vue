@@ -104,7 +104,6 @@ onMounted(() => {
       @media (max-width: 768px)
         gap: .5rem
       & .dot
-        background: white
         transition: all .33s ease
   &-Menu
     position: absolute

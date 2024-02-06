@@ -133,7 +133,6 @@ onMounted(() => {
     top: 25%
     left: 25%
     transform: translate(-50%, -50%)
-    background: black
   &.left
     left: 0
   &.middle

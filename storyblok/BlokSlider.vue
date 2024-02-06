@@ -121,7 +121,6 @@ export default {
       height: 1rem
       border-radius: 1000px
       pointer-events: all
-      background: white
       transition: all .33s ease
     &_Next
       right: 0
