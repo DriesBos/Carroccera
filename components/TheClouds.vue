@@ -18,7 +18,7 @@ onMounted(() => {
   const clouds = document.querySelector('.clouds');
   const footer = document.querySelector('.footer');
   gsap.to(clouds, {
-    y: '-200%',
+    y: '-400%',
     scrollTrigger: {
       trigger: trigger,
       scrub: true,

@@ -30,7 +30,7 @@
       >
         <img src="~assets/icons/iconblok-prev.png" alt="" />
       </div>
-      <p>{{ currentImage + 1 }} of {{ images.length }}</p>
+      <p>{{ currentImage + 1 }} / {{ images.length }}</p>
       <div
         @click="nextImage"
         :class="{ active: isNextVisible }"
