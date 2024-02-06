@@ -58,6 +58,8 @@
   display: flex
   flex-direction: column
   justify-content: flex-start
+  & > .blokLayer
+    will-change: transform
 </style>
 
 <script setup>
