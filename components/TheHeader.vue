@@ -2,16 +2,16 @@
   <header :class="{ active: props.headerState }" class="header">
     <div class="header-Toggle">
       <div
-        v-show="
-          !props.headerState && !props.contactState && !props.projectsState
-        "
+        v-show="!props.contactState && !props.projectsState"
         @click="headerToggle"
+        :class="{ active: props.headerState }"
         class="header-Toggle_Item mouseInteract"
       >
-        <p>Menu</p>
-        <div class="dot" />
+        <p v-show="!props.headerState">Menu</p>
+        <p v-show="props.headerState">Close</p>
+        <div :class="{ active: props.headerState }" class="dot" />
       </div>
-      <div
+      <!-- <div
         v-show="
           props.headerState && !props.contactState && !props.projectsState
         "
@@ -19,11 +19,10 @@
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.headerState }"
       >
-        <!-- <p>Close</p> -->
         <div class="icon icon-Close">
           <img src="~assets/icons/close-white.png" alt="" />
         </div>
-      </div>
+      </div> -->
       <div
         v-show="props.contactState"
         @click="emit('contactEmit', true)"
@@ -103,6 +102,7 @@ onMounted(() => {
     right: 0
     display: inline-flex
     p
+      line-height: 1.15em
       @media (hover: hover)
         opacity: 0
         transition: opacity $transition-hover
