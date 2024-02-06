@@ -29,9 +29,9 @@
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.contactState }"
       >
-        <!-- <p>Back</p> -->
+        <p>Back</p>
         <div class="icon icon-Close">
-          <img src="~assets/icons/arrow-left.png" alt="" />
+          <img src="~assets/icons/iconblok-back.png" alt="" />
         </div>
       </div>
       <div
@@ -40,9 +40,9 @@
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.projectsState }"
       >
-        <!-- <p>Back</p> -->
+        <p>Back</p>
         <div class="icon icon-Close">
-          <img src="~assets/icons/arrow-left.png" alt="" />
+          <img src="~assets/icons/iconblok-back.png" alt="" />
         </div>
       </div>
     </div>
@@ -92,6 +92,7 @@ onMounted(() => {
   height: 100%
   pointer-events: none
   color: white
+  letter-spacing: .015rem
   & > div
     color: currentColor
     h1, p

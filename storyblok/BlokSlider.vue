@@ -28,7 +28,7 @@
         :class="{ active: isPrevVisible }"
         class="icon icon-Half blokSlider-Counter_Prev"
       >
-        <img src="~assets/icons/arrow-half-left.png" alt="" />
+        <img src="~assets/icons/iconblok-prev.png" alt="" />
       </div>
       <p>{{ currentImage + 1 }} of {{ images.length }}</p>
       <div
@@ -36,7 +36,7 @@
         :class="{ active: isNextVisible }"
         class="icon icon-Half blokSlider-Counter_Next"
       >
-        <img src="~assets/icons/arrow-half-right.png" alt="" />
+        <img src="~assets/icons/iconblok-next.png" alt="" />
       </div>
     </div>
   </div>

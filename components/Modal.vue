@@ -12,9 +12,7 @@
           @click.native="$emit('close')"
           class="modal-Header_Close mouseInteract"
         >
-          <div class="icon icon-Close">
-            <img src="~assets/icons/close.png" alt="" />
-          </div>
+          <div class="dot active" />
         </div>
       </div>
 
@@ -44,6 +42,8 @@ const data = defineProps({
   height: 100%
   z-index: 9999
   pointer-events: none
+  .dot
+    background: black
   &-Background
     position: absolute
     top: 0
