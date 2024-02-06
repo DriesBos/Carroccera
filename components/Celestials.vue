@@ -84,7 +84,7 @@ onMounted(() => {
   const constellation = document.querySelector('.constellation');
 
   gsap.to(constellation, {
-    y: '15%',
+    y: '25%',
     scrollTrigger: {
       trigger: constellation,
       scrub: true,
