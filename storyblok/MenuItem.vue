@@ -6,7 +6,7 @@
     </div>
     <!-- Invisible -->
     <Teleport to="body">
-      <Transition name="modalSlideUp">
+      <Transition name="fade">
         <lazyModal
           v-if="isModalActive"
           @close="closeModal"
