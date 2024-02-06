@@ -16,6 +16,24 @@
     </div>
 
     <div
+      :class="{ headerActive: headerState }"
+      class="celestials-Clouds clouds"
+    >
+      <img
+        v-if="orientationState === 'landscape'"
+        class="landscape"
+        src="~/assets/img/Clouds_Landscape.png"
+        alt=""
+      />
+      <img
+        v-if="orientationState === 'portrait'"
+        class="portrait"
+        src="~/assets/img/Clouds_Portrait.png"
+        alt=""
+      />
+    </div>
+
+    <div
       @click="emit('headerEmit', true)"
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
@@ -47,7 +65,6 @@ defineProps({
   orientationState: String,
 });
 
-const main = ref();
 let ctx;
 
 onMounted(() => {
@@ -76,10 +93,19 @@ onMounted(() => {
     },
     ease: 'none',
   });
-});
 
-onUnmounted(() => {
-  ctx.revert();
+  const clouds = document.querySelector('.clouds');
+
+  gsap.to(clouds, {
+    y: '-100%',
+    scrollTrigger: {
+      trigger: clouds,
+      scrub: true,
+      start: 'top top',
+      end: 'bottom 0%',
+    },
+    ease: 'none',
+  });
 });
 </script>
 
@@ -110,6 +136,25 @@ onUnmounted(() => {
     height: 100svh
     opacity: 1
     transition: opacity .66s ease
+    pointer-events: auto
+    cursor: pointer
+    img
+        width: 100%
+        max-width: 100%
+        height: 100%
+        object-fit: contain
+        object-position: center center
+    &.headerActive
+      opacity: 0
+  .clouds
+    position: fixed
+    top: 50vh
+    left: 0
+    width: 100%
+    height: 100vh
+    height: 100svh
+    opacity: 1
+    // transition: opacity .66s ease
     pointer-events: auto
     cursor: pointer
     img

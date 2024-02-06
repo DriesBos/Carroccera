@@ -26,10 +26,10 @@
         :blok="blok"
       />
     </div>
-    <TheClouds
+    <!-- <TheClouds
       :headerState="headerState"
       :orientationState="orientationState"
-    />
+    /> -->
     <lazyTheFooter class="layerThree" :orientationState="orientationState" />
     <div class="layerFour">
       <TheHeader

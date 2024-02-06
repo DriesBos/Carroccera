@@ -42,20 +42,20 @@ onMounted(() => {
 </script>
 
 <style scoped lang="sass">
-.clouds
-  position: fixed
-  left: 0
-  top: 50vh
-  width: 100%
-  height: auto
-  opacity: .85
-  transition: opacity .66s ease
-  pointer-events: none
-  img
-    width: 100%
-    height: auto
-    object-fit: cover
-    object-position: top
-  &.headerActive
-    opacity: 0
+// .clouds
+//   position: fixed
+//   left: 0
+//   top: 50vh
+//   width: 100%
+//   height: auto
+//   opacity: .85
+//   transition: opacity .66s ease
+//   pointer-events: none
+//   img
+//     width: 100%
+//     height: auto
+//     object-fit: cover
+//     object-position: top
+//   &.headerActive
+//     opacity: 0
 </style>
