@@ -150,7 +150,7 @@ onMounted(() => {
       opacity: 0
   .clouds
     position: fixed
-    top: 50vh
+    top: 60vh
     left: 0
     width: 100%
     opacity: 1
