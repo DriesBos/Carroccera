@@ -3,12 +3,15 @@
     v-for="item in projectList"
     class="menuItem header-Menu_ProjectList mouseInteract"
   >
-    <p @click="scrollToProject(item)">{{ item }}</p>
+    <p @click="scrollToProject(item.buildings[0].title)">
+      {{ item.buildings[0].title }}
+    </p>
+    <p>{{ item.buildings[0].date }}</p>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import gsap from 'gsap';
 
 const emit = defineEmits(['projectsEmit', 'closeAllEmit']);
@@ -22,8 +25,6 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 const content = ref(null);
 let projectList = ref(null);
 content.value = data.story.content.body;
-
-// let ctx;
 
 function scrollToProject(el) {
   emit('closeAllEmit', true);
@@ -47,9 +48,10 @@ onMounted(() => {
   });
 
   let arrayOfTitles = arrayOfBuildings.map((innerArray) => {
-    return innerArray.buildings[0].title;
+    return innerArray.buildings[0].title + innerArray.buildings[0].date;
   });
-  projectList.value = arrayOfTitles;
+  projectList.value = arrayOfBuildings;
+  console.log('PROJECTLIST', projectList.value[0].buildings[0].title);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -57,10 +59,6 @@ onMounted(() => {
     }
   });
 });
-
-// onUnmounted(() => {
-//   ctx.revert();
-// });
 </script>
 
 <style scoped></style>

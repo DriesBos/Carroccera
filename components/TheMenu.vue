@@ -165,4 +165,15 @@ onMounted(() => {
     opacity: 1
   &.header-Menu_ProjectList
     text-transform: none
+    display: flex
+    justify-content: space-between
+    width: 100%
+    max-width: 20rem
+    padding: 0 var(--spacing-hor)
+    @media screen and (max-width: $breakpoint-mobile)
+      max-width: 100%
+    & > p:first-child
+      padding-right: .5em
+    &:hover
+      text-decoration: underline
 </style>

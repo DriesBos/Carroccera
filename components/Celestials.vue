@@ -155,7 +155,6 @@ onMounted(() => {
     width: 100%
     opacity: 1
     transition: opacity .33s ease
-    pointer-events: auto
     cursor: pointer
     will-change: transform
     z-index: 100
