@@ -81,6 +81,7 @@ const data = defineProps({
       align-items: flex-start
     & > div
       padding: var(--spacing-ver) var(--spacing-hor)
+      padding-bottom: 1rem
     &_Title
       display: flex
       flex-direction: column
@@ -99,7 +100,7 @@ const data = defineProps({
       p
         margin-top: .5rem
         line-height: 1
-        font-size: .75rem
+        font-size: $font-small
     &_Close
       position: absolute
       top: 0
