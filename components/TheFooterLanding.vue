@@ -49,6 +49,7 @@ onMounted(() => {
   height: 100vh
   transition: top .5s ease
   pointer-events: none
+  z-index: 900
   img, svg
     position: absolute
     left: 0

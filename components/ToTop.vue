@@ -13,7 +13,7 @@ import gsap from 'gsap';
 let ctx;
 
 function scrollTop() {
-  gsap.to(window, { duration: 0.66, scrollTo: 0, ease: 'power4.out' });
+  gsap.to(window, { duration: 1.5, scrollTo: 0, ease: 'power4.out' });
 }
 
 onMounted(() => {
@@ -48,6 +48,5 @@ onUnmounted(() => {
   align-items: flex-end
   gap: 1rem
   color: white
-  // mix-blend-mode: difference
   transition: all $transition-general
 </style>

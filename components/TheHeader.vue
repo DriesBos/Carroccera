@@ -92,7 +92,6 @@ onMounted(() => {
   height: 100%
   pointer-events: none
   color: white
-  letter-spacing: .015rem
   & > div
     color: currentColor
     h1, p
