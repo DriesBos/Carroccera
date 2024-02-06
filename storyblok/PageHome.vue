@@ -3,7 +3,11 @@
     <!-- <Mouse /> -->
     <div class="layerOne">
       <Sky />
-      <Celestials @headerEmit="headerToggle" :headerState="headerState" />
+      <Celestials
+        @headerEmit="headerToggle"
+        :headerState="headerState"
+        :orientationState="orientationState"
+      />
       <TheMenu
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
@@ -22,8 +26,11 @@
         :blok="blok"
       />
     </div>
-    <TheClouds :headerState="headerState" />
-    <lazyTheFooter class="layerThree" />
+    <TheClouds
+      :headerState="headerState"
+      :orientationState="orientationState"
+    />
+    <lazyTheFooter class="layerThree" :orientationState="orientationState" />
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
@@ -35,7 +42,10 @@
         :contactState="contactState"
       />
       <ToTop />
-      <TheFooterLanding :headerState="headerState" />
+      <TheFooterLanding
+        :headerState="headerState"
+        :orientationState="orientationState"
+      />
       <!-- <TheLogo /> -->
     </div>
   </div>
@@ -73,6 +83,7 @@ const lazyTheFooter = defineAsyncComponent(
 const headerState = ref(false);
 const projectsState = ref(false);
 const contactState = ref(false);
+const orientationState = ref('landscape');
 
 // let ctx;
 
@@ -105,11 +116,11 @@ function allClose() {
   contactState.value = false;
 }
 
-function checkOrientation() {
+function setOrientationState() {
   if (window.innerHeight > window.innerWidth) {
-    console.log('Portrait');
+    orientationState.value = 'portrait';
   } else {
-    console.log('Landscape');
+    orientationState.value = 'landscape';
   }
 }
 
@@ -123,6 +134,7 @@ watch(headerState, (newVal) => {
 
 onBeforeMount(() => {
   window.scrollTo(0, 0);
+  setOrientationState();
 });
 
 onMounted(() => {

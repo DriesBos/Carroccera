@@ -1,8 +1,18 @@
 <template>
   <div class="celestials">
     <div class="celestials-Stars stars">
-      <img class="landscape" src="~assets/img/Stars_Landscape.png" alt="" />
-      <img class="portrait" src="~assets/img/Stars_Portrait.png" alt="" />
+      <img
+        v-if="orientationState === 'landscape'"
+        class="landscape"
+        src="~assets/img/Stars_Landscape.png"
+        alt=""
+      />
+      <img
+        v-if="orientationState === 'portrait'"
+        class="portrait"
+        src="~assets/img/Stars_Portrait.png"
+        alt=""
+      />
     </div>
 
     <div
@@ -11,11 +21,13 @@
       class="celestials-Constellation constellation"
     >
       <img
+        v-if="orientationState === 'landscape'"
         class="landscape"
         src="~assets/img/Constellation_Landscape.png"
         alt=""
       />
       <img
+        v-if="orientationState === 'portrait'"
         class="portrait"
         src="~assets/img/Constellation_Portrait.png"
         alt=""
@@ -32,6 +44,7 @@ const emit = defineEmits(['headerEmit']);
 
 defineProps({
   headerState: Boolean,
+  orientationState: String,
 });
 
 const main = ref();

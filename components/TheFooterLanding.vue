@@ -1,20 +1,28 @@
 <template>
   <div class="footerlanding" :class="{ headerActive: headerState }">
-    <img class="landscape" src="~assets/img/landing-footer-l.png" alt="" />
-    <img class="portrait" src="~assets/img/landing-footer-p.png" alt="" />
+    <img
+      v-if="orientationState === 'landscape'"
+      class="landscape"
+      src="~assets/img/landing-footer-l.png"
+      alt=""
+    />
+    <img
+      v-if="orientationState === 'portrait'"
+      class="portrait"
+      src="~assets/img/landing-footer-p.png"
+      alt=""
+    />
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 
 defineProps({
   headerState: Boolean,
+  orientationState: String,
 });
-
-const main = ref();
-// let ctx;
 
 onMounted(() => {
   const footerlanding = document.querySelector('.footerlanding');
@@ -30,10 +38,6 @@ onMounted(() => {
     ease: 'none',
   });
 });
-
-// onUnmounted(() => {
-//   ctx.revert();
-// });
 </script>
 
 <style scoped lang="sass">

@@ -1,7 +1,17 @@
 <template>
   <div :class="{ headerActive: headerState }" class="celestials-Clouds clouds">
-    <img class="landscape" src="~/assets/img/Clouds_Landscape.png" alt="" />
-    <img class="portrait" src="~/assets/img/Clouds_Portrait.png" alt="" />
+    <img
+      v-if="orientationState === 'landscape'"
+      class="landscape"
+      src="~/assets/img/Clouds_Landscape.png"
+      alt=""
+    />
+    <img
+      v-if="orientationState === 'portrait'"
+      class="portrait"
+      src="~/assets/img/Clouds_Portrait.png"
+      alt=""
+    />
   </div>
 </template>
 
@@ -11,6 +21,7 @@ import gsap from 'gsap';
 
 defineProps({
   headerState: Boolean,
+  orientationState: String,
 });
 
 onMounted(() => {
