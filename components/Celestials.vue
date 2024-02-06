@@ -97,12 +97,12 @@ onMounted(() => {
   const clouds = document.querySelector('.clouds');
 
   gsap.to(clouds, {
-    y: '-137%',
+    y: '-200%',
     scrollTrigger: {
       trigger: clouds,
       scrub: true,
       start: 'top 50%',
-      end: 'bottom -100%',
+      end: 'bottom -150%',
     },
     ease: 'none',
   });
@@ -153,13 +153,12 @@ onMounted(() => {
     top: 50vh
     left: 0
     width: 100%
-    height: 100vh
-    height: 100svh
     opacity: 1
     transition: opacity .33s ease
     pointer-events: auto
     cursor: pointer
     will-change: transform
+    z-index: 100
     img
         width: 100%
         max-width: 100%
