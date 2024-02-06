@@ -90,7 +90,7 @@ const data = defineProps({
         max-width: 50%
       h1
         max-width: 50vw
-        text-transform: uppercase
+        // text-transform: uppercase
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
       p

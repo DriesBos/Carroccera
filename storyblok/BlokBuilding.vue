@@ -123,13 +123,6 @@ onMounted(() => {
   height: 33.3333vw
   pointer-events: all
   z-index: +1
-  &-Indicator
-    position: absolute
-    top: 0
-    left: 0
-    font-size: .8rem
-    text-transform: uppercase
-    font-family: $sans-serif
   &-Icon
     position: absolute
     top: 25%
