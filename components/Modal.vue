@@ -193,6 +193,8 @@ const data = defineProps({
     .modal-Header
       &_Title
         background: white
+        h1
+          font-weight: 500
 
   &.active
     .modal-Background
