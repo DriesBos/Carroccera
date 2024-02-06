@@ -74,7 +74,6 @@ const data = defineProps({
       left: 0
       top: 0
       width: 100%
-      // border-right: 1px solid hsla(0, 0%, 0%, .1)
     @media screen and ( max-width: $breakpoint-tablet)
       background: white // Only if one column
       display: flex
@@ -92,9 +91,6 @@ const data = defineProps({
         max-width: 50%
       h1
         max-width: 50vw
-        // font-family: 'Signifier', 'Times New Roman', Times, serif
-        // font-size: 1.5rem
-        // text-transform: uppercase
         @media screen and ( max-width: $breakpoint-tablet)
           max-width: 100%
       p
@@ -121,7 +117,6 @@ const data = defineProps({
     display: flex
     flex-direction: row
     flex: 1
-    // padding-bottom: 2rem
     @media screen and ( max-width: $breakpoint-tablet)
       flex-direction: column
   &-Column
@@ -130,8 +125,6 @@ const data = defineProps({
     height: 100%
     -ms-overflow-style: none // Prevents scrollbar
     scrollbar-width: none
-
-
     &::-webkit-scrollbar
       display: none
     &_One
@@ -141,8 +134,9 @@ const data = defineProps({
       padding: var(--spacing-ver) var(--spacing-hor)
       gap: 1rem
       @media screen and (min-width: $breakpoint-tablet)
-        padding-top: calc(7rem + #{var(--spacing-ver)})
-        // border-right: 1px solid hsla(0, 0%, 0%, .1)
+        padding-top: calc(4rem + #{var(--spacing-ver)})
+      @media screen and (min-width: $breakpoint-tablet)
+        padding-right: calc(2 * #{var(--spacing-hor)})
     &_Two
       position: relative
       width: 100%
@@ -153,11 +147,8 @@ const data = defineProps({
       padding: var(--spacing-ver) var(--spacing-hor)
       @media screen and (max-width: $breakpoint-tablet)
         padding-bottom: calc(3 * #{var(--spacing-ver)})
-      // & > div
-      //   @media screen and (max-width: $breakpoint-tablet)
-      //     flex-direction: column
-      //     align-items: center
-      //     overflow-y: none
+      @media screen and (min-width: $breakpoint-tablet)
+        padding-left: 0
 
   &.isOneColumn
     .modal-Content
@@ -183,8 +174,7 @@ const data = defineProps({
       @media screen and (min-width: $breakpoint-tablet)
         .modal-Column_One
           overflow-y: auto
-          padding-bottom: calc(3 * #{var(--spacing-ver)})
-          height: 100%
+          padding-bottom: calc(2 * #{var(--spacing-ver)})
         .modal-Column_Two
           .blokSlider
             height: 100%
