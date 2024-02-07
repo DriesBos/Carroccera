@@ -38,10 +38,16 @@ defineProps({ blok: Object });
   width: 100vw
   pointer-events: none
   display: inline-block
-  @media (orientation: landscape)
-    aspect-ratio: 16 / 9
-  @media (orientation: portrait)
-    aspect-ratio: 9 / 16
+  &:nth-child(1)
+    @media (orientation: landscape)
+      aspect-ratio: 16 / 9
+    @media (orientation: portrait)
+      aspect-ratio: 9 / 8
+  &:nth-child(2n)
+    @media (orientation: landscape)
+      aspect-ratio: 16 / 9
+    @media (orientation: portrait)
+      aspect-ratio: 9 / 16
   .blokLayer-ImageContainer
     position: absolute
     top: 0
