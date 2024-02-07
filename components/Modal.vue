@@ -174,11 +174,13 @@ const data = defineProps({
           padding-bottom: calc(2 * #{var(--spacing-ver)})
           padding-right: calc(2 * #{var(--spacing-hor)})
         .modal-Column_Two
-          padding-left: 0
           .blokSlider
             height: 100%
             &-Image
               height: 100%
+      @media screen and (min-width: $breakpoint-tablet) and (orientation: landscape)
+        .modal-Column_Two
+          padding-left: 0
     .modal-Header
       &_Title
         background: white
