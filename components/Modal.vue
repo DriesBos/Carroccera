@@ -135,8 +135,6 @@ const data = defineProps({
       gap: 1rem
       @media screen and (min-width: $breakpoint-tablet)
         padding-top: calc(4rem + #{var(--spacing-ver)})
-      @media screen and (min-width: $breakpoint-tablet)
-        padding-right: calc(2 * #{var(--spacing-hor)})
     &_Two
       position: relative
       width: 100%
@@ -147,8 +145,7 @@ const data = defineProps({
       padding: var(--spacing-ver) var(--spacing-hor)
       @media screen and (max-width: $breakpoint-tablet)
         padding-bottom: calc(3 * #{var(--spacing-ver)})
-      @media screen and (min-width: $breakpoint-tablet)
-        padding-left: 0
+
 
   &.isOneColumn
     .modal-Content
@@ -175,7 +172,9 @@ const data = defineProps({
         .modal-Column_One
           overflow-y: auto
           padding-bottom: calc(2 * #{var(--spacing-ver)})
+          padding-right: calc(2 * #{var(--spacing-hor)})
         .modal-Column_Two
+          padding-left: 0
           .blokSlider
             height: 100%
             &-Image
