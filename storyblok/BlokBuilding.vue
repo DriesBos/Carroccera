@@ -26,9 +26,6 @@
       :src="blok.image.filename"
       alt=""
     />
-    <!-- <div class="blokBuilding-Icon icon icon-Plus">
-      <img src="~assets/icons/icon-plus-white.png" alt="" />
-    </div> -->
     <div class="blokBuilding-Dot dot" />
     <!-- Invisible -->
     <Teleport to="body">
@@ -47,11 +44,17 @@
         >
           <!-- Col One -->
           <div v-if="blok.body" class="modal-Column modal-Column_One">
-            <StoryblokComponent
-              v-for="blok in blok.body"
-              :key="blok._uid"
-              :blok="blok"
-            />
+            <div v-if="blok.title" class="modal-Column_One_Header">
+              <h1>{{ blok.title }}</h1>
+              <p v-if="blok.date">{{ blok.date }}</p>
+            </div>
+            <div class="modal-Column_One_Content">
+              <StoryblokComponent
+                v-for="blok in blok.body"
+                :key="blok._uid"
+                :blok="blok"
+              />
+            </div>
           </div>
           <!-- Col Two -->
           <div v-if="isTwoColumn" class="modal-Column modal-Column_Two">
@@ -106,6 +109,7 @@ watch(isModalActive, (newVal) => {
 });
 
 onMounted(() => {
+  console.log('blokBuilding', data.blok.title, data.blok.date, data.blok);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       isModalActive.value = false;

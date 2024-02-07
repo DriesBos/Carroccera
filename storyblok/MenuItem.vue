@@ -21,11 +21,17 @@
         >
           <!-- Col One -->
           <div v-if="blok.body" class="modal-Column modal-Column_One">
-            <StoryblokComponent
-              v-for="blok in blok.body"
-              :key="blok._uid"
-              :blok="blok"
-            />
+            <div v-if="blok.title" class="modal-Column_One_Header">
+              <h1>{{ blok.title }}</h1>
+              <p v-if="blok.date">{{ blok.date }}</p>
+            </div>
+            <div class="modal-Column_One_Content">
+              <StoryblokComponent
+                v-for="blok in blok.body"
+                :key="blok._uid"
+                :blok="blok"
+              />
+            </div>
           </div>
           <!-- Col Two -->
           <div v-if="isTwoColumn" class="modal-Column modal-Column_Two">

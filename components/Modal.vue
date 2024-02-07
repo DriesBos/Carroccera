@@ -3,17 +3,8 @@
     <div @click.native="$emit('close')" class="modal-Background" />
 
     <div class="modal-Container mouseInvert">
-      <div class="modal-Header">
-        <div v-if="data.title" class="modal-Header_Title">
-          <h1>{{ data.title }}</h1>
-          <p v-if="data.subtitle">{{ data.subtitle }}</p>
-        </div>
-        <div
-          @click.native="$emit('close')"
-          class="modal-Header_Close mouseInteract"
-        >
-          <div class="dot active" />
-        </div>
+      <div @click.native="$emit('close')" class="modal-Close mouseInteract">
+        <div class="dot active" />
       </div>
 
       <div class="modal-Content">
@@ -67,56 +58,21 @@ const data = defineProps({
       flex-direction: column
       width: calc(100% - 6.25vmin)
       height: calc(100% - 6.25vmin)
-  &-Header
+  &-Close
+    position: absolute
+    top: 0
+    right: 0
+    padding: var(--spacing-ver) var(--spacing-hor)
     z-index: +1
-    @media screen and ( min-width: $breakpoint-tablet)
-      position: absolute
-      left: 0
-      top: 0
-      width: 100%
-    @media screen and ( max-width: $breakpoint-tablet)
-      background: white // Only if one column
-      display: flex
-      align-items: flex-start
-    & > div
-      padding: var(--spacing-ver) var(--spacing-hor)
-      padding-bottom: 1rem
-    &_Title
-      display: flex
-      flex-direction: column
-      width: 100%
-      max-width: 100%
-      @media screen and ( min-width: $breakpoint-tablet)
-        width: 100%
-        max-width: 50%
-      h1
-        max-width: 50vw
-        @media screen and ( max-width: $breakpoint-tablet)
-          max-width: 100%
-      p
-        margin-top: .5rem
-        line-height: 1
-        font-size: $font-small
-    &_Close
-      position: absolute
-      top: 0
-      right: 0
-      display: flex
-      align-items: center
-      gap: .5rem
-      .icon
-        width: 1rem
-        height: 1rem
-        img
-          width: 100%
-          height: 100%
-          object-fit: contain
   &-Content
     width: 100%
     height: 100%
     display: flex
     flex-direction: row
+    align-items: safe center
     flex: 1
+    & > div
+      width: 50%
     @media screen and ( max-width: $breakpoint-tablet)
       flex-direction: column
   &-Column
@@ -130,11 +86,18 @@ const data = defineProps({
     &_One
       display: flex
       flex-direction: column
-      justify-content: flex-start
+      justify-content: safe center
       padding: var(--spacing-ver) var(--spacing-hor)
       gap: 1rem
-      @media screen and (min-width: $breakpoint-tablet)
-        padding-top: calc(4rem + #{var(--spacing-ver)})
+      &_Header
+        p
+          margin-top: .5rem
+          line-height: 1
+          font-size: $font-small
+      &_Content
+        flex-direction: column
+        justify-content: safe center
+        gap: 1rem
     &_Two
       position: relative
       width: 100%
@@ -170,15 +133,19 @@ const data = defineProps({
           height: auto
       @media screen and (min-width: $breakpoint-tablet)
         .modal-Column_One
-          overflow-y: auto
-          padding-bottom: calc(2 * #{var(--spacing-ver)})
-          padding-right: calc(2 * #{var(--spacing-hor)})
+          overflow-y: none
+          @media screen and (min-width: $breakpoint-tablet)
+            .modal-Column_One_Content
+              overflow-y: auto
+
         .modal-Column_Two
           .blokSlider
             height: 100%
             &-Image
               height: 100%
-      @media screen and (min-width: $breakpoint-tablet) and (orientation: landscape)
+      @media screen and (min-width: $breakpoint-tablet)
+        .modal-Column_One
+          padding-right: calc(2 * #{var(--spacing-hor)})
         .modal-Column_Two
           padding-left: 0
     .modal-Header
