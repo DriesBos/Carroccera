@@ -71,8 +71,6 @@ const data = defineProps({
     flex-direction: row
     align-items: safe center
     flex: 1
-    & > div
-      width: 50%
     @media screen and ( max-width: $breakpoint-tablet)
       flex-direction: column
   &-Column
@@ -134,11 +132,12 @@ const data = defineProps({
       @media screen and (min-width: $breakpoint-tablet)
         .modal-Column_One
           overflow-y: none
-          @media screen and (min-width: $breakpoint-tablet)
-            .modal-Column_One_Content
-              overflow-y: auto
+          width: 50%
+          &_Content
+            overflow-y: auto
 
         .modal-Column_Two
+          width: 50%
           .blokSlider
             height: 100%
             &-Image
