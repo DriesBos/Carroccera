@@ -97,11 +97,11 @@ onMounted(() => {
   const clouds = document.querySelector('.clouds');
 
   gsap.to(clouds, {
-    y: '-200%',
+    y: '-250%',
     scrollTrigger: {
       trigger: clouds,
       scrub: true,
-      start: 'top 50%',
+      start: 'top 60%',
       end: 'bottom -150%',
     },
     ease: 'none',
@@ -127,7 +127,7 @@ onMounted(() => {
         max-width: 100%
         height: 100%
         object-fit: cover
-        object-position: center top
+        object-position: center bottom
   .constellation
     position: fixed
     top: 0

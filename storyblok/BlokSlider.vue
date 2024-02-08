@@ -21,22 +21,22 @@
         @click="prevImage"
         class="blokSlider-Nav blokSlider-Nav_Prev mouseInteract"
       ></div>
-    </div>
-    <div class="blokSlider-Counter" :class="{ active: isCounterVisible }">
-      <div
-        @click="prevImage"
-        :class="{ active: isPrevVisible }"
-        class="icon icon-Half blokSlider-Counter_Prev"
-      >
-        <img src="~assets/icons/iconblok-prev.png" alt="" />
-      </div>
-      <p>{{ currentImage + 1 }} / {{ images.length }}</p>
-      <div
-        @click="nextImage"
-        :class="{ active: isNextVisible }"
-        class="icon icon-Half blokSlider-Counter_Next"
-      >
-        <img src="~assets/icons/iconblok-next.png" alt="" />
+      <div class="blokSlider-Counter" :class="{ active: isCounterVisible }">
+        <div
+          @click="prevImage"
+          :class="{ active: isPrevVisible }"
+          class="icon icon-Half blokSlider-Counter_Prev"
+        >
+          <img src="~assets/icons/iconblok-prev.png" alt="" />
+        </div>
+        <p>{{ currentImage + 1 }} / {{ images.length }}</p>
+        <div
+          @click="nextImage"
+          :class="{ active: isNextVisible }"
+          class="icon icon-Half blokSlider-Counter_Next"
+        >
+          <img src="~assets/icons/iconblok-next.png" alt="" />
+        </div>
       </div>
     </div>
   </div>

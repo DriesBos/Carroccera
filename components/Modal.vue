@@ -96,6 +96,10 @@ const data = defineProps({
         flex-direction: column
         justify-content: safe center
         gap: 1rem
+        & > div
+          margin-bottom: 1rem
+          &:last-child
+            margin-bottom: 0
     &_Two
       position: relative
       width: 100%
@@ -135,7 +139,6 @@ const data = defineProps({
           width: 50%
           &_Content
             overflow-y: auto
-
         .modal-Column_Two
           width: 50%
           .blokSlider
