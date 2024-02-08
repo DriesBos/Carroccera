@@ -51,6 +51,7 @@
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
   </Head>
+  <NuxtLoadingIndicator />
   <NuxtPage />
 </template>
 

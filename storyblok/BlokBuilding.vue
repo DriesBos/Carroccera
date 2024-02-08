@@ -15,6 +15,7 @@
       @click.native="openModal"
       :src="blok.imagelandscape.filename"
       alt=""
+      loading="lazy"
     />
     <NuxtImg
       provider="storyblok"
@@ -25,6 +26,7 @@
       @click.native="openModal"
       :src="blok.image.filename"
       alt=""
+      loading="lazy"
     />
     <div class="blokBuilding-Dot dot" />
     <!-- Invisible -->
@@ -109,7 +111,6 @@ watch(isModalActive, (newVal) => {
 });
 
 onMounted(() => {
-  console.log('blokBuilding', data.blok.title, data.blok.date, data.blok);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       isModalActive.value = false;

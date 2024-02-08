@@ -43,15 +43,40 @@ onMounted(() => {
       return { landscapes: innerArray.body };
     });
 
-  let arrayOfBuildings = arrayOfLandscapes.map((innerArray) => {
-    return { buildings: innerArray.landscapes };
+  let arrayOfBuildings = arrayOfLandscapes.reduce((acc, innerArray) => {
+    return acc.concat(innerArray.landscapes);
+  }, []);
+
+  let reducedArray = arrayOfBuildings.map((building) => {
+    return { date: building.date, title: building.title };
   });
 
-  let arrayOfTitles = arrayOfBuildings.map((innerArray) => {
-    return innerArray.buildings[0].title + innerArray.buildings[0].date;
-  });
-  projectList.value = arrayOfBuildings;
-  console.log('PROJECTLIST', projectList.value[0].buildings[0].title);
+  projectList.value = reducedArray;
+  // let arrayOfLandscapes = content.value
+  //   .filter((innerArray) => innerArray.body && innerArray.body.length > 0)
+  //   .map((innerArray) => {
+  //     return { landscapes: innerArray.body };
+  //   });
+
+  // let arrayOfBuildings = arrayOfLandscapes.map((innerArray) => {
+  //   return { buildings: innerArray.landscapes };
+  // });
+
+  // let arrayOfBuildings = arrayOfLandscapes.reduce((acc, innerArray) => {
+  //   return acc.concat(innerArray.buildings);
+  // }, []);
+
+  // let newArray = [].concat(...arrayOfBuildings);
+
+  // let arrayOfBuildings = arrayOfLandscapes.reduce((acc, innerArray) => {
+  //   return acc.concat(innerArray.landscapes);
+  // });
+
+  // projectList.value = arrayOfBuildings;
+
+  // console.log('Landscapes', arrayOfLandscapes);
+  // console.log('Buildings', arrayOfBuildings);
+  // console.log('new array', newArray);
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {

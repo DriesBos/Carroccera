@@ -9,6 +9,7 @@
           :src="images[currentImage].filename"
           :key="currentImage"
           alt=""
+          loading="lazy"
         />
       </Transition>
       <div

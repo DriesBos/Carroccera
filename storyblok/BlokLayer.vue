@@ -14,6 +14,7 @@
         class="landscape"
         :src="blok.background.filename"
         alt=""
+        loading="lazy"
       />
       <NuxtImg
         provider="storyblok"
@@ -23,6 +24,7 @@
         class="portrait"
         :src="blok.backgroundVertical.filename"
         alt=""
+        loading="lazy"
       />
     </div>
   </div>

@@ -1,6 +1,5 @@
 <template>
   <div v-editable="blok" id="top" class="page page-Home">
-    <!-- <Mouse /> -->
     <div class="layerOne">
       <Sky />
       <Celestials
@@ -83,8 +82,6 @@ const projectsState = ref(false);
 const contactState = ref(false);
 const orientationState = ref('landscape');
 
-// let ctx;
-
 function headerToggle() {
   headerState.value = !headerState.value;
 }
@@ -98,7 +95,6 @@ function contactToggle() {
 }
 
 function backgroundClick() {
-  console.log('hit it');
   if (projectsState.value) {
     projectsState.value = false;
   } else if (contactState.value) {
