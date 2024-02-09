@@ -1,5 +1,8 @@
 <template>
-  <div class="footerlanding" :class="{ headerActive: headerState }">
+  <div
+    class="footerlanding"
+    :class="{ headerActive: headerState, footerActive: footerState }"
+  >
     <img
       v-if="orientationState === 'landscape'"
       class="landscape"
@@ -24,7 +27,17 @@ defineProps({
   orientationState: String,
 });
 
+const footerState = ref(false);
+
+function setFooter() {
+  setTimeout(() => {
+    footerState.value = true;
+  }, 1200);
+}
+
 onMounted(() => {
+  setFooter();
+
   const footerlanding = document.querySelector('.footerlanding');
 
   gsap.to(footerlanding, {
@@ -50,6 +63,8 @@ onMounted(() => {
   transition: top .5s ease
   pointer-events: none
   z-index: 900
+  will-change: transform
+  top: 100%
   img, svg
     position: absolute
     left: 0
@@ -58,6 +73,8 @@ onMounted(() => {
     width: 100%
     max-width: 100%
     height: auto
+  &.footerActive
+    top: 0
   &.headerActive
     top: 100%
 </style>
