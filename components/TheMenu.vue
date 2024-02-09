@@ -134,7 +134,6 @@ onMounted(() => {
         &:hover
           text-decoration: underline
     & > div
-      pointer-events: auto
       text-transform: uppercase
       &:first-child
         margin-bottom: 1.5rem
@@ -153,6 +152,8 @@ onMounted(() => {
   &.active
     .header-Menu
       opacity: 1
+      .menuitem
+        pointer-events: auto
     .header-Background
       opacity: 1
       pointer-events: auto
