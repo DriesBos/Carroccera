@@ -9,6 +9,7 @@
         class="landscape"
         src="/f/264497/1920x2024/39f353290c/stars_landscape.png"
         alt=""
+        provider="storyblok"
         quality="80"
         loading="lazy"
       />
@@ -17,6 +18,7 @@
         class="portrait"
         src="/f/264497/1281x1920/3233acce0a/stars_portrait.png"
         alt=""
+        provider="storyblok"
         quality="80"
         loading="lazy"
       />
@@ -31,6 +33,7 @@
         class="landscape"
         src="/f/264497/1920x1280/03f4f16139/clouds_landscape.png"
         alt=""
+        provider="storyblok"
         quality="80"
         loading="lazy"
       />
@@ -39,6 +42,7 @@
         class="portrait"
         src="/f/264497/1281x1786/6db840ac4c/clouds_portrait.png"
         alt=""
+        provider="storyblok"
         quality="80"
         loading="lazy"
       />
@@ -54,6 +58,7 @@
         class="landscape"
         src="/f/264497/1920x1280/e57542a7b3/constellation_landscape_new.png"
         alt=""
+        provider="storyblok"
         quality="80"
         loading="lazy"
       />
@@ -62,6 +67,7 @@
         class="portrait"
         src="/f/264497/1287x1909/498f46f150/constellation_portrait_new.png"
         alt=""
+        provider="storyblok"
         quality="80"
         loading="lazy"
       />
