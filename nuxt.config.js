@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     head: {
       viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
       title: 'Carroccera Collective',
+      description: 'Carroccera Collective',
       htmlAttrs: {
         lang: 'en',
       },
