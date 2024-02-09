@@ -1,6 +1,6 @@
 <template>
   <header :class="{ active: props.headerState }" class="header">
-    <div class="header-Toggle">
+    <div :class="{ activeShow: headerShow }" class="header-Toggle">
       <div
         v-show="!props.contactState && !props.projectsState"
         @click="headerToggle"
@@ -61,7 +61,13 @@ const props = defineProps({
   contactState: Boolean,
 });
 
-// let ctx;
+const headerShow = ref(false);
+
+function setHeader() {
+  setTimeout(() => {
+    headerShow.value = true;
+  }, 600);
+}
 
 function headerToggle() {
   emit('headerEmit');
@@ -71,6 +77,8 @@ function headerToggle() {
 }
 
 onMounted(() => {
+  setHeader();
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       emit('closeAllEmit', true);
@@ -101,6 +109,10 @@ onMounted(() => {
     top: 0
     right: 0
     display: inline-flex
+    opacity: 0
+    transition: opacity 1s ease
+    &.activeShow
+      opacity: 1
     p
       line-height: 1.15em
       @media (hover: hover)

@@ -48,5 +48,6 @@ onUnmounted(() => {
   align-items: flex-end
   gap: 1rem
   color: white
+  opacity: 0
   transition: all $transition-general
 </style>
