@@ -44,6 +44,7 @@ const data = defineProps({
     opacity: 0
     background: $color-bg
     pointer-events: auto
+    cursor: pointer
     transition: opacity $transition-bg 1s
   &-Container
     position: relative
