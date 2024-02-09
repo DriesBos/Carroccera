@@ -1,6 +1,9 @@
 <template>
   <div class="celestials">
-    <div class="celestials-Stars stars">
+    <div
+      :class="{ headerActive: headerState, showActive: starShow }"
+      class="celestials-Stars stars"
+    >
       <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
@@ -20,7 +23,7 @@
     </div>
 
     <div
-      :class="{ headerActive: headerState }"
+      :class="{ headerActive: headerState, showActive: cloudShow }"
       class="celestials-Clouds clouds"
     >
       <NuxtImg
@@ -69,6 +72,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import gsap from 'gsap';
+import { set } from '@vueuse/core';
 
 const emit = defineEmits(['headerEmit']);
 
@@ -77,10 +81,34 @@ defineProps({
   orientationState: String,
 });
 
-let ctx;
+const starShow = ref(false);
+const cloudShow = ref(false);
+
+function setStar() {
+  setTimeout(() => {
+    starShow.value = true;
+  }, 1200);
+}
+
+function setCloud() {
+  setTimeout(() => {
+    cloudShow.value = true;
+  }, 1200);
+}
+
+function setScroll() {
+  document.documentElement.style.overflow = 'hidden';
+  setTimeout(() => {
+    document.documentElement.style.overflow = 'auto';
+  }, 1200);
+}
 
 onMounted(() => {
   const stars = document.querySelector('.stars');
+
+  setStar();
+  setCloud();
+  setScroll();
 
   gsap.to(stars, {
     y: '25%',
@@ -133,7 +161,13 @@ onMounted(() => {
   .stars
     width: 100%
     height: 100%
+    opacity: 0
     will-change: transform
+    transition: opacity 1s ease
+    &.showActive
+      opacity: 1
+    &.headerActive
+      opacity: .66
     img
         width: 100%
         max-width: 100%
@@ -147,11 +181,11 @@ onMounted(() => {
     width: 100%
     height: 100vh
     height: 100svh
-    opacity: 1
-    transition: opacity .66s ease
+    transition: opacity .33s ease
     pointer-events: auto
     cursor: pointer
     will-change: transform
+    opacity: 1
     img
         width: 100%
         max-width: 100%
@@ -162,11 +196,11 @@ onMounted(() => {
       opacity: 0
   .clouds
     position: fixed
-    top: 60vh
+    top: 100vh
     left: 0
     width: 100%
     opacity: 1
-    transition: opacity .33s ease
+    transition: opacity .33s ease, top .5s ease
     cursor: pointer
     will-change: transform
     z-index: 100
@@ -176,6 +210,8 @@ onMounted(() => {
         height: 100%
         object-fit: contain
         object-position: center center
+    &.showActive
+      top: 60vh
     &.headerActive
       opacity: 0
 </style>

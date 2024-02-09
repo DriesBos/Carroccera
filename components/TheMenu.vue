@@ -152,7 +152,7 @@ onMounted(() => {
   &.active
     .header-Menu
       opacity: 1
-      .menuitem
+      .menuItem
         pointer-events: auto
     .header-Background
       opacity: 1
