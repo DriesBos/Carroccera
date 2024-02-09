@@ -15,7 +15,7 @@
       <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/f/264497/1281x1920/3233acce0a/stars_portrait.png"
+        src="/f/264497/2562x3840/25d68b31b8/stars_portrait.png"
         alt=""
         provider="storyblok"
         quality="80"
