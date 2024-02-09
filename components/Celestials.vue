@@ -1,17 +1,21 @@
 <template>
   <div class="celestials">
     <div class="celestials-Stars stars">
-      <img
+      <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="~assets/img/Stars_Landscape.png"
+        src="/Stars_Landscape.png"
         alt=""
+        quality="80"
+        loading="lazy"
       />
-      <img
+      <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="~assets/img/Stars_Portrait.png"
+        src="/Stars_Portrait.png"
         alt=""
+        quality="80"
+        loading="lazy"
       />
     </div>
 
@@ -19,17 +23,21 @@
       :class="{ headerActive: headerState }"
       class="celestials-Clouds clouds"
     >
-      <img
+      <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="~/assets/img/Clouds_Landscape.png"
+        src="/Clouds_Landscape.png"
         alt=""
+        quality="80"
+        loading="lazy"
       />
-      <img
+      <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="~/assets/img/Clouds_Portrait.png"
+        src="/Clouds_Portrait.png"
         alt=""
+        quality="80"
+        loading="lazy"
       />
     </div>
 
@@ -38,17 +46,21 @@
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
     >
-      <img
+      <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="~assets/img/Constellation_Landscape_new.png"
+        src="/Constellation_Landscape_new.png"
         alt=""
+        quality="80"
+        loading="lazy"
       />
-      <img
+      <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="~assets/img/Constellation_Portrait_new.png"
+        src="/Constellation_Portrait_new.png"
         alt=""
+        quality="80"
+        loading="lazy"
       />
     </div>
   </div>

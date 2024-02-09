@@ -7,25 +7,23 @@
   >
     <!-- Visible -->
     <NuxtImg
-      provider="storyblok"
-      format="webp"
-      quality="80"
       v-if="blok.imagelandscape.filename"
       class="landscape"
       @click.native="openModal"
       :src="blok.imagelandscape.filename"
       alt=""
+      provider="storyblok"
+      quality="80"
       loading="lazy"
     />
     <NuxtImg
-      provider="storyblok"
-      format="webp"
-      quality="80"
       v-if="blok.image.filename"
       class="portrait"
       @click.native="openModal"
       :src="blok.image.filename"
       alt=""
+      provider="storyblok"
+      quality="80"
       loading="lazy"
     />
     <div class="blokBuilding-Dot dot" />

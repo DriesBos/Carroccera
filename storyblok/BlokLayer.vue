@@ -7,23 +7,21 @@
     />
     <div class="blokLayer-ImageContainer">
       <NuxtImg
-        provider="storyblok"
-        format="webp"
-        quality="75"
         v-if="blok.background.filename"
         class="landscape"
         :src="blok.background.filename"
         alt=""
+        provider="storyblok"
+        quality="75"
         loading="lazy"
       />
       <NuxtImg
-        provider="storyblok"
-        format="webp"
-        quality="75"
         v-if="blok.backgroundVertical.filename"
         class="portrait"
         :src="blok.backgroundVertical.filename"
         alt=""
+        provider="storyblok"
+        quality="75"
         loading="lazy"
       />
     </div>

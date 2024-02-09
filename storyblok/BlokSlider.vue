@@ -3,12 +3,11 @@
     <div class="blokSlider-Image" :class="blok.ratio">
       <Transition name="sliderFade">
         <NuxtImg
-          provider="storyblok"
-          format="webp"
-          quality="80"
           :src="images[currentImage].filename"
           :key="currentImage"
           alt=""
+          provider="storyblok"
+          quality="80"
           loading="lazy"
         />
       </Transition>

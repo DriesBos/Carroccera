@@ -1,16 +1,20 @@
 <template>
   <footer class="footer">
-    <img
+    <NuxtImg
       v-if="orientationState === 'landscape'"
       class="landscape"
-      src="~assets/img/Footer_Landscape.png"
+      src="/Footer_Landscape.png"
       alt=""
+      quality="80"
+      loading="lazy"
     />
-    <img
+    <NuxtImg
       v-if="orientationState === 'portrait'"
       class="portrait"
-      src="~assets/img/Footer_Portrait.png"
+      src="/Footer_Portrait.png"
       alt=""
+      quality="80"
+      loading="lazy"
     />
   </footer>
 </template>

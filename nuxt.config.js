@@ -35,12 +35,11 @@ export default defineNuxtConfig({
   },
 
   image: {
-    inject: true,
-    quality: 75,
     format: ['webp'],
     storyblok: {
       baseURL: 'https://a.storyblok.com',
     },
+    dir: 'assets/img',
   },
 
   vite: {

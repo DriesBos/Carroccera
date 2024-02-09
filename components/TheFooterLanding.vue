@@ -3,17 +3,19 @@
     class="footerlanding"
     :class="{ headerActive: headerState, footerActive: footerState }"
   >
-    <img
-      v-if="orientationState === 'landscape'"
+    <NuxtImg
       class="landscape"
-      src="~assets/img/landing-footer-l.png"
+      src="/landing-footer-l.png"
       alt=""
+      quality="80"
+      loading="lazy"
     />
-    <img
-      v-if="orientationState === 'portrait'"
+    <NuxtImg
       class="portrait"
-      src="~assets/img/landing-footer-p.png"
+      src="/landing-footer-p.png"
       alt=""
+      quality="80"
+      loading="lazy"
     />
   </div>
 </template>
