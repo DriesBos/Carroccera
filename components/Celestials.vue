@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 
 const emit = defineEmits(['headerEmit']);
@@ -139,7 +139,7 @@ onMounted(() => {
         max-width: 100%
         height: 100%
         object-fit: cover
-        object-position: center bottom
+        object-position: center top
   .constellation
     position: fixed
     top: 0
