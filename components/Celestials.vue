@@ -7,7 +7,7 @@
       <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="/Stars_Landscape.png"
+        src="/f/264497/1920x2024/39f353290c/stars_landscape.png"
         alt=""
         quality="80"
         loading="lazy"
@@ -15,7 +15,7 @@
       <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/Stars_Portrait.png"
+        src="/f/264497/1281x1920/3233acce0a/stars_portrait.png"
         alt=""
         quality="80"
         loading="lazy"
@@ -29,7 +29,7 @@
       <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="/Clouds_Landscape.png"
+        src="/f/264497/1920x1280/03f4f16139/clouds_landscape.png"
         alt=""
         quality="80"
         loading="lazy"
@@ -37,7 +37,7 @@
       <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/Clouds_Portrait.png"
+        src="/f/264497/1281x1786/6db840ac4c/clouds_portrait.png"
         alt=""
         quality="80"
         loading="lazy"
@@ -52,7 +52,7 @@
       <NuxtImg
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="/Constellation_Landscape_new.png"
+        src="/f/264497/1920x1280/e57542a7b3/constellation_landscape_new.png"
         alt=""
         quality="80"
         loading="lazy"
@@ -60,7 +60,7 @@
       <NuxtImg
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/Constellation_Portrait_new.png"
+        src="/f/264497/1287x1909/498f46f150/constellation_portrait_new.png"
         alt=""
         quality="80"
         loading="lazy"
@@ -72,7 +72,6 @@
 <script setup>
 import { onMounted } from 'vue';
 import gsap from 'gsap';
-import { set } from '@vueuse/core';
 
 const emit = defineEmits(['headerEmit']);
 

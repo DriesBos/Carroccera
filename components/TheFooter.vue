@@ -3,16 +3,18 @@
     <NuxtImg
       v-if="orientationState === 'landscape'"
       class="landscape"
-      src="/Footer_Landscape.png"
+      src="/f/264497/1920x886/fc2e3b453e/footer_landscape.png"
       alt=""
+      provider="storyblok"
       quality="80"
       loading="lazy"
     />
     <NuxtImg
       v-if="orientationState === 'portrait'"
       class="portrait"
-      src="/Footer_Portrait.png"
+      src="/f/264497/1281x1644/cd709a0beb/footer_portrait.png"
       alt=""
+      provider="storyblok"
       quality="80"
       loading="lazy"
     />

@@ -5,15 +5,17 @@
   >
     <NuxtImg
       class="landscape"
-      src="/landing-footer-l.png"
+      src="/f/264497/1920x429/70394f1dac/landing-footer-l.png"
       alt=""
+      provider="storyblok"
       quality="80"
       loading="lazy"
     />
     <NuxtImg
       class="portrait"
-      src="/landing-footer-p.png"
+      src="/f/264497/1281x746/ce5d7c554c/landing-footer-p.png"
       alt=""
+      provider="storyblok"
       quality="80"
       loading="lazy"
     />
