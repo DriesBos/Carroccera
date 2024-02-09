@@ -8,16 +8,14 @@
       src="/f/264497/1920x429/70394f1dac/landing-footer-l.png"
       alt=""
       provider="storyblok"
-      quality="80"
-      loading="lazy"
+      quality="75"
     />
     <NuxtImg
       class="portrait"
       src="/f/264497/1281x746/ce5d7c554c/landing-footer-p.png"
       alt=""
       provider="storyblok"
-      quality="80"
-      loading="lazy"
+      quality="75"
     />
   </div>
 </template>

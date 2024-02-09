@@ -11,7 +11,6 @@
         alt=""
         provider="storyblok"
         quality="80"
-        loading="lazy"
       />
       <NuxtImg
         v-if="orientationState === 'portrait'"
@@ -20,7 +19,6 @@
         alt=""
         provider="storyblok"
         quality="80"
-        loading="lazy"
       />
     </div>
 
@@ -35,7 +33,6 @@
         alt=""
         provider="storyblok"
         quality="80"
-        loading="lazy"
       />
       <NuxtImg
         v-if="orientationState === 'portrait'"
@@ -44,7 +41,6 @@
         alt=""
         provider="storyblok"
         quality="80"
-        loading="lazy"
       />
     </div>
 
@@ -60,7 +56,6 @@
         alt=""
         provider="storyblok"
         quality="80"
-        loading="lazy"
       />
       <NuxtImg
         v-if="orientationState === 'portrait'"
@@ -69,7 +64,6 @@
         alt=""
         provider="storyblok"
         quality="80"
-        loading="lazy"
       />
     </div>
   </div>
