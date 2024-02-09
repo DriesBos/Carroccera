@@ -26,7 +26,7 @@
       quality="80"
       loading="lazy"
     />
-    <div class="blokBuilding-Dot dot" />
+    <!-- <div class="blokBuilding-Dot dot" /> -->
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="fade">
