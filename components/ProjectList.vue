@@ -3,10 +3,10 @@
     v-for="item in projectList"
     class="menuItem header-Menu_ProjectList mouseInteract"
   >
-    <p @click="scrollToProject(item.buildings[0].title)">
-      {{ item.buildings[0].title }}
+    <p @click="scrollToProject(item.title)">
+      {{ item.title }}
     </p>
-    <p>{{ item.buildings[0].date }}</p>
+    <p>{{ item.date }}</p>
   </div>
 </template>
 
@@ -47,36 +47,7 @@ onMounted(() => {
     return acc.concat(innerArray.landscapes);
   }, []);
 
-  let reducedArray = arrayOfBuildings.map((building) => {
-    return { date: building.date, title: building.title };
-  });
-
-  projectList.value = reducedArray;
-  // let arrayOfLandscapes = content.value
-  //   .filter((innerArray) => innerArray.body && innerArray.body.length > 0)
-  //   .map((innerArray) => {
-  //     return { landscapes: innerArray.body };
-  //   });
-
-  // let arrayOfBuildings = arrayOfLandscapes.map((innerArray) => {
-  //   return { buildings: innerArray.landscapes };
-  // });
-
-  // let arrayOfBuildings = arrayOfLandscapes.reduce((acc, innerArray) => {
-  //   return acc.concat(innerArray.buildings);
-  // }, []);
-
-  // let newArray = [].concat(...arrayOfBuildings);
-
-  // let arrayOfBuildings = arrayOfLandscapes.reduce((acc, innerArray) => {
-  //   return acc.concat(innerArray.landscapes);
-  // });
-
-  // projectList.value = arrayOfBuildings;
-
-  // console.log('Landscapes', arrayOfLandscapes);
-  // console.log('Buildings', arrayOfBuildings);
-  // console.log('new array', newArray);
+  projectList.value = arrayOfBuildings;
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
