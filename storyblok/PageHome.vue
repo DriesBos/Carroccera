@@ -62,13 +62,7 @@
 </style>
 
 <script setup>
-import {
-  ref,
-  watch,
-  onMounted,
-  onBeforeMount,
-  defineAsyncComponent,
-} from 'vue';
+import { ref, watch, onMounted, onBeforeMount } from 'vue';
 import gsap from 'gsap';
 
 defineProps({ blok: Object });
@@ -123,7 +117,7 @@ watch(headerState, (newVal) => {
 });
 
 onBeforeMount(() => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   setOrientationState();
 });
 
