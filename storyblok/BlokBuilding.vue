@@ -14,7 +14,6 @@
       alt=""
       provider="storyblok"
       quality="80"
-      loading="lazy"
     />
     <NuxtImg
       v-if="blok.image.filename"
@@ -24,13 +23,12 @@
       alt=""
       provider="storyblok"
       quality="80"
-      loading="lazy"
     />
     <!-- <div class="blokBuilding-Dot dot" /> -->
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="fade">
-        <lazyModal
+        <Modal
           v-if="isModalActive"
           @close="closeModal"
           :class="{
@@ -64,7 +62,7 @@
               :blok="blok"
             />
           </div>
-        </lazyModal>
+        </Modal>
       </Transition>
     </Teleport>
   </div>
@@ -74,8 +72,6 @@
 import { ref, onMounted, watch, defineAsyncComponent } from 'vue';
 
 const data = defineProps({ blok: Object });
-
-const lazyModal = defineAsyncComponent(() => import('@/components/Modal.vue'));
 
 const isModalActive = ref(false);
 const isOneColumn = ref(true);

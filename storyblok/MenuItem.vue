@@ -7,7 +7,7 @@
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="fade">
-        <lazyModal
+        <Modal
           v-if="isModalActive"
           @close="closeModal"
           :class="{
@@ -41,7 +41,7 @@
               :blok="blok"
             />
           </div>
-        </lazyModal>
+        </Modal>
       </Transition>
     </Teleport>
   </div>
@@ -51,8 +51,6 @@
 import { ref, onMounted, defineAsyncComponent } from 'vue';
 
 const data = defineProps({ blok: Object });
-
-const lazyModal = defineAsyncComponent(() => import('@/components/Modal.vue'));
 
 const isModalActive = ref(false);
 const isOneColumn = ref(true);

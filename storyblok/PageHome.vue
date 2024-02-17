@@ -25,7 +25,7 @@
         :blok="blok"
       />
     </div>
-    <lazyTheFooter class="layerThree" :orientationState="orientationState" />
+    <TheFooter class="layerThree" :orientationState="orientationState" />
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
@@ -72,10 +72,6 @@ import {
 import gsap from 'gsap';
 
 defineProps({ blok: Object });
-
-const lazyTheFooter = defineAsyncComponent(
-  () => import('@/components/TheFooter.vue')
-);
 
 const headerState = ref(false);
 const projectsState = ref(false);

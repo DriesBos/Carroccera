@@ -13,7 +13,6 @@
         alt=""
         provider="storyblok"
         quality="75"
-        loading="lazy"
       />
       <NuxtImg
         v-if="blok.backgroundVertical.filename"
@@ -22,7 +21,6 @@
         alt=""
         provider="storyblok"
         quality="75"
-        loading="lazy"
       />
     </div>
   </div>

@@ -8,7 +8,6 @@
           alt=""
           provider="storyblok"
           quality="80"
-          loading="lazy"
         />
       </Transition>
       <div

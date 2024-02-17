@@ -3,7 +3,7 @@
     <div @click="emit('backgroundEmit', true)" class="header-Background" />
 
     <div class="header-Menu">
-      <template v-if="headerMenu && !contactState && !projectsState">
+      <template v-show="headerMenu && !contactState && !projectsState">
         <StoryblokComponent
           v-for="blok in headerMenu"
           :key="blok._uid"
@@ -16,10 +16,10 @@
           <p>Contact</p>
         </div>
       </template>
-      <template v-if="projectsState">
+      <template v-show="projectsState">
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
       </template>
-      <template v-if="contactState">
+      <template v-show="contactState">
         <div class="menuItem header-Menu_Contact">
           <a href="mailto: info@carrocera.com">info@carrocera.com</a>
         </div>
