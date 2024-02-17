@@ -57,7 +57,7 @@ onMounted(() => {
     position: absolute
     left: 0
     bottom: 0
-    bottom: env(safe-area-inset-bottom)
+    // bottom: env(safe-area-inset-bottom)
     width: 100%
     max-width: 100%
     height: auto
