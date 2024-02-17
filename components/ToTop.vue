@@ -44,6 +44,8 @@ onUnmounted(() => {
   bottom: 0
   right: 0
   padding: var(--spacing-ver) var(--spacing-hor)
+  padding-left: calc(2*#{var(--spacing-hor)})
+  padding-top: calc(2*#{var(--spacing-ver)})
   display: flex
   align-items: flex-end
   gap: 1rem
