@@ -28,7 +28,7 @@ onMounted(() => {
   position: fixed
   left: 0
   top: 0
-  width: 100vw
+  width: 100%
   height: 100%
   pointer-events: none
   opacity: 0

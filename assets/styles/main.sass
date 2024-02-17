@@ -5,16 +5,12 @@ html, body, #_nuxt, .page-Home
   @supports (-webkit-touch-callout: none)
     height: -webkit-fill-available
 
-html, body
+html, body, #_nuxt, .page-Home, .modal, .modal-Column
   overscroll-behavior: none
-
-body
-  -ms-overflow-style: none // Prevents scrollbar 
+  -ms-overflow-style: none 
   scrollbar-width: none
-  margin-bottom: -10vh
-
-body::-webkit-scrollbar
-  display: none
+  &::-webkit-scrollbar 
+    display: none
 
 .mouseInteract
   cursor: pointer

@@ -33,7 +33,7 @@ defineProps({ blok: Object });
 <style lang="sass" scoped>
 .blokLayer
   position: relative
-  width: 100vw
+  width: 100%
   pointer-events: none
   display: inline-block
   @media (orientation: landscape)

@@ -80,8 +80,6 @@ const data = defineProps({
     height: 100%
     -ms-overflow-style: none // Prevents scrollbar
     scrollbar-width: none
-    &::-webkit-scrollbar
-      display: none
     &_One
       display: flex
       flex-direction: column
