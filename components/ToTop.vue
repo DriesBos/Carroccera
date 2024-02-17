@@ -32,10 +32,6 @@ onMounted(() => {
     ease: 'none',
   });
 });
-
-onUnmounted(() => {
-  ctx.revert();
-});
 </script>
 
 <style lang="sass">

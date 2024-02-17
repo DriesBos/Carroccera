@@ -70,10 +70,6 @@ onMounted(() => {
     }
   });
 });
-
-// onUnmounted(() => {
-//   ctx.revert();
-// });
 </script>
 
 <style lang="sass">

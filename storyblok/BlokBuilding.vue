@@ -24,7 +24,6 @@
       provider="storyblok"
       quality="80"
     />
-    <!-- <div class="blokBuilding-Dot dot" /> -->
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="fade">
@@ -69,7 +68,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, defineAsyncComponent } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 
 const data = defineProps({ blok: Object });
 
@@ -94,9 +93,9 @@ const init = async () => {
     isTwoColumn.value = false;
   }
 };
-init();
 
 watch(isModalActive, (newVal) => {
+  init();
   if (newVal) {
     document.documentElement.style.overflow = 'hidden';
   } else {

@@ -108,16 +108,26 @@ function setOrientationState() {
   }
 }
 
+function enableScroll() {
+  document.documentElement.style.overflow = 'auto';
+}
+
+function disableScroll() {
+  document.documentElement.style.overflow = 'hidden';
+}
+
 watch(headerState, (newVal) => {
   if (newVal) {
-    document.documentElement.style.overflow = 'hidden';
+    disableScroll();
+    console.log('disableScroll');
   } else {
-    document.documentElement.style.overflow = 'auto';
+    enableScroll();
+    console.log('enableScroll');
   }
 });
 
 onBeforeMount(() => {
-  // window.scrollTo(0, 0);
+  window.scrollTo(0, 0);
   setOrientationState();
 });
 
