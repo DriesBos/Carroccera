@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 
 const emit = defineEmits(['headerEmit', 'contactEmit', 'projectsEmit']);
@@ -61,23 +61,23 @@ const props = defineProps({
   contactState: Boolean,
 });
 
-const headerShow = ref(false);
+const headerShow = ref(true);
 
-function setHeader() {
-  setTimeout(() => {
-    headerShow.value = true;
-  }, 600);
-}
+// function setHeader() {
+//   setTimeout(() => {
+//     headerShow.value = true;
+//   }, 500);
+// }
 
 function headerToggle() {
-  emit('headerEmit');
   if (!props.headerState) {
-    gsap.to(window, { duration: 0.66, scrollTo: 0, ease: 'power4.out' });
+    gsap.to(window, { duration: 0.5, scrollTo: 0, ease: 'power4.out' });
   }
+  emit('headerEmit');
 }
 
 onMounted(() => {
-  setHeader();
+  // setHeader();
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
@@ -85,10 +85,6 @@ onMounted(() => {
     }
   });
 });
-
-// onUnmounted(() => {
-//   ctx.revert();
-// });
 </script>
 
 <style lang="sass">
