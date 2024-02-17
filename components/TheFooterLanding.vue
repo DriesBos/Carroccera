@@ -1,7 +1,11 @@
 <template>
   <div class="footerlanding" :class="{ headerActive: headerState }">
-    <img class="landscape" src="~assets/img/landing-footer-l.png" alt="" />
-    <img class="portrait" src="~assets/img/landing-footer-p.png" alt="" />
+    <img
+      class="landscape"
+      src="~assets/img/landingfooter-landscape.png"
+      alt=""
+    />
+    <img class="portrait" src="~assets/img/landingfooter-portrait.png" alt="" />
   </div>
 </template>
 

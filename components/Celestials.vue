@@ -40,7 +40,7 @@
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="~/assets/img//constellation_landscape.png"
+        src="~/assets/img/constellation_landscape.png"
         alt=""
       />
       <img
