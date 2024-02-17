@@ -29,16 +29,16 @@ defineProps({
   orientationState: String,
 });
 
-const footerState = ref(false);
+// const footerState = ref(false);
 
-function setFooter() {
-  setTimeout(() => {
-    footerState.value = true;
-  }, 1200);
-}
+// function setFooter() {
+//   setTimeout(() => {
+//     footerState.value = true;
+//   }, 1200);
+// }
 
 onMounted(() => {
-  setFooter();
+  // setFooter();
 
   const footerlanding = document.querySelector('.footerlanding');
 
@@ -66,7 +66,8 @@ onMounted(() => {
   pointer-events: none
   z-index: 900
   will-change: transform
-  top: 100%
+  // top: 100%
+  top: 0
   img, svg
     position: absolute
     left: 0
@@ -75,8 +76,8 @@ onMounted(() => {
     width: 100%
     max-width: 100%
     height: auto
-  &.footerActive
-    top: 0
+  // &.footerActive
+  //   top: 0
   &.headerActive
     top: 100%
 </style>

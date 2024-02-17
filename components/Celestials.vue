@@ -4,21 +4,17 @@
       :class="{ headerActive: headerState, showActive: starShow }"
       class="celestials-Stars stars"
     >
-      <NuxtImg
+      <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="/f/264497/1920x2024/39f353290c/stars_landscape.png"
+        src="~/assets/img/stars_landscape.png"
         alt=""
-        provider="storyblok"
-        quality="80"
       />
-      <NuxtImg
+      <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/f/264497/2562x3840/25d68b31b8/stars_portrait.png"
+        src="~/assets/img/stars_portrait.png"
         alt=""
-        provider="storyblok"
-        quality="80"
       />
     </div>
 
@@ -26,21 +22,17 @@
       :class="{ headerActive: headerState, showActive: cloudShow }"
       class="celestials-Clouds clouds"
     >
-      <NuxtImg
+      <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="/f/264497/1920x1280/03f4f16139/clouds_landscape.png"
+        src="~/assets/img/clouds_landscape.png"
         alt=""
-        provider="storyblok"
-        quality="80"
       />
-      <NuxtImg
+      <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/f/264497/1281x1786/6db840ac4c/clouds_portrait.png"
+        src="~/assets/img/clouds_portrait.png"
         alt=""
-        provider="storyblok"
-        quality="80"
       />
     </div>
 
@@ -49,21 +41,17 @@
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
     >
-      <NuxtImg
+      <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="/f/264497/1920x1280/e57542a7b3/constellation_landscape_new.png"
+        src="~/assets/img//constellation_landscape.png"
         alt=""
-        provider="storyblok"
-        quality="80"
       />
-      <NuxtImg
+      <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="/f/264497/1287x1909/498f46f150/constellation_portrait_new.png"
+        src="~/assets/img/constellation_portrait.png"
         alt=""
-        provider="storyblok"
-        quality="80"
       />
     </div>
   </div>
@@ -80,34 +68,34 @@ defineProps({
   orientationState: String,
 });
 
-const starShow = ref(false);
-const cloudShow = ref(false);
+// const starShow = ref(false);
+// const cloudShow = ref(false);
 
-function setStar() {
-  setTimeout(() => {
-    starShow.value = true;
-  }, 1200);
-}
+// function setStar() {
+//   setTimeout(() => {
+//     starShow.value = true;
+//   }, 1200);
+// }
 
-function setCloud() {
-  setTimeout(() => {
-    cloudShow.value = true;
-  }, 1200);
-}
+// function setCloud() {
+//   setTimeout(() => {
+//     cloudShow.value = true;
+//   }, 1200);
+// }
 
-function setScroll() {
-  document.documentElement.style.overflow = 'hidden';
-  setTimeout(() => {
-    document.documentElement.style.overflow = 'auto';
-  }, 1200);
-}
+// function setScroll() {
+//   document.documentElement.style.overflow = 'hidden';
+//   setTimeout(() => {
+//     document.documentElement.style.overflow = 'auto';
+//   }, 1200);
+// }
 
 onMounted(() => {
-  const stars = document.querySelector('.stars');
+  // setStar();
+  // setCloud();
+  // setScroll();
 
-  setStar();
-  setCloud();
-  setScroll();
+  const stars = document.querySelector('.stars');
 
   gsap.to(stars, {
     y: '25%',
@@ -160,11 +148,11 @@ onMounted(() => {
   .stars
     width: 100%
     height: 100%
-    opacity: 0
+    // opacity: 0
     will-change: transform
     transition: opacity 1s ease
-    &.showActive
-      opacity: 1
+    // &.showActive
+    //   opacity: 1
     &.headerActive
       opacity: .66
     img
@@ -195,22 +183,22 @@ onMounted(() => {
       opacity: 0
   .clouds
     position: fixed
-    top: 100vh
+    top: 60vh
     left: 0
     width: 100%
-    opacity: 1
     transition: opacity .33s ease, top .5s ease
     cursor: pointer
     will-change: transform
     z-index: 100
+    opacity: 1
     img
         width: 100%
         max-width: 100%
         height: 100%
         object-fit: contain
         object-position: center center
-    &.showActive
-      top: 60vh
+    // &.showActive
+    //   top: 60vh
     &.headerActive
       opacity: 0
 </style>
