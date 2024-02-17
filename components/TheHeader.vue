@@ -2,13 +2,13 @@
   <header :class="{ active: props.headerState }" class="header">
     <div :class="{ activeShow: headerShow }" class="header-Toggle">
       <div
-        v-show="!props.contactState && !props.projectsState"
+        v-if="!props.contactState && !props.projectsState"
         @click="headerToggle"
         :class="{ active: props.headerState }"
         class="header-Toggle_Item mouseInteract"
       >
-        <p v-show="!props.headerState">Menu</p>
-        <p v-show="props.headerState">Close</p>
+        <p v-if="!props.headerState">Menu</p>
+        <p v-if="props.headerState">Close</p>
         <div :class="{ active: props.headerState }" class="dot" />
       </div>
       <!-- <div
@@ -24,7 +24,7 @@
         </div>
       </div> -->
       <div
-        v-show="props.contactState"
+        v-if="props.contactState"
         @click="emit('contactEmit', true)"
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.contactState }"
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div
-        v-show="props.projectsState"
+        v-if="props.projectsState"
         @click="emit('projectsEmit', true)"
         class="header-Toggle_Item mouseInteract"
         :class="{ active: props.projectsState }"

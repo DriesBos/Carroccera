@@ -34,7 +34,6 @@
     </div>
 
     <div
-      @click="emit('headerEmit', true)"
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
     >

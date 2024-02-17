@@ -1,9 +1,9 @@
 <template>
   <header :class="{ active: headerState }" class="header">
-    <div @click="emit('backgroundEmit', true)" class="header-Background" />
+    <div class="header-Background" />
 
     <div class="header-Menu">
-      <template v-show="headerMenu && !contactState && !projectsState">
+      <template v-if="headerMenu && !contactState && !projectsState">
         <StoryblokComponent
           v-for="blok in headerMenu"
           :key="blok._uid"
@@ -16,10 +16,10 @@
           <p>Contact</p>
         </div>
       </template>
-      <template v-show="projectsState">
+      <template v-if="projectsState">
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
       </template>
-      <template v-show="contactState">
+      <template v-if="contactState">
         <div class="menuItem header-Menu_Contact">
           <a href="mailto: info@carrocera.com">info@carrocera.com</a>
         </div>
