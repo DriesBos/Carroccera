@@ -1,9 +1,10 @@
 <template>
   <div
     v-for="item in projectList"
+    @click="scrollToProject(item.title)"
     class="menuItem header-Menu_ProjectList mouseInteract"
   >
-    <p @click="scrollToProject(item.title)">
+    <p>
       {{ item.title }}
     </p>
     <p>{{ item.date }}</p>

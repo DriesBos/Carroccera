@@ -21,7 +21,7 @@
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact">
-          <a href="mailto: info@carrocera.com">info@carrocera.com</a>
+          <a href="mailto:info@carrocera.com">info@carrocera.com</a>
         </div>
         <!-- <div
           @click="emit('contactEmit', true)"
@@ -115,7 +115,7 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
-    gap: .75rem
+    // gap: .75rem
     opacity: 0
     // &_ContactBackground, &_ProjectsBackground
     //   position: absolute
@@ -131,8 +131,6 @@ onMounted(() => {
       a
         color: currentColor
         text-decoration: none
-        &:hover
-          text-decoration: underline
     & > div
       text-transform: uppercase
       &:first-child
@@ -160,21 +158,19 @@ onMounted(() => {
 
 .menuItem
   opacity: 1
+  padding: $btn-padding
   &.header-Menu_Contact, &.header-Menu_ProjectList
     margin-top: 0 !important // Negate main menu
     margin-bottom: 0 !important
     opacity: 1
   &.header-Menu_ProjectList
-    text-transform: none
     display: flex
     justify-content: space-between
     width: 100%
     max-width: 20rem
-    padding: 0 var(--spacing-hor)
+    padding: $btn-padding var(--spacing-hor)
     @media screen and (max-width: $breakpoint-mobile)
       max-width: 100%
     & > p:first-child
       padding-right: .5em
-    &:hover
-      text-decoration: underline
 </style>
