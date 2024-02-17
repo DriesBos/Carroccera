@@ -1,9 +1,6 @@
 <template>
   <div class="celestials">
-    <div
-      :class="{ headerActive: headerState, showActive: starShow }"
-      class="celestials-Stars stars"
-    >
+    <div :class="{ headerActive: headerState }" class="celestials-Stars stars">
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
@@ -19,7 +16,7 @@
     </div>
 
     <div
-      :class="{ headerActive: headerState, showActive: cloudShow }"
+      :class="{ headerActive: headerState }"
       class="celestials-Clouds clouds"
     >
       <img

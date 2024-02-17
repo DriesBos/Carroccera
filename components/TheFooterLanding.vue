@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="footerlanding"
-    :class="{ headerActive: headerState, footerActive: footerState }"
-  >
+  <div class="footerlanding" :class="{ headerActive: headerState }">
     <NuxtImg
       class="landscape"
       src="/f/264497/1920x429/70394f1dac/landing-footer-l.png"
