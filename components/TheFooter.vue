@@ -3,13 +3,13 @@
     <img
       v-if="orientationState === 'landscape'"
       class="landscape"
-      src="../assets/img/footer_landscape.png"
+      src="~/assets/img/footer_landscape.png"
       alt=""
     />
     <img
       v-if="orientationState === 'portrait'"
       class="portrait"
-      src="../assets/img/footer_portrait.png"
+      src="~/assets/img/footer_portrait.png"
       alt=""
     />
   </footer>

@@ -4,13 +4,13 @@
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="../assets/img/stars_landscape.png"
+        src="~/assets/img/stars_landscape.png"
         alt=""
       />
       <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="../assets/img/stars_portrait.png"
+        src="~/assets/img/stars_portrait.png"
         alt=""
       />
     </div>
@@ -22,13 +22,13 @@
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="../assets/img/clouds_landscape.png"
+        src="~/assets/img/clouds_landscape.png"
         alt=""
       />
       <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="../assets/img/clouds_portrait.png"
+        src="~/assets/img/clouds_portrait.png"
         alt=""
       />
     </div>
@@ -40,13 +40,13 @@
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="../assets/img/constellation_landscape.png"
+        src="~/assets/img/constellation_landscape.png"
         alt=""
       />
       <img
         v-if="orientationState === 'portrait'"
         class="portrait"
-        src="../assets/img/constellation_portrait.png"
+        src="~/assets/img/constellation_portrait.png"
         alt=""
       />
     </div>
