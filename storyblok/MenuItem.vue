@@ -22,12 +22,17 @@
           :title="blok.title"
           :subtitle="blok.date"
         >
+          <div v-if="blok.title" class="modal-Header mobile">
+            <h1>{{ blok.title }}</h1>
+            <p v-if="blok.date">{{ blok.date }}</p>
+          </div>
           <!-- Col One -->
           <div v-if="blok.body" class="modal-Column modal-Column_One">
-            <div v-if="blok.title" class="modal-Column_One_Header">
+            <div v-if="blok.title" class="modal-Header desktop">
               <h1>{{ blok.title }}</h1>
               <p v-if="blok.date">{{ blok.date }}</p>
             </div>
+
             <div class="modal-Column_One_Content">
               <StoryblokComponent
                 v-for="blok in blok.body"
