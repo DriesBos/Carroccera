@@ -4,6 +4,7 @@
     @click="scrollToProject(item.title)"
     class="menuItem header-Menu_ProjectList mouseInteract"
   >
+    <div class="dot" />
     <p>
       {{ item.title }}
     </p>

@@ -1,9 +1,12 @@
 <template>
-  <div v-editable="blok" class="menuItem mouseInteract">
+  <div
+    v-editable="blok"
+    @click.native="openModal"
+    class="menuItem mouseInteract"
+  >
     <!-- Visible -->
-    <div @click.native="openModal">
-      <p>{{ blok.title }}</p>
-    </div>
+    <div class="dot" />
+    <p>{{ blok.title }}</p>
     <!-- Invisible -->
     <Teleport to="body">
       <Transition name="fade">

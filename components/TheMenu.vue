@@ -10,9 +10,11 @@
           :blok="blok"
         />
         <div @click="emit('projectsEmit', true)" class="menuItem mouseInteract">
+          <div class="dot" />
           <p>Projects</p>
         </div>
         <div @click="emit('contactEmit', true)" class="menuItem mouseInteract">
+          <div class="dot" />
           <p>Contact</p>
         </div>
       </template>
@@ -21,12 +23,9 @@
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact mouseInteract">
+          <div class="dot" />
           <a href="mailto:info@carrocera.com">info@carrocera.com</a>
         </div>
-        <!-- <div
-          @click="emit('contactEmit', true)"
-          class="header-Menu_ContactBackground"
-        /> -->
       </template>
     </div>
   </header>
@@ -110,19 +109,8 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
-    // gap: .75rem
     opacity: 0
-    // &_ContactBackground, &_ProjectsBackground
-    //   position: absolute
-    //   top: 0
-    //   left: 0
-    //   width: 100%
-    //   height: 100%
-    //   z-index: -1
-    // &_ProjectList
-    //   z-index: 1
     &_Contact
-      // z-index: 1
       a
         color: currentColor
         text-decoration: none
@@ -151,8 +139,22 @@ onMounted(() => {
       opacity: 1
 
 .menuItem
+  position: relative
   opacity: 1
   padding: $btn-padding
+  display: flex
+  align-items: center
+  // border: 1px solid red
+  & .dot
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    left: -1.25rem
+    opacity: 0
+  @media (hover: hover)
+    &:hover
+      .dot
+        opacity: 1
   &.header-Menu_Contact, &.header-Menu_ProjectList
     margin-top: 0 !important // Negate main menu
     margin-bottom: 0 !important
@@ -164,9 +166,7 @@ onMounted(() => {
     justify-content: space-between
     width: 100%
     max-width: 20rem
-    padding: $btn-padding var(--spacing-hor)
+    padding: $btn-padding
     @media screen and (max-width: $breakpoint-mobile)
-      max-width: 100%
-    & > p:first-child
-      padding-right: .5em
+      max-width: calc(100% - 1 * #{var(--spacing-hor)})
 </style>
