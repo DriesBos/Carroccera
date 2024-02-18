@@ -51,7 +51,6 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import gsap from 'gsap';
 
 const emit = defineEmits(['headerEmit', 'contactEmit', 'projectsEmit']);
 
