@@ -2,6 +2,7 @@
   <div v-if="loading" class="loading">
     <div class="loading-Indicator">Loading...</div>
   </div>
+  <NuxtLoadingIndicator />
   <NuxtPage />
 </template>
 
