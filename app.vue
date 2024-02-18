@@ -26,7 +26,7 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 // });
 </script>
 
-<style lang="sass" scoped>
+<!-- <style lang="sass" scoped>
 .loading
   position: fixed
   top: 0
@@ -40,4 +40,4 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
   font-size: 1rem
   z-index: 999
   color: white
-</style>
+</style> -->
