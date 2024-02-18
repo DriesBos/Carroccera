@@ -95,26 +95,24 @@ function allClose() {
   contactState.value = false;
 }
 
-// function preventTouchMove(e) {
-//   e.preventDefault();
-// }
+function preventTouchMove(e) {
+  e.preventDefault();
+}
 
 function disableScroll() {
-  console.log('disableScroll');
-
   document.documentElement.style.overflow = 'hidden';
 
-  // document.addEventListener('touchmove', preventTouchMove, { passive: false });
+  const page = document.querySelector('.page');
+  page.addEventListener('touchmove', preventTouchMove, { passive: false });
 }
 
 function enableScroll() {
-  console.log('enableScroll');
-
   document.documentElement.style.overflow = 'auto';
 
-  // document.removeEventListener('touchmove', preventTouchMove, {
-  //   passive: false,
-  // });
+  const page = document.querySelector('.page');
+  page.removeEventListener('touchmove', preventTouchMove, {
+    passive: false,
+  });
 }
 
 watch(headerState, (newVal) => {
