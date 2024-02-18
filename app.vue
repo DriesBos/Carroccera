@@ -1,8 +1,8 @@
 <template>
-  <div v-if="loading" class="loading">
+  <!-- <div v-if="loading" class="loading">
     <div class="loading-Indicator">Loading...</div>
   </div>
-  <NuxtLoadingIndicator />
+  <NuxtLoadingIndicator /> -->
   <NuxtPage />
 </template>
 
@@ -13,17 +13,17 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-const nuxtApp = useNuxtApp();
-const loading = ref(false);
+// const nuxtApp = useNuxtApp();
+// const loading = ref(false);
 
-nuxtApp.hook('page:start', () => {
-  loading.value = true;
-  console.log('loading start');
-});
-nuxtApp.hook('page:finish', () => {
-  loading.value = false;
-  console.log('loading finish');
-});
+// nuxtApp.hook('page:start', () => {
+//   loading.value = true;
+//   console.log('loading start');
+// });
+// nuxtApp.hook('page:finish', () => {
+//   loading.value = false;
+//   console.log('loading finish');
+// });
 </script>
 
 <style lang="sass" scoped>
