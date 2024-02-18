@@ -157,13 +157,6 @@ const data = defineProps({
             height: 100%
             &-Image
               height: 100%
-      // @media screen and (min-width: $breakpoint-tablet)
-        // .modal-Column_One
-          // padding-right: calc(2 * #{var(--spacing-hor)})
-        // .modal-Column_Two
-        //   padding-left: 0
-    .modal-Header
-
 
   &.active
     .modal-Background
