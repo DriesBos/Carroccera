@@ -1,25 +1,9 @@
 <template>
   <footer class="footer">
-    <img
-      v-if="orientationState === 'landscape'"
-      class="landscape"
-      src="/img/footer_landscape.png"
-      alt=""
-    />
-    <img
-      v-if="orientationState === 'portrait'"
-      class="portrait"
-      src="/img/footer_portrait.png"
-      alt=""
-    />
+    <img class="landscape" src="/img/footer_landscape.png" alt="" />
+    <img class="portrait" src="/img/footer_portrait.png" alt="" />
   </footer>
 </template>
-
-<script setup>
-defineProps({
-  orientationState: String,
-});
-</script>
 
 <style scoped lang="sass">
 .footer

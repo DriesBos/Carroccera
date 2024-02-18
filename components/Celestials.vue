@@ -1,54 +1,24 @@
 <template>
   <div class="celestials">
     <div :class="{ headerActive: headerState }" class="celestials-Stars stars">
-      <img
-        v-if="orientationState === 'landscape'"
-        class="landscape"
-        src="/img/stars_landscape.png"
-        alt=""
-      />
-      <img
-        v-if="orientationState === 'portrait'"
-        class="portrait"
-        src="/img/stars_portrait.png"
-        alt=""
-      />
+      <img class="landscape" src="/img/stars_landscape.png" alt="" />
+      <img class="portrait" src="/img/stars_portrait.png" alt="" />
     </div>
 
     <div
       :class="{ headerActive: headerState }"
       class="celestials-Clouds clouds"
     >
-      <img
-        v-if="orientationState === 'landscape'"
-        class="landscape"
-        src="/img/clouds_landscape.png"
-        alt=""
-      />
-      <img
-        v-if="orientationState === 'portrait'"
-        class="portrait"
-        src="/img/clouds_portrait.png"
-        alt=""
-      />
+      <img class="landscape" src="/img/clouds_landscape.png" alt="" />
+      <img class="portrait" src="/img/clouds_portrait.png" alt="" />
     </div>
 
     <div
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
     >
-      <img
-        v-if="orientationState === 'landscape'"
-        class="landscape"
-        src="/img/constellation_landscape.png"
-        alt=""
-      />
-      <img
-        v-if="orientationState === 'portrait'"
-        class="portrait"
-        src="/img/constellation_portrait.png"
-        alt=""
-      />
+      <img class="landscape" src="/img/constellation_landscape.png" alt="" />
+      <img class="portrait" src="/img/constellation_portrait.png" alt="" />
     </div>
   </div>
 </template>
@@ -61,7 +31,6 @@ const emit = defineEmits(['headerEmit']);
 
 defineProps({
   headerState: Boolean,
-  orientationState: String,
 });
 
 // const starShow = ref(false);

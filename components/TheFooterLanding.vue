@@ -11,7 +11,6 @@ import gsap from 'gsap';
 
 defineProps({
   headerState: Boolean,
-  orientationState: String,
 });
 
 // const footerState = ref(false);

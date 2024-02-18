@@ -2,11 +2,7 @@
   <div v-editable="blok" id="top" class="page page-Home">
     <div class="layerOne">
       <Sky />
-      <Celestials
-        @headerEmit="headerToggle"
-        :headerState="headerState"
-        :orientationState="orientationState"
-      />
+      <Celestials @headerEmit="headerToggle" :headerState="headerState" />
       <TheMenu
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
@@ -25,7 +21,7 @@
         :blok="blok"
       />
     </div>
-    <TheFooter class="layerThree" :orientationState="orientationState" />
+    <TheFooter class="layerThree" />
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
@@ -37,10 +33,7 @@
         :contactState="contactState"
       />
       <ToTop />
-      <TheFooterLanding
-        :headerState="headerState"
-        :orientationState="orientationState"
-      />
+      <TheFooterLanding :headerState="headerState" />
       <!-- <TheLogo /> -->
     </div>
   </div>
@@ -70,7 +63,6 @@ defineProps({ blok: Object });
 const headerState = ref(false);
 const projectsState = ref(false);
 const contactState = ref(false);
-const orientationState = ref('landscape');
 
 function headerToggle() {
   headerState.value = !headerState.value;
@@ -100,14 +92,6 @@ function allClose() {
   contactState.value = false;
 }
 
-function setOrientationState() {
-  if (window.innerHeight > window.innerWidth) {
-    orientationState.value = 'portrait';
-  } else {
-    orientationState.value = 'landscape';
-  }
-}
-
 function enableScroll() {
   document.documentElement.style.overflow = 'auto';
 }
@@ -128,7 +112,6 @@ watch(headerState, (newVal) => {
 
 onBeforeMount(() => {
   window.scrollTo(0, 0);
-  setOrientationState();
 });
 
 onMounted(() => {
