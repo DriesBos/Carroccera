@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     },
   },
   ssr: false,
+  spaLoadingTemplate: './spa-loading-template',
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
