@@ -110,7 +110,6 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
-    border: 1px solid red
     // gap: .75rem
     opacity: 0
     // &_ContactBackground, &_ProjectsBackground
