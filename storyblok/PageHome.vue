@@ -95,28 +95,26 @@ function allClose() {
   contactState.value = false;
 }
 
-function enableScroll() {
-  console.log('enableScroll');
-  document.documentElement.style.overflow = 'auto';
-  document.removeEventListener(
-    'touchmove',
-    function (e) {
-      e.preventDefault();
-    },
-    { passive: false }
-  );
+function preventTouchMove(e) {
+  e.preventDefault();
 }
 
 function disableScroll() {
   console.log('disableScroll');
+
   document.documentElement.style.overflow = 'hidden';
-  document.addEventListener(
-    'touchmove',
-    function (e) {
-      e.preventDefault();
-    },
-    { passive: false }
-  );
+
+  document.addEventListener('touchmove', preventTouchMove, { passive: false });
+}
+
+function enableScroll() {
+  console.log('enableScroll');
+
+  document.documentElement.style.overflow = 'auto';
+
+  document.removeEventListener('touchmove', preventTouchMove, {
+    passive: false,
+  });
 }
 
 watch(headerState, (newVal) => {
