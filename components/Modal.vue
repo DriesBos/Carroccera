@@ -64,7 +64,7 @@ const data = defineProps({
     top: 0
     right: 0
     padding: var(--spacing-ver) var(--spacing-hor)
-    z-index: +1
+    z-index: +2
   &-Header
     width: 100%
     background: white
