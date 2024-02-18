@@ -19,10 +19,46 @@
         );
         z-index: 1031;
       }
+
+      .loader-bar {
+        height: 16px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        background: white;
+        border-radius: 100%;
+        margin: -20px 0 0 -100px;
+        padding: 2px;
+      }
+
+      .progress {
+        transition: all 500ms ease;
+        height: 16px;
+        width: calc(100% - 10px);
+        border-radius: 8px;
+        background: red;
+        position: absolute;
+        margin: 0;
+        display: inline-block;
+        animation: load 15s ease infinite;
+      }
+
+      @keyframes load {
+        0% {
+          width: 2%;
+        }
+        10% {
+          width: 10%;
+        }
+      }
     </style>
     </head>
     <body>
       <div class="loader">
+        <div class="loader-bar">
+          <div class="progress"></div>
+        </div>
       </div>
     </body>
     </html>
