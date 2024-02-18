@@ -4,7 +4,7 @@
       <img
         v-if="orientationState === 'landscape'"
         class="landscape"
-        src="./../assets/img/stars_landscape.png"
+        src="~/assets/img/stars_landscape.png"
         alt=""
       />
       <img
