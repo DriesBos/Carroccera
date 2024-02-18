@@ -36,7 +36,6 @@ defineProps({ blok: Object });
   width: 100%
   pointer-events: none
   display: inline-block
-  // border: 1px solid red
   @media (orientation: landscape)
     aspect-ratio: 16 / 9
   @media (orientation: portrait)
@@ -57,20 +56,18 @@ defineProps({ blok: Object });
     // @media (orientation: portrait)
     //   padding-top: calc(177.77% * 1.5)
     overflow: hidden
-    // border: 1px solid blue
     @media (orientation: landscape)
       aspect-ratio: 16 / 14.4
     @media (orientation: portrait)
       aspect-ratio: 9 / 25.6
     &:nth-child(1)
       @media (orientation: landscape)
-        aspect-ratio: 16 / 7.2
+        aspect-ratio: 16 / 8.775
       @media (orientation: portrait)
-        aspect-ratio: 9 / 12.8
+        aspect-ratio: 9 / 15.6
     img
         position: absolute
         top: 0
         left: 0
         width: 100%
-        // opacity: .5
 </style>
