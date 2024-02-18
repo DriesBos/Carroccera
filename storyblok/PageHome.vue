@@ -3,6 +3,7 @@
     <div class="layerOne">
       <Sky />
       <Celestials @headerEmit="headerToggle" :headerState="headerState" />
+      <TheFooterLanding :headerState="headerState" />
       <TheMenu
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
@@ -33,7 +34,6 @@
         :contactState="contactState"
       />
       <ToTop />
-      <TheFooterLanding :headerState="headerState" />
       <!-- <TheLogo /> -->
     </div>
   </div>
