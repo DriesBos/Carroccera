@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   ssr: false,
   spaLoadingTemplate: './spa-loading-template.html',
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
       title: 'Carroccera Collective',
@@ -41,7 +40,6 @@ export default defineNuxtConfig({
     storyblok: {
       baseURL: 'https://a.storyblok.com',
     },
-    // dir: 'assets/img',
   },
 
   vite: {
