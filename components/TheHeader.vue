@@ -113,8 +113,8 @@ onMounted(() => {
       padding: var(--spacing-ver) var(--spacing-hor)
       display: flex
       gap: 1rem
-      pointer-events: auto
       text-transform: uppercase
+      pointer-events: auto
       &.active
         p
           opacity: 1

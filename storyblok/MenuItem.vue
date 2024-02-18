@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, defineAsyncComponent } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const data = defineProps({ blok: Object });
 
