@@ -114,6 +114,7 @@ onMounted(() => {
       display: flex
       gap: 1rem
       pointer-events: auto
+      text-transform: uppercase
       &.active
         p
           opacity: 1
