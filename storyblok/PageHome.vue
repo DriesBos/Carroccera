@@ -66,6 +66,32 @@ const contactState = ref(false);
 
 function headerToggle() {
   headerState.value = !headerState.value;
+
+  console.log('headerState', headerState.value);
+
+  if (headerState.value) {
+    gsap.to(window, { duration: 0.5, scrollTo: 0, ease: 'power4.out' });
+
+    // Temp stop touch input
+    document.addEventListener(
+      'touchmove',
+      function (e) {
+        e.preventDefault();
+      },
+      { passive: false }
+    );
+    console.log('stop input');
+
+    setTimeout(() => {
+      document.removeEventListener(
+        'touchmove',
+        function (e) {
+          e.preventDefault();
+        },
+        { passive: false }
+      );
+    }, 500);
+  }
 }
 
 function projectsToggle() {
