@@ -38,7 +38,7 @@ onMounted(() => {
 <style lang="sass">
 .scrollUp
   position: fixed
-  bottom: 0
+  bottom: env(safe-area-inset-bottom)
   right: 0
   padding: var(--spacing-ver) var(--spacing-hor)
   padding-left: calc(2*#{var(--spacing-hor)})
@@ -48,7 +48,7 @@ onMounted(() => {
   gap: 1rem
   color: white
   opacity: 0
-  transition: all $transition-general
+  transition: opacity $transition-general
   text-transform: uppercase
   @media (max-width: 768px)
     gap: .5rem
