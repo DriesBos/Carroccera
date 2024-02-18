@@ -11,28 +11,19 @@
 import { onMounted, onUnmounted } from 'vue';
 import gsap from 'gsap';
 
-let ctx;
+function preventTouchMove(e) {
+  e.preventDefault();
+}
 
 function scrollTop() {
   gsap.to(window, { duration: 1.5, scrollTo: 0, ease: 'power4.out' });
-
-  // Temp stop touch input
-  document.addEventListener(
-    'touchmove',
-    function (e) {
-      e.preventDefault();
-    },
-    { passive: false }
-  );
+  const page = document.querySelector('.page');
+  page.addEventListener('touchmove', preventTouchMove, { passive: false });
 
   setTimeout(() => {
-    document.removeEventListener(
-      'touchmove',
-      function (e) {
-        e.preventDefault();
-      },
-      { passive: false }
-    );
+    page.removeEventListener('touchmove', preventTouchMove, {
+      passive: false,
+    });
   }, 1500);
 }
 
