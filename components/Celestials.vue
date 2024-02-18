@@ -94,7 +94,7 @@ onMounted(() => {
       trigger: clouds,
       scrub: true,
       start: 'top 60%',
-      end: 'bottom -150%',
+      end: 'bottom -100%',
     },
     ease: 'none',
   });

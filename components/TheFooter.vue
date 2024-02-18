@@ -9,8 +9,11 @@
 .footer
   position: relative
   width: 100%
-  height: 50%
   height: auto
+  @media (orientation: landscape)
+    margin-top: 10%
+  @media (orientation: portrait)
+    margin-top: -6%
   img, svg
     width: 100%
     max-width: 100%

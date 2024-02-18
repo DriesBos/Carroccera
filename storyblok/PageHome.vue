@@ -128,6 +128,7 @@ onBeforeMount(() => {
 });
 
 onMounted(() => {
+  window.scrollTo(0, 0);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       headerState.value = false;
