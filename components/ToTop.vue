@@ -1,5 +1,6 @@
 <template>
   <div @click="scrollTop" class="scrollUp mouseInteract">
+    <p>Up</p>
     <div class="icon icon-ToTop">
       <img src="~assets/icons/iconblok-up.png" alt="" />
     </div>
@@ -48,4 +49,9 @@ onMounted(() => {
   color: white
   opacity: 0
   transition: all $transition-general
+  text-transform: uppercase
+  @media (max-width: 768px)
+    gap: .5rem
+  p
+    line-height: 1.15em
 </style>

@@ -20,7 +20,7 @@
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
       </template>
       <template v-if="contactState">
-        <div class="menuItem header-Menu_Contact">
+        <div class="menuItem header-Menu_Contact mouseInteract">
           <a href="mailto:info@carrocera.com">info@carrocera.com</a>
         </div>
         <!-- <div

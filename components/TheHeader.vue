@@ -111,12 +111,12 @@ onMounted(() => {
       opacity: 1
     p
       line-height: 1.15em
-      @media (hover: hover)
-        opacity: 0
-        transition: opacity $transition-hover
-    &:hover
-      p
-        opacity: 1
+    //   @media (hover: hover)
+    //     opacity: 0
+    //     transition: opacity $transition-hover
+    // &:hover
+    //   p
+    //     opacity: 1
     &_Item
       padding: var(--spacing-ver) var(--spacing-hor)
       display: flex

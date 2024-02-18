@@ -1,7 +1,7 @@
 <template>
-  <div v-editable="blok" class="menuItem">
+  <div v-editable="blok" class="menuItem mouseInteract">
     <!-- Visible -->
-    <div class="mouseInteract" @click.native="openModal">
+    <div @click.native="openModal">
       <p>{{ blok.title }}</p>
     </div>
     <!-- Invisible -->
