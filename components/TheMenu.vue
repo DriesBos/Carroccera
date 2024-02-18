@@ -150,7 +150,6 @@ onMounted(() => {
         pointer-events: auto
     .header-Background
       opacity: 1
-      pointer-events: auto
 
 .menuItem
   opacity: 1

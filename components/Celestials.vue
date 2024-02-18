@@ -134,8 +134,6 @@ onMounted(() => {
     height: 100vh
     height: 100svh
     transition: opacity .33s ease
-    pointer-events: auto
-    cursor: pointer
     will-change: transform
     opacity: 1
     img
@@ -152,7 +150,6 @@ onMounted(() => {
     left: 0
     width: 100%
     transition: opacity .33s ease, top .5s ease
-    cursor: pointer
     will-change: transform
     z-index: 100
     opacity: 1

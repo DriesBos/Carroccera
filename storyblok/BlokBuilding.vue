@@ -119,7 +119,7 @@ onMounted(() => {
   top: 0
   width: 33.3333vw
   height: 33.3333vw
-  pointer-events: all
+  pointer-events: auto
   z-index: +1
   &-Icon
     position: absolute

@@ -71,6 +71,8 @@ const headerShow = ref(true);
 
 function headerToggle() {
   if (!props.headerState) {
+    // let element = document.getElementById('page');
+    // element.style.pointerEvents = 'none';
     gsap.to(window, { duration: 0.5, scrollTo: 0, ease: 'power4.out' });
   }
   emit('headerEmit');

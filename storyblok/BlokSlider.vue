@@ -119,7 +119,7 @@ export default {
       width: 1rem
       height: 1rem
       border-radius: 1000px
-      pointer-events: all
+      pointer-events: auto
       transition: all .33s ease
     &_Next
       right: 0
