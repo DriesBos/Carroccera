@@ -108,18 +108,15 @@ onMounted(() => {
   left: 0
   width: 100%
   height: 100vh
-  height: 100svh
+  height: 100lvh
   pointer-events: none
   .stars
     width: 100%
     height: 100%
-    // opacity: 0
     will-change: transform
     transition: opacity 1s ease
-    // &.showActive
-    //   opacity: 1
     &.headerActive
-      opacity: .66
+      opacity: .33
     img
         width: 100%
         max-width: 100%
@@ -132,7 +129,7 @@ onMounted(() => {
     left: 0
     width: 100%
     height: 100vh
-    height: 100svh
+    height: 100lvh
     transition: opacity .33s ease
     will-change: transform
     opacity: 1
@@ -147,6 +144,7 @@ onMounted(() => {
   .clouds
     position: fixed
     top: 60vh
+    top: 60lvh
     left: 0
     width: 100%
     transition: opacity .33s ease, top .5s ease
@@ -157,7 +155,7 @@ onMounted(() => {
         width: 100%
         max-width: 100%
         height: 100%
-        object-fit: contain
+        object-fit: cover
         object-position: center center
     // &.showActive
     //   top: 60vh
