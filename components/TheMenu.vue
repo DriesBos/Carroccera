@@ -1,8 +1,8 @@
 <template>
-  <header :class="{ active: headerState }" class="header">
-    <div class="header-Background" />
+  <header :class="{ active: headerState }" class="menu">
+    <div class="menu-Background" />
 
-    <div class="header-Menu">
+    <div class="menu-Container">
       <template v-if="headerMenu && !contactState && !projectsState">
         <StoryblokComponent
           v-for="blok in headerMenu"
@@ -73,14 +73,13 @@ onMounted(() => {
 </script>
 
 <style lang="sass">
-.header
+.menu
   position: fixed
   top: 0
   left: 0
   width: 100%
   height: 100%
   color: white
-  pointer-events: none
   & > div
     color: currentColor
   &-Toggle
@@ -92,7 +91,7 @@ onMounted(() => {
       padding: var(--spacing-ver) var(--spacing-hor)
       display: flex
       gap: 1rem
-      pointer-events: auto
+      // pointer-events: auto
       text-transform: uppercase
       h1, p
         color: currentColor
@@ -101,7 +100,7 @@ onMounted(() => {
         gap: .5rem
       & .dot
         transition: all .33s ease
-  &-Menu
+  &-Container
     position: absolute
     top: 0
     left: 0
@@ -111,6 +110,7 @@ onMounted(() => {
     flex-direction: column
     justify-content: center
     align-items: center
+    border: 1px solid red
     // gap: .75rem
     opacity: 0
     // &_ContactBackground, &_ProjectsBackground
@@ -144,11 +144,11 @@ onMounted(() => {
     opacity: 0
 
   &.active
-    .header-Menu
+    .menu-Container
       opacity: 1
-      .menuItem
-        pointer-events: auto
-    .header-Background
+      // .menuItem
+      //   pointer-events: auto
+    .menu-Background
       opacity: 1
 
 .menuItem
@@ -158,6 +158,8 @@ onMounted(() => {
     margin-top: 0 !important // Negate main menu
     margin-bottom: 0 !important
     opacity: 1
+    a
+      text-decoration: none
   &.header-Menu_ProjectList
     display: flex
     justify-content: space-between

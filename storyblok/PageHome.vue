@@ -95,16 +95,16 @@ function allClose() {
   contactState.value = false;
 }
 
-function preventTouchMove(e) {
-  e.preventDefault();
-}
+// function preventTouchMove(e) {
+//   e.preventDefault();
+// }
 
 function disableScroll() {
   console.log('disableScroll');
 
   document.documentElement.style.overflow = 'hidden';
 
-  document.addEventListener('touchmove', preventTouchMove, { passive: false });
+  // document.addEventListener('touchmove', preventTouchMove, { passive: false });
 }
 
 function enableScroll() {
@@ -112,9 +112,9 @@ function enableScroll() {
 
   document.documentElement.style.overflow = 'auto';
 
-  document.removeEventListener('touchmove', preventTouchMove, {
-    passive: false,
-  });
+  // document.removeEventListener('touchmove', preventTouchMove, {
+  //   passive: false,
+  // });
 }
 
 watch(headerState, (newVal) => {
