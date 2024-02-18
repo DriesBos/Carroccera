@@ -45,7 +45,7 @@ const data = defineProps({
     background: $color-bg
     pointer-events: auto
     cursor: pointer
-    transition: opacity $transition-bg 1s
+    transition: opacity $transition-bg
   &-Container
     position: relative
     width: calc(100% - 2 * #{var(--spacing-hor)})
@@ -65,6 +65,22 @@ const data = defineProps({
     right: 0
     padding: var(--spacing-ver) var(--spacing-hor)
     z-index: +1
+  &-Header
+    width: 100%
+    background: white
+    pointer-events: none
+    z-index: +1
+    h1
+      font-weight: 500
+    p
+      margin-top: .5rem
+      line-height: 1
+      font-size: $font-small
+    @media screen and (max-width: $breakpoint-mobile)
+      position: absolute
+      top: 0
+      left: 0
+      padding: var(--spacing-ver) var(--spacing-hor)
   &-Content
     width: 100%
     height: 100%
@@ -85,12 +101,10 @@ const data = defineProps({
       flex-direction: column
       justify-content: safe center
       padding: var(--spacing-ver) var(--spacing-hor)
+      padding-bottom: 0
       gap: 1rem
-      &_Header
-        p
-          margin-top: .5rem
-          line-height: 1
-          font-size: $font-small
+      @media screen and (max-width: $breakpoint-mobile)
+        padding-top: 4.5rem
       &_Content
         flex-direction: column
         justify-content: safe center
@@ -99,6 +113,8 @@ const data = defineProps({
           margin-bottom: 1rem
           &:last-child
             margin-bottom: 0
+            @media screen and (min-width: $breakpoint-mobile)
+              margin-bottom: 1rem
     &_Two
       position: relative
       width: 100%
@@ -117,9 +133,6 @@ const data = defineProps({
       & > div:last-child
         & > div:last-child
           padding-bottom: calc(3 * #{var(--spacing-ver)})
-    .modal-Header
-      background: white
-
 
   &.isTwoColumn
     .modal-Content
@@ -144,16 +157,13 @@ const data = defineProps({
             height: 100%
             &-Image
               height: 100%
-      @media screen and (min-width: $breakpoint-tablet)
-        .modal-Column_One
-          padding-right: calc(2 * #{var(--spacing-hor)})
-        .modal-Column_Two
-          padding-left: 0
+      // @media screen and (min-width: $breakpoint-tablet)
+        // .modal-Column_One
+          // padding-right: calc(2 * #{var(--spacing-hor)})
+        // .modal-Column_Two
+        //   padding-left: 0
     .modal-Header
-      &_Title
-        background: white
-        h1
-          font-weight: 500
+
 
   &.active
     .modal-Background
