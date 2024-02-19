@@ -19,5 +19,5 @@ onBeforeMount(() => {
 .blokText
   width: 100%
   h1, h2
-    margin-bottom: var(--spacing-two)
+    margin-bottom: 1rem
 </style>
