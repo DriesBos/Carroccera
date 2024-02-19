@@ -1,6 +1,9 @@
 <template>
   <div class="celestials">
-    <div :class="{ headerActive: headerState }" class="celestials-Stars stars">
+    <div
+      :class="{ headerActive: headerState }"
+      class="celestials-Stars stars landingInitDown"
+    >
       <NuxtImg
         class="landscape"
         src="/f/264497/1920x2024/c169975dc3/stars_landscape.png"
@@ -19,7 +22,7 @@
 
     <div
       :class="{ headerActive: headerState }"
-      class="celestials-Clouds clouds"
+      class="celestials-Clouds clouds landingInitUp"
     >
       <NuxtImg
         class="landscape"
@@ -39,7 +42,7 @@
 
     <div
       :class="{ headerActive: headerState }"
-      class="celestials-Constellation constellation"
+      class="celestials-Constellation constellation landingInit"
     >
       <NuxtImg
         class="landscape"
@@ -151,6 +154,7 @@ onMounted(() => {
     height: 100%
     will-change: transform
     transition: opacity 1s ease
+    opacity: 0
     &.headerActive
       opacity: .33
     img
@@ -168,7 +172,7 @@ onMounted(() => {
     height: 100lvh
     transition: opacity .33s ease
     will-change: transform
-    opacity: 1
+    opacity: 0
     img
         width: 100%
         max-width: 100%
@@ -186,7 +190,7 @@ onMounted(() => {
     transition: opacity .33s ease, top .5s ease
     will-change: transform
     z-index: 100
-    opacity: 1
+    opacity: 0
     img
         width: 100%
         max-width: 100%

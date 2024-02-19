@@ -1,5 +1,8 @@
 <template>
-  <div class="footerlanding" :class="{ headerActive: headerState }">
+  <div
+    class="footerlanding landingInitUp"
+    :class="{ headerActive: headerState }"
+  >
     <NuxtImg
       class="landscape"
       src="/f/264497/1920x429/935b217ea7/landingfooter-landscape.png"
@@ -62,13 +65,12 @@ onMounted(() => {
   pointer-events: none
   z-index: 900
   will-change: transform
-  // top: 100%
   top: 0
+  opacity: 1
   img, svg
     position: absolute
     left: 0
     bottom: 0
-    // bottom: env(safe-area-inset-bottom)
     width: 100%
     max-width: 100%
     height: auto

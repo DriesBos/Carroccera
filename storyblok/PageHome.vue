@@ -157,5 +157,53 @@ onMounted(() => {
       }
     );
   });
+
+  gsap.fromTo(
+    '.landingInit',
+    {
+      opacity: 0,
+    },
+    {
+      opacity: 1,
+      ease: 'power1.inOut',
+      duration: 0.66,
+      stagger: {
+        amount: 0.165,
+      },
+    }
+  );
+
+  gsap.fromTo(
+    '.landingInitDown',
+    {
+      opacity: 0,
+      y: '-10%',
+    },
+    {
+      opacity: 1,
+      y: 0,
+      ease: 'power1.inOut',
+      duration: 0.33,
+      stagger: {
+        amount: 0.165,
+      },
+    }
+  );
+
+  gsap.fromTo(
+    '.landingInitUp',
+    {
+      y: '100%',
+    },
+    {
+      y: 0,
+      opacity: 1,
+      ease: 'power1.inOut',
+      duration: 0.66,
+      stagger: {
+        amount: 0.165,
+      },
+    }
+  );
 });
 </script>
