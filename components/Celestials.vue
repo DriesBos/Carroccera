@@ -72,33 +72,7 @@ defineProps({
   headerState: Boolean,
 });
 
-// const starShow = ref(false);
-// const cloudShow = ref(false);
-
-// function setStar() {
-//   setTimeout(() => {
-//     starShow.value = true;
-//   }, 1200);
-// }
-
-// function setCloud() {
-//   setTimeout(() => {
-//     cloudShow.value = true;
-//   }, 1200);
-// }
-
-// function setScroll() {
-//   document.documentElement.style.overflow = 'hidden';
-//   setTimeout(() => {
-//     document.documentElement.style.overflow = 'auto';
-//   }, 1200);
-// }
-
 onMounted(() => {
-  // setStar();
-  // setCloud();
-  // setScroll();
-
   const stars = document.querySelector('.stars');
 
   gsap.to(stars, {
@@ -156,7 +130,7 @@ onMounted(() => {
     transition: opacity 1s ease
     opacity: 0
     &.headerActive
-      opacity: .33
+      opacity: .33 !important
     img
         width: 100%
         max-width: 100%
@@ -180,7 +154,7 @@ onMounted(() => {
         object-fit: contain
         object-position: center center
     &.headerActive
-      opacity: 0
+      opacity: 0 !important
   .clouds
     position: fixed
     top: 60vh
@@ -197,8 +171,6 @@ onMounted(() => {
         height: 100%
         object-fit: cover
         object-position: center center
-    // &.showActive
-    //   top: 60vh
     &.headerActive
-      opacity: 0
+      opacity: 0 !important
 </style>

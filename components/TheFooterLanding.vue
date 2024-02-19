@@ -28,17 +28,7 @@ defineProps({
   headerState: Boolean,
 });
 
-// const footerState = ref(false);
-
-// function setFooter() {
-//   setTimeout(() => {
-//     footerState.value = true;
-//   }, 1200);
-// }
-
 onMounted(() => {
-  // setFooter();
-
   const footerlanding = document.querySelector('.footerlanding');
 
   gsap.to(footerlanding, {
