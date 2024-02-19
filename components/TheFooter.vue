@@ -1,7 +1,19 @@
 <template>
   <footer class="footer">
-    <img class="landscape" src="/img/footer_landscape.png" alt="" />
-    <img class="portrait" src="/img/footer_portrait.png" alt="" />
+    <NuxtImg
+      class="landscape"
+      src="/f/264497/1920x859/b6a889b155/footer_landscape.png"
+      alt=""
+      provider="storyblok"
+      quality="75"
+    />
+    <NuxtImg
+      class="portrait"
+      src="/f/264497/1281x1543/15f2e26f40/footer_portrait.png"
+      alt=""
+      provider="storyblok"
+      quality="75"
+    />
   </footer>
 </template>
 

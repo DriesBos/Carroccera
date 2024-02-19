@@ -1,7 +1,19 @@
 <template>
   <div class="footerlanding" :class="{ headerActive: headerState }">
-    <img class="landscape" src="/img/landingfooter-landscape.png" alt="" />
-    <img class="portrait" src="/img/landingfooter-portrait.png" alt="" />
+    <NuxtImg
+      class="landscape"
+      src="/f/264497/1920x429/935b217ea7/landingfooter-landscape.png"
+      alt=""
+      provider="storyblok"
+      quality="75"
+    />
+    <NuxtImg
+      class="portrait"
+      src="/f/264497/1281x746/2b8ad13ebe/landingfooter-portrait.png"
+      alt=""
+      provider="storyblok"
+      quality="75"
+    />
   </div>
 </template>
 

@@ -1,24 +1,60 @@
 <template>
   <div class="celestials">
     <div :class="{ headerActive: headerState }" class="celestials-Stars stars">
-      <img class="landscape" src="/img/stars_landscape.png" alt="" />
-      <img class="portrait" src="/img/stars_portrait.png" alt="" />
+      <NuxtImg
+        class="landscape"
+        src="/f/264497/1920x2024/c169975dc3/stars_landscape.png"
+        alt=""
+        provider="storyblok"
+        quality="75"
+      />
+      <NuxtImg
+        class="portrait"
+        src="/f/264497/1281x1920/494333f935/stars_portrait.png"
+        alt=""
+        provider="storyblok"
+        quality="75"
+      />
     </div>
 
     <div
       :class="{ headerActive: headerState }"
       class="celestials-Clouds clouds"
     >
-      <img class="landscape" src="/img/clouds_landscape.png" alt="" />
-      <img class="portrait" src="/img/clouds_portrait.png" alt="" />
+      <NuxtImg
+        class="landscape"
+        src="/f/264497/1920x1280/204c93607e/clouds_landscape.png"
+        alt=""
+        provider="storyblok"
+        quality="75"
+      />
+      <NuxtImg
+        class="portrait"
+        src="/f/264497/1281x1786/dde98aff4b/clouds_portrait.png"
+        alt=""
+        provider="storyblok"
+        quality="75"
+      />
     </div>
 
     <div
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation"
     >
-      <img class="landscape" src="/img/constellation_landscape.png" alt="" />
-      <img class="portrait" src="/img/constellation_portrait.png" alt="" />
+      <NuxtImg
+        class="landscape"
+        src="/f/264497/1920x1280/83d36c70c9/constellation_landscape.png"
+        alt=""
+        provider="storyblok"
+        quality="75"
+      />
+      <NuxtImg
+        class="portrait"
+        src="/f/264497/1287x1909/3c918ea99e/constellation_portrait.png"
+        alt=""
+        provider="storyblok"
+        quality="75"
+      />
     </div>
   </div>
 </template>
