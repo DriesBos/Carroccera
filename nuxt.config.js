@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     },
   },
   ssr: false,
-  spaLoadingTemplate: './spa-loading-template.html',
+  // spaLoadingTemplate: './spa-loading-template.html',
   app: {
     head: {
       viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
