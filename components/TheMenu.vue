@@ -79,6 +79,7 @@ onMounted(() => {
   width: 100%
   height: 100%
   color: white
+  pointer-events: none
   & > div
     color: currentColor
   &-Toggle
@@ -131,6 +132,7 @@ onMounted(() => {
     opacity: 0
 
   &.active
+    pointer-events: auto
     .menu-Container
       opacity: 1
       // .menuItem
