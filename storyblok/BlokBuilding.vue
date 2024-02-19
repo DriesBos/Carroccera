@@ -121,38 +121,33 @@ onMounted(() => {
   position: absolute
   left: 0
   top: 0
-  width: 33.3333vw
-  height: 33.3333vw
+  width: 33.3333vh
+  height: 33.3333vh
   pointer-events: auto
   z-index: +1
-  &-Icon
-    position: absolute
-    top: 25%
-    left: 25%
-    transform: translate(-50%, -50%)
-  &-Dot
-    position: absolute
-    top: 25%
-    left: 25%
-    transform: translate(-50%, -50%)
+  @media (orientation: portrait)
+    width: 33.3333vw
+    height: 33.3333vw
   &.left
     left: 0
   &.middle
-    left: 33.3333vw
+    @media (orientation: portrait)
+      left: calc(50% - (33.3333vw / 2))
+    @media (orientation: landscape)
+      left: calc(50% - (33.3333vh / 2))
   &.right
-    left: 66.6666vw
+    left: auto
+    right: 0
   &.top
-    top: 0%
+    top: 0
   &.center
-    @media (orientation: landscape)
-      top: 25vmin
     @media (orientation: portrait)
-      top: 38vw
+      top: calc(50% - (33.3333vw / 2))
+    @media (orientation: landscape)
+      top: calc(50% - (33.3333vh / 2))
   &.bottom
-    @media (orientation: landscape)
-      top: 50vmin
-    @media (orientation: portrait)
-      top: 76vw
+    top: auto
+    bottom: 0
   img
     width: 100%
     height: 100%
