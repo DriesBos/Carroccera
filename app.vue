@@ -21,9 +21,13 @@ nuxtApp.hook('page:start', () => {
   console.log('loading start');
 });
 nuxtApp.hook('page:finish', () => {
-  loading.value = false;
+  // loading.value = false;
   window.scrollTo(0, 0);
   console.log('loading finish');
+});
+nuxtApp.hook('page:loading:end', () => {
+  loading.value = false;
+  console.log('page load end');
 });
 </script>
 
