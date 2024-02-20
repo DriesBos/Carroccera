@@ -6,6 +6,7 @@
       alt=""
       provider="storyblok"
       quality="75"
+      format="webp"
     />
     <NuxtImg
       class="portrait footer-Image"
@@ -13,6 +14,7 @@
       alt=""
       provider="storyblok"
       quality="75"
+      format="webp"
     />
   </footer>
 </template>

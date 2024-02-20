@@ -10,6 +10,7 @@
         alt=""
         provider="storyblok"
         quality="75"
+        format="webp"
       />
       <NuxtImg
         class="portrait"
@@ -17,6 +18,7 @@
         alt=""
         provider="storyblok"
         quality="75"
+        format="webp"
       />
     </div>
 
@@ -30,6 +32,7 @@
         alt=""
         provider="storyblok"
         quality="75"
+        format="webp"
       />
       <NuxtImg
         class="portrait"
@@ -37,6 +40,7 @@
         alt=""
         provider="storyblok"
         quality="75"
+        format="webp"
       />
     </div>
 
@@ -50,6 +54,7 @@
         alt=""
         provider="storyblok"
         quality="75"
+        format="webp"
       />
       <NuxtImg
         class="portrait"
@@ -57,6 +62,7 @@
         alt=""
         provider="storyblok"
         quality="75"
+        format="webp"
       />
     </div>
   </div>
