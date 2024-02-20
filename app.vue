@@ -1,8 +1,9 @@
 <template>
   <div v-if="loading" class="loading">
-    <div class="loading-Indicator">Loading...</div>
+    <div class="loading-Indicator">
+      <div class="loading-Indicator_Fill" />
+    </div>
   </div>
-  <!-- <NuxtLoadingIndicator /> -->
   <NuxtPage />
 </template>
 
@@ -18,20 +19,22 @@ const loading = ref(false);
 
 nuxtApp.hook('page:start', () => {
   loading.value = true;
-  console.log('page start');
+  // console.log('page start');
 });
 nuxtApp.hook('page:loading:start', () => {
   loading.value = true;
-  console.log('page loading start');
+  // console.log('page loading start');
 });
 nuxtApp.hook('page:finish', () => {
-  // loading.value = false;
   window.scrollTo(0, 0);
-  console.log('loading finish');
+  // console.log('loading finish');
 });
+
 nuxtApp.hook('page:loading:end', () => {
   loading.value = false;
-  console.log('page load end');
+  // setTimeout(() => {
+  //   console.log('page load end');
+  // }, 2000);
 });
 </script>
 
@@ -49,4 +52,27 @@ nuxtApp.hook('page:loading:end', () => {
   font-size: 1rem
   z-index: 999
   color: white
+  padding: 1rem
+  &-Indicator
+    position: relative
+    height: .5rem
+    width: 10rem
+    max-width: calc(100% - 2rem)
+    border: 1px solid white
+    border-radius: 1000px
+    overflow: hidden
+    &_Fill
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      width: 0%
+      animation: widthAnimation 2s ease-in-out forwards
+      background: white
+
+@keyframes widthAnimation
+  0%
+    width: 0%
+  100%
+    width: 100%
 </style>
