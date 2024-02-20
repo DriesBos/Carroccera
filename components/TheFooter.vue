@@ -1,14 +1,14 @@
 <template>
   <footer class="footer">
     <NuxtImg
-      class="landscape"
+      class="landscape footer-Image"
       src="/f/264497/1920x859/b6a889b155/footer_landscape.png"
       alt=""
       provider="storyblok"
       quality="75"
     />
     <NuxtImg
-      class="portrait"
+      class="portrait footer-Image"
       src="/f/264497/1281x1543/15f2e26f40/footer_portrait.png"
       alt=""
       provider="storyblok"
@@ -16,6 +16,33 @@
     />
   </footer>
 </template>
+
+<script setup>
+import { onMounted } from 'vue';
+import gsap from 'gsap';
+
+onMounted(() => {
+  const footer = document.querySelector('.footer-Image');
+
+  gsap.fromTo(
+    footer,
+    {
+      y: '-25%',
+    },
+    {
+      y: '0',
+      scrollTrigger: {
+        trigger: footer,
+        start: 'top bottom',
+        end: 'bottom bottom',
+        scrub: true,
+        markers: true,
+      },
+      ease: 'none',
+    }
+  );
+});
+</script>
 
 <style scoped lang="sass">
 .footer
