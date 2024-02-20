@@ -15,26 +15,20 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const nuxtApp = useNuxtApp();
-const loading = ref(false);
+const loading = ref(true);
 
 nuxtApp.hook('page:start', () => {
   loading.value = true;
-  // console.log('page start');
 });
 nuxtApp.hook('page:loading:start', () => {
   loading.value = true;
-  // console.log('page loading start');
 });
 nuxtApp.hook('page:finish', () => {
   window.scrollTo(0, 0);
-  // console.log('loading finish');
 });
 
 nuxtApp.hook('page:loading:end', () => {
   loading.value = false;
-  // setTimeout(() => {
-  //   console.log('page load end');
-  // }, 2000);
 });
 </script>
 
