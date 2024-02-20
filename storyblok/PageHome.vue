@@ -147,7 +147,6 @@ onMounted(() => {
       },
       {
         y: '-25%',
-        duration: 1,
         scrollTrigger: {
           trigger: el,
           start: 'top bottom',

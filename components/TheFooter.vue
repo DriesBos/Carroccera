@@ -33,10 +33,9 @@ onMounted(() => {
       y: '0',
       scrollTrigger: {
         trigger: footer,
+        scrub: true,
         start: 'top bottom',
         end: 'bottom bottom',
-        scrub: true,
-        markers: true,
       },
       ease: 'none',
     }
