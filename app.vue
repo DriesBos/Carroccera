@@ -18,7 +18,11 @@ const loading = ref(false);
 
 nuxtApp.hook('page:start', () => {
   loading.value = true;
-  console.log('loading start');
+  console.log('page start');
+});
+nuxtApp.hook('page:loading:start', () => {
+  loading.value = true;
+  console.log('page loading start');
 });
 nuxtApp.hook('page:finish', () => {
   // loading.value = false;
