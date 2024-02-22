@@ -36,7 +36,7 @@
       />
       <NuxtImg
         class="portrait"
-        src="/f/264497/1281x1786/dde98aff4b/clouds_portrait.png"
+        src="/f/264497/2533x2842/375d2775c1/clouds_portrait.png"
         alt=""
         provider="storyblok"
         quality="75"
