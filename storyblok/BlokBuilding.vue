@@ -13,7 +13,7 @@
       :src="blok.imagelandscape.filename"
       alt=""
       provider="storyblok"
-      quality="80"
+      quality="85"
     />
     <NuxtImg
       v-if="blok.image.filename"
@@ -22,7 +22,7 @@
       :src="blok.image.filename"
       alt=""
       provider="storyblok"
-      quality="80"
+      quality="85"
     />
     <!-- Invisible -->
     <Teleport to="body">

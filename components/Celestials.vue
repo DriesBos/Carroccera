@@ -9,7 +9,7 @@
         src="/f/264497/1920x2024/c169975dc3/stars_landscape.png"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
         format="webp"
       />
       <NuxtImg
@@ -17,7 +17,7 @@
         src="/f/264497/1281x1920/494333f935/stars_portrait.png"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
         format="webp"
       />
     </div>
@@ -31,7 +31,7 @@
         src="/f/264497/1920x1280/204c93607e/clouds_landscape.png"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
         format="webp"
       />
       <NuxtImg
@@ -39,7 +39,7 @@
         src="/f/264497/2533x2842/375d2775c1/clouds_portrait.png"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
         format="webp"
       />
     </div>
@@ -53,7 +53,7 @@
         src="/f/264497/1920x1280/83d36c70c9/constellation_landscape.png"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
         format="webp"
       />
       <NuxtImg
@@ -61,7 +61,7 @@
         src="/f/264497/1287x1909/3c918ea99e/constellation_portrait.png"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
         format="webp"
       />
     </div>

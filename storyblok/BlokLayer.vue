@@ -12,7 +12,7 @@
         :src="blok.background.filename"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
       />
       <NuxtImg
         v-if="blok.backgroundVertical.filename"
@@ -20,7 +20,7 @@
         :src="blok.backgroundVertical.filename"
         alt=""
         provider="storyblok"
-        quality="75"
+        quality="85"
       />
     </div>
   </div>

@@ -5,7 +5,7 @@
       src="/f/264497/1920x859/b6a889b155/footer_landscape.png"
       alt=""
       provider="storyblok"
-      quality="75"
+      quality="85"
       format="webp"
     />
     <NuxtImg
@@ -13,7 +13,7 @@
       src="/f/264497/1281x1543/15f2e26f40/footer_portrait.png"
       alt=""
       provider="storyblok"
-      quality="75"
+      quality="85"
       format="webp"
     />
   </footer>
