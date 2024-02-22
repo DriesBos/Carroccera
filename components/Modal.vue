@@ -86,7 +86,7 @@ const data = defineProps({
     height: 100%
     display: flex
     flex-direction: row
-    align-items: safe center
+    align-items: flex-start
     flex: 1
     @media screen and ( max-width: $breakpoint-tablet)
       flex-direction: column
@@ -99,7 +99,7 @@ const data = defineProps({
     &_One
       display: flex
       flex-direction: column
-      justify-content: safe center
+      justify-content: flex-start
       padding: var(--spacing-ver) var(--spacing-hor)
       padding-bottom: 0
       gap: 1rem
@@ -107,7 +107,7 @@ const data = defineProps({
         padding-top: 4.5rem
       &_Content
         flex-direction: column
-        justify-content: safe center
+        justify-content: flex-start
         gap: 1rem
         & > div
           margin-bottom: 1rem
