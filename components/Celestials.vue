@@ -108,7 +108,7 @@ onMounted(() => {
   const clouds = document.querySelector('.clouds');
 
   gsap.to(clouds, {
-    y: '-250%',
+    y: '-325%',
     scrollTrigger: {
       trigger: clouds,
       scrub: true,
