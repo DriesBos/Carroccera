@@ -11,6 +11,7 @@
         provider="storyblok"
         quality="85"
         format="webp"
+        @load="emit('starsLoadedEmit', true)"
       />
       <NuxtImg
         class="portrait"
@@ -19,6 +20,7 @@
         provider="storyblok"
         quality="85"
         format="webp"
+        @load="emit('starsLoadedEmit', true)"
       />
     </div>
 
@@ -33,6 +35,7 @@
         provider="storyblok"
         quality="85"
         format="webp"
+        @load="emit('cloudsLoadedEmit', true)"
       />
       <NuxtImg
         class="portrait"
@@ -41,6 +44,7 @@
         provider="storyblok"
         quality="85"
         format="webp"
+        @load="emit('cloudsLoadedEmit', true)"
       />
     </div>
 
@@ -55,6 +59,7 @@
         provider="storyblok"
         quality="85"
         format="webp"
+        @load="emit('constellationLoadedEmit', true)"
       />
       <NuxtImg
         class="portrait"
@@ -63,6 +68,7 @@
         provider="storyblok"
         quality="85"
         format="webp"
+        @load="emit('constellationLoadedEmit', true)"
       />
     </div>
   </div>
@@ -72,7 +78,12 @@
 import { onMounted } from 'vue';
 import gsap from 'gsap';
 
-const emit = defineEmits(['headerEmit']);
+const emit = defineEmits([
+  'headerEmit',
+  'starsLoadedEmit',
+  'cloudsLoadedEmit',
+  'constellationLoadedEmit',
+]);
 
 defineProps({
   headerState: Boolean,

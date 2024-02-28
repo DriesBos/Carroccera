@@ -7,6 +7,7 @@
       provider="storyblok"
       quality="85"
       format="webp"
+      @load="emit('footerLoadedEmit', true)"
     />
     <NuxtImg
       class="portrait footer-Image"
@@ -15,6 +16,7 @@
       provider="storyblok"
       quality="85"
       format="webp"
+      @load="emit('footerLoadedEmit', true)"
     />
   </footer>
 </template>
@@ -22,6 +24,8 @@
 <script setup>
 import { onMounted } from 'vue';
 import gsap from 'gsap';
+
+const emit = defineEmits(['footerLoadedEmit']);
 
 onMounted(() => {
   const footer = document.querySelector('.footer-Image');

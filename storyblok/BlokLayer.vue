@@ -13,6 +13,7 @@
         alt=""
         provider="storyblok"
         quality="85"
+        @load="imageLoaded()"
       />
       <NuxtImg
         v-if="blok.backgroundVertical.filename"
@@ -28,6 +29,14 @@
 
 <script setup>
 defineProps({ blok: Object });
+// @load="() => $nuxt.$emit('blokLayerImageLoaded')"
+
+const emit = defineEmits(['imageLoaded']);
+
+function imageLoaded() {
+  emit('imageLoaded', true);
+  console.log('imageLoaded');
+}
 </script>
 
 <style lang="sass" scoped>

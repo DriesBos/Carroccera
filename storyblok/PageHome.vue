@@ -1,9 +1,23 @@
 <template>
   <div v-editable="blok" id="top" class="page page-Home">
+    <div v-if="loading" class="loading">
+      <div class="loading-Indicator">
+        <div class="loading-Indicator_Fill" />
+      </div>
+    </div>
     <div class="layerOne">
       <Sky />
-      <Celestials @headerEmit="headerToggle" :headerState="headerState" />
-      <TheFooterLanding :headerState="headerState" />
+      <Celestials
+        @headerEmit="headerToggle"
+        @starsLoadedEmit="starsToggleLoaded"
+        @cloudsLoadedEmit="cloudsToggleLoaded"
+        @constellationLoadedEmit="constellationToggleLoaded"
+        :headerState="headerState"
+      />
+      <TheFooterLanding
+        @footerLandingLoadedEmit="footerLandingToggleLoaded"
+        :headerState="headerState"
+      />
       <TheMenu
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
@@ -22,7 +36,7 @@
         :blok="blok"
       />
     </div>
-    <TheFooter class="layerThree" />
+    <TheFooter class="layerThree" @footerLoadedEmit="footerToggleLoaded" />
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
@@ -52,6 +66,43 @@
   justify-content: flex-start
   & > .blokLayer
     will-change: transform
+
+.loading
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: linear-gradient(180deg, rgba(69,80,81,1) 0%, rgba(197,199,199,1) 100%)
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 1rem
+  z-index: 999
+  color: white
+  padding: 1rem
+  &-Indicator
+    position: relative
+    height: .5rem
+    width: 10rem
+    max-width: calc(100% - 2rem)
+    border: 1px solid white
+    border-radius: 1000px
+    overflow: hidden
+    &_Fill
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      width: 0%
+      animation: widthAnimation 2s ease-in-out forwards
+      background: white
+
+@keyframes widthAnimation
+  0%
+    width: 0%
+  100%
+    width: 100%
 </style>
 
 <script setup>
@@ -60,9 +111,74 @@ import gsap from 'gsap';
 
 defineProps({ blok: Object });
 
+// Loading
+const nuxtApp = useNuxtApp();
+const loading = ref(true);
+const footerLandingIsLoaded = ref(false);
+const footerIsLoaded = ref(false);
+const pageIsLoaded = ref(false);
+const starsIsLoaded = ref(false);
+const cloudsIsLoaded = ref(false);
+const constellationIsLoaded = ref(false);
+
+// States
 const headerState = ref(false);
 const projectsState = ref(false);
 const contactState = ref(false);
+
+nuxtApp.hook('page:start', () => {
+  loading.value = true;
+});
+nuxtApp.hook('page:loading:start', () => {
+  loading.value = true;
+});
+nuxtApp.hook('page:finish', () => {
+  window.scrollTo(0, 0);
+  checkLoadingState();
+});
+
+nuxtApp.hook('page:loading:end', () => {
+  pageIsLoaded.value = true;
+  checkLoadingState();
+});
+
+function footerToggleLoaded() {
+  footerIsLoaded.value = true;
+  checkLoadingState();
+}
+
+function footerLandingToggleLoaded() {
+  footerLandingIsLoaded.value = true;
+  checkLoadingState();
+}
+
+function starsToggleLoaded() {
+  starsIsLoaded.value = true;
+  checkLoadingState();
+}
+
+function cloudsToggleLoaded() {
+  cloudsIsLoaded.value = true;
+  checkLoadingState();
+}
+
+function constellationToggleLoaded() {
+  constellationIsLoaded.value = true;
+  checkLoadingState();
+}
+
+function checkLoadingState() {
+  if (
+    pageIsLoaded.value &&
+    starsIsLoaded.value &&
+    cloudsIsLoaded.value &&
+    constellationIsLoaded.value &&
+    footerIsLoaded.value &&
+    footerLandingIsLoaded.value
+  ) {
+    loading.value = false;
+  }
+}
 
 function headerToggle() {
   headerState.value = !headerState.value;

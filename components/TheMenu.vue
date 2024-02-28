@@ -32,8 +32,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-import gsap from 'gsap';
+import { ref, onMounted } from 'vue';
 
 const emit = defineEmits(['contactEmit', 'projectsEmit', 'backgroundEmit']);
 

@@ -10,6 +10,7 @@
       provider="storyblok"
       quality="75"
       format="webp"
+      @load="emit('footerLandingLoadedEmit', true)"
     />
     <NuxtImg
       class="portrait"
@@ -18,6 +19,7 @@
       provider="storyblok"
       quality="75"
       format="webp"
+      @load="emit('footerLandingLoadedEmit', true)"
     />
   </div>
 </template>
@@ -29,6 +31,8 @@ import gsap from 'gsap';
 defineProps({
   headerState: Boolean,
 });
+
+const emit = defineEmits(['footerLandingLoadedEmit']);
 
 onMounted(() => {
   const footerlanding = document.querySelector('.footerlanding');
