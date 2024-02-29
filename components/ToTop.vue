@@ -16,7 +16,7 @@ function preventTouchMove(e) {
 }
 
 function scrollTop() {
-  gsap.to(window, { duration: 1.5, scrollTo: 0, ease: 'power4.out' });
+  gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
   const page = document.querySelector('.page');
   page.addEventListener('touchmove', preventTouchMove, { passive: false });
 
@@ -24,7 +24,7 @@ function scrollTop() {
     page.removeEventListener('touchmove', preventTouchMove, {
       passive: false,
     });
-  }, 1500);
+  }, 2500);
 }
 
 onMounted(() => {

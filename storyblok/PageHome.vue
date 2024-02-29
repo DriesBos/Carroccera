@@ -199,7 +199,7 @@ function checkLoadingState() {
 function headerToggle() {
   headerState.value = !headerState.value;
   if (headerState.value) {
-    gsap.to(window, { duration: 0.5, scrollTo: 0, ease: 'power4.out' });
+    gsap.to(window, { duration: 1, scrollTo: 0, ease: 'sine.out' });
   }
 }
 
