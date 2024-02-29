@@ -8,8 +8,9 @@
       src="/f/264497/1920x429/935b217ea7/landingfooter-landscape.png"
       alt=""
       provider="storyblok"
-      quality="75"
+      quality="90"
       format="webp"
+      sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
       @load="emit('footerLandingLoadedEmit', true)"
     />
     <NuxtImg
@@ -17,8 +18,9 @@
       src="/f/264497/1281x746/2b8ad13ebe/landingfooter-portrait.png"
       alt=""
       provider="storyblok"
-      quality="75"
+      quality="90"
       format="webp"
+      sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
       @load="emit('footerLandingLoadedEmit', true)"
     />
   </div>

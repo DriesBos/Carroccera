@@ -12,7 +12,8 @@
         :src="blok.background.filename"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
+        sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="imageLoaded()"
       />
       <NuxtImg
@@ -21,7 +22,8 @@
         :src="blok.backgroundVertical.filename"
         alt=""
         provider="storyblok"
-        quality="85"
+        sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
+        quality="90"
       />
     </div>
   </div>

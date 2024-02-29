@@ -13,7 +13,9 @@
       :src="blok.imagelandscape.filename"
       alt=""
       provider="storyblok"
-      quality="85"
+      quality="90"
+      format="webp"
+      sizes="xsm:427px sm:456px md:480px lg:512px xl:640px"
     />
     <NuxtImg
       v-if="blok.image.filename"
@@ -22,7 +24,9 @@
       :src="blok.image.filename"
       alt=""
       provider="storyblok"
-      quality="85"
+      quality="90"
+      format="webp"
+      sizes="xsm:120px sm:130px md:256px lg:341px xl:427px"
     />
     <!-- Invisible -->
     <Teleport to="body">

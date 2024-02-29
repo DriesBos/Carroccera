@@ -9,8 +9,9 @@
         src="/f/264497/1920x2024/c169975dc3/stars_landscape.png"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
         format="webp"
+        sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('starsLoadedEmit', true)"
       />
       <NuxtImg
@@ -18,8 +19,9 @@
         src="/f/264497/1281x1920/494333f935/stars_portrait.png"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
         format="webp"
+        sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('starsLoadedEmit', true)"
       />
     </div>
@@ -33,8 +35,9 @@
         src="/f/264497/1920x1280/204c93607e/clouds_landscape.png"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
         format="webp"
+        sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('cloudsLoadedEmit', true)"
       />
       <NuxtImg
@@ -42,8 +45,9 @@
         src="/f/264497/1281x1920/2dbd14f6e7/clouds_portrait.png"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
         format="webp"
+        sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('cloudsLoadedEmit', true)"
       />
     </div>
@@ -57,8 +61,9 @@
         src="/f/264497/1920x1280/83d36c70c9/constellation_landscape.png"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
         format="webp"
+        sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('constellationLoadedEmit', true)"
       />
       <NuxtImg
@@ -66,8 +71,9 @@
         src="/f/264497/1287x1909/3c918ea99e/constellation_portrait.png"
         alt=""
         provider="storyblok"
-        quality="85"
+        quality="90"
         format="webp"
+        sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('constellationLoadedEmit', true)"
       />
     </div>
