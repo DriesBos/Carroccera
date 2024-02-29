@@ -7,7 +7,9 @@
           :key="currentImage"
           alt=""
           provider="storyblok"
-          quality="80"
+          quality="90"
+          format="webp"
+          sizes="xs:360px sm:390px md:768px lg:1024px xl:1280px xxl:1366px 2xl:1440px"
         />
       </Transition>
       <div
