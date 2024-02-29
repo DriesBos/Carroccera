@@ -96,14 +96,22 @@
       left: 0
       bottom: 0
       width: 0%
-      animation: widthAnimation 2s ease-in-out forwards
+      animation: widthAnimation 10s linear forwards
       background: white
 
 @keyframes widthAnimation
   0%
     width: 0%
+  20%
+    width: 30%
+  40%
+    width: 60%
+  60%
+    width: 85%
+  75%
+    width: 90%
   100%
-    width: 100%
+    width: 95%
 </style>
 
 <script setup>
