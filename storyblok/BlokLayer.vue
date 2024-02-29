@@ -31,13 +31,11 @@
 
 <script setup>
 defineProps({ blok: Object });
-// @load="() => $nuxt.$emit('blokLayerImageLoaded')"
 
 const emit = defineEmits(['imageLoaded']);
 
 function imageLoaded() {
   emit('imageLoaded', true);
-  console.log('imageLoaded');
 }
 </script>
 

@@ -34,6 +34,7 @@
         v-for="blok in blok.body"
         :key="blok._uid"
         :blok="blok"
+        @imageLoaded="layerToggleLoaded"
       />
     </div>
     <TheFooter class="layerThree" @footerLoadedEmit="footerToggleLoaded" />
@@ -120,6 +121,7 @@ const pageIsLoaded = ref(false);
 const starsIsLoaded = ref(false);
 const cloudsIsLoaded = ref(false);
 const constellationIsLoaded = ref(false);
+const layerIsLoaded = ref(false);
 
 // States
 const headerState = ref(false);
@@ -167,6 +169,11 @@ function constellationToggleLoaded() {
   checkLoadingState();
 }
 
+function layerToggleLoaded() {
+  layerIsLoaded.value = true;
+  checkLoadingState();
+}
+
 function checkLoadingState() {
   if (
     pageIsLoaded.value &&
@@ -174,7 +181,8 @@ function checkLoadingState() {
     cloudsIsLoaded.value &&
     constellationIsLoaded.value &&
     footerIsLoaded.value &&
-    footerLandingIsLoaded.value
+    footerLandingIsLoaded.value &&
+    layerIsLoaded.value
   ) {
     loading.value = false;
   }
