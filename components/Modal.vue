@@ -104,7 +104,7 @@ const data = defineProps({
       padding-bottom: 0
       gap: 1rem
       @media screen and (max-width: $breakpoint-mobile)
-        padding-top: 4.5rem
+        padding-top: calc(2.6rem + 2 * #{var(--spacing-ver)})
       &_Content
         flex-direction: column
         justify-content: flex-start
