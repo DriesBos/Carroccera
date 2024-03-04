@@ -6,7 +6,7 @@
     >
       <NuxtImg
         class="landscape"
-        src="/f/264497/1920x2024/c169975dc3/stars_landscape.png"
+        src="/f/264497/3840x2560/5762250b11/240209_stars_landscape.png"
         alt=""
         provider="storyblok"
         quality="90"
@@ -16,7 +16,7 @@
       />
       <NuxtImg
         class="portrait"
-        src="/f/264497/1281x1920/494333f935/stars_portrait.png"
+        src="/f/264497/2562x3840/55ca352121/240209_stars_portrait.png"
         alt=""
         provider="storyblok"
         quality="90"
