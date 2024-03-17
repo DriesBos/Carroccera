@@ -66,7 +66,7 @@ onMounted(() => {
   top: 0
   left: 50%
   transform: translateX(-50%)
-  height: 100svh
+  height: 100dvh
   display: flex
   flex-direction: column
   justify-content: flex-end
