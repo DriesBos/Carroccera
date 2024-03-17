@@ -24,31 +24,27 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import gsap from 'gsap';
-
 const emit = defineEmits(['footerLoadedEmit']);
 
-onMounted(() => {
-  const footer = document.querySelector('.footer-Image');
+// onMounted(() => {
+//   const footer = document.querySelector('.footer-Image');
 
-  gsap.fromTo(
-    footer,
-    {
-      y: '-25%',
-    },
-    {
-      y: '0',
-      scrollTrigger: {
-        trigger: footer,
-        scrub: true,
-        start: 'top bottom',
-        end: 'bottom bottom',
-      },
-      ease: 'none',
-    }
-  );
-});
+//   gsap.fromTo(
+//     footer,
+//     {
+//       y: '-25vh',
+//     },
+//     {
+//       scrollTrigger: {
+//         trigger: footer,
+//         scrub: true,
+//         start: 'top bottom',
+//         end: 'bottom bottom',
+//       },
+//       ease: 'none',
+//     }
+//   );
+// });
 </script>
 
 <style scoped lang="sass">
