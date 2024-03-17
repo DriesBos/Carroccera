@@ -23,10 +23,12 @@
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
         @projectsEmit="projectsToggle"
+        @teamEmit="teamToggle"
         @backgroundEmit="backgroundClick"
         @closeAllEmit="allClose"
         :headerState="headerState"
         :projectsState="projectsState"
+        :teamState="teamState"
         :contactState="contactState"
       />
     </div>
@@ -44,9 +46,11 @@
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
         @projectsEmit="projectsToggle"
+        @teamEmit="teamToggle"
         @closeAllEmit="allClose"
         :headerState="headerState"
         :projectsState="projectsState"
+        :teamState="teamState"
         :contactState="contactState"
       />
       <ToTop />
@@ -135,6 +139,7 @@ const layerIsLoaded = ref(false);
 // States
 const headerState = ref(false);
 const projectsState = ref(false);
+const teamState = ref(false);
 const contactState = ref(false);
 
 nuxtApp.hook('page:start', () => {
@@ -208,6 +213,12 @@ function projectsToggle() {
   projectsState.value = !projectsState.value;
 }
 
+function teamToggle() {
+  teamState.value = !teamState.value;
+  console.log('TEAM TOGGLED IN HOME');
+  console.log(teamState.value);
+}
+
 function contactToggle() {
   contactState.value = !contactState.value;
 }
@@ -225,6 +236,7 @@ function backgroundClick() {
 function allClose() {
   headerState.value = false;
   projectsState.value = false;
+  teamState.value = false;
   contactState.value = false;
 }
 

@@ -3,7 +3,9 @@
     <div class="menu-Background" />
 
     <div class="menu-Container">
-      <template v-if="headerMenu && !contactState && !projectsState">
+      <template
+        v-if="headerMenu && !contactState && !projectsState && !teamState"
+      >
         <StoryblokComponent
           v-for="blok in headerMenu"
           :key="blok._uid"
@@ -13,6 +15,10 @@
           <div class="dot" />
           <p>Projects</p>
         </div>
+        <div @click="emit('teamEmit', true)" class="menuItem mouseInteract">
+          <div class="dot" />
+          <p>Team</p>
+        </div>
         <div @click="emit('contactEmit', true)" class="menuItem mouseInteract">
           <div class="dot" />
           <p>Contact</p>
@@ -20,6 +26,9 @@
       </template>
       <template v-if="projectsState">
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
+      </template>
+      <template v-if="teamState">
+        <TeamList @teamEmit="teamToggle" @closeAllEmit="allClose" />
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact mouseInteract">
@@ -34,11 +43,17 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const emit = defineEmits(['contactEmit', 'projectsEmit', 'backgroundEmit']);
+const emit = defineEmits([
+  'contactEmit',
+  'projectsEmit',
+  'teamEmit',
+  'backgroundEmit',
+]);
 
 defineProps({
   headerState: Boolean,
   projectsState: Boolean,
+  teamState: Boolean,
   contactState: Boolean,
 });
 
@@ -59,6 +74,10 @@ function allClose() {
 
 function projectsToggle() {
   emit('projectsEmit', true);
+}
+
+function teamToggle() {
+  emit('teamEmit', true);
 }
 
 onMounted(() => {
@@ -118,7 +137,7 @@ onMounted(() => {
       text-transform: uppercase
       &:first-child
         margin-bottom: 1.5rem
-      &:last-child
+      &:nth-last-child(2)
         margin-top: 1.5rem
   &-Background
     position: absolute
@@ -156,7 +175,7 @@ onMounted(() => {
     &:hover
       .dot
         opacity: 1
-  &.header-Menu_Contact, &.header-Menu_ProjectList
+  &.header-Menu_Contact, &.header-Menu_ProjectList, &.header-Menu_TeamList
     margin-top: 0 !important // Negate main menu
     margin-bottom: 0 !important
     opacity: 1
@@ -167,6 +186,13 @@ onMounted(() => {
     justify-content: space-between
     width: 100%
     max-width: 20rem
+    padding: $btn-padding
+    @media screen and (max-width: $breakpoint-mobile)
+      max-width: calc(100% - 1 * #{var(--spacing-hor)})
+  &.header-Menu_TeamList
+    display: flex
+    justify-content: center
+    width: 100%
     padding: $btn-padding
     @media screen and (max-width: $breakpoint-mobile)
       max-width: calc(100% - 1 * #{var(--spacing-hor)})

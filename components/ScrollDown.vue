@@ -71,8 +71,9 @@ onMounted(() => {
   flex-direction: column
   justify-content: flex-end
   gap: 0.66rem
-  z-index: 999
+  z-index: 901
   padding-bottom: .5rem
+  pointer-events: none
   &.headerActive
     opacity: 0 !important
   .icon

@@ -2,7 +2,7 @@
   <header :class="{ active: props.headerState }" class="header">
     <div :class="{ activeShow: headerShow }" class="header-Toggle">
       <div
-        v-if="!props.contactState && !props.projectsState"
+        v-if="!props.contactState && !props.projectsState && !props.teamState"
         @click="emit('headerEmit')"
         :class="{ active: props.headerState }"
         class="header-Toggle_Item mouseInteract"
@@ -45,6 +45,17 @@
           <img src="~assets/icons/iconblok-back.png" alt="" />
         </div>
       </div>
+      <div
+        v-if="props.teamState"
+        @click="emit('teamEmit', true)"
+        class="header-Toggle_Item mouseInteract"
+        :class="{ active: props.teamState }"
+      >
+        <p>Back</p>
+        <div class="icon icon-Close">
+          <img src="~assets/icons/iconblok-back.png" alt="" />
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -52,11 +63,17 @@
 <script setup>
 import { onMounted } from 'vue';
 
-const emit = defineEmits(['headerEmit', 'contactEmit', 'projectsEmit']);
+const emit = defineEmits([
+  'headerEmit',
+  'contactEmit',
+  'projectsEmit',
+  'teamEmit',
+]);
 
 const props = defineProps({
   headerState: Boolean,
   projectsState: Boolean,
+  teamState: Boolean,
   contactState: Boolean,
 });
 
