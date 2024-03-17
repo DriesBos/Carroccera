@@ -40,7 +40,7 @@ onMounted(() => {
   const footerlanding = document.querySelector('.footerlanding');
 
   gsap.to(footerlanding, {
-    y: '100%',
+    y: '100vh',
     scrollTrigger: {
       trigger: footerlanding,
       scrub: true,

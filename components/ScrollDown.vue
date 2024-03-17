@@ -74,10 +74,12 @@ onMounted(() => {
   z-index: 901
   padding-bottom: .5rem
   pointer-events: none
+  will-change: opacity
   &.headerActive
     opacity: 0 !important
   .icon
     opacity: 0
+    will-change: opacity
     &:first-child
       opacity: 0 !important
     &:nth-child(2)

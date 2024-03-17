@@ -291,7 +291,7 @@ onMounted(() => {
         y: '0',
       },
       {
-        y: '-25%',
+        y: '-25vh',
         scrollTrigger: {
           trigger: el,
           start: 'top bottom',
@@ -321,7 +321,7 @@ onMounted(() => {
     '.landingInitDown',
     {
       opacity: 0,
-      y: '-10%',
+      y: '-10vh',
     },
     {
       opacity: 1,
@@ -337,7 +337,7 @@ onMounted(() => {
   gsap.fromTo(
     '.landingInitUp',
     {
-      y: '100%',
+      y: '100vh',
     },
     {
       y: 0,
