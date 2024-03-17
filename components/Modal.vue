@@ -4,6 +4,7 @@
 
     <div class="modal-Container mouseInvert">
       <div @click.native="$emit('close')" class="modal-Close mouseInteract">
+        <p>Close</p>
         <div class="dot active" />
       </div>
 
@@ -65,6 +66,11 @@ const data = defineProps({
     right: 0
     padding: var(--spacing-ver) var(--spacing-hor)
     z-index: +2
+    display: flex
+    align-items: center
+    gap: 1rem
+    text-transform: uppercase
+    pointer-events: auto
   &-Header
     width: 100%
     background: white
