@@ -18,6 +18,7 @@
         @footerLandingLoadedEmit="footerLandingToggleLoaded"
         :headerState="headerState"
       />
+      <ScrollDown :headerState="headerState" />
       <TheMenu
         @contactEmit="contactToggle"
         @headerEmit="headerToggle"
