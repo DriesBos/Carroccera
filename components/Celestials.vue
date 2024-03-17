@@ -184,7 +184,7 @@ onMounted(() => {
     top: 60lvh
     left: 0
     width: 100%
-    transition: opacity .33s ease, top .5s ease
+    transition: opacity .33s ease
     will-change: transform
     z-index: 100
     opacity: 0
