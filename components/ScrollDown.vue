@@ -79,4 +79,7 @@ onMounted(() => {
     opacity: 0
     &:first-child
       opacity: 0 !important
+    &:nth-child(2)
+      @media (hover: none)
+        opacity: 0 !important
 </style>
