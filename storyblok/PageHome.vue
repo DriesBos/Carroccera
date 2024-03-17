@@ -89,11 +89,11 @@
   padding: 1rem
   &-Indicator
     position: relative
-    height: .5rem
+    height: 1rem
     width: 10rem
     max-width: calc(100% - 2rem)
-    border: 1px solid white
-    border-radius: 1000px
+    border: 2px solid white
+    // border-radius: 1000px
     overflow: hidden
     &_Fill
       position: absolute
