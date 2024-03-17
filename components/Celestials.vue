@@ -99,7 +99,7 @@ onMounted(() => {
   const stars = document.querySelector('.stars');
 
   gsap.to(stars, {
-    y: '25%',
+    y: '25vh',
     scrollTrigger: {
       trigger: stars,
       scrub: true,
@@ -112,7 +112,7 @@ onMounted(() => {
   const constellation = document.querySelector('.constellation');
 
   gsap.to(constellation, {
-    y: '25%',
+    y: '25vh',
     scrollTrigger: {
       trigger: constellation,
       scrub: true,
@@ -125,7 +125,7 @@ onMounted(() => {
   const clouds = document.querySelector('.clouds');
 
   gsap.to(clouds, {
-    y: '-325%',
+    y: '-325vh',
     scrollTrigger: {
       trigger: clouds,
       scrub: true,
