@@ -76,6 +76,7 @@ const data = defineProps({
     background: white
     pointer-events: none
     z-index: +1
+    // border:1px solid red
     h1
       font-weight: 500
     p
@@ -107,20 +108,23 @@ const data = defineProps({
       flex-direction: column
       justify-content: flex-start
       padding: var(--spacing-ver) var(--spacing-hor)
-      padding-bottom: 0
+      padding-bottom: calc(#{var(--spacing-ver)} + 1.5rem)
       gap: 1rem
+      @media screen and (max-width: $breakpoint-tablet)
+        padding-bottom: 0
       @media screen and (max-width: $breakpoint-mobile)
         padding-top: calc(2.6rem + 2 * #{var(--spacing-ver)})
       &_Content
+        height: 100%
+        display: flex
         flex-direction: column
-        justify-content: flex-start
-        gap: 1rem
+        justify-content: safe center
         & > div
           margin-bottom: 1rem
           &:last-child
             margin-bottom: 0
-            @media screen and (min-width: $breakpoint-mobile)
-              margin-bottom: 1rem
+            // @media screen and (min-width: $breakpoint-mobile)
+              // margin-bottom: 1rem
     &_Two
       position: relative
       width: 100%
