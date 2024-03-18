@@ -31,9 +31,9 @@ const emit = defineEmits(['footerLoadedEmit']);
 .footer
   position: relative
   width: 100%
-  height: auto
-  margin-top: -25vh
-  img, svg
+  img
     width: 100%
     max-width: 100%
+    @media (hover: none)
+      margin-top: -10%
 </style>
