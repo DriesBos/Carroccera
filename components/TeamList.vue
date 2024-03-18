@@ -26,7 +26,6 @@ let teamList = ref(null);
 content.value = data.story.content.teammembers;
 
 onMounted(() => {
-  console.log('teamList', data.story.content.teammembers);
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       emit('closeAllEmit', true);

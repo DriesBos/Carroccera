@@ -222,8 +222,6 @@ function projectsToggle() {
 
 function teamToggle() {
   teamState.value = !teamState.value;
-  console.log('TEAM TOGGLED IN HOME');
-  console.log(teamState.value);
 }
 
 function contactToggle() {
