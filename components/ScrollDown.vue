@@ -26,7 +26,6 @@ defineProps({
 });
 
 function scrollToProject() {
-  console.log('CLICKED');
   const scrollTo = document.querySelector('.theLandscape');
   gsap.to(window, {
     duration: 2,
