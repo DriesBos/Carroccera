@@ -32,10 +32,7 @@ const emit = defineEmits(['footerLoadedEmit']);
   position: relative
   width: 100%
   height: auto
-  @media (orientation: landscape)
-    margin-top: 4%
-  @media (orientation: portrait)
-    margin-top: -11%
+  margin-top: -25vh
   img, svg
     width: 100%
     max-width: 100%
