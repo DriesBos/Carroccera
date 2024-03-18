@@ -34,6 +34,9 @@ const emit = defineEmits(['footerLoadedEmit']);
   img
     width: 100%
     max-width: 100%
+    @media (hover: hover)
+      @media (orientation: portrait)
+        margin-top: -25%
     @media (hover: none)
       margin-top: -10%
 </style>
