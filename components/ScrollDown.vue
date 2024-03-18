@@ -11,7 +11,7 @@
     </div>
   </div> -->
   <div class="scrollDown" :class="{ headerActive: headerState }">
-    <div class="icon-ScrollDown">
+    <div @click="scrollToProject()" class="icon-ScrollDown">
       <img src="~assets/icons/iconblok-blockydown.png" alt="" />
     </div>
   </div>
@@ -24,6 +24,24 @@ import gsap from 'gsap';
 defineProps({
   headerState: Boolean,
 });
+
+function scrollToProject() {
+  console.log('CLICKED');
+  const scrollTo = document.querySelector('.theLandscape');
+  gsap.to(window, {
+    duration: 2,
+    scrollTo: { y: scrollTo, offsetY: 0 * innerHeight },
+    ease: 'power4.out',
+  });
+  // Temp disable touch
+  // const page = document.querySelector('.page');
+  // page.addEventListener('touchmove', preventTouchMove, { passive: false });
+  // setTimeout(() => {
+  //   page.removeEventListener('touchmove', preventTouchMove, {
+  //     passive: false,
+  //   });
+  // }, 2500);
+}
 
 onMounted(() => {
   const scrollDown = document.querySelector('.scrollDown');
@@ -72,14 +90,17 @@ onMounted(() => {
   justify-content: flex-end
   gap: 0.66rem
   z-index: 901
-  padding-bottom: .5rem
   pointer-events: none
   will-change: opacity
   &.headerActive
     opacity: 0 !important
   .icon-ScrollDown
+    pointer-events: all
+    cursor: pointer
     opacity: 1
     will-change: opacity
+    padding: 1rem
+    padding-bottom: 0.25rem
     img
       width: 1rem
       height: 2rem
