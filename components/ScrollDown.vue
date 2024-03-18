@@ -1,13 +1,18 @@
 <template>
+  <!-- <div class="scrollDown" :class="{ headerActive: headerState }">
+    <div class="icon icon-ArrowDown">
+      <img src="~assets/icons/iconblok-down.png" alt="" />
+    </div>
+    <div class="icon icon-ArrowDown">
+      <img src="~assets/icons/iconblok-down.png" alt="" />
+    </div>
+    <div class="icon icon-ArrowDown">
+      <img src="~assets/icons/iconblok-down.png" alt="" />
+    </div>
+  </div> -->
   <div class="scrollDown" :class="{ headerActive: headerState }">
-    <div class="icon icon-ArrowDown">
-      <img src="~assets/icons/iconblok-down.png" alt="" />
-    </div>
-    <div class="icon icon-ArrowDown">
-      <img src="~assets/icons/iconblok-down.png" alt="" />
-    </div>
-    <div class="icon icon-ArrowDown">
-      <img src="~assets/icons/iconblok-down.png" alt="" />
+    <div class="icon-ScrollDown">
+      <img src="~assets/icons/iconblok-blockydown.png" alt="" />
     </div>
   </div>
 </template>
@@ -22,6 +27,7 @@ defineProps({
 
 onMounted(() => {
   const scrollDown = document.querySelector('.scrollDown');
+  const icon = document.querySelector('.icon-ScrollDown');
 
   gsap.to(scrollDown, {
     opacity: 0,
@@ -34,28 +40,22 @@ onMounted(() => {
     ease: 'none',
   });
 
-  gsap.to('.icon-ArrowDown', {
-    opacity: 1,
-    ease: 'power1.inOut',
-    duration: 0.33,
-    delay: 0,
-    repeatDelay: 1.5,
+  gsap.to(icon, {
+    y: '-50%',
+    ease: 'power2.out',
+    duration: 0.25,
+    delay: 1,
+    repeatDelay: 2,
     repeat: -1,
-    stagger: {
-      amount: 0.5,
-    },
   });
 
-  gsap.to('.icon-ArrowDown', {
-    opacity: 0,
-    ease: 'power1.inOut',
-    duration: 0.33,
-    delay: 1.5,
-    repeatDelay: 1.5,
+  gsap.to(icon, {
+    y: 0,
+    ease: 'bounce',
+    duration: 0.5,
+    delay: 1.25,
+    repeatDelay: 1.75,
     repeat: -1,
-    stagger: {
-      amount: 0.5,
-    },
   });
 });
 </script>
@@ -77,12 +77,10 @@ onMounted(() => {
   will-change: opacity
   &.headerActive
     opacity: 0 !important
-  .icon
-    opacity: 0
+  .icon-ScrollDown
+    opacity: 1
     will-change: opacity
-    &:first-child
-      opacity: 0 !important
-    &:nth-child(2)
-      @media (hover: none)
-        opacity: 0 !important
+    img
+      width: 1rem
+      height: 2rem
 </style>
