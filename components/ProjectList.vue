@@ -32,10 +32,18 @@ function scrollToProject(el) {
   emit('closeAllEmit', true);
   const project = document.getElementById(el.replace(/\s/g, ''));
   gsap.to(window, {
-    duration: 0.66,
+    duration: 2,
     scrollTo: { y: project, offsetY: 0.5 * innerHeight },
     ease: 'power4.out',
   });
+  // Temp disable touch
+  const page = document.querySelector('.page');
+  page.addEventListener('touchmove', preventTouchMove, { passive: false });
+  setTimeout(() => {
+    page.removeEventListener('touchmove', preventTouchMove, {
+      passive: false,
+    });
+  }, 2500);
 }
 
 onMounted(() => {

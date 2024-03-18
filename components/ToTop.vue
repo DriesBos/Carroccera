@@ -17,9 +17,9 @@ function preventTouchMove(e) {
 
 function scrollTop() {
   gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
+  // Temp disable touch
   const page = document.querySelector('.page');
   page.addEventListener('touchmove', preventTouchMove, { passive: false });
-
   setTimeout(() => {
     page.removeEventListener('touchmove', preventTouchMove, {
       passive: false,

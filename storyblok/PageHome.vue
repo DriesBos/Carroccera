@@ -205,7 +205,14 @@ function checkLoadingState() {
 function headerToggle() {
   headerState.value = !headerState.value;
   if (headerState.value) {
-    gsap.to(window, { duration: 1, scrollTo: 0, ease: 'sine.out' });
+    gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
+    // Temp disable touch
+    const page = document.querySelector('.page');
+    page.addEventListener('touchmove', preventTouchMove, { passive: false });
+  } else {
+    page.removeEventListener('touchmove', preventTouchMove, {
+      passive: false,
+    });
   }
 }
 
