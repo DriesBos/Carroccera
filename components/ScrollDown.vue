@@ -81,8 +81,9 @@ onMounted(() => {
 .scrollDown
   position: fixed
   top: 0
-  left: 50%
-  transform: translateX(-50%)
+  // left: 50%
+  right: 0
+  // transform: translateX(-50%)
   height: 100dvh
   display: flex
   flex-direction: column
@@ -98,8 +99,8 @@ onMounted(() => {
     cursor: pointer
     opacity: 1
     will-change: opacity
-    padding: 1rem
-    padding-bottom: 0.25rem
+    padding: var(--spacing-ver) var(--spacing-hor)
+    // padding-bottom: 0.25rem
     img
       width: 1rem
       height: 2rem
