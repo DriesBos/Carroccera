@@ -151,8 +151,6 @@ const randomNumber = Math.floor(Math.random() * 6) + 1;
     @media (hover: hover)
       @media (orientation: portrait)
         margin-top: -25%
-        border: 5px solid red
     @media (hover: none)
       margin-top: -10%
-      border: 5px solid green
 </style>
