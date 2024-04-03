@@ -147,10 +147,10 @@ const randomNumber = Math.floor(Math.random() * 6) + 1;
   img
     width: 100%
     max-width: 100%
-    margin-top: -10%
+    margin-top: -30%
     @media (hover: hover)
       @media (orientation: portrait)
-        margin-top: -25%
+        margin-top: -30%
     @media (hover: none)
-      margin-top: -10%
+      margin-top: -30%
 </style>
