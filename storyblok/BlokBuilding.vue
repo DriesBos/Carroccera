@@ -6,6 +6,15 @@
     :class="[blok.position, blok.positionvertical]"
   >
     <!-- Visible -->
+    <div class="blokBuilding-Arrow">
+      <NuxtImg
+        src="/f/264497/128x230/f3a37fbdbe/short-arrow.png"
+        alt=""
+        provider="storyblok"
+        quality="90"
+        format="webp"
+      />
+    </div>
     <NuxtImg
       v-if="blok.imagelandscape.filename"
       class="landscape"
@@ -157,5 +166,29 @@ onMounted(() => {
     height: 100%
     object-fit: contain
     object-position: center center
+  &-Arrow
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translate(-50%, -50%)
+    width: 7vh
+    height: auto !important
+    transition: all 0.33s ease
+    animation: fadeInOut 3s ease-in-out infinite
+  &:hover
+    @media (hover: hover)
+    .blokBuilding-Arrow
+      transform: translate(-50%, -60%)
+      animation: none
+
+@keyframes fadeInOut
+  0%
+    opacity: 1
+  70%
+    opacity: 1
+  80%
+    opacity: 0
+  100%
+    opacity: 1
 </style>
 ```
