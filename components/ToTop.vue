@@ -8,7 +8,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted } from 'vue';
 import gsap from 'gsap';
 
 function preventTouchMove(e) {
@@ -31,9 +31,11 @@ onMounted(() => {
   const scrollUp = document.querySelector('.scrollUp');
   gsap.set(scrollUp, {
     opacity: 0,
+    zIndex: 0,
   });
   gsap.to(scrollUp, {
     opacity: 1,
+    zIndex: 999,
     scrollTrigger: {
       trigger: scrollUp,
       scrub: true,
