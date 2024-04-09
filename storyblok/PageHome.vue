@@ -293,7 +293,7 @@ onMounted(() => {
     gsap.fromTo(
       el,
       {
-        y: '0',
+        y: '0vh',
       },
       {
         y: '-25vh',
