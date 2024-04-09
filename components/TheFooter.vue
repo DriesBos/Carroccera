@@ -145,15 +145,15 @@ const randomNumber = Math.floor(Math.random() * 6) + 1;
   position: relative
   width: 100%
   // border: 2px solid red
+  @media (hover: none)
+    margin-top: 0
+    // border: 2px solid orange
   img
     // border: 2px solid blue
     margin-top: -25vh
     width: 100%
     max-width: 100%
-    // margin-top: -30%
-    @media (hover: hover)
-      @media (orientation: portrait)
-        // margin-top: -30%
     @media (hover: none)
-      // margin-top: -30%
+      margin-top: 0
+      // border: 2px solid green
 </style>

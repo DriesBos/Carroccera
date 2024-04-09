@@ -72,6 +72,8 @@
   justify-content: flex-start
   & > .blokLayer
     will-change: transform
+    // &:last-child
+    //   border: 2px solid pink
 
 .loading
   position: fixed
