@@ -38,5 +38,5 @@ const emit = defineEmits(['footerLoadedEmit']);
     width: 100%
     max-width: 100%
     @media (hover: none)
-      margin-top: -10%
+      margin-top: -12%
 </style>
