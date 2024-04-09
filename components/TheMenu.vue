@@ -15,10 +15,6 @@
           <div class="dot" />
           <p>Projects</p>
         </div>
-        <!-- <div @click="emit('teamEmit', true)" class="menuItem mouseInteract">
-          <div class="dot" />
-          <p>Team</p>
-        </div> -->
         <div @click="emit('contactEmit', true)" class="menuItem mouseInteract">
           <div class="dot" />
           <p>Contact</p>
@@ -27,9 +23,6 @@
       <template v-if="projectsState">
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
       </template>
-      <!-- <template v-if="teamState">
-        <TeamList @teamEmit="teamToggle" @closeAllEmit="allClose" />
-      </template> -->
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact mouseInteract">
           <div class="dot" />
@@ -135,7 +128,7 @@ onMounted(() => {
         text-decoration: none
     & > div
       text-transform: uppercase
-      &:first-child
+      &:nth-child(2)
         margin-bottom: 1.5rem
       &:nth-last-child(1)
         margin-top: 1.5rem
