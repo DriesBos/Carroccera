@@ -170,23 +170,25 @@ onMounted(() => {
     position: absolute
     top: 0
     left: 50%
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -33%)
     width: 7vh
+    @media (orientation: portrait)
+      width: 7vw
     height: auto !important
-    transition: all 0.33s ease
+    transition: all 0.165s ease
     animation: fadeInOut 3s ease-in-out infinite
   &:hover
     @media (hover: hover)
     .blokBuilding-Arrow
-      transform: translate(-50%, -60%)
+      transform: translate(-50%, -50%)
       animation: none
 
 @keyframes fadeInOut
   0%
     opacity: 1
-  70%
+  75%
     opacity: 1
-  80%
+  85%
     opacity: 0
   100%
     opacity: 1
