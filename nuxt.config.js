@@ -27,6 +27,12 @@ export default defineNuxtConfig({
         { hid: 'og-type', property: 'og:type', content: 'website' },
         { hid: 'og-title', property: 'og:title', content: 'Carroccera' },
         {
+          hid: 'og-url',
+          property: 'og:url',
+          content: 'https://carroccera.com',
+        },
+
+        {
           hid: 'og-image',
           property: 'og:image',
           content:
