@@ -23,6 +23,16 @@ export default defineNuxtConfig({
             'Carroccera explores the imposed boundaries between the human and the natural world, offers residency and rewilds neglected plots of land.',
         },
       ],
+      meta: [
+        { hid: 'og-type', property: 'og:type', content: 'website' },
+        { hid: 'og-title', property: 'og:title', content: 'Carroccera' },
+        {
+          hid: 'og-image',
+          property: 'og:image',
+          content:
+            'https://a.storyblok.com/f/264497/1200x630/5ffdfc64d1/ogimage.png',
+        },
+      ],
       meta: [{ name: 'mobile-web-app-capable', content: 'yes' }],
       meta: [{ name: 'apple-mobile-web-app-capable', content: 'yes' }],
       meta: [{ name: 'apple-touch-fullscreen', content: 'yes' }],
