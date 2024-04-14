@@ -176,7 +176,7 @@ onMounted(() => {
       width: 7vw
     height: auto !important
     transition: all 0.165s ease
-    animation: fadeInOut 3s ease-in-out infinite
+    animation: fadeInOut 2000ms ease-in-out infinite
   &:hover
     @media (hover: hover)
     .blokBuilding-Arrow
