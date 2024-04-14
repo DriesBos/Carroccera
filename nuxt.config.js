@@ -24,8 +24,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'thumbnail',
-          content:
-            'https://a.storyblok.com/f/264497/1200x630/5ffdfc64d1/ogimage.png',
+          content: 'https://carroccera.com/thumbnail.png',
         },
       ],
       meta: [
@@ -46,8 +45,7 @@ export default defineNuxtConfig({
         {
           hid: 'og-image',
           property: 'og:image',
-          content:
-            'https://a.storyblok.com/f/264497/1200x630/5ffdfc64d1/ogimage.png',
+          content: 'https://carroccera.com/thumbnail.png',
         },
       ],
       meta: [{ name: 'mobile-web-app-capable', content: 'yes' }],
