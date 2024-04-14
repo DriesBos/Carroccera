@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'thumbnail',
-          content: 'https://carroccera.com/thumbnail.png',
+          content: '/thumbnail.png',
         },
       ],
       meta: [
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         {
           hid: 'og-image',
           property: 'og:image',
-          content: 'https://carroccera.com/thumbnail.png',
+          content: '/thumbnail.png',
         },
       ],
       meta: [{ name: 'mobile-web-app-capable', content: 'yes' }],
