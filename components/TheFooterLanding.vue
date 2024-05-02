@@ -72,8 +72,6 @@ onMounted(() => {
     width: 100%
     max-width: 100%
     height: auto
-  // &.footerActive
-  //   top: 0
   &.headerActive
     top: 100%
 </style>

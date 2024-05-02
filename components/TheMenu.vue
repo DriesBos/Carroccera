@@ -26,7 +26,17 @@
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact mouseInteract">
           <div class="dot" />
-          <a href="mailto:info@carrocera.com">info@carrocera.com</a>
+          <a href="mailto:info@carrocera.com" target="_blank"
+            >info@carrocera.com</a
+          >
+        </div>
+        <div class="menuItem header-Menu_Contact mouseInteract">
+          <div class="dot" />
+          <a
+            href="https://www.instagram.com/carroccera_collective/"
+            target="_blank"
+            >instagram</a
+          >
         </div>
       </template>
     </div>
