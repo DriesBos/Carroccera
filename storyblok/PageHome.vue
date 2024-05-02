@@ -199,6 +199,9 @@ function checkLoadingState() {
     layerIsLoaded.value
   ) {
     loading.value = false;
+    setTimeout(() => {
+      enableScroll();
+    }, 660);
   }
 }
 
@@ -279,6 +282,7 @@ onBeforeMount(() => {
 
 onMounted(() => {
   window.scrollTo(0, 0);
+  disableScroll();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       headerState.value = false;
