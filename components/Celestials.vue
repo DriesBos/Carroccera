@@ -32,7 +32,7 @@
     >
       <NuxtImg
         class="landscape"
-        src="/f/264497/1920x1280/7cb766bd98/240229_clouds_landscape.png"
+        src="/f/264497/1920x1280/b175941644/240229_clouds_landscape.png"
         alt=""
         provider="storyblok"
         quality="90"
