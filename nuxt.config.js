@@ -12,7 +12,8 @@ export default defineNuxtConfig({
     head: {
       viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
       title: 'Carroccera Collective',
-      description: 'Carroccera Collective',
+      description:
+        'Carroccera explores the imposed boundaries between the human and the natural world, offers residency and rewilds neglected plots of land.',
       htmlAttrs: {
         lang: 'en',
       },
