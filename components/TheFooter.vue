@@ -61,7 +61,7 @@
       <!-- DONE -->
       <NuxtImg
         class="portrait footer-Image"
-        src="/f/264497/1281x1543/7d0e02631b/footer-p-03.pngg"
+        src="/f/264497/1281x1543/7d0e02631b/footer-p-03.png"
         alt=""
         provider="storyblok"
         quality="90"
@@ -186,5 +186,5 @@ const emit = defineEmits(['footerLoadedEmit']);
     width: 100%
     max-width: 100%
     @media (hover: none)
-      margin-top: -12%
+      margin-top: -20%
 </style>
