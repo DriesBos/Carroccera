@@ -17,6 +17,7 @@
       <TheFooterLanding
         @footerLandingLoadedEmit="footerLandingToggleLoaded"
         :headerState="headerState"
+        :footerImage="randomNumber"
       />
       <ScrollDown :headerState="headerState" />
       <TheMenu
@@ -40,7 +41,11 @@
         @imageLoaded="layerToggleLoaded"
       />
     </div>
-    <TheFooter class="layerThree" @footerLoadedEmit="footerToggleLoaded" />
+    <TheFooter
+      class="layerThree"
+      @footerLoadedEmit="footerToggleLoaded"
+      :footerImage="randomNumber"
+    />
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
@@ -54,7 +59,6 @@
         :contactState="contactState"
       />
       <ToTop />
-      <!-- <TheLogo /> -->
     </div>
   </div>
 </template>
@@ -142,6 +146,9 @@ const projectsState = ref(false);
 const teamState = ref(false);
 const contactState = ref(false);
 
+// Image Number
+const randomNumber = ref(null);
+
 nuxtApp.hook('page:start', () => {
   loading.value = true;
 });
@@ -203,6 +210,10 @@ function checkLoadingState() {
       enableScroll();
     }, 660);
   }
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 7);
 }
 
 function headerToggle() {
@@ -283,6 +294,7 @@ onBeforeMount(() => {
 onMounted(() => {
   window.scrollTo(0, 0);
   disableScroll();
+  randomNumber.value = getRandomNumber();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       headerState.value = false;
