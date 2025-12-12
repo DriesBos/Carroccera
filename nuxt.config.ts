@@ -1,19 +1,26 @@
 import svgLoader from 'vite-svg-loader';
 
 export default defineNuxtConfig({
+  // Keep v3 folder structure (files in root, not in /app)
+  srcDir: '.',
+  dir: {
+    app: 'app',
+  },
+
+  compatibilityDate: '2025-01-01',
+
   nitro: {
     prerender: {
       failOnError: false,
     },
   },
+
   ssr: false,
-  // spaLoadingTemplate: './spa-loading-template.html',
+
   app: {
     head: {
       viewport: 'viewport-fit=cover, width=device-width, initial-scale=1',
       title: 'Carroccera Collective',
-      description:
-        'Carroccera explores the imposed boundaries between the human and the natural world, offers residency and rewilds neglected plots of land.',
       htmlAttrs: {
         lang: 'en',
       },
@@ -27,32 +34,24 @@ export default defineNuxtConfig({
           name: 'thumbnail',
           content: '/thumbnail.png',
         },
-      ],
-      meta: [
-        { hid: 'og-type', property: 'og:type', content: 'website' },
-        { hid: 'og-title', property: 'og:title', content: 'Carroccera' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'Carroccera' },
         {
-          hid: 'og-description',
           property: 'og:description',
           content:
             'Carroccera explores the imposed boundaries between the human and the natural world, offers residency and rewilds neglected plots of land.',
         },
         {
-          hid: 'og-url',
           property: 'og:url',
           content: 'https://www.carroccera.com',
         },
-
         {
-          hid: 'og-image',
           property: 'og:image',
           content: '/thumbnail.png',
         },
-      ],
-      meta: [{ name: 'mobile-web-app-capable', content: 'yes' }],
-      meta: [{ name: 'apple-mobile-web-app-capable', content: 'yes' }],
-      meta: [{ name: 'apple-touch-fullscreen', content: 'yes' }],
-      meta: [
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-touch-fullscreen', content: 'yes' },
         {
           name: 'apple-mobile-web-app-status-bar-style',
           content: 'black-translucent',
@@ -96,15 +95,10 @@ export default defineNuxtConfig({
   ],
 
   modules: [
-    [
-      '@storyblok/nuxt',
-      {
-        accessToken: process.env.PREVIEWKEY,
-      },
-    ],
-    ['@vueuse/nuxt'],
-    ['@nuxt/image'],
-    ['@nuxtjs/robots'],
+    ['@storyblok/nuxt', { accessToken: process.env.PREVIEWKEY }],
+    '@vueuse/nuxt',
+    '@nuxt/image',
+    '@nuxtjs/robots',
   ],
 
   build: {
