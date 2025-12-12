@@ -1,29 +1,29 @@
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { isRef, onScopeDispose, getCurrentScope } from 'vue'
-import type { Ref } from 'vue'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { isRef, onScopeDispose, getCurrentScope } from 'vue';
+import type { Ref } from 'vue';
 
 interface UseGsapOptions {
   /**
    * Scope for selector text - all selectors will be scoped to this element
    */
-  scope?: Ref<HTMLElement | null> | HTMLElement | null
+  scope?: Ref<HTMLElement | null> | HTMLElement | null;
 }
 
 interface UseGsapReturn {
   /**
    * GSAP instance - use this for all animations
    */
-  gsap: typeof gsap
+  gsap: typeof gsap;
   /**
    * ScrollTrigger class for creating standalone ScrollTriggers
    */
-  ScrollTrigger: typeof ScrollTrigger
+  ScrollTrigger: typeof ScrollTrigger;
   /**
    * Wraps a function to make it "context-safe" - any GSAP animations
    * created inside will be automatically cleaned up
    */
-  contextSafe: <T extends (...args: any[]) => any>(fn: T) => T
+  contextSafe: <T extends (...args: any[]) => any>(fn: T) => T;
 }
 
 /**
@@ -61,28 +61,28 @@ export function useGsap(options: UseGsapOptions = {}): UseGsapReturn {
       gsap,
       ScrollTrigger,
       contextSafe: <T extends (...args: any[]) => any>(fn: T) => fn,
-    }
+    };
   }
 
   // Get the scope element
   const getScope = (): Element | undefined => {
-    if (!options.scope) return undefined
+    if (!options.scope) return undefined;
     if (isRef(options.scope)) {
-      return options.scope.value ?? undefined
+      return options.scope.value ?? undefined;
     }
-    return options.scope ?? undefined
-  }
+    return options.scope ?? undefined;
+  };
 
   // Create context immediately (will be populated during onMounted)
-  const ctx = gsap.context(() => {}, getScope())
+  const ctx = gsap.context(() => {}, getScope());
 
   // Clean up on unmount - revert all animations and kill ScrollTriggers
   // Only register the disposal if there is an active effect scope. Calling
   // `onScopeDispose` without an active scope triggers a Vue warning.
   if (getCurrentScope()) {
     onScopeDispose(() => {
-      ctx.revert()
-    })
+      ctx.revert();
+    });
   }
 
   /**
@@ -91,39 +91,42 @@ export function useGsap(options: UseGsapOptions = {}): UseGsapReturn {
    */
   const contextSafe = <T extends (...args: any[]) => any>(fn: T): T => {
     return ((...args: any[]) => {
-      let result: any
+      let result: any;
       ctx.add(() => {
-        result = fn(...args)
-      })
-      return result
-    }) as T
-  }
+        result = fn(...args);
+      });
+      return result;
+    }) as T;
+  };
 
   // Create a wrapped gsap object that auto-adds to context
   const wrappedGsap = new Proxy(gsap, {
     get(target, prop) {
-      const value = target[prop as keyof typeof gsap]
+      const value = target[prop as keyof typeof gsap];
 
       // Wrap animation methods to auto-add to context
-      if (typeof value === 'function' && ['to', 'from', 'fromTo', 'set', 'timeline'].includes(prop as string)) {
+      if (
+        typeof value === 'function' &&
+        ['to', 'from', 'fromTo', 'set', 'timeline'].includes(prop as string)
+      ) {
         return (...args: any[]) => {
-          let result: any
+          let result: any;
           ctx.add(() => {
-            result = (value as Function).apply(target, args)
-          })
-          return result
-        }
+            result = (value as Function).apply(target, args);
+          });
+          return result;
+        };
       }
 
-      return value
+      return value;
     },
-  }) as typeof gsap
+  }) as typeof gsap;
 
   return {
     gsap: wrappedGsap,
     ScrollTrigger,
     contextSafe,
-  }
+  };
 }
 
 /**
@@ -141,19 +144,28 @@ export function useGsap(options: UseGsapOptions = {}): UseGsapReturn {
  * ```
  */
 export function useScrollTo() {
-  const { gsap, contextSafe } = useGsap()
+  const { gsap, contextSafe } = useGsap();
 
   interface ScrollToOptions {
-    duration?: number
-    ease?: string
-    offsetY?: number
-    offsetX?: number
-    onComplete?: () => void
+    duration?: number;
+    ease?: string;
+    offsetY?: number;
+    offsetX?: number;
+    onComplete?: () => void;
   }
 
   const scrollTo = contextSafe(
-    (target: string | number | Element, options: ScrollToOptions = {}): gsap.core.Tween => {
-      const { duration = 2, ease = 'power4.out', offsetY = 0, offsetX = 0, onComplete } = options
+    (
+      target: string | number | Element,
+      options: ScrollToOptions = {}
+    ): gsap.core.Tween => {
+      const {
+        duration = 2,
+        ease = 'power4.out',
+        offsetY = 0,
+        offsetX = 0,
+        onComplete,
+      } = options;
 
       return gsap.to(window, {
         duration,
@@ -165,17 +177,19 @@ export function useScrollTo() {
           offsetX,
         },
         onComplete,
-      })
+      });
     }
-  )
+  );
 
-  const scrollToTop = contextSafe((options: Omit<ScrollToOptions, 'offsetY' | 'offsetX'> = {}) => {
-    const { duration = 2, ease = 'power4.out', onComplete } = options
-    return gsap.to(window, { duration, scrollTo: 0, ease, onComplete })
-  })
+  const scrollToTop = contextSafe(
+    (options: Omit<ScrollToOptions, 'offsetY' | 'offsetX'> = {}) => {
+      const { duration = 2, ease = 'power4.out', onComplete } = options;
+      return gsap.to(window, { duration, scrollTo: 0, ease, onComplete });
+    }
+  );
 
   return {
     scrollTo,
     scrollToTop,
-  }
+  };
 }
