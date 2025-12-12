@@ -8,7 +8,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -19,7 +18,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -33,7 +31,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -45,7 +42,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -59,7 +55,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -71,7 +66,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -85,7 +79,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -97,7 +90,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -111,7 +103,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)" />
       <!-- DONE -->
@@ -122,7 +113,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
     /></template>
@@ -135,7 +125,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -147,7 +136,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -161,7 +149,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="emit('footerLoadedEmit', true)"
       />
@@ -173,7 +160,6 @@
         provider="storyblok"
         quality="60"
         format="webp"
-        loading="lazy"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
         @load="emit('footerLoadedEmit', true)"
       />
