@@ -125,6 +125,7 @@
 
 <script setup>
 import { ref, watch, onMounted, onBeforeMount } from 'vue';
+import { useScrollLock } from '@vueuse/core';
 
 const { gsap, contextSafe } = useGsap();
 
@@ -132,6 +133,9 @@ defineProps({ blok: Object });
 
 // Template ref
 const pageRef = ref(null);
+
+// Scroll lock (VueUse)
+const scrollLock = useScrollLock(pageRef);
 
 // Loading
 const nuxtApp = useNuxtApp();
@@ -211,8 +215,8 @@ function checkLoadingState() {
   ) {
     loading.value = false;
     setTimeout(() => {
-      enableScroll();
-    }, 660);
+        scrollLock.value = false;
+      }, 660);
   }
 }
 
@@ -223,15 +227,16 @@ function getRandomNumber() {
 const headerToggle = contextSafe(() => {
   headerState.value = !headerState.value;
   if (headerState.value) {
-    gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
-    // Temp disable touch
-    if (pageRef.value) {
-      pageRef.value.addEventListener('touchmove', preventTouchMove, { passive: false });
-    }
-  } else {
-    if (pageRef.value) {
-      pageRef.value.removeEventListener('touchmove', preventTouchMove, { passive: false });
-    }
+    // Lock scrolling during the animation
+    scrollLock.value = true;
+    gsap.to(window, {
+      duration: 2,
+      scrollTo: 0,
+      ease: 'power4.out',
+      onComplete: () => {
+        scrollLock.value = false;
+      },
+    });
   }
 });
 
@@ -264,32 +269,10 @@ function allClose() {
   contactState.value = false;
 }
 
-function preventTouchMove(e) {
-  e.preventDefault();
-}
-
-function disableScroll() {
-  document.documentElement.style.overflow = 'hidden';
-
-  if (pageRef.value) {
-    pageRef.value.addEventListener('touchmove', preventTouchMove, { passive: false });
-  }
-}
-
-function enableScroll() {
-  document.documentElement.style.overflow = 'auto';
-
-  if (pageRef.value) {
-    pageRef.value.removeEventListener('touchmove', preventTouchMove, { passive: false });
-  }
-}
+// Scroll lock is handled by VueUse `useScrollLock`
 
 watch(headerState, (newVal) => {
-  if (newVal) {
-    disableScroll();
-  } else {
-    enableScroll();
-  }
+  scrollLock.value = newVal;
 });
 
 onBeforeMount(() => {
@@ -298,7 +281,8 @@ onBeforeMount(() => {
 
 onMounted(() => {
   window.scrollTo(0, 0);
-  disableScroll();
+  // keep scroll locked until initial load completes
+  scrollLock.value = true;
   randomNumber.value = getRandomNumber();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
