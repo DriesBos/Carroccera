@@ -13,7 +13,7 @@ import { ref, onMounted } from 'vue';
 const { gsap, contextSafe } = useGsap();
 
 // Template ref
-const scrollUpRef = ref<HTMLElement | null>(null);
+const scrollUpRef = ref(null);
 
 function preventTouchMove(e) {
   e.preventDefault();

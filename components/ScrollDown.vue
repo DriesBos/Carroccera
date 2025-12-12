@@ -20,8 +20,8 @@ defineProps({
 });
 
 // Template refs
-const scrollDownRef = ref<HTMLElement | null>(null);
-const iconRef = ref<HTMLElement | null>(null);
+const scrollDownRef = ref(null);
+const iconRef = ref(null);
 
 const scrollToProject = contextSafe(() => {
   // Target external element via selector (not in this component's template)

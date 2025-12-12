@@ -131,7 +131,7 @@ const { gsap, contextSafe } = useGsap();
 defineProps({ blok: Object });
 
 // Template ref
-const pageRef = ref<HTMLElement | null>(null);
+const pageRef = ref(null);
 
 // Loading
 const nuxtApp = useNuxtApp();

@@ -100,9 +100,9 @@ defineProps({
 });
 
 // Template refs
-const starsRef = ref<HTMLElement | null>(null);
-const cloudsRef = ref<HTMLElement | null>(null);
-const constellationRef = ref<HTMLElement | null>(null);
+const starsRef = ref(null);
+const cloudsRef = ref(null);
+const constellationRef = ref(null);
 
 onMounted(() => {
   if (!starsRef.value || !cloudsRef.value || !constellationRef.value) return;
