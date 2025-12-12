@@ -80,7 +80,8 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         sass: {
-          additionalData: '@import "@/assets/styles/vars/variables.sass"',
+          additionalData: '@use "@/assets/styles/vars/variables.sass" as *\n',
+          silenceDeprecations: ['import'],
         },
       },
     },
