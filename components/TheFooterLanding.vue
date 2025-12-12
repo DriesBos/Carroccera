@@ -174,7 +174,8 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import gsap from 'gsap';
+
+const { gsap } = useGsap();
 
 defineProps({
   headerState: Boolean,

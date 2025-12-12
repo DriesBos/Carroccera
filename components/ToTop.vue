@@ -9,13 +9,14 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import gsap from 'gsap';
+
+const { gsap, contextSafe } = useGsap();
 
 function preventTouchMove(e) {
   e.preventDefault();
 }
 
-function scrollTop() {
+const scrollTop = contextSafe(() => {
   gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
   // Temp disable touch
   const page = document.querySelector('.page');
@@ -25,7 +26,7 @@ function scrollTop() {
       passive: false,
     });
   }, 2500);
-}
+});
 
 onMounted(() => {
   const scrollUp = document.querySelector('.scrollUp');

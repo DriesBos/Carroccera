@@ -125,7 +125,8 @@
 
 <script setup>
 import { ref, watch, onMounted, onBeforeMount } from 'vue';
-import gsap from 'gsap';
+
+const { gsap, contextSafe } = useGsap();
 
 defineProps({ blok: Object });
 
@@ -216,7 +217,7 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 7);
 }
 
-function headerToggle() {
+const headerToggle = contextSafe(() => {
   headerState.value = !headerState.value;
   if (headerState.value) {
     gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
@@ -228,7 +229,7 @@ function headerToggle() {
       passive: false,
     });
   }
-}
+});
 
 function projectsToggle() {
   projectsState.value = !projectsState.value;

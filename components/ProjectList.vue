@@ -14,7 +14,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import gsap from 'gsap';
+
+const { gsap, contextSafe } = useGsap();
 
 const emit = defineEmits(['projectsEmit', 'closeAllEmit']);
 
@@ -28,7 +29,7 @@ const content = ref(null);
 let projectList = ref(null);
 content.value = data.story.content.body;
 
-function scrollToProject(el) {
+const scrollToProject = contextSafe((el) => {
   emit('closeAllEmit', true);
   const project = document.getElementById(el.replace(/\s/g, ''));
   gsap.to(window, {
@@ -44,7 +45,7 @@ function scrollToProject(el) {
       passive: false,
     });
   }, 2500);
-}
+});
 
 onMounted(() => {
   let arrayOfLandscapes = content.value

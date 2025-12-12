@@ -82,7 +82,8 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import gsap from 'gsap';
+
+const { gsap } = useGsap();
 
 const emit = defineEmits([
   'headerEmit',

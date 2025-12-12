@@ -18,14 +18,15 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import gsap from 'gsap';
+import { ref, onMounted } from 'vue';
+
+const { gsap, contextSafe } = useGsap();
 
 defineProps({
   headerState: Boolean,
 });
 
-function scrollToProject() {
+const scrollToProject = contextSafe(() => {
   const scrollTo = document.querySelector('.theLandscape');
   gsap.to(window, {
     duration: 2,
@@ -40,7 +41,7 @@ function scrollToProject() {
   //     passive: false,
   //   });
   // }, 2500);
-}
+});
 
 onMounted(() => {
   const scrollDown = document.querySelector('.scrollDown');
