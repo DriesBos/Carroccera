@@ -1,7 +1,15 @@
 <template>
   <div v-editable="blok" class="view-Page view-Article">
     <div>
-      <img :src="blok.image.filename + '/m/1600x0'" :alt="blok.image.alt" />
+      <NuxtImg
+        :src="blok.image.filename"
+        :alt="blok.image.alt"
+        provider="storyblok"
+        quality="60"
+        format="webp"
+        sizes="sm:640px md:768px lg:1024px xl:1280px xxl:1600px"
+        loading="lazy"
+      />
     </div>
     <div>
       <h1>{{ blok.title }}</h1>

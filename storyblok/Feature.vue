@@ -3,7 +3,14 @@
     <h3>
       {{ blok.name }}
     </h3>
-    <img :src="blok.image.filename" :alt="blok.image.alt" />
+    <NuxtImg
+      :src="blok.image.filename"
+      :alt="blok.image.alt"
+      provider="storyblok"
+      quality="60"
+      format="webp"
+      loading="lazy"
+    />
   </div>
 </template>
 

@@ -12,7 +12,8 @@
         :src="blok.background.filename"
         alt=""
         provider="storyblok"
-        quality="90"
+        quality="60"
+        format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
         @load="imageLoaded()"
       />
@@ -22,8 +23,9 @@
         :src="blok.backgroundVertical.filename"
         alt=""
         provider="storyblok"
+        quality="60"
+        format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        quality="90"
       />
     </div>
   </div>

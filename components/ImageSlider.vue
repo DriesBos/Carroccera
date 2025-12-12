@@ -2,7 +2,15 @@
   <div class="slider">
     <div class="slider-Image">
       <Transition name="fade">
-        <img :key="currentImage" :src="images[currentImage].image" alt="" />
+        <NuxtImg
+          :key="currentImage"
+          :src="images[currentImage].image"
+          alt=""
+          provider="storyblok"
+          quality="60"
+          format="webp"
+          loading="lazy"
+        />
       </Transition>
     </div>
     <Transition name="fade">
@@ -29,18 +37,9 @@
 <script>
 export default {
   name: 'ImageSlider',
-  props: {
-    images: {
-      type: Array,
-      required: true,
-    },
-  },
+  props: { images: { type: Array, required: true } },
   data() {
-    return {
-      currentImage: 0,
-      isNextVisible: true,
-      isPrevVisible: true,
-    };
+    return { currentImage: 0, isNextVisible: true, isPrevVisible: true };
   },
   mounted() {
     this.navVisibility();

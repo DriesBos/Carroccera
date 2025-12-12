@@ -11,8 +11,9 @@
         src="/f/264497/128x230/f3a37fbdbe/short-arrow.png"
         alt=""
         provider="storyblok"
-        quality="90"
+        quality="60"
         format="webp"
+        loading="lazy"
       />
     </div>
     <NuxtImg
@@ -22,9 +23,10 @@
       :src="blok.imagelandscape.filename"
       alt=""
       provider="storyblok"
-      quality="90"
+      quality="60"
       format="webp"
       sizes="xsm:427px sm:456px md:480px lg:512px xl:640px"
+      loading="lazy"
     />
     <NuxtImg
       v-if="blok.image.filename"
@@ -33,9 +35,10 @@
       :src="blok.image.filename"
       alt=""
       provider="storyblok"
-      quality="90"
+      quality="60"
       format="webp"
       sizes="xsm:120px sm:130px md:256px lg:341px xl:427px"
+      loading="lazy"
     />
     <!-- Invisible -->
     <Teleport to="body">
