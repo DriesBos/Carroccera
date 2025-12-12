@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="footerRef"
     class="footerlanding landingInitUp"
     :class="{ headerActive: headerState }"
   >
@@ -12,7 +13,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <NuxtImg
         class="portrait"
@@ -22,7 +23,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
     <template v-if="footerImage == 1">
@@ -35,7 +36,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <!-- DONE -->
       <NuxtImg
@@ -46,7 +47,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
     <template v-if="footerImage == 2">
@@ -59,7 +60,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <!-- DONE -->
       <NuxtImg
@@ -70,7 +71,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
     <template v-if="footerImage == 3">
@@ -83,7 +84,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <!-- DONE -->
       <NuxtImg
@@ -94,7 +95,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
     <template v-if="footerImage == 4">
@@ -107,7 +108,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <!-- DONE -->
       <NuxtImg
@@ -118,7 +119,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
     <template v-if="footerImage == 5">
@@ -131,7 +132,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <!-- DONE -->
       <NuxtImg
@@ -142,7 +143,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
     <template v-if="footerImage == 6">
@@ -155,7 +156,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
       <!-- DONE -->
       <NuxtImg
@@ -166,35 +167,57 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('footerLandingLoadedEmit', true)"
+        @load="onFooterLoad"
       />
     </template>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
-const { gsap } = useGsap();
+const { gsap, ScrollTrigger } = useGsap();
 
 defineProps({ headerState: Boolean, footerImage: Number });
 
 const emit = defineEmits(['footerLandingLoadedEmit']);
 
-onMounted(() => {
-  const footerlanding = document.querySelector('.footerlanding');
+// Template ref for the footer element
+const footerRef = ref(null);
 
-  gsap.to(footerlanding, {
+onMounted(() => {
+  if (!footerRef.value) return;
+
+  gsap.to(footerRef.value, {
     y: '100vh',
     scrollTrigger: {
-      trigger: footerlanding,
+      trigger: footerRef.value,
       scrub: true,
+      invalidateOnRefresh: true,
+      refreshPriority: 1,
       start: 'top top',
       end: 'bottom 0%',
     },
     ease: 'none',
   });
+
+  if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
+    setTimeout(() => ScrollTrigger.refresh(), 50);
+  }
 });
+
+// Debounced local refresh helper
+let _localRefreshTimer = null;
+function localRequestRefresh(ms = 80) {
+  if (!ScrollTrigger || typeof ScrollTrigger.refresh !== 'function') return;
+  if (_localRefreshTimer) clearTimeout(_localRefreshTimer);
+  _localRefreshTimer = setTimeout(() => ScrollTrigger.refresh(), ms);
+}
+
+function onFooterLoad() {
+  emit('footerLandingLoadedEmit', true);
+  localRequestRefresh();
+}
 </script>
 
 <style scoped lang="sass">

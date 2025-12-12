@@ -10,7 +10,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const { gsap, contextSafe } = useGsap();
+const { gsap, contextSafe, ScrollTrigger } = useGsap();
 
 // Template ref
 const scrollUpRef = ref(null);
@@ -44,11 +44,17 @@ onMounted(() => {
     scrollTrigger: {
       trigger: scrollUpRef.value,
       scrub: true,
+      invalidateOnRefresh: true,
+      refreshPriority: 1,
       start: 'top top',
       end: 'top top',
     },
     ease: 'none',
   });
+
+  if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
+    setTimeout(() => ScrollTrigger.refresh(), 50);
+  }
 });
 </script>
 

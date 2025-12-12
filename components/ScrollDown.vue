@@ -13,7 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const { gsap, contextSafe } = useGsap();
+const { gsap, contextSafe, ScrollTrigger } = useGsap();
 
 defineProps({
   headerState: Boolean,
@@ -41,6 +41,8 @@ onMounted(() => {
     scrollTrigger: {
       trigger: scrollDownRef.value,
       scrub: true,
+      invalidateOnRefresh: true,
+      refreshPriority: 1,
       start: 'top top',
       end: 'bottom center',
     },
@@ -55,6 +57,10 @@ onMounted(() => {
     repeatDelay: 2,
     repeat: -1,
   });
+
+  if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
+    setTimeout(() => ScrollTrigger.refresh(), 50);
+  }
 
   gsap.to(iconRef.value, {
     y: 0,

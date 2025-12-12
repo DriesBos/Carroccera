@@ -127,7 +127,7 @@
 import { ref, watch, onMounted, onBeforeMount } from 'vue';
 import { useScrollLock } from '@vueuse/core';
 
-const { gsap, contextSafe } = useGsap();
+const { gsap, contextSafe, ScrollTrigger } = useGsap();
 
 defineProps({ blok: Object });
 
@@ -136,6 +136,20 @@ const pageRef = ref(null);
 
 // Scroll lock (VueUse)
 const scrollLock = useScrollLock(pageRef);
+
+// Debounced ScrollTrigger refresh helper
+let _refreshTimer = null;
+function requestRefresh(ms = 120) {
+  if (!ScrollTrigger || typeof ScrollTrigger.refresh !== 'function') return;
+  if (_refreshTimer) clearTimeout(_refreshTimer);
+  _refreshTimer = setTimeout(() => {
+    try {
+      ScrollTrigger.refresh();
+    } catch (e) {
+      // ignore
+    }
+  }, ms);
+}
 
 // Loading
 const nuxtApp = useNuxtApp();
@@ -176,31 +190,37 @@ nuxtApp.hook('page:loading:end', () => {
 function footerToggleLoaded() {
   footerIsLoaded.value = true;
   checkLoadingState();
+  requestRefresh();
 }
 
 function footerLandingToggleLoaded() {
   footerLandingIsLoaded.value = true;
   checkLoadingState();
+  requestRefresh();
 }
 
 function starsToggleLoaded() {
   starsIsLoaded.value = true;
   checkLoadingState();
+  requestRefresh();
 }
 
 function cloudsToggleLoaded() {
   cloudsIsLoaded.value = true;
   checkLoadingState();
+  requestRefresh();
 }
 
 function constellationToggleLoaded() {
   constellationIsLoaded.value = true;
   checkLoadingState();
+  requestRefresh();
 }
 
 function layerToggleLoaded() {
   layerIsLoaded.value = true;
   checkLoadingState();
+  requestRefresh();
 }
 
 function checkLoadingState() {
@@ -307,10 +327,17 @@ onMounted(() => {
           start: 'top bottom',
           end: 'top 0%',
           scrub: true,
+          invalidateOnRefresh: true,
+          refreshPriority: 1,
         },
       }
     );
   });
+
+  // Refresh ScrollTrigger now that layer triggers are created
+  if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
+    setTimeout(() => ScrollTrigger.refresh(), 50);
+  }
 
   gsap.fromTo(
     '.landingInit',

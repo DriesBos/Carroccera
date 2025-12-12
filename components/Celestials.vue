@@ -13,7 +13,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('starsLoadedEmit', true)"
+        @load="onStarsLoad"
       />
       <NuxtImg
         class="portrait"
@@ -23,7 +23,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('starsLoadedEmit', true)"
+        @load="onStarsLoad"
       />
     </div>
 
@@ -40,7 +40,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('cloudsLoadedEmit', true)"
+        @load="onCloudsLoad"
       />
       <NuxtImg
         class="portrait"
@@ -50,7 +50,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('cloudsLoadedEmit', true)"
+        @load="onCloudsLoad"
       />
     </div>
 
@@ -67,7 +67,7 @@
         quality="60"
         format="webp"
         sizes="xsm:1280px sm:1366px md:1440px lg:1536px xl:1920px"
-        @load="emit('constellationLoadedEmit', true)"
+        @load="onConstellationLoad"
       />
       <NuxtImg
         class="portrait"
@@ -77,7 +77,7 @@
         quality="60"
         format="webp"
         sizes="xsm:360px sm:390px md:768px lg:1024px xl:1280px"
-        @load="emit('constellationLoadedEmit', true)"
+        @load="onConstellationLoad"
       />
     </div>
   </div>
@@ -86,7 +86,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-const { gsap } = useGsap();
+const { gsap, ScrollTrigger } = useGsap();
 
 const emit = defineEmits([
   'headerEmit',
@@ -112,6 +112,8 @@ onMounted(() => {
     scrollTrigger: {
       trigger: starsRef.value,
       scrub: true,
+      invalidateOnRefresh: true,
+      refreshPriority: 1,
       start: 'top top',
       end: 'bottom 0%',
     },
@@ -123,6 +125,8 @@ onMounted(() => {
     scrollTrigger: {
       trigger: constellationRef.value,
       scrub: true,
+      invalidateOnRefresh: true,
+      refreshPriority: 1,
       start: 'top top',
       end: 'bottom -100%',
     },
@@ -134,12 +138,44 @@ onMounted(() => {
     scrollTrigger: {
       trigger: cloudsRef.value,
       scrub: true,
+      invalidateOnRefresh: true,
+      refreshPriority: 1,
       start: 'top 60%',
       end: 'bottom 100%',
     },
     ease: 'none',
   });
+
+  // Refresh ScrollTrigger measurements now that triggers are created
+  // and images may still be loading; calling refresh ensures correct positions
+  if (ScrollTrigger && typeof ScrollTrigger.refresh === 'function') {
+    // small timeout allows browser to layout images that finish loading immediately
+    setTimeout(() => ScrollTrigger.refresh(), 50);
+  }
 });
+
+// Debounced local refresh helper
+let _localRefreshTimer = null;
+function localRequestRefresh(ms = 80) {
+  if (!ScrollTrigger || typeof ScrollTrigger.refresh !== 'function') return;
+  if (_localRefreshTimer) clearTimeout(_localRefreshTimer);
+  _localRefreshTimer = setTimeout(() => ScrollTrigger.refresh(), ms);
+}
+
+function onStarsLoad() {
+  emit('starsLoadedEmit', true);
+  localRequestRefresh();
+}
+
+function onCloudsLoad() {
+  emit('cloudsLoadedEmit', true);
+  localRequestRefresh();
+}
+
+function onConstellationLoad() {
+  emit('constellationLoadedEmit', true);
+  localRequestRefresh();
+}
 </script>
 
 <style scoped lang="sass">
