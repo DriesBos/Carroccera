@@ -233,6 +233,7 @@ function onFooterLoad() {
     width: 100%
     max-width: 100%
     height: auto
+    filter: $drop-shadow
   &.headerActive
     top: 100%
 </style>

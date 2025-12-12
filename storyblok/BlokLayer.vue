@@ -83,6 +83,7 @@ function imageLoaded() {
         top: 0
         left: 0
         width: 100%
+        filter: $drop-shadow
   & > .blokBuilding
     &:nth-child(1)
       .blokBuilding-Arrow

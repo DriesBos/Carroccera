@@ -194,6 +194,7 @@ function onConstellationLoad() {
         height: 100%
         object-fit: cover
         object-position: center top
+        filter: drop-shadow(8px 4px 10px rgba(0, 0, 0, 0.165))
   .constellation
     position: fixed
     top: 0
@@ -210,6 +211,7 @@ function onConstellationLoad() {
         height: 100%
         object-fit: contain
         object-position: center center
+        filter: $drop-shadow
     &.headerActive
       opacity: 0 !important
   .clouds
@@ -228,6 +230,7 @@ function onConstellationLoad() {
         height: 100%
         object-fit: cover
         object-position: center center
+        filter: $drop-shadow
     &.headerActive
       opacity: 0 !important
 </style>
