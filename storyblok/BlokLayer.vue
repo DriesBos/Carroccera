@@ -42,6 +42,8 @@ function imageLoaded() {
 </script>
 
 <style lang="sass">
+@use "sass:math"
+
 .blokLayer
   position: relative
   width: 100%
@@ -84,11 +86,11 @@ function imageLoaded() {
   & > .blokBuilding
     &:nth-child(1)
       .blokBuilding-Arrow
-        animation-delay: #{random(1000)}ms
+        animation-delay: #{math.random(1000)}ms
     &:nth-child(2)
       .blokBuilding-Arrow
-        animation-delay: #{random(1000)}ms
+        animation-delay: #{math.random(1000)}ms
     &:nth-child(3)
       .blokBuilding-Arrow
-        animation-delay: #{random(1000)}ms
+        animation-delay: #{math.random(1000)}ms
 </style>
