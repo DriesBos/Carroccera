@@ -23,7 +23,7 @@
         </div>
         <div @click="emit('mediaEmit', true)" class="menuItem mouseInteract">
           <div class="dot" />
-          <p>Media & Awards</p>
+          <p>News & Awards</p>
         </div>
         <div @click="emit('contactEmit', true)" class="menuItem mouseInteract">
           <div class="dot" />
