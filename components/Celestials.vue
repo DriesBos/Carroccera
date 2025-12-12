@@ -87,6 +87,7 @@
 import { ref, onMounted } from 'vue';
 
 const { gsap, ScrollTrigger } = useGsap();
+const { requestRefresh } = useScrollRefresh();
 
 const emit = defineEmits([
   'headerEmit',
@@ -154,27 +155,19 @@ onMounted(() => {
   }
 });
 
-// Debounced local refresh helper
-let _localRefreshTimer = null;
-function localRequestRefresh(ms = 80) {
-  if (!ScrollTrigger || typeof ScrollTrigger.refresh !== 'function') return;
-  if (_localRefreshTimer) clearTimeout(_localRefreshTimer);
-  _localRefreshTimer = setTimeout(() => ScrollTrigger.refresh(), ms);
-}
-
 function onStarsLoad() {
   emit('starsLoadedEmit', true);
-  localRequestRefresh();
+  requestRefresh(80);
 }
 
 function onCloudsLoad() {
   emit('cloudsLoadedEmit', true);
-  localRequestRefresh();
+  requestRefresh(80);
 }
 
 function onConstellationLoad() {
   emit('constellationLoadedEmit', true);
-  localRequestRefresh();
+  requestRefresh(80);
 }
 </script>
 

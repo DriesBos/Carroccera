@@ -141,19 +141,7 @@ const pageRef = ref(null);
 // Scroll lock (VueUse)
 const scrollLock = useScrollLock(pageRef);
 
-// Debounced ScrollTrigger refresh helper
-let _refreshTimer = null;
-function requestRefresh(ms = 120) {
-  if (!ScrollTrigger || typeof ScrollTrigger.refresh !== 'function') return;
-  if (_refreshTimer) clearTimeout(_refreshTimer);
-  _refreshTimer = setTimeout(() => {
-    try {
-      ScrollTrigger.refresh();
-    } catch (e) {
-      // ignore
-    }
-  }, ms);
-}
+const { requestRefresh, refreshNow } = useScrollRefresh();
 
 // Loading
 const nuxtApp = useNuxtApp();

@@ -184,6 +184,7 @@ const emit = defineEmits(['footerLandingLoadedEmit']);
 
 // Template ref for the footer element
 const footerRef = ref(null);
+const { requestRefresh } = useScrollRefresh();
 
 onMounted(() => {
   if (!footerRef.value) return;
@@ -206,17 +207,9 @@ onMounted(() => {
   }
 });
 
-// Debounced local refresh helper
-let _localRefreshTimer = null;
-function localRequestRefresh(ms = 80) {
-  if (!ScrollTrigger || typeof ScrollTrigger.refresh !== 'function') return;
-  if (_localRefreshTimer) clearTimeout(_localRefreshTimer);
-  _localRefreshTimer = setTimeout(() => ScrollTrigger.refresh(), ms);
-}
-
 function onFooterLoad() {
   emit('footerLandingLoadedEmit', true);
-  localRequestRefresh();
+  requestRefresh(80);
 }
 </script>
 
