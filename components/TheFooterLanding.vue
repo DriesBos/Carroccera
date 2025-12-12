@@ -177,10 +177,7 @@ import { onMounted } from 'vue';
 
 const { gsap } = useGsap();
 
-defineProps({
-  headerState: Boolean,
-  footerImage: Number,
-});
+defineProps({ headerState: Boolean, footerImage: Number });
 
 const emit = defineEmits(['footerLandingLoadedEmit']);
 
