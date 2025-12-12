@@ -34,10 +34,7 @@
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
       </template>
       <template v-if="mediaState">
-        <div class="menuItem header-Menu_Contact mouseInteract">
-          <div class="dot" />
-          <a href="mailto:info@carrocera.com" target="_blank">MEDIA & AWARDS</a>
-        </div>
+        <TheNewsList @mediaEmit="mediaToggle" @closeAllEmit="allClose" />
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact mouseInteract">
@@ -95,6 +92,10 @@ function allClose() {
 
 function projectsToggle() {
   emit('projectsEmit', true);
+}
+
+function mediaToggle() {
+  emit('mediaEmit', true);
 }
 
 function teamToggle() {
@@ -208,6 +209,27 @@ onMounted(() => {
     width: 100%
     max-width: 20rem
     padding: $btn-padding
+    @media screen and (max-width: $breakpoint-mobile)
+      max-width: calc(100% - 1 * #{var(--spacing-hor)})
+  &.header-Menu_MediaList
+    display: flex
+    align-items: flex-start
+    gap: 2.5rem
+    width: 100%
+    padding: 0
+    position: relative
+    .dot
+      top: 0.75rem
+    .date
+      white-space: nowrap
+      text-transform: none
+    .text
+      text-transform: none
+    a
+      width: 100%
+      white-space: wrap
+      text-decoration: none
+      text-transform: none
     @media screen and (max-width: $breakpoint-mobile)
       max-width: calc(100% - 1 * #{var(--spacing-hor)})
   &.header-Menu_TeamList

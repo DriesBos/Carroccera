@@ -28,6 +28,7 @@ const { data } = await storyblokApi.get('cdn/stories/home', {
 const content = ref(null);
 let projectList = ref(null);
 content.value = data.story.content.body;
+console.log('news content', data.story.content.news);
 
 const scrollToProject = contextSafe((el) => {
   emit('closeAllEmit', true);
