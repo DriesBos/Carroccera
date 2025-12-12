@@ -4,7 +4,13 @@
 
     <div class="menu-Container">
       <template
-        v-if="headerMenu && !contactState && !projectsState && !teamState"
+        v-if="
+          headerMenu &&
+          !contactState &&
+          !projectsState &&
+          !teamState &&
+          !mediaState
+        "
       >
         <StoryblokComponent
           v-for="blok in headerMenu"
@@ -15,6 +21,10 @@
           <div class="dot" />
           <p>Projects</p>
         </div>
+        <div @click="emit('mediaEmit', true)" class="menuItem mouseInteract">
+          <div class="dot" />
+          <p>Media & Awards</p>
+        </div>
         <div @click="emit('contactEmit', true)" class="menuItem mouseInteract">
           <div class="dot" />
           <p>Contact</p>
@@ -22,6 +32,12 @@
       </template>
       <template v-if="projectsState">
         <ProjectList @projectsEmit="projectsToggle" @closeAllEmit="allClose" />
+      </template>
+      <template v-if="mediaState">
+        <div class="menuItem header-Menu_Contact mouseInteract">
+          <div class="dot" />
+          <a href="mailto:info@carrocera.com" target="_blank">MEDIA & AWARDS</a>
+        </div>
       </template>
       <template v-if="contactState">
         <div class="menuItem header-Menu_Contact mouseInteract">
@@ -48,6 +64,7 @@ import { ref, onMounted } from 'vue';
 
 const emit = defineEmits([
   'contactEmit',
+  'mediaEmit',
   'projectsEmit',
   'teamEmit',
   'backgroundEmit',
@@ -57,6 +74,7 @@ defineProps({
   headerState: Boolean,
   projectsState: Boolean,
   teamState: Boolean,
+  mediaState: Boolean,
   contactState: Boolean,
 });
 
@@ -140,7 +158,7 @@ onMounted(() => {
       text-transform: uppercase
       &:nth-child(2)
         margin-bottom: 1.5rem
-      &:nth-last-child(1)
+      &:nth-last-child(2)
         margin-top: 1.5rem
   &-Background
     position: absolute

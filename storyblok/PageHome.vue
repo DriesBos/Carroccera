@@ -22,6 +22,7 @@
       <ScrollDown :headerState="headerState" />
       <TheMenu
         @contactEmit="contactToggle"
+        @mediaEmit="mediaToggle"
         @headerEmit="headerToggle"
         @projectsEmit="projectsToggle"
         @teamEmit="teamToggle"
@@ -30,6 +31,7 @@
         :headerState="headerState"
         :projectsState="projectsState"
         :teamState="teamState"
+        :mediaState="mediaState"
         :contactState="contactState"
       />
     </div>
@@ -49,6 +51,7 @@
     <div class="layerFour">
       <TheHeader
         @contactEmit="contactToggle"
+        @mediaEmit="mediaToggle"
         @headerEmit="headerToggle"
         @projectsEmit="projectsToggle"
         @teamEmit="teamToggle"
@@ -56,6 +59,7 @@
         :headerState="headerState"
         :projectsState="projectsState"
         :teamState="teamState"
+        :mediaState="mediaState"
         :contactState="contactState"
       />
       <ToTop />
@@ -167,6 +171,7 @@ const headerState = ref(false);
 const projectsState = ref(false);
 const teamState = ref(false);
 const contactState = ref(false);
+const mediaState = ref(false);
 
 // Image Number
 const randomNumber = ref(null);
@@ -272,11 +277,17 @@ function contactToggle() {
   contactState.value = !contactState.value;
 }
 
+function mediaToggle() {
+  mediaState.value = !mediaState.value;
+}
+
 function backgroundClick() {
   if (projectsState.value) {
     projectsState.value = false;
   } else if (contactState.value) {
     contactState.value = false;
+  } else if (mediaState.value) {
+    mediaState.value = false;
   } else {
     headerState.value = false;
   }
@@ -286,6 +297,7 @@ function allClose() {
   headerState.value = false;
   projectsState.value = false;
   teamState.value = false;
+  mediaState.value = false;
   contactState.value = false;
 }
 
