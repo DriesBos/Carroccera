@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" id="top" class="page page-Home">
+  <div ref="pageRef" v-editable="blok" id="top" class="page page-Home">
     <div v-if="loading" class="loading">
       <div class="loading-Indicator">
         <div class="loading-Indicator_Fill" />
@@ -130,6 +130,9 @@ const { gsap, contextSafe } = useGsap();
 
 defineProps({ blok: Object });
 
+// Template ref
+const pageRef = ref<HTMLElement | null>(null);
+
 // Loading
 const nuxtApp = useNuxtApp();
 const loading = ref(true);
@@ -222,12 +225,13 @@ const headerToggle = contextSafe(() => {
   if (headerState.value) {
     gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
     // Temp disable touch
-    const page = document.querySelector('.page');
-    page.addEventListener('touchmove', preventTouchMove, { passive: false });
+    if (pageRef.value) {
+      pageRef.value.addEventListener('touchmove', preventTouchMove, { passive: false });
+    }
   } else {
-    page.removeEventListener('touchmove', preventTouchMove, {
-      passive: false,
-    });
+    if (pageRef.value) {
+      pageRef.value.removeEventListener('touchmove', preventTouchMove, { passive: false });
+    }
   }
 });
 
@@ -267,17 +271,17 @@ function preventTouchMove(e) {
 function disableScroll() {
   document.documentElement.style.overflow = 'hidden';
 
-  const page = document.querySelector('.page');
-  page.addEventListener('touchmove', preventTouchMove, { passive: false });
+  if (pageRef.value) {
+    pageRef.value.addEventListener('touchmove', preventTouchMove, { passive: false });
+  }
 }
 
 function enableScroll() {
   document.documentElement.style.overflow = 'auto';
 
-  const page = document.querySelector('.page');
-  page.removeEventListener('touchmove', preventTouchMove, {
-    passive: false,
-  });
+  if (pageRef.value) {
+    pageRef.value.removeEventListener('touchmove', preventTouchMove, { passive: false });
+  }
 }
 
 watch(headerState, (newVal) => {

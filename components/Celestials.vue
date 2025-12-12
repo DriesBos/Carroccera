@@ -1,6 +1,7 @@
 <template>
   <div class="celestials">
     <div
+      ref="starsRef"
       :class="{ headerActive: headerState }"
       class="celestials-Stars stars landingInitDown"
     >
@@ -27,6 +28,7 @@
     </div>
 
     <div
+      ref="cloudsRef"
       :class="{ headerActive: headerState }"
       class="celestials-Clouds clouds landingInitUp"
     >
@@ -53,6 +55,7 @@
     </div>
 
     <div
+      ref="constellationRef"
       :class="{ headerActive: headerState }"
       class="celestials-Constellation constellation landingInit"
     >
@@ -81,7 +84,7 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const { gsap } = useGsap();
 
@@ -96,13 +99,18 @@ defineProps({
   headerState: Boolean,
 });
 
-onMounted(() => {
-  const stars = document.querySelector('.stars');
+// Template refs
+const starsRef = ref<HTMLElement | null>(null);
+const cloudsRef = ref<HTMLElement | null>(null);
+const constellationRef = ref<HTMLElement | null>(null);
 
-  gsap.to(stars, {
+onMounted(() => {
+  if (!starsRef.value || !cloudsRef.value || !constellationRef.value) return;
+
+  gsap.to(starsRef.value, {
     y: '25vh',
     scrollTrigger: {
-      trigger: stars,
+      trigger: starsRef.value,
       scrub: true,
       start: 'top top',
       end: 'bottom 0%',
@@ -110,12 +118,10 @@ onMounted(() => {
     ease: 'none',
   });
 
-  const constellation = document.querySelector('.constellation');
-
-  gsap.to(constellation, {
+  gsap.to(constellationRef.value, {
     y: '25vh',
     scrollTrigger: {
-      trigger: constellation,
+      trigger: constellationRef.value,
       scrub: true,
       start: 'top top',
       end: 'bottom -100%',
@@ -123,14 +129,11 @@ onMounted(() => {
     ease: 'none',
   });
 
-  const clouds = document.querySelector('.clouds');
-
-  gsap.to(clouds, {
+  gsap.to(cloudsRef.value, {
     y: '0vh',
     scrollTrigger: {
-      trigger: clouds,
+      trigger: cloudsRef.value,
       scrub: true,
-      // markers: true,
       start: 'top 60%',
       end: 'bottom 100%',
     },

@@ -1,5 +1,5 @@
 <template>
-  <div @click="scrollTop" class="scrollUp mouseInteract">
+  <div ref="scrollUpRef" @click="scrollTop" class="scrollUp mouseInteract">
     <p>Up</p>
     <div class="icon icon-ToTop">
       <img src="~assets/icons/iconblok-up.png" alt="" />
@@ -8,9 +8,12 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 
 const { gsap, contextSafe } = useGsap();
+
+// Template ref
+const scrollUpRef = ref<HTMLElement | null>(null);
 
 function preventTouchMove(e) {
   e.preventDefault();
@@ -29,16 +32,17 @@ const scrollTop = contextSafe(() => {
 });
 
 onMounted(() => {
-  const scrollUp = document.querySelector('.scrollUp');
-  gsap.set(scrollUp, {
+  if (!scrollUpRef.value) return;
+
+  gsap.set(scrollUpRef.value, {
     opacity: 0,
     zIndex: 0,
   });
-  gsap.to(scrollUp, {
+  gsap.to(scrollUpRef.value, {
     opacity: 1,
     zIndex: 999,
     scrollTrigger: {
-      trigger: scrollUp,
+      trigger: scrollUpRef.value,
       scrub: true,
       start: 'top top',
       end: 'top top',
@@ -63,6 +67,7 @@ onMounted(() => {
   opacity: 0
   transition: opacity $transition-general
   text-transform: uppercase
+  will-change: opacity, z-index
   @media (max-width: 768px)
     gap: .5rem
   p

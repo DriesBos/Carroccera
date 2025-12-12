@@ -1,17 +1,10 @@
 <template>
-  <!-- <div class="scrollDown" :class="{ headerActive: headerState }">
-    <div class="icon icon-ArrowDown">
-      <img src="~assets/icons/iconblok-down.png" alt="" />
-    </div>
-    <div class="icon icon-ArrowDown">
-      <img src="~assets/icons/iconblok-down.png" alt="" />
-    </div>
-    <div class="icon icon-ArrowDown">
-      <img src="~assets/icons/iconblok-down.png" alt="" />
-    </div>
-  </div> -->
-  <div class="scrollDown" :class="{ headerActive: headerState }">
-    <div @click="scrollToProject()" class="icon-ScrollDown">
+  <div
+    ref="scrollDownRef"
+    class="scrollDown"
+    :class="{ headerActive: headerState }"
+  >
+    <div ref="iconRef" @click="scrollToProject()" class="icon-ScrollDown">
       <img src="~assets/icons/iconblok-blockydown.png" alt="" />
     </div>
   </div>
@@ -26,31 +19,27 @@ defineProps({
   headerState: Boolean,
 });
 
+// Template refs
+const scrollDownRef = ref<HTMLElement | null>(null);
+const iconRef = ref<HTMLElement | null>(null);
+
 const scrollToProject = contextSafe(() => {
+  // Target external element via selector (not in this component's template)
   const scrollTo = document.querySelector('.theLandscape');
   gsap.to(window, {
     duration: 2,
     scrollTo: { y: scrollTo, offsetY: 0 * innerHeight },
     ease: 'power4.out',
   });
-  // Temp disable touch
-  // const page = document.querySelector('.page');
-  // page.addEventListener('touchmove', preventTouchMove, { passive: false });
-  // setTimeout(() => {
-  //   page.removeEventListener('touchmove', preventTouchMove, {
-  //     passive: false,
-  //   });
-  // }, 2500);
 });
 
 onMounted(() => {
-  const scrollDown = document.querySelector('.scrollDown');
-  const icon = document.querySelector('.icon-ScrollDown');
+  if (!scrollDownRef.value || !iconRef.value) return;
 
-  gsap.to(scrollDown, {
+  gsap.to(scrollDownRef.value, {
     opacity: 0,
     scrollTrigger: {
-      trigger: scrollDown,
+      trigger: scrollDownRef.value,
       scrub: true,
       start: 'top top',
       end: 'bottom center',
@@ -58,7 +47,7 @@ onMounted(() => {
     ease: 'none',
   });
 
-  gsap.to(icon, {
+  gsap.to(iconRef.value, {
     y: '-50%',
     ease: 'power2.out',
     duration: 0.25,
@@ -67,7 +56,7 @@ onMounted(() => {
     repeat: -1,
   });
 
-  gsap.to(icon, {
+  gsap.to(iconRef.value, {
     y: 0,
     ease: 'bounce',
     duration: 0.5,
