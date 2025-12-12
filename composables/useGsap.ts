@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { isRef, onScopeDispose, getCurrentScope } from 'vue'
 import type { Ref } from 'vue'
 
 interface UseGsapOptions {
@@ -76,9 +77,13 @@ export function useGsap(options: UseGsapOptions = {}): UseGsapReturn {
   const ctx = gsap.context(() => {}, getScope())
 
   // Clean up on unmount - revert all animations and kill ScrollTriggers
-  onScopeDispose(() => {
-    ctx.revert()
-  })
+  // Only register the disposal if there is an active effect scope. Calling
+  // `onScopeDispose` without an active scope triggers a Vue warning.
+  if (getCurrentScope()) {
+    onScopeDispose(() => {
+      ctx.revert()
+    })
+  }
 
   /**
    * Wraps a function to make any GSAP animations created inside

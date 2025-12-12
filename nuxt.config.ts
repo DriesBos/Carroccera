@@ -13,6 +13,15 @@ export default defineNuxtConfig({
     prerender: {
       failOnError: false,
     },
+    routeRules: {
+      // Cache built static assets aggressively in production
+      '/_nuxt/**': {
+        headers: { 'cache-control': 'public, max-age=31536000, immutable' },
+      },
+      '/assets/**': {
+        headers: { 'cache-control': 'public, max-age=31536000, immutable' },
+      },
+    },
   },
 
   ssr: false,
@@ -57,6 +66,23 @@ export default defineNuxtConfig({
           content: 'black-translucent',
         },
       ],
+      link: [
+        // Preload key local fonts (woff2)
+        {
+          rel: 'preload',
+          href: '/fonts/ss/ss-regular.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
+        },
+        {
+          rel: 'preload',
+          href: '/fonts/ss/ss-semibold.woff2',
+          as: 'font',
+          type: 'font/woff2',
+          crossorigin: 'anonymous',
+        },
+      ],
     },
   },
 
@@ -77,6 +103,12 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [svgLoader()],
+    optimizeDeps: {
+      include: ['gsap'],
+    },
+    build: {
+      cssCodeSplit: true,
+    },
     css: {
       preprocessorOptions: {
         sass: {
