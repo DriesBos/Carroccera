@@ -215,8 +215,8 @@ function checkLoadingState() {
   ) {
     loading.value = false;
     setTimeout(() => {
-        scrollLock.value = false;
-      }, 660);
+      scrollLock.value = false;
+    }, 660);
   }
 }
 
