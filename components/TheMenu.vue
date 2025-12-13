@@ -214,6 +214,7 @@ onMounted(() => {
   &.header-Menu_MediaList
     display: flex
     align-items: flex-start
+    justify-content: space-between
     gap: 2.5rem
     width: 100%
     padding: 0
@@ -223,15 +224,12 @@ onMounted(() => {
     .date
       white-space: nowrap
       text-transform: none
+      user-select: none
     .text
       text-transform: none
-    a
-      width: 100%
       white-space: wrap
       text-decoration: none
       text-transform: none
-    @media screen and (max-width: $breakpoint-mobile)
-      max-width: calc(100% - 1 * #{var(--spacing-hor)})
   &.header-Menu_TeamList
     display: flex
     justify-content: center

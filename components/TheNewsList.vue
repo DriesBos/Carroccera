@@ -3,18 +3,30 @@
     <div
       v-for="(item, i) in newsList"
       :key="item._uid || item.title || i"
-      class="menuItem header-Menu_MediaList mouseInteract"
+      class="menuItem header-Menu_MediaList"
     >
       <div v-if="item.link.cached_url" class="dot"></div>
-      <div v-if="item.date" class="date">{{ formatDate(item.date) }}</div>
       <NuxtLink
         class="text"
         v-if="item.link && item.link.cached_url"
         :target="item.link.target"
         :to="item.link.cached_url"
-        >{{ item.text }}</NuxtLink
-      >
+        >{{ item.text }}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          width="12"
+          height="12"
+          viewBox="0 0 25 25"
+        >
+          <path
+            fill="currentColor"
+            d="M12 1v2H3v19h19v-9h2v11H1V1h11Zm12 7h-2V4.414L9.374 17.04 7.96 15.626 20.585 3H17V1h7v7Z"
+          />
+        </svg>
+      </NuxtLink>
       <div v-else class="text">{{ item.text }}</div>
+      <div v-if="item.date" class="date">{{ formatDate(item.date) }}</div>
     </div>
   </div>
 </template>
@@ -89,12 +101,16 @@ function formatDate(d) {
 .mediaList-Container
   display: flex
   flex-direction: column
-  gap: 2rem
+  gap: 2.5rem
   overflow-y: auto
   overflow-x: visible
   width: 100%
-  max-width: 33rem
+  max-width: $breakpoint-mobile
   padding: 10rem 2.75rem
+  @media screen and (max-width: $breakpoint-mobile)
+    padding: 10rem 0
+    max-width: calc(100% - 1rem)
+    gap: 2rem
 
   /* Hide scrollbars but preserve scrolling */
   -ms-overflow-style: none /* IE and Edge */
