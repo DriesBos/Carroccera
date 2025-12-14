@@ -42,24 +42,28 @@ const scrollToProject = contextSafe((el) => {
   emit('closeAllEmit', true);
 
   const project = document.getElementById(el.replace(/\s/g, ''));
+  const page = document.querySelector('.page');
 
   // Temp disable touch during scroll animation
-  const page = document.querySelector('.page');
   page.addEventListener('touchmove', preventTouchMove, { passive: false });
 
-  // Small delay to ensure overlay scroll lock is released before scrolling
-  setTimeout(() => {
+  // Use requestAnimationFrame for smoother timing sync with browser render
+  requestAnimationFrame(() => {
     gsap.to(window, {
-      duration: 2,
-      scrollTo: { y: project, offsetY: 0.5 * innerHeight },
-      ease: 'power4.out',
+      duration: 1.8,
+      scrollTo: {
+        y: project,
+        offsetY: 0.5 * innerHeight,
+        autoKill: false, // Prevent user scroll from interrupting
+      },
+      ease: 'power3.inOut',
       onComplete: () => {
         page.removeEventListener('touchmove', preventTouchMove, {
           passive: false,
         });
       },
     });
-  }, 100);
+  });
 });
 
 onMounted(() => {
