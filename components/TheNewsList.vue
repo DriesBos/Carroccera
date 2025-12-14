@@ -48,13 +48,11 @@ try {
   const content = data?.story?.content;
   if (content && content.news && Array.isArray(content.news)) {
     newsList.value = content.news;
-    console.log('newsList', newsList.value);
   } else {
     newsList.value = [];
     console.warn('No news items found in header content');
   }
   // eslint-disable-next-line no-console
-  console.log('TheNewsList loaded', newsList.value.length);
 } catch (err) {
   // eslint-disable-next-line no-console
   console.error('Failed to load news for TheNewsList', err);
