@@ -16,7 +16,6 @@
 import { ref, onMounted } from 'vue';
 
 const { gsap, contextSafe } = useGsap();
-const { setLock } = useGlobalScrollLock();
 
 const emit = defineEmits(['projectsEmit', 'closeAllEmit']);
 
@@ -41,27 +40,26 @@ function preventTouchMove(e) {
 
 const scrollToProject = contextSafe((el) => {
   emit('closeAllEmit', true);
-  
-  // Lock scrolling during animation
-  setLock('scrollToProject', true);
-  
+
   const project = document.getElementById(el.replace(/\s/g, ''));
-  gsap.to(window, {
-    duration: 2,
-    scrollTo: { y: project, offsetY: 0.5 * innerHeight },
-    ease: 'power4.out',
-  });
-  
-  // Temp disable touch
+
+  // Temp disable touch during scroll animation
   const page = document.querySelector('.page');
   page.addEventListener('touchmove', preventTouchMove, { passive: false });
-  
+
+  // Small delay to ensure overlay scroll lock is released before scrolling
   setTimeout(() => {
-    page.removeEventListener('touchmove', preventTouchMove, {
-      passive: false,
+    gsap.to(window, {
+      duration: 2,
+      scrollTo: { y: project, offsetY: 0.5 * innerHeight },
+      ease: 'power4.out',
+      onComplete: () => {
+        page.removeEventListener('touchmove', preventTouchMove, {
+          passive: false,
+        });
+      },
     });
-    setLock('scrollToProject', false);
-  }, 2500);
+  }, 100);
 });
 
 onMounted(() => {
