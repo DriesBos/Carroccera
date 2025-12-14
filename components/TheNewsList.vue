@@ -5,7 +5,7 @@
       :key="item._uid || item.title || i"
       class="menuItem header-Menu_MediaList"
     >
-      <div v-if="item.link?.cached_url" class="dot"></div>
+      <div v-if="item.link?.cached_url" class="dot" />
       <NuxtLink
         v-if="item.link?.cached_url && isInternalLink(item.link.cached_url)"
         class="text"
@@ -144,15 +144,18 @@ function formatDate(d) {
 .mediaList-Container
   display: flex
   flex-direction: column
+  align-items: center
+  justify-content: space-around
   gap: 2.5rem
   overflow-y: auto
   overflow-x: visible
   width: 100%
   max-width: $breakpoint-mobile
-  padding: 10rem 2.75rem
+  padding: 10rem 0
+  overflow-x: visible
   @media screen and (max-width: $breakpoint-mobile)
     padding: 10rem 0
-    max-width: calc(100% - 1rem)
+    max-width: 100%
     gap: 2rem
 
   /* Hide scrollbars but preserve scrolling */

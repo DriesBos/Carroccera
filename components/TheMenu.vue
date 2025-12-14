@@ -210,13 +210,17 @@ useEscapeKey(() => {
     @media screen and (max-width: $breakpoint-mobile)
       max-width: calc(100% - 1 * #{var(--spacing-hor)})
   &.header-Menu_MediaList
+    position: relative
     display: flex
     align-items: flex-start
     justify-content: space-between
-    gap: 2.5rem
+    gap: 2rem
     width: 100%
     padding: 0
-    position: relative
+    padding: 0 $btn-padding
+    overflow: visible
+    @media screen and (max-width: $breakpoint-mobile)
+      max-width: calc(100% - 1 * #{var(--spacing-hor)})
     .dot
       top: 0.75rem
     .date
