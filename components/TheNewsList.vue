@@ -32,16 +32,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 const emit = defineEmits(['mediaEmit', 'closeAllEmit']);
 
 const newsList = ref([]);
 
+// Handle Escape key with proper cleanup
+useEscapeKey(() => {
+  emit('closeAllEmit', true);
+});
+
 try {
   const storyblokApi = useStoryblokApi();
   const { data } = await storyblokApi.get('cdn/stories/header', {
-    version: 'draft',
+    version: 'published',
     resolve_links: 'url',
   });
 
@@ -58,14 +63,6 @@ try {
   console.error('Failed to load news for TheNewsList', err);
   newsList.value = [];
 }
-
-onMounted(() => {
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      emit('closeAllEmit', true);
-    }
-  });
-});
 
 /**
  * Format a date string to "01 MAY '25"

@@ -57,7 +57,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 const emit = defineEmits([
   'contactEmit',
@@ -65,6 +65,7 @@ const emit = defineEmits([
   'projectsEmit',
   'teamEmit',
   'backgroundEmit',
+  'closeAllEmit',
 ]);
 
 defineProps({
@@ -79,7 +80,7 @@ defineProps({
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/header', {
-  version: 'draft',
+  version: 'published',
   resolve_links: 'url',
 });
 
@@ -102,12 +103,9 @@ function teamToggle() {
   emit('teamEmit', true);
 }
 
-onMounted(() => {
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      emit('closeAllEmit', true);
-    }
-  });
+// Handle Escape key with proper cleanup
+useEscapeKey(() => {
+  emit('closeAllEmit', true);
 });
 </script>
 

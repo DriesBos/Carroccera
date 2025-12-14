@@ -77,14 +77,13 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-
 const emit = defineEmits([
   'headerEmit',
   'mediaEmit',
   'contactEmit',
   'projectsEmit',
   'teamEmit',
+  'closeAllEmit',
 ]);
 
 const props = defineProps({
@@ -97,20 +96,9 @@ const props = defineProps({
 
 const headerShow = ref(true);
 
-// function setHeader() {
-//   setTimeout(() => {
-//     headerShow.value = true;
-//   }, 500);
-// }
-
-onMounted(() => {
-  // setHeader();
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      emit('closeAllEmit', true);
-    }
-  });
+// Handle Escape key with proper cleanup
+useEscapeKey(() => {
+  emit('closeAllEmit', true);
 });
 </script>
 

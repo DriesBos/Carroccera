@@ -16,6 +16,8 @@
 </template>
 
 <script setup>
+defineEmits(['close']);
+
 const data = defineProps({
   title: String,
   subtitle: String,

@@ -310,16 +310,16 @@ onBeforeMount(() => {
   window.scrollTo(0, 0);
 });
 
+// Handle Escape key with proper cleanup
+useEscapeKey(() => {
+  headerState.value = false;
+});
+
 onMounted(() => {
   window.scrollTo(0, 0);
   // keep scroll locked until initial load completes
   setLock('loading', true);
   randomNumber.value = getRandomNumber();
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      headerState.value = false;
-    }
-  });
 
   const layers = document.querySelectorAll('.blokLayer');
   const array = Array.from(layers);

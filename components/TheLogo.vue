@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const isVisible = ref(false);
 
@@ -20,6 +20,11 @@ function onDocument() {
 onMounted(() => {
   document.addEventListener('mouseleave', offDocument);
   document.addEventListener('mouseenter', onDocument);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('mouseleave', offDocument);
+  document.removeEventListener('mouseenter', onDocument);
 });
 </script>
 

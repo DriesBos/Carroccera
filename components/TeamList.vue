@@ -11,27 +11,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 const emit = defineEmits(['teamEmit', 'closeAllEmit']);
 
+// Handle Escape key with proper cleanup
+useEscapeKey(() => {
+  emit('closeAllEmit', true);
+});
+
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/team', {
-  version: 'draft',
+  version: 'published',
   resolve_links: 'url',
 });
 
 const content = ref(null);
 let teamList = ref(null);
 content.value = data.story.content.teammembers;
-
-onMounted(() => {
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      emit('closeAllEmit', true);
-    }
-  });
-});
 </script>
 
 <style lang="sass" scoped>

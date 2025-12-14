@@ -88,7 +88,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, watch } from 'vue';
 
 const { setLock } = useGlobalScrollLock();
 
@@ -124,12 +124,9 @@ watch(isModalActive, (newVal) => {
   setLock(modalKey, newVal);
 });
 
-onMounted(() => {
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      isModalActive.value = false;
-    }
-  });
+// Handle Escape key with proper cleanup
+useEscapeKey(() => {
+  isModalActive.value = false;
 });
 </script>
 
