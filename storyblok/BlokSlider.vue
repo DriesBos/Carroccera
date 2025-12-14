@@ -133,6 +133,9 @@ export default {
     display: flex
     align-items: center
     gap: .5rem
+    p
+      color: white
+      mix-blend-mode: difference
     &_Prev, &_Next
       cursor: pointer
       pointer-events: none
