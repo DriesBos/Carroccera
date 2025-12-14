@@ -21,7 +21,11 @@
           <div class="dot" />
           <p>Projects</p>
         </div>
-        <div @click="emit('mediaEmit', true)" class="menuItem mouseInteract">
+        <div
+          v-if="hasNewsItems"
+          @click="emit('mediaEmit', true)"
+          class="menuItem mouseInteract"
+        >
           <div class="dot" />
           <p>News & Awards</p>
         </div>
@@ -86,6 +90,18 @@ const { data } = await storyblokApi.get('cdn/stories/header', {
 
 const headerMenu = ref(null);
 headerMenu.value = data.story.content.header;
+
+// Check if there are any news items to show the News & Awards toggle
+const hasNewsItems = ref(false);
+const content = data?.story?.content;
+if (
+  content &&
+  content.news &&
+  Array.isArray(content.news) &&
+  content.news.length > 0
+) {
+  hasNewsItems.value = true;
+}
 
 function allClose() {
   emit('closeAllEmit', true);
