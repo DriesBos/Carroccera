@@ -56,13 +56,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
+
+const { setLock } = useGlobalScrollLock();
 
 const data = defineProps({ blok: Object });
 
 const isModalActive = ref(false);
 const isOneColumn = ref(true);
 const isTwoColumn = ref(false);
+
+// Generate unique key for this modal instance
+const modalKey = `modal-menu-${Math.random().toString(36).slice(2, 9)}`;
 
 function openModal() {
   isModalActive.value = true;
@@ -82,6 +87,11 @@ const init = async () => {
   }
 };
 init();
+
+// Lock scroll when modal is active
+watch(isModalActive, (newVal) => {
+  setLock(modalKey, newVal);
+});
 
 onMounted(() => {
   document.addEventListener('keydown', (e) => {

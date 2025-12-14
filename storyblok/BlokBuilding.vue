@@ -90,11 +90,16 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue';
 
+const { setLock } = useGlobalScrollLock();
+
 const data = defineProps({ blok: Object });
 
 const isModalActive = ref(false);
 const isOneColumn = ref(true);
 const isTwoColumn = ref(false);
+
+// Generate unique key for this modal instance
+const modalKey = `modal-building-${Math.random().toString(36).slice(2, 9)}`;
 
 function openModal() {
   isModalActive.value = true;
@@ -116,11 +121,7 @@ const init = async () => {
 
 watch(isModalActive, (newVal) => {
   init();
-  if (newVal) {
-    document.documentElement.style.overflow = 'hidden';
-  } else {
-    document.documentElement.style.overflow = 'auto';
-  }
+  setLock(modalKey, newVal);
 });
 
 onMounted(() => {
@@ -196,4 +197,3 @@ onMounted(() => {
   100%
     opacity: 1
 </style>
-```

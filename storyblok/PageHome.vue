@@ -128,18 +128,15 @@
 </style>
 
 <script setup>
-import { ref, watch, onMounted, onBeforeMount } from 'vue';
-import { useScrollLock } from '@vueuse/core';
+import { ref, watch, onMounted, onBeforeMount, useTemplateRef } from 'vue';
 
 const { gsap, contextSafe, ScrollTrigger } = useGsap();
+const { setLock } = useGlobalScrollLock();
 
 defineProps({ blok: Object });
 
 // Template ref
 const pageRef = ref(null);
-
-// Scroll lock (VueUse)
-const scrollLock = useScrollLock(pageRef);
 
 const { requestRefresh, refreshNow } = useScrollRefresh();
 
@@ -216,6 +213,17 @@ function layerToggleLoaded() {
   requestRefresh();
 }
 
+// Helper to check if any overlay is active
+function isAnyOverlayActive() {
+  return (
+    headerState.value ||
+    projectsState.value ||
+    teamState.value ||
+    contactState.value ||
+    mediaState.value
+  );
+}
+
 function checkLoadingState() {
   if (
     pageIsLoaded.value &&
@@ -228,7 +236,10 @@ function checkLoadingState() {
   ) {
     loading.value = false;
     setTimeout(() => {
-      scrollLock.value = false;
+      // Only unlock if no overlay is currently active
+      if (!isAnyOverlayActive()) {
+        setLock('loading', false);
+      }
     }, 660);
   }
 }
@@ -240,15 +251,11 @@ function getRandomNumber() {
 const headerToggle = contextSafe(() => {
   headerState.value = !headerState.value;
   if (headerState.value) {
-    // Lock scrolling during the animation
-    scrollLock.value = true;
+    // Scroll lock is handled by the watcher
     gsap.to(window, {
       duration: 2,
       scrollTo: 0,
       ease: 'power4.out',
-      onComplete: () => {
-        scrollLock.value = false;
-      },
     });
   }
 });
@@ -289,11 +296,15 @@ function allClose() {
   contactState.value = false;
 }
 
-// Scroll lock is handled by VueUse `useScrollLock`
-
-watch(headerState, (newVal) => {
-  scrollLock.value = newVal;
-});
+// Scroll lock is handled by useGlobalScrollLock composable
+// Lock scrolling when any overlay/panel state is active
+watch(
+  [headerState, projectsState, teamState, contactState, mediaState],
+  ([header, projects, team, contact, media]) => {
+    setLock('overlay', header || projects || team || contact || media);
+  },
+  { immediate: true }
+);
 
 onBeforeMount(() => {
   window.scrollTo(0, 0);
@@ -302,7 +313,7 @@ onBeforeMount(() => {
 onMounted(() => {
   window.scrollTo(0, 0);
   // keep scroll locked until initial load completes
-  scrollLock.value = true;
+  setLock('loading', true);
   randomNumber.value = getRandomNumber();
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {

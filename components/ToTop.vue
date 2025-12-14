@@ -11,6 +11,7 @@
 import { ref, onMounted } from 'vue';
 
 const { gsap, contextSafe, ScrollTrigger } = useGsap();
+const { setLock } = useGlobalScrollLock();
 
 // Template ref
 const scrollUpRef = ref(null);
@@ -20,14 +21,21 @@ function preventTouchMove(e) {
 }
 
 const scrollTop = contextSafe(() => {
+  // Lock scrolling during animation
+  setLock('scrollTop', true);
+
   gsap.to(window, { duration: 2, scrollTo: 0, ease: 'power4.out' });
+
   // Temp disable touch
   const page = document.querySelector('.page');
   page.addEventListener('touchmove', preventTouchMove, { passive: false });
+
+  // Unlock after 2500ms (matching touch disable duration)
   setTimeout(() => {
     page.removeEventListener('touchmove', preventTouchMove, {
       passive: false,
     });
+    setLock('scrollTop', false);
   }, 2500);
 });
 

@@ -14,6 +14,7 @@
 import { ref, onMounted } from 'vue';
 
 const { gsap, contextSafe, ScrollTrigger } = useGsap();
+const { setLock } = useGlobalScrollLock();
 
 defineProps({
   headerState: Boolean,
@@ -24,6 +25,9 @@ const scrollDownRef = ref(null);
 const iconRef = ref(null);
 
 const scrollToProject = contextSafe(() => {
+  // Lock scrolling during animation
+  setLock('scrollDown', true);
+
   // Target external element via selector (not in this component's template)
   const scrollTo = document.querySelector('.theLandscape');
   gsap.to(window, {
@@ -31,6 +35,11 @@ const scrollToProject = contextSafe(() => {
     scrollTo: { y: scrollTo, offsetY: 0 * innerHeight },
     ease: 'power4.out',
   });
+
+  // Unlock after 2000ms (matching animation duration)
+  setTimeout(() => {
+    setLock('scrollDown', false);
+  }, 2000);
 });
 
 onMounted(() => {
