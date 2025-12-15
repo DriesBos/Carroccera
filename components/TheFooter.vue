@@ -185,5 +185,5 @@ const emit = defineEmits(['footerLoadedEmit']);
     max-width: 100%
     filter: $drop-shadow
     @media (hover: none)
-      margin-top: -20%
+      margin-top: -25%
 </style>
