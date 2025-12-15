@@ -85,18 +85,20 @@ onMounted(() => {
 <style scoped lang="sass">
 .scrollDown
   position: fixed
-  top: 0
-  // left: 50%
+  bottom: env(safe-area-inset-bottom)
   right: 0
-  // transform: translateX(-50%)
-  height: 100dvh
+  padding: var(--spacing-ver) var(--spacing-hor)
+  padding-left: calc(2*#{var(--spacing-hor)})
+  padding-top: calc(2*#{var(--spacing-ver)})
   display: flex
   flex-direction: column
   justify-content: flex-end
-  gap: 0.66rem
+  gap: 1rem
   z-index: 901
   pointer-events: none
   will-change: opacity
+  @media (max-width: 768px)
+    gap: .5rem
   &.headerActive
     opacity: 0 !important
   .icon-ScrollDown
@@ -104,8 +106,6 @@ onMounted(() => {
     cursor: pointer
     opacity: 1
     will-change: opacity
-    padding: var(--spacing-ver) var(--spacing-hor)
-    // padding-bottom: 0.25rem
     img
       width: 1rem
       height: 2rem
